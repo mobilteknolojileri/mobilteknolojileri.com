@@ -250,10 +250,6 @@ const stagger =
   // The initial theme class comes from the inline script in BaseLayout
   const applyTheme = (theme: "light" | "dark") => {
     document.documentElement.classList.toggle("dark", theme === "dark");
-    // The phone's browser bar takes the page colour too
-    document
-      .querySelectorAll('meta[name="theme-color"]')
-      .forEach((meta) => meta.setAttribute("content", theme === "dark" ? "#0f1013" : "#ffffff"));
     try {
       localStorage.setItem("theme", theme);
     } catch {

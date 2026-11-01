@@ -93,8 +93,7 @@ const SPECULATION_RULES = {
       name="robots"
       content={`${robots?.index ? "index" : "noindex"}, ${robots?.follow ? "follow" : "nofollow"}`}
     />
-    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#0f1013" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#4f46e5" />
     {verification?.google && <meta name="google-site-verification" content={verification.google} />}
     {verification?.yandex && <meta name="yandex-verification" content={verification.yandex} />}
     {verification?.bing && <meta name="msvalidate.01" content={verification.bing} />}
@@ -130,10 +129,6 @@ const SPECULATION_RULES = {
       const prefersDark = getThemePreference() !== "light";
       document.documentElement.classList.toggle("dark", prefersDark);
       document.documentElement.classList.add("js", "js-reveal");
-      // The browser bar follows the chosen theme, not only the system one
-      document
-        .querySelectorAll('meta[name="theme-color"]')
-        .forEach((meta) => meta.setAttribute("content", prefersDark ? "#0f1013" : "#ffffff"));
       setTimeout(() => {
         if (!window.__motionReady) document.documentElement.classList.remove("js-reveal");
       }, 2500);
