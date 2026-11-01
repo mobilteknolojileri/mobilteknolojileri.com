@@ -1,5 +1,6 @@
 ---
 import { FaGithub } from "react-icons/fa";
+import { LuPackageCheck, LuStore } from "react-icons/lu";
 import { SiAppstore } from "react-icons/si";
 import { GooglePlayIcon } from "@/components/icons/brands";
 import Stars from "@/components/ui/Stars.astro";
@@ -129,13 +130,9 @@ const valueClass = "text-heading text-right text-lg font-bold tabular-nums";
             <div class="px-6 py-4">
               <dt class="flex items-center justify-between gap-4">
                 <span class={labelClass}>
-                  <img
-                    src="/assets/icons/3d/shopping-bags.webp"
-                    alt=""
-                    width="96"
-                    height="96"
-                    class="size-8 flex-none"
-                  />
+                  <span class="logo-tile size-8 rounded-[0.625rem] text-gray-900 dark:text-white">
+                    <LuStore size={17} aria-hidden="true" />
+                  </span>
                   Mağazalarda yayında
                 </span>
                 <span class={valueClass}>{LIVE_APPS.length}</span>
@@ -203,13 +200,9 @@ const valueClass = "text-heading text-right text-lg font-bold tabular-nums";
             </div>
             <div class={rowClass}>
               <dt class={labelClass}>
-                <img
-                  src="/assets/icons/3d/package.webp"
-                  alt=""
-                  width="96"
-                  height="96"
-                  class="size-8 flex-none"
-                />
+                <span class="logo-tile size-8 rounded-[0.625rem] text-gray-900 dark:text-white">
+                  <LuPackageCheck size={17} aria-hidden="true" />
+                </span>
                 Teslim ettiğim proje
               </dt>
               <dd class={valueClass}>30+</dd>
