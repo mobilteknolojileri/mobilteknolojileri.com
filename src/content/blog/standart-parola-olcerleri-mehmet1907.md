@@ -205,7 +205,7 @@ Bu işin bir de portföy tarafı var. Türkçe konuşan bir geliştiricinin port
 
 ### Kaynaklar
 
-- Korkmaz ve Dalkılıç: [Türkçe parolaların analizi (EMO bildirisi)](https://www.emo.org.tr/ekler/bba22d7120cef86_ek.pdf)
+- Korkmaz ve Dalkılıç: [Türk Kullanıcıların Parola Seçimindeki Eğilimleri (EMO bildirisi)](https://web.archive.org/web/20240611045607/https://www.emo.org.tr/ekler/bba22d7120cef86_ek.pdf)
 - Utku Şen: [`turkce-wordlist`](https://github.com/utkusen/turkce-wordlist) (5 milyonu aşkın parola içeren sızıntı listesi)
 - NIST SP 800-63B v4: [güncel parola yönergeleri](https://pages.nist.gov/800-63-4/sp800-63b.html)
 - OWASP ASVS 5.0 V6: [kimlik doğrulama](https://github.com/OWASP/ASVS/blob/master/5.0/en/0x15-V6-Authentication.md)
