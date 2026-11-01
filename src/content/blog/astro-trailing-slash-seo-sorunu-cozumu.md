@@ -1,7 +1,7 @@
 ---
 title: "Astro SEO: Trailing Slash '/' Sorunu ve Çözümü"
-description: "Astro ile yaptığım sitemde 39 sayfanın yalnızca 3'ü Google'da dizine girmişti. Sebep, sitemap ile canonical etiketi arasındaki trailing slash farkıydı. Sorunu nasıl bulup çözdüğümü anlatıyorum."
-seoDescription: "Astro sitemde 39 sayfanın yalnızca 3'ü Google'da dizine girmişti. Sebep, sitemap ile canonical arasındaki trailing slash farkıydı. Nasıl bulup çözdüğümü anlatıyorum."
+description: "Astro ile yaptığım sitemde 39 sayfanın sadece 3'ü Google'da dizine girmişti. Sebep, sitemap ile canonical etiketi arasındaki trailing slash farkıydı. Sorunu nasıl bulup çözdüğümü anlatıyorum."
+seoDescription: "Astro sitemde 39 sayfanın sadece 3'ü Google'da dizine girmişti. Sebep, sitemap ile canonical arasındaki trailing slash farkıydı. Nasıl bulup çözdüğümü anlatıyorum."
 date: 2026-03-22
 updated: 2026-10-07
 tags: ["seo", "astro", "trailing slash", "google indexing", "case study", "vaka analizi"]
@@ -18,7 +18,7 @@ faq:
 
 Sitemi Astro ile yaptım. Lighthouse'ta bütün skorlar 100 üzerinden 100'dü, yazıları da hevesle yayımlıyordum. Ne var ki birkaç hafta sonra Google Search Console'u açtığımda karşıma çıkan tablo hiç iç açıcı değildi.
 
-Sitede blog yazıları ve projelerle birlikte toplam 39 sayfa vardı. Google bunlardan yalnızca 3'ünü dizine eklemişti. Hatta özenle yazdığım SEO rehberlerinin ve blog yazılarının hiçbiri dizinde yoktu. Dizine eklenmeyen sayfaların ayrıntısına baktığımda Search Console'un o kafa karıştıran uyarısıyla karşılaştım: “Alternate page with proper canonical tag”, yani uygun canonical etiketine sahip alternatif sayfa.
+Sitede blog yazıları ve projelerle birlikte toplam 39 sayfa vardı. Google bunlardan sadece 3'ünü dizine eklemişti. Hatta özenle yazdığım SEO rehberlerinin ve blog yazılarının hiçbiri dizinde yoktu. Dizine eklenmeyen sayfaların ayrıntısına baktığımda Search Console'un o kafa karıştıran uyarısıyla karşılaştım: “Alternate page with proper canonical tag”, yani uygun canonical etiketine sahip alternatif sayfa.
 
 Günlerce uğraştığım sitenin Google'da neredeyse hiç görünmemesinin sebebi tek bir karakterdi: URL'nin sonundaki slash (/).
 
@@ -35,7 +35,7 @@ Sorunun kaynağını bulmak için siteye bir arama motoru botunun gözünden bak
 
 Googlebot siteye geldiğinde olanlar şöyleydi. Sitemap ona `/blog/astro-seo-10-madde-checklist/` adresini gösteriyor. Bot bu adrese gidiyor ve sayfanın kaynak kodunda `<link rel="canonical">` etiketini okuyor. Etiket ise sayfanın asıl adresinin sonunda slash olmayan `/blog/astro-seo-10-madde-checklist` olduğunu söylüyor.
 
-Sitemap'in verdiği adresle sayfanın kendisi için bildirdiği adres farklı olunca Google sayfayı dizine eklemiyordu. Bu, trailing slash uyumsuzluğu (canonical mismatch) olarak bilinen bir sorun. Geliştirme sırasında pek göze batmıyor; buna karşın sitenin arama trafiğini ciddi biçimde düşürebiliyor.
+Sitemap'in verdiği adresle sayfanın kendisi için bildirdiği adres farklı olunca Google sayfayı dizine eklemiyordu. Bu, trailing slash uyumsuzluğu (canonical mismatch) olarak bilinen bir sorun. Geliştirme sırasında pek göze batmıyor. Buna karşın sitenin arama trafiğini ciddi biçimde düşürebiliyor.
 
 ## Çözüm: slash'ı her yerden kaldırmak
 
@@ -51,25 +51,25 @@ import { defineConfig } from "astro/config";
 
 export default defineConfig({
   output: "static",
-  trailingSlash: "never", // İşin sırrı tam olarak bu satırda yatıyor!
+  trailingSlash: "never", // Asıl ayar bu satır
   site: "https://goldsword.dev",
   // ...diğer ayarlar
 });
 ```
 
-Bu ayar Astro'ya, sitenin URL'lerinin sonda slash olmadan kullanılacağını söylüyor. Sitemap eklentisi de bu ayarı okuyup adresleri sonda slash olmadan yazıyor. Kodun içine elle yazılmış adresler ise kendiliğinden değişmiyor; onları sonraki iki adımda düzelttim.
+Bu ayar Astro'ya, sitenin URL'lerinin sonda slash olmadan kullanılacağını söylüyor. Sitemap eklentisi de bu ayarı okuyup adresleri sonda slash olmadan yazıyor. Kodun içine elle yazılmış adresler ise kendiliğinden değişmiyor. Onları sonraki iki adımda düzelttim.
 
 ### 2. RSS bağlantıları
 
 Sitemap düzeldi ama RSS okuyucuları ve botlar için de aynı tutarlılık gerekiyordu. `rss.xml.ts` dosyasındaki bağlantıları da sonda slash olmadan güncelledim:
 
 ```javascript
-// src/pages/rss.xml.ts'den Bir Kesit
+// src/pages/rss.xml.ts'den bir kesit
 items: posts.map((post) => ({
-  // Eski (Uyumsuz) Kullanım:
+  // Eski (uyumsuz) kullanım:
   // link: `/blog/${post.slug}/`,
 
-  // Yeni ve Sağlıklı Kullanım:
+  // Yeni ve sağlıklı kullanım:
   link: `/blog/${post.slug}`,
 })),
 ```
@@ -93,4 +93,4 @@ Sonrasını kendi Search Console hesabımdan izledim. Birkaç gün içinde Googl
 
 URL'nin sonundaki tek bir `/` önemsiz görünebilir. Ama arama motoru için bu, iki ayrı adres anlamına gelebiliyor. Bu fark da içeriğin kopya sayılmasına ya da dizin dışında kalmasına yol açabiliyor.
 
-Kısacası Google bazı sayfalarınızı dizine eklemiyorsa ilk bakacağınız yer şu: `sitemap.xml` dosyanızdaki adres ile sayfadaki `<link rel="canonical">` etiketinin gösterdiği adres, **sondaki slash dâhil birebir aynı olmalı**.
+Google bazı sayfalarınızı dizine eklemiyorsa önce şuna bakın: `sitemap.xml` dosyanızdaki adres ile sayfadaki `<link rel="canonical">` etiketinin gösterdiği adres, **sondaki slash dâhil birebir aynı olmalı**.

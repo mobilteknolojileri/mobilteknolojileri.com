@@ -1,7 +1,7 @@
 ---
 title: "Saudi Visa Bio Açılmıyor: Hangi Sorun Sizde, Hangisi Uygulamada"
 seoTitle: "Saudi Visa Bio Açılmıyor: Sorun Sizde mi, Uygulamada mı?"
-description: "Hac ve umre vizesinde ilk adım bu uygulama ve kaydı kimse sizin yerinize yapamaz. Uygulama hiç açılmıyorsa sebep telefonda olabilir; parmak izini okumuyorsa genelde değildir. İkisini ayırt etmek zaman kazandırır."
+description: "Hac ve umre vizesinde ilk adım bu uygulama ve kaydı kimse sizin yerinize yapamaz. Uygulama hiç açılmıyorsa sebep telefonda olabilir, parmak izini okumuyorsa genelde değildir. İkisini ayırt etmek zaman kazandırır."
 seoDescription: "Hac ve umre vizesinde ilk adım bu uygulama. Hiç açılmıyorsa sebep telefonda olabilir, parmak izini okumuyorsa genelde değildir. İkisini ayırt etmek zaman kazandırır."
 date: 2026-08-26
 updated: 2026-10-07
@@ -12,7 +12,7 @@ faq:
   - question: "Saudi Visa Bio açılır açılmaz kapanıyor, telefonumda mı sorun var?"
     answer: "Bu belirti diğerlerinden farklı, genelde telefonu işaret eder. Uygulama hiç açılmadan kapanıyorsa telefonunuz doğrulamadan geçemiyor olabilir. Aynı telefonda banka uygulaması ya da WhatsApp da sorun çıkarıyorsa bu ihtimal daha da güçlenir. Çoğu zaman düzeltilebilir bir sorun ve veri kaybı gerektirmez."
   - question: "Parmak izi bir türlü okunmuyor, ne yapmalıyım?"
-    answer: "En sık gelen şikâyet bu ve sorun çoğu zaman telefonda değil. Uygulama parmak izini ekrandaki sensörle değil, kamerayla okur. Işık, elin kuruluğu, parmak izinin aşınmış olması ve kameranın kalitesi sonucu doğrudan etkiler. Yaşlı başvuru sahiplerinde sık görülür. Birkaç denemede olmuyorsa telefon değiştirmek de genelde çözmez; kayıt bu durumda bir Tasheer merkezinde yapılır."
+    answer: "En sık gelen şikâyet bu ve sorun çoğu zaman telefonda değil. Uygulama parmak izini ekrandaki sensörle değil, kamerayla okur. Işık, elin kuruluğu, parmak izinin aşınmış olması ve kameranın kalitesi sonucu doğrudan etkiler. Yaşlı başvuru sahiplerinde sık görülür. Birkaç denemede olmuyorsa telefon değiştirmek de genelde çözmez. Kayıt bu durumda bir Tasheer merkezinde yapılır."
   - question: "Başkasının telefonundan yapabilir miyim?"
     answer: "Kayıt vekâleten yapılamaz, yani yüz ve parmak izi sizin olmak zorunda. Uygulamanın hangi telefonda çalıştığı ise ayrı konu: Başkasının telefonunda kendi bilgilerinizle giriş yapıp kaydı orada tamamlayabilirsiniz. Kendi telefonunuzda açılmıyorsa ilk ve en ucuz deneme bu."
   - question: "Aktivasyon e-postası gelmiyor, sorun telefonumda mı?"
@@ -20,7 +20,7 @@ faq:
   - question: "Telefonum eski, bu yüzden mi olmuyor?"
     answer: "Bazen evet, ama sandığınız sebepten değil. Uygulama belli bir Android sürümünün altını desteklemiyor olabilir, kamera kalitesi de yüz ve parmak izi okumasını doğrudan etkiler. Yine de eski telefonda yavaş çalışmak başka, açılır açılmaz kapanmak başka; ikincisinin sebebi genelde telefonun yaşı değildir."
   - question: "Bu kaydı benim yerime siz yapabilir misiniz?"
-    answer: "Hayır, biyometrik kayıt vekâleten yapılamaz, yapılmamalı da. Ben yalnızca telefonunuzu uygulamayı çalıştırabilir hâle getiririm; kaydı siz kendiniz tamamlarsınız. Sorun telefonda değilse bunu da en başta söylerim, sizi boşuna uğraştırmam."
+    answer: "Hayır, biyometrik kayıt vekâleten yapılamaz, yapılmamalı da. Ben sadece telefonunuzu uygulamayı çalıştırabilir hâle getiririm, kaydı siz kendiniz tamamlarsınız. Sorun telefonda değilse bunu da en başta söylerim, sizi boşuna uğraştırmam."
 intent: "troubleshooting"
 ---
 
@@ -38,17 +38,17 @@ Buradan sonrası önemli, çünkü "uygulama çalışmıyor" tek bir sorun deği
 
 **Aktivasyon e-postası gelmiyor.** Sorun uygulamanın tarafında. Telefonda olmadığı için telefonu değiştirmek de işe yaramaz.
 
-Hangisi olduğunu bilirseniz sonraki adım da belli olur. Ben bu üçünden yalnızca uygulamanın açılmamasına bakarım.
+Hangisi olduğunu bilirseniz sonraki adım da belli olur. Ben bu üçünden sadece uygulamanın açılmamasına bakarım.
 
 ## Açılır açılmaz kapanıyorsa
 
 Bu genelde uygulamayla değil, telefonun kimliğiyle ilgilidir.
 
-Resmî kimlik ve biyometri uygulamaları açılmadan önce telefonun kendi durumunu bildirmesini bekler: Üstündeki yazılım üreticinin verdiği yazılım mı, sonradan değiştirilmiş mi. Bu bildirim düşük gelirse uygulama hiçbir açıklama yapmadan kapanır. Vize ve banka uygulamaları çoğu zaman hata mesajı bile göstermez; elinizde yalnızca kapanan bir uygulama kalır.
+Resmî kimlik ve biyometri uygulamaları açılmadan önce telefonun kendi durumunu bildirmesini bekler: Üstündeki yazılım üreticinin verdiği yazılım mı, sonradan değiştirilmiş mi. Bu bildirim düşük gelirse uygulama hiçbir açıklama yapmadan kapanır. Vize ve banka uygulamaları çoğu zaman hata mesajı bile göstermez. Elinizde sadece kapanan bir uygulama kalır.
 
 Bildirimi düşüren şey, telefonun açılış kilidinin açılmış olması. Aslında bunu sizin yapmış olmanız gerekmiyor: İkinci el alınan cihazlarda kilit sık sık açık gelir. Bazen de telefon bir ara "şunu bir hızlandır" diye bir tanıdığa verilmiştir.
 
-Aynı telefonda banka uygulaması da açılmıyorsa ya da WhatsApp giriş yaptırmıyorsa şüphe neredeyse kesinleşir. Üçünün sebebi de aynı; [banka tarafını ayrı yazdım](/blog/banka-uygulamasi-acilmiyor-guvenli-degil-hatasi).
+Aynı telefonda banka uygulaması da açılmıyorsa ya da WhatsApp giriş yaptırmıyorsa şüphe neredeyse kesinleşir. Üçünün sebebi de aynı. [Banka tarafını ayrı yazdım](/blog/banka-uygulamasi-acilmiyor-guvenli-degil-hatasi).
 
 ## Parmak izi okunmuyorsa
 
@@ -62,7 +62,7 @@ Bunu yazıyorum, çünkü bu aşamada takılan insanların çoğu için benim ya
 
 ## Kendi telefonunuzda açılmıyorsa önce şunu deneyin
 
-Kayıt vekâleten yapılamaz; bununla birlikte uygulamanın hangi telefonda açıldığı ayrı bir konu.
+Kayıt vekâleten yapılamaz. Bununla birlikte uygulamanın hangi telefonda açıldığı ayrı bir konu.
 
 Yüz ve parmak izi sizin olmak zorunda. Telefon sizin olmak zorunda değil. Eşinizin, çocuğunuzun ya da bir yakınınızın telefonuna uygulamayı kurun, kendi bilgilerinizle girin ve kaydı orada tamamlayın.
 
@@ -70,7 +70,7 @@ Beş dakika sürer, bir kuruşa mal olmaz ve birçok kişinin işi orada biter. 
 
 ## Benim yaptığım kısım
 
-Ben yalnızca ilk gruba bakarım: uygulamanın telefonda hiç açılmamasına.
+Ben sadece ilk gruba bakarım: uygulamanın telefonda hiç açılmamasına.
 
 Yaptığım iş, cihazı bu kontrolden geçer hâle getirmek. Kilit açık kalır, telefon sıfırlanmaz, veri gitmez. Aynı cihazda takılan başka uygulamalar varsa onlar da genelde birlikte düzelir.
 

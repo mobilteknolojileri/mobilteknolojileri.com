@@ -15,7 +15,7 @@ Geliştirici olarak blog yazmak bazen kod yazmaktan daha yorucu. İlk yazıları
 
 Teknik bir soruna çözüm arayan kişi genellikle yazıyı okumaz, tarar ve doğrudan çözümün olduğu satırı bulmak ister. Bir hatanın peşindeyken ben de böyle okuyorum.
 
-Bu yüzden hem okuyanı yormayan hem de SEO'yu gözeten birkaç standart Markdown kalıbı oturttum. Hiçbiri ek bir eklenti gerektirmiyor; diğer bir deyişle hepsi düz Markdown ile yazılıyor. Kendi projelerinizde de aynen kullanabilirsiniz.
+Bu yüzden hem okuyanı yormayan hem de SEO'yu gözeten birkaç standart Markdown kalıbı oturttum. Hiçbiri ek bir eklenti gerektirmiyor. Diğer bir deyişle hepsi düz Markdown ile yazılıyor. Kendi projelerinizde de aynen kullanabilirsiniz.
 
 ## Yazının başında kısa bir özet
 
@@ -39,17 +39,17 @@ Markdown'da şöyle yazıyorum:
 
 ```markdown
 > **Dikkat:**
-> Veritabanı tablolarını silmeden önce mutlaka manuel bir `.sql` yedeği alın. Aksi hâlde verileriniz kaybolabilir.
+> Veri tabanı tablolarını silmeden önce mutlaka manuel bir `.sql` yedeği alın. Aksi hâlde verileriniz kaybolabilir.
 ```
 
 Sayfada şöyle görünüyor:
 
 > **Dikkat:**
-> Veritabanı tablolarını silmeden önce mutlaka manuel bir `.sql` yedeği alın. Aksi hâlde verileriniz kaybolabilir.
+> Veri tabanı tablolarını silmeden önce mutlaka manuel bir `.sql` yedeği alın. Aksi hâlde verileriniz kaybolabilir.
 
 ## Kod değişikliğini yorum satırlarıyla göstermek
 
-`diff` ile yazılan kırmızı-yeşil kod blokları bazen temayla uyuşmuyor ya da dilin söz dizimi renklendirmesini göstermiyor. Buna karşın kodun hatalı ve doğru hâlini yalnızca yorum satırlarıyla ayırmak her sistemde aynı sonucu veriyor.
+`diff` ile yazılan kırmızı-yeşil kod blokları bazen temayla uyuşmuyor ya da dilin söz dizimi renklendirmesini göstermiyor. Buna karşın kodun hatalı ve doğru hâlini sadece yorum satırlarıyla ayırmak her sistemde aynı sonucu veriyor.
 
 Markdown'da şöyle yazıyorum:
 
@@ -117,7 +117,7 @@ draft: false
 intent: "troubleshooting"
 ---
 
-> **Kısaca:** Yalnızca çözümü arayanlar için yazının 2 cümlelik özeti ve anahtar kelimesi burada yer alır.
+> **Kısaca:** Sadece çözümü arayanlar için yazının 2 cümlelik özeti ve anahtar kelimesi burada yer alır.
 
 Problemin tam olarak ne olduğunu anlatan kısa bir giriş. Geliştirici burayı okuduğunda "Evet, benim aldığım hata tam olarak bu" demeli.
 

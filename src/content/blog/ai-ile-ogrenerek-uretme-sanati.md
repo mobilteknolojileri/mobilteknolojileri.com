@@ -1,7 +1,7 @@
 ---
 title: "Tutorial Hell'den Çıkış: AI ile Öğrenerek Üretmek"
-description: "Saatlerce eğitim izleyip hiçbir şey üretememe döngüsünü kırmak için yapay zekâyı nasıl kullandığımı yazdım: yalnızca kod yazdıran bir araç olarak değil, mimariyi birlikte düşündüğüm bir mentor olarak."
-seoDescription: "Eğitim izleyip üretememe döngüsünü yapay zekâyla nasıl kırdığımı yazdım: yalnızca kod yazdıran bir araç olarak değil, mimariyi birlikte düşündüğüm bir mentor olarak."
+description: "Saatlerce eğitim izleyip hiçbir şey üretememe döngüsünü kırmak için yapay zekâyı nasıl kullandığımı yazdım: kod yazdıran bir araçtan çok mimariyi birlikte düşündüğüm bir mentor olarak."
+seoDescription: "Eğitim izleyip üretememe döngüsünü yapay zekâyla nasıl kırdığımı yazdım: kod yazdıran bir araçtan çok mimariyi birlikte düşündüğüm bir mentor olarak."
 date: 2026-03-22
 updated: 2026-10-07
 tags: ["ai", "öğrenme", "yazılım", "verimlilik", "kariyer"]
@@ -15,9 +15,9 @@ Yazılıma başlayan hemen herkesin düştüğü bir tuzak var, muhtemelen siz d
 
 Saatlerce kurs izlersiniz, not alırsınız, "anladım ya" hissi gelir. Sonra VS Code'u açarsınız ve karşınızda boş bir ekran. Hiçbir şey yazamazsınız.
 
-Asıl sorun şu: İzlemek, yapabilmek demek değil.
+İzlemek yapabilmek demek değil, asıl sorun da bu.
 
-Bu döngüyü kırdığımda şunu fark ettim: Yapay zekâ döneminde en değerli beceri kod yazmak değil, doğru şeyi tasarlamak ve doğru soruyu sormak.
+Bu döngüyü kırdığımda fark ettim ki yapay zekâ döneminde en değerli beceri kod yazmak değil, doğru şeyi tasarlamak ve doğru soruyu sormak.
 
 ## Önce öğrenip sonra yapmayı bıraktım
 
@@ -31,16 +31,14 @@ Ben artık şöyle çalışıyorum:
 
 ## Yapay zekâdan kod değil, mimari isteyin
 
-Çoğu kişinin düştüğü hata, yapay zekâya "Bana X uygulamasının kodunu yaz" demek. Bu sizi geliştirici yapmaz, kopyala-yapıştır operatörü yapar.
+Çoğu kişinin düştüğü hata, yapay zekâya "Bana X uygulamasının kodunu yaz" demek. Bu, sizi geliştirici yapmaz, kopyala-yapıştır operatörü yapar.
 
-"Login sistemi yaz" demek yerine şunları isteyin:
+"Login sistemi yaz" demek yerine şunları isteyin, fark da burada başlıyor:
 
 - "JWT tabanlı kimlik doğrulama sistemi için production seviyesinde bir mimari kur."
 - "Backend için katmanlı yapı (controller, service, repository) kullan."
 - "Güvenlik risklerini açıkla ve klasör yapısı öner."
 - "Sonra birlikte adım adım kodlayalım."
-
-Fark burada başlıyor.
 
 ## Planı yapay zekâya yaptırın, ama körü körüne değil
 
@@ -77,7 +75,7 @@ Yapay zekâ size kod verdiğinde yapılabilecek en büyük hata, kod çalıştı
 - "Bu ölçeklenir mi, yoksa production'da patlar mı?"
 - "Bu fonksiyonu async yazdın. Sync olsa ne olurdu?"
 
-Gerçek öğrenme o anda başlıyor.
+Gerçek öğrenme bu soruları sorduğunuzda başlıyor.
 
 ## Yapay zekâ mentor olabilir, ama yöneten sizsiniz
 
@@ -104,4 +102,4 @@ Hedefiniz şu olsun: Küçük bir şey yapın, bitirin ve yayımlayın. Söz diz
 
 Eğitim izlemek size hazır olduğunuzu hissettirir, proje yapmak ise sizi geliştirir. Farkı aslında yapay zekâyı kullanmanız değil, onu nasıl kullandığınız belirler.
 
-Doğru soruları sorduğunuzda yapay zekâ, kod yazdırdığınız bir junior olmaktan çıkar; size düşünmeyi öğreten senior bir mentora dönüşür.
+Doğru soruları sorduğunuzda yapay zekâ kod yazdırdığınız bir junior olmaktan çıkar, size düşünmeyi öğreten senior bir mentora dönüşür.

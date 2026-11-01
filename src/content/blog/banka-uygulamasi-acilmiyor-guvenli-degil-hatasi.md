@@ -9,19 +9,19 @@ category: "android"
 draft: false
 faq:
   - question: "Banka uygulamam açılmıyor ama internet bankacılığı tarayıcıda çalışıyor, neden?"
-    answer: "Çünkü tarayıcı cihaza soru sormaz, uygulama sorar. Banka uygulaması açılmadan önce telefonun kendi durumunu bildirmesini bekler; bildirim olumsuz gelirse kendini kapatır. Öte yandan tarayıcıdan girişte böyle bir kontrol yok. Hesabınızda ve paranızda bir sorun olmadığının en hızlı kanıtı da bu."
+    answer: "Çünkü tarayıcı cihaza soru sormaz, uygulama sorar. Banka uygulaması açılmadan önce telefonun kendi durumunu bildirmesini bekler. Bildirim olumsuz gelirse kendini kapatır. Öte yandan tarayıcıdan girişte böyle bir kontrol yok. Hesabınızda ve paranızda bir sorun olmadığının en hızlı kanıtı da bu."
   - question: "Bankayı aradım, onlar bir sorun görmüyor. Ne oluyor?"
     answer: "Görmemeleri normal, çünkü sorun onların tarafında değil. Hesabınız açık, kartınız açık, kayıtlarında da bir engel yok. Uygulama, telefonunuz doğrulamadan geçemediği için açılmıyor ve çağrı merkezinin bunu görmesinin yolu yok. Çoğu görüşme de burada tıkanır."
   - question: "Root yapmadım, telefonu ikinci elden aldım. Yine de olur mu?"
-    answer: "Evet, hatta sık görülür. Satıcı ya da önceki sahibi cihazın kilidini açıp ROM yüklemiş, sonra kilidi kapatmamış olabilir. Telefon dışarıdan tamamen normal görünür ama uygulamalar öyle olmadığını bilir. Açılışta kısa bir uyarı ekranı geçiyorsa ilk işaret budur; modeli ve birkaç ekran görüntüsünü gönderirseniz bakıp söylerim."
+    answer: "Evet, hatta sık görülür. Satıcı ya da önceki sahibi cihazın kilidini açıp ROM yüklemiş, sonra kilidi kapatmamış olabilir. Telefon dışarıdan tamamen normal görünür ama uygulamalar öyle olmadığını bilir. Açılışta kısa bir uyarı ekranı geçiyorsa ilk işaret budur. Modeli ve birkaç ekran görüntüsünü gönderirseniz bakıp söylerim."
   - question: "Param ya da hesap bilgilerim risk altında mı?"
-    answer: "Bu uyarı yüzünden hayır. Uyarı, uygulamanın doğrulayamadığı bir sistemde çalışmayı reddettiğini gösterir; hesabınıza birinin girdiğini değil. Hesabınız, paranız, kartınız ve kayıtlarınız bundan etkilenmez, telefondaki verileriniz de yerinde. Telefonu ikinci el aldıysanız ve üstündeki ROM'u kimin kurduğunu bilmiyorsanız bu ayrı bir risktir; telefonu üreticinin orijinal yazılımına döndürmek ya da kontrol ettirmek iyi olur."
+    answer: "Bu uyarı yüzünden hayır. Uyarı, uygulamanın doğrulayamadığı bir sistemde çalışmayı reddettiğini gösterir, hesabınıza birinin girdiğini değil. Hesabınız, paranız, kartınız ve kayıtlarınız bundan etkilenmez, telefondaki verileriniz de yerinde. Telefonu ikinci el aldıysanız ve üstündeki ROM'u kimin kurduğunu bilmiyorsanız bu ayrı bir risktir. Telefonu üreticinin orijinal yazılımına döndürmek ya da kontrol ettirmek iyi olur."
   - question: "Netflix ve oyunlar da düzgün çalışmıyor, bağlantılı mı?"
     answer: "Evet, bağlantılı. Aynı doğrulamaya bakan başka uygulama grupları da var: Oyunlar açılmıyor ya da hesap bağlamıyor, yayın uygulamalarında görüntü düşük çözünürlükte kalıyor ya da uygulama mağazada hiç çıkmıyor. Belirtiler farklı ama kaynak tek, o yüzden çoğu zaman birlikte düzelirler."
   - question: "Telefonla temassız ödeme geri gelir mi?"
-    answer: "Çoğu zaman gelmez. Diğer uygulamalar düzeldikten sonra bile telefonla ödeme çalışmamaya devam edebilir, çünkü orası ayrıca ve daha sıkı denetlenir. Denemenin zararı yok ama baştan söz vermem. Kartınız bundan etkilenmez; çalışmayan tek şey telefonla ödeme."
+    answer: "Çoğu zaman gelmez. Diğer uygulamalar düzeldikten sonra bile telefonla ödeme çalışmamaya devam edebilir, çünkü orası ayrıca ve daha sıkı denetlenir. Denemenin zararı yok ama baştan söz vermem. Kartınız bundan etkilenmez. Çalışmayan tek şey telefonla ödeme."
   - question: "Vize biyometri uygulaması sürekli kapanıyor, aynı sebep mi?"
-    answer: "Büyük ihtimalle evet. Resmî kimlik ve biyometri uygulamaları bu doğrulamayı en sıkı isteyenlerdendir; açılır açılmaz kapanan bir vize uygulaması çoğu zaman bu yüzden kapanır. Umre ve hac başvurusunda bu adım atlanamadığı için burada zamanla yarışırsınız."
+    answer: "Büyük ihtimalle evet. Resmî kimlik ve biyometri uygulamaları bu doğrulamayı en sıkı isteyenlerdendir. Açılır açılmaz kapanan bir vize uygulaması çoğu zaman bu yüzden kapanır. Umre ve hac başvurusunda bu adım atlanamadığı için burada zamanla yarışırsınız."
 intent: "troubleshooting"
 ---
 
@@ -35,9 +35,9 @@ Sorun bankada değil, telefonda. Büyük ihtimalle telefona ne olduğunu da bilm
 
 Bunu birkaç dakikada anlayabilirsiniz ve cevap, sonrasını tamamen değiştirir.
 
-Aynı hesaba bilgisayardan, tarayıcıyla girin. Açılıyorsa hesabınızda bir sorun yok. Sonra aynı uygulamayı başka bir telefona kurup giriş yapın; orada çalışıyorsa sorun kesinlikle sizin telefonunuzda.
+Aynı hesaba bilgisayardan, tarayıcıyla girin. Açılıyorsa hesabınızda bir sorun yok. Sonra aynı uygulamayı başka bir telefona kurup giriş yapın. Orada çalışıyorsa sorun kesinlikle sizin telefonunuzda.
 
-İkinci ve daha güçlü işaret şu: Bu sorun tek bir uygulamada kalmaz. Aklınıza gelmeyecek uygulamalar aynı dönemde bozulmaya başlar ve insanlar bunları birbiriyle ilişkilendirmez.
+İkinci ve daha güçlü işaret, sorunun tek uygulamada kalmaması. Aklınıza gelmeyecek uygulamalar aynı dönemde bozulmaya başlar ve insanlar bunları birbiriyle ilişkilendirmez.
 
 ## Aynı anda bozulan başka şeyler
 
@@ -53,15 +53,15 @@ Hepsi cihaza aynı soruyu sorar ama her biri bunu başka bir belirtiyle belli ed
 
 **Resmî kimlik ve biyometri uygulamaları.** Bu grup doğrulamayı en sıkı isteyenlerden. Tipik örnek, vize başvurusunda kullanılan biyometrik kayıt uygulamalarının açılır açılmaz kapanması. Umre ve hac başvurusunda bu adım atlanamadığı için iş bir de zamanla yarışa döner.
 
-WhatsApp da aynı yerde takılıyor ama bunu kendi diliyle söylüyor; [o mesajın ne anlama geldiğini ayrı yazdım](/blog/giris-yapmak-icin-resmi-whatsapp-hatasi).
+WhatsApp da aynı yerde takılıyor ama bunu kendi diliyle söylüyor. [O mesajın ne anlama geldiğini ayrı yazdım](/blog/giris-yapmak-icin-resmi-whatsapp-hatasi).
 
 ## Sebep: Cihaz kendini doğrulayamıyor
 
 Android telefonlar açılırken kendi durumlarını bildirir: Üstündeki yazılım üreticinin verdiği yazılım mı, sonradan değiştirilmiş mi. Hassas iş yapan uygulamalar açılmadan önce bu bildirime bakar. Banka açısından bu oldukça mantıklı bir kontrol, çünkü değiştirilmiş bir telefonda ekrandaki rakamın doğru olduğunu kimse garanti edemez.
 
-Bildirimin olumsuz çıkmasının sebebi, telefonun açılış kilidinin (buna bootloader kilidi denir) açılmış olması. Kilit kapalıyken cihaz yalnızca üreticinin imzaladığı yazılımı çalıştırır. Kilit açılınca başka yazılımları da çalıştırabilir ve bunu her açılışta dürüstçe bildirir.
+Bildirimin olumsuz çıkmasının sebebi, telefonun açılış kilidinin (buna bootloader kilidi denir) açılmış olması. Kilit kapalıyken cihaz sadece üreticinin imzaladığı yazılımı çalıştırır. Kilit açılınca başka yazılımları da çalıştırabilir ve bunu her açılışta dürüstçe bildirir.
 
-Kilit açıldıktan sonra cihaza başka bir şey yapılmış olması şart değil. Telefonun root'lanmış olması, custom ROM kurulmuş olması ya da yalnızca kilidin açılıp öyle bırakılmış olması aynı sonucu verir. Kısacası uygulama bunları ayırmaz, tek bir şeye bakar.
+Kilit açıldıktan sonra cihaza başka bir şey yapılmış olması şart değil. Telefonun root'lanmış olması, custom ROM kurulmuş olması ya da sadece kilidin açılıp öyle bırakılmış olması aynı sonucu verir. Uygulama bunları ayırmaz, tek şeye bakar.
 
 **Banka uygulamasının takıldığı yol:**
 
@@ -84,11 +84,11 @@ En sık rastlanan durum ikinci el telefon. Satıcı ya da önceki sahibi kilidi 
 
 Bunu açıkça söylemem gerekiyor, çünkü "cihazınız güvenli değil" cümlesi insanın aklına önce kötü şeyleri getirir.
 
-Bu uyarı bir güvenlik ihlali olduğunu göstermez; hesabınıza birinin girdiği anlamına da gelmez. Aslında olan şey tam tersi: Uygulama fazla temkinli davranıyor ve doğrulayamadığı bir sistemde çalışmayı reddediyor.
+Bu uyarı bir güvenlik ihlali olduğunu göstermez. Hesabınıza birinin girdiği anlamına da gelmez. Aslında olan şey tam tersi: Uygulama fazla temkinli davranıyor ve doğrulayamadığı bir sistemde çalışmayı reddediyor.
 
 Bu uyarı hesabınıza, paranıza, kartlarınıza ve banka kayıtlarınıza dokunmaz. Telefonun içindeki verilere de. Etkilenen tek şey, o uygulamanın o telefonda çalışması.
 
-Bununla birlikte telefonu ikinci el aldıysanız ve üstündeki ROM'u kimin kurduğunu bilmiyorsanız bu, uyarıdan bağımsız ayrı bir risktir; telefonu üreticinin orijinal yazılımına döndürmek ya da kontrol ettirmek iyi olur.
+Bununla birlikte telefonu ikinci el aldıysanız ve üstündeki ROM'u kimin kurduğunu bilmiyorsanız bu, uyarıdan bağımsız ayrı bir risktir. Telefonu üreticinin orijinal yazılımına döndürmek ya da kontrol ettirmek iyi olur.
 
 ## Kalan iş ne
 

@@ -1,7 +1,7 @@
 ---
 title: "Standart Parola Ölçerlerin Atladığı: mehmet1907 Sorunu"
-description: "Standart zxcvbn, mehmet1907 gibi Türkçe kalıpları zayıf saymıyor. 2.564 gerçek parolanın %30'unun kırıldığı çalışmayı, 5 milyonu aşkın sızıntı verisini ve noktalı/noktasız I sorununun çözümünü yazdım."
-seoDescription: "Standart zxcvbn, mehmet1907 gibi Türkçe kalıpları zayıf saymıyor. 2.564 parolanın %30'unun kırıldığı çalışmayı ve noktalı/noktasız I sorununun çözümünü yazdım."
+description: "Standart zxcvbn, mehmet1907 gibi Türkçe kalıpları zayıf saymıyor. 2.564 gerçek parolanın %30'unun kırıldığı çalışmayı, 5 milyonu aşkın sızıntı verisini ve noktalı ile noktasız I sorununun çözümünü yazdım."
+seoDescription: "Standart zxcvbn, mehmet1907 gibi Türkçe kalıpları zayıf saymıyor. 2.564 parolanın %30'unun kırıldığı çalışmayı ve noktalı ile noktasız I sorununun çözümünü yazdım."
 date: 2026-05-03
 updated: 2026-10-07
 tags:
@@ -20,15 +20,15 @@ draft: false
 intent: "guide"
 ---
 
-_Bu yazı `react-native-password-intelligence@0.3.0` sürümünü anlatıyor. 0.4 sürümünde analiz motorunu framework'ten bağımsız [`password-intelligence`](https://www.npmjs.com/package/password-intelligence) paketine taşıdım; React Native paketi artık bunun üstüne ölçer bileşenini ve hook'u ekliyor._
+_Bu yazı `react-native-password-intelligence@0.3.0` sürümünü anlatıyor. Analiz motorunu 0.4 sürümünde framework'ten bağımsız [`password-intelligence`](https://www.npmjs.com/package/password-intelligence) paketine taşıdım. React Native paketi artık bunun üstüne ölçer bileşenini ve hook'u ekliyor._
 
-Standart `zxcvbn`, `mehmet1907` parolasına 4 üzerinden 2 veriyor; `karakartal2023` ve `askim34istanbul` ise tam puan alıyor. Oysa ad ile kulüp yılı, Türkçe sızıntı listelerinde en sık görülen kalıplar arasında.
+Standart `zxcvbn`, `mehmet1907` parolasına 4 üzerinden 2 veriyor, `karakartal2023` ve `askim34istanbul` ise tam puan alıyor. Oysa ad ile kulüp yılı, Türkçe sızıntı listelerinde en sık görülen kalıplar arasında.
 
 Bu yazıda 2.564 gerçek Türk parolasının analizinden çıkan sonuçları, standart ölçerlerin yakalayamadığı `İSTANBUL`, `IBRAHIM` gibi kalıpları ve sıfırdan yazdığım `react-native-password-intelligence@0.3.0` kütüphanesinin bu açığı nasıl kapattığını anlatıyorum.
 
 ## Sorun: zxcvbn Türkçe bilmiyor
 
-`zxcvbn`, Dropbox'ın 2012'de yayımladığı ve sektörde standart kabul edilen parola gücü tahmincisi. Parolada sözlük kelimelerini (l33t dönüşümleri dâhil), klavye kalıplarını, tekrarları, ardışık dizileri ve tarihleri arıyor, sonra parolanın kaç tahminde bulunabileceğini hesaplıyor. Ne var ki bir şeyi bilmiyor: Türk kullanıcıların parolalarını gerçekte nasıl seçtiğini.
+`zxcvbn`, Dropbox'ın 2012'de yayımladığı ve sektörde standart kabul edilen parola gücü tahmincisi. Parolada sözlük kelimelerini (l33t dönüşümleri dâhil), klavye kalıplarını, tekrarları, ardışık dizileri ve tarihleri arıyor, sonra parolanın kaç tahminde bulunabileceğini hesaplıyor. Ne var ki Türk kullanıcıların parolalarını gerçekte nasıl seçtiğini bilmiyor.
 
 Aşağıdaki parolaları zxcvbn'e verdiğinizde hiçbirini zayıf bulmuyor, hatta ikisine tam puan veriyor:
 
@@ -40,9 +40,9 @@ Aşağıdaki parolaları zxcvbn'e verdiğinizde hiçbirini zayıf bulmuyor, hatt
 | `cimbom1905`      | 2 (Fair)        | 1 (Weak)          | Galatasaray'ın lakabı            |
 | `İSTANBUL34`      | 3 (Good)        | 0 (Very Weak)     | şehir + plaka                    |
 
-Standart zxcvbn sütunundaki skorlar `@zxcvbn-ts/core` 3.0.4 ile, ortak ve İngilizce sözlükler yüklenerek ölçüldü; Dropbox'ın orijinal `zxcvbn` 4.4.2 sürümü de aynı skorları veriyor. Kütüphane sütunu ise `react-native-password-intelligence@0.3.0` sürümünün sonucu.
+Standart zxcvbn sütunundaki skorlar `@zxcvbn-ts/core` 3.0.4 ile, ortak ve İngilizce sözlükler yüklenerek ölçüldü. Dropbox'ın orijinal `zxcvbn` 4.4.2 sürümü de aynı skorları veriyor. Kütüphane sütunu ise `react-native-password-intelligence@0.3.0` sürümünün sonucu.
 
-`İSTANBUL34` özellikle öğretici; ona biraz sonra döneceğim.
+`İSTANBUL34` özellikle öğretici, ona biraz sonra döneceğim.
 
 ## Akademik veri: 2.564 gerçek parola, %30'u kırıldı
 
@@ -50,10 +50,10 @@ Türkçe parola güvenliği üzerine ilk büyük ampirik çalışmayı Korkmaz v
 
 - Parolaların %30'u (777 parola) bir ay içinde kırıldı.
 - %5'i daha ilk 15 dakikada kırıldı.
-- Kırılan parolaların %73'ü yalnızca rakamdan oluşuyordu.
+- Kırılan parolaların %73'ü sadece rakamdan oluşuyordu.
 - Kırılan parolaların %96'sı 6 karakter ya da daha kısaydı. Belirleyici eşik 7 karakter.
-- Parolaların %45'i tam 8 karakterdi; Türk kullanıcılarda 8 karaktere belirgin bir eğilim var.
-- Parolaların yalnızca %12'sinde Türkçeye özgü bir karakter (`ç ğ ı ö ş ü`) vardı, ama bu %12'nin %90'ı kırılamadı.
+- Parolaların %45'i tam 8 karakterdi. Türk kullanıcılarda 8 karaktere belirgin bir eğilim var.
+- Parolaların sadece %12'sinde Türkçeye özgü bir karakter (`ç ğ ı ö ş ü`) vardı, ama bu %12'nin %90'ı kırılamadı.
 
 Son madde güçlü bir işaret: Türkçe karakter kullanmak parolanın kırılmasını belirgin biçimde zorlaştırıyor, çünkü `rockyou.txt` gibi herkesin elindeki kelime listelerinde bu karakterler nadir geçiyor.
 
@@ -74,16 +74,16 @@ Kısa olan `cimbom` ve tekrar kalıbına takılan `19071907` dışında hiçbiri
 
 Bir kullanıcı parolasını Türkçe klavyede `İSTANBUL34` diye yazsın. Baştaki harf noktalı büyük `İ`, yani U+0130.
 
-Beklenen şu: zxcvbn parolayı küçük harfe çevirir, sözlükteki `istanbul34` plaka kalıbıyla eşleştirir ve zayıf olarak işaretler.
+Beklenen, zxcvbn'in parolayı küçük harfe çevirmesi, sözlükteki `istanbul34` plaka kalıbıyla eşleştirmesi ve zayıf olarak işaretlemesi.
 
-Olan ise şu:
+Gerçekte ise şöyle oluyor:
 
 ```js
 "İSTANBUL34".toLowerCase();
 // → "i̇stanbul34"  (i + combining dot above U+0307)
 
 "istanbul34".indexOf("i̇stanbul34");
-// → -1  (eşleşmiyor!)
+// → -1  (eşleşmiyor)
 ```
 
 `String.prototype.toLowerCase()` Unicode kurallarına uyuyor ama Türkçe yerel ayarını hesaba katmıyor. `İ` harfini `i` yerine `i̇` (i ve birleşik nokta) yapıyor. Ortaya çıkan metin sözlükteki kayıtla bayt bayt eşleşmiyor, eşleşme olmayınca da skor 3 dönüyor.
@@ -96,10 +96,10 @@ Tersi de var. Bir kullanıcı İngilizce klavyede `IBRAHIM` yazsın (sıradan AS
 
 "IBRAHIM".toLocaleLowerCase("tr-TR");
 // → "ıbrahım"  (Türkçe locale: I → ı dotless)
-// dictionary'de "ıbrahım" yok → eşleşmiyor!
+// dictionary'de "ıbrahım" yok → eşleşmiyor
 ```
 
-İki klavye, birbirinin tersi iki tuzak. Diğer bir deyişle yalnızca `toLowerCase()` kullanırsanız `İSTANBUL`'u, yalnızca `toLocaleLowerCase('tr-TR')` kullanırsanız `IBRAHIM`'i kaçırırsınız.
+İki klavye, birbirinin tersi iki tuzak. Diğer bir deyişle sadece `toLowerCase()` kullanırsanız `İSTANBUL`'u, sadece `toLocaleLowerCase('tr-TR')` kullanırsanız `IBRAHIM`'i kaçırırsınız.
 
 ## Çözüm: iki ayrı küçük harf dönüşümü
 
@@ -116,7 +116,7 @@ const turkishResult = zxcvbn(turkishForm, mergedUserInputs);
 return turkishResult.score < standardResult.score ? turkishResult : standardResult;
 ```
 
-İki dönüşüm yalnızca girdide büyük `I` ya da `İ` varsa farklı sonuç veriyor. Dolayısıyla çoğu durumda ikinci zxcvbn çağrısı hiç yapılmıyor. Performans maliyeti çok düşük, iki durum da kapsanıyor.
+İki dönüşüm sadece girdide büyük `I` ya da `İ` varsa farklı sonuç veriyor. Dolayısıyla çoğu durumda ikinci zxcvbn çağrısı hiç yapılmıyor. Performans maliyeti çok düşük, iki durum da kapsanıyor.
 
 Test sonuçları:
 
@@ -129,7 +129,7 @@ expect(analyzePassword("YILMAZ").score).toBeLessThanOrEqual(1); // ✓ 0
 
 ## 12 kategorilik Türkçe tehdit katmanı
 
-zxcvbn'in çekirdek motorunu sarmalıyorum; Türkçeye özgü sözlükleri de ona seçenek olarak veriyorum:
+zxcvbn'in çekirdek motorunu sarmalıyorum, Türkçeye özgü sözlükleri de ona seçenek olarak veriyorum:
 
 ```ts
 zxcvbnOptions.setOptions({
@@ -152,7 +152,7 @@ zxcvbnOptions.setOptions({
 });
 ```
 
-Soyadı sözlüğünü 60 kayıttan 382'ye çıkardım. Aynı listeyi faker-js'e de gönderdim: `faker-js/faker#3839` numaralı PR, 3 bakımcının onayıyla ve hiç değişiklik istenmeden birleştirildi (commit `f433771`). Artık iki ayrı paket aynı veri setini kullanıyor; bu da bir tür çapraz doğrulama.
+Soyadı sözlüğünü 60 kayıttan 382'ye çıkardım. Aynı listeyi faker-js'e de gönderdim: `faker-js/faker#3839` numaralı PR, 3 bakımcının onayıyla ve hiç değişiklik istenmeden birleştirildi (commit `f433771`). Artık iki ayrı paket aynı veri setini kullanıyor. Bu da bir tür çapraz doğrulama.
 
 ## Test, kapsam ve kaynak doğrulaması
 
@@ -162,8 +162,8 @@ Güvenlik kütüphanesi olduğu için test tarafını sıkı tuttum:
 - Kapsam: komutlarda %99, dallarda %95, fonksiyonlarda %100, satırlarda %100.
 - 30 girdilik bir skor regresyon snapshot'ı: Sözlük genişletmesi canlıdaki skorları sessizce kaydırırsa CI başarısız oluyor.
 - Sıkı TypeScript ayarları: `exactOptionalPropertyTypes`, `noImplicitOverride`, `isolatedModules`, `useDefineForClassFields`, `noPropertyAccessFromIndexSignature`.
-- Tree-shaking desteği (`sideEffects: false`): Yalnızca `analyzePassword` fonksiyonunu import eden biri `<PasswordMeter>` bileşenini ve hook'u kendi paketine almıyor.
-- Uzun girdiye karşı DoS koruması: 1024 karakteri aşan kısım kesiliyor, böylece zxcvbn'in O(n²) maliyeti UI thread'ini kilitleyemiyor.
+- Tree-shaking desteği (`sideEffects: false`): Sadece `analyzePassword` fonksiyonunu import eden biri `<PasswordMeter>` bileşenini ve hook'u kendi paketine almıyor.
+- Uzun girdiye karşı DoS koruması: 1.024 karakteri aşan kısım kesiliyor, böylece zxcvbn'in O(n²) maliyeti UI thread'ini kilitleyemiyor.
 
 İlk sürümü `npm publish --provenance` ile yayımladım. GitHub Actions üzerinde OIDC ve Trusted Publisher kurulu olduğu için token kullanılmıyor. Kaynak doğrulaması (provenance) kaydını [Sigstore'da kontrol edebilirsiniz](https://search.sigstore.dev/?logIndex=1429649148):
 
@@ -180,17 +180,17 @@ Bu kadar sözlük eklemek performanstan ödün vermeyi gerektirmedi:
 | ---------------------------------------------- | ------------------------------------------------------------------------------------ |
 | İlk çağrı (soğuk başlangıç)                    | ~30–80 ms (zxcvbn seçeneklerinin kaydı ve sözlüklerin kurulması)                     |
 | Sonraki çağrılar                               | genelde ~1–10 ms, en kötü durumda ~50 ms                                             |
-| Hook, aynı girdiyle yeniden render edildiğinde | tek bir `JSON.parse`                                                                 |
+| Hook, aynı girdiyle yeniden render edildiğinde | tek `JSON.parse`                                                                     |
 | `<PasswordMeter score={s} />` (hazır skorla)   | analiz hiç çalışmaz, maliyet sıfır                                                   |
 | Paket boyutu                                   | 12 kategori; kendi kodu küçültülmüş ~16 KB, bağımlılıklarla birlikte gzip'li ~236 KB |
 
-Bu boyutun %94'ü zxcvbn-ts'in ortak sözlüğünden geliyor: 49 bin parola ve 7.776 diceware kelimesi. 0.4'te bu parola listesini en sık görülen 4.000 parolaya indirdim; paketin gzip'li boyutu ~37 KB'a düştü.
+Bu boyutun %94'ü zxcvbn-ts'in ortak sözlüğünden geliyor: 49 bin parola ve 7.776 diceware kelimesi. Bu parola listesini 0.4'te en sık görülen 4.000 parolaya indirdim, paketin gzip'li boyutu ~37 KB'ye düştü.
 
-`<PasswordMeter score={s} />` özellikle önemli: Skor sunucuda hesaplandıysa istemcide analiz hiç başlatılmıyor. Hook bile çağrılmıyor, ekrana yalnızca animasyonlu çubuk çiziliyor.
+`<PasswordMeter score={s} />` özellikle önemli: Skor sunucuda hesaplandıysa istemcide analiz hiç başlatılmıyor. Hook bile çağrılmıyor, ekrana sadece animasyonlu çubuk çiziliyor.
 
 ## Sonuç ve sıradaki adımlar
 
-`İSTANBUL34` ve `IBRAHIM` için artık skor 0 dönüyor; `mehmet1907` ve `karakartal2023` de 1'e (zayıf) iniyor.
+`İSTANBUL34` ve `IBRAHIM` için artık skor 0 dönüyor, `mehmet1907` ve `karakartal2023` de 1'e (zayıf) iniyor.
 
 Genişletilmiş sözlükler, iki yerel ayarlı harf dönüşümü ve boyutu sınırlı özel sözlük API'si v0.3.0 ile yayımlandı. Sıradaki v0.3.x sürümleri için yol haritasında şunlar var: popüler diziler ve filmler için bir kategori (Bahar, Kızılcık Şerbeti), Spotify Türkiye'de en çok dinlenen sanatçılar (Semicenk, Lvbel C5), Süper Lig'in gol kralları ve lisans incelemesinden sonra Utku Şen'in 5 milyonu aşkın parola içeren sızıntı listesi.
 

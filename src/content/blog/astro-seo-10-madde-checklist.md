@@ -44,13 +44,13 @@ Sayfa başlığı tek başına yetmez. Bağlantılarınızın sosyal medyada dü
 
 ## 5. Yapılandırılmış veri ve zengin sonuçlar
 
-Sayfalara JSON-LD formatında yapılandırılmış veri ekleyin. Blog yazılarında `BlogPosting`, hizmet sayfalarında `Service` şemasını kullanın. Bu işaretleme, Google'ın sayfanın neyi anlattığını anlamasına yardımcı olur; üstelik sayfa zengin sonuçla gösterildiğinde tıklanma oranını (CTR) da artırabilir.
+Sayfalara JSON-LD formatında yapılandırılmış veri ekleyin. Blog yazılarında `BlogPosting`, hizmet sayfalarında `Service` şemasını kullanın. Bu işaretleme, Google'ın sayfanın neyi anlattığını anlamasına yardımcı olur. Üstelik sayfa zengin sonuçla gösterildiğinde tıklanma oranını (CTR) da artırabilir.
 
-Zengin sonuç ise garanti değil. Nitekim Google, SSS zengin sonuçlarını Ağustos 2023'ten itibaren yalnızca tanınmış devlet ve sağlık sitelerinde gösteriyordu; 7 Mayıs 2026'dan beri hiçbir sitede göstermiyor. Bir işletme kendisi hakkındaki yorumları kendi sitesinde yayımlıyorsa, o yorumların yıldızlarını da 2019'dan beri göstermiyor.
+Zengin sonuç ise garanti değil. Nitekim Google, SSS zengin sonuçlarını Ağustos 2023'ten itibaren sadece tanınmış devlet ve sağlık sitelerinde gösteriyordu, 7 Mayıs 2026'dan beri hiçbir sitede göstermiyor. Bir işletme kendisi hakkındaki yorumları kendi sitesinde yayımlıyorsa o yorumların yıldızlarını da 2019'dan beri göstermiyor.
 
 ## 6. Sayfalandırma ve iç bağlantılar
 
-Botların sitenin derindeki sayfalara da ulaşabilmesi için kategori ve etiket sayfalarını doğru kurgulayın. Yazıların altına bir “ilgili yazılar” bölümü ekleyin; sayfalar birbirine bağlandıkça hem okuyucu hem bot sitede dolaşmaya devam eder.
+Botların sitenin derindeki sayfalara da ulaşabilmesi için kategori ve etiket sayfalarını doğru kurgulayın. Yazıların altına “ilgili yazılar” bölümü ekleyin. Sayfalar birbirine bağlandıkça hem okuyucu hem bot sitede dolaşmaya devam eder.
 
 ## 7. Yazı tipleri ve LCP (Largest Contentful Paint)
 
@@ -70,6 +70,6 @@ Yayına çıkmadan önce Lighthouse ya da PageSpeed Insights skorunuz en az 90 o
 
 ## Yayından sonra
 
-Teknik SEO aslında bir kere yapılıp unutulan bir iş değil. Astro sağlam bir altyapı sunuyor; aramadaki görünürlük ise bu altyapıyı doğru yapılandırmanıza bağlı.
+Teknik SEO aslında bir kere yapılıp unutulan bir iş değil. Astro'nun altyapısı sağlam, aramadaki görünürlük ise bu altyapıyı doğru yapılandırmanıza bağlı.
 
 Sitenizde hâlâ eksik bir şey olduğunu düşünüyorsanız [iletişim formundan](/#contact) teknik analiz isteyebilirsiniz.

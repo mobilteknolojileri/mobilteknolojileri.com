@@ -1,6 +1,6 @@
 ---
 title: "Goldsword Blog - İçerik Planı ve Teknik Görev Listesi"
-description: "Blog içerik stratejisi, SEO odaklı konu başlıkları ve teknik vaka çalışmalarının takibi için hazırlanan dahili görev listesi."
+description: "Blog içerik stratejisi, SEO odaklı konu başlıkları ve teknik vaka çalışmalarının takibi için hazırlanan dâhilî görev listesi."
 date: 2026-03-10
 tags: ["planlama", "strateji", "seo", "blog"]
 category: "seo"
@@ -11,7 +11,7 @@ draft: true
 
 Bu dosya, Goldsword blogu için içerik fikirlerini, teknik vaka çalışmalarını ve SEO odaklı konu başlıklarını takip etmek için kullanılır.
 
-## 🎯 İçerik Seçim Kuralları
+## İçerik Seçim Kuralları
 
 - Trafik getiren ama marka riski taşıyan konulardan kaçın.
 - Mümkünse doğrudan sunduğun hizmete dönebilen sorunları yaz.
@@ -21,7 +21,7 @@ Bu dosya, Goldsword blogu için içerik fikirlerini, teknik vaka çalışmaları
 
 ---
 
-## 🚀 Konu Kümeleri
+## Konu Kümeleri
 
 ### 1) Xiaomi & Android (Donanım/Yazılım Kurtarma)
 
@@ -64,7 +64,7 @@ _Mobil çözüm arayan işletmeler için profesyonel mimari ve süreç yönetiml
 _Çözülen gerçek dünya problemlerinden SEO uyumlu başlıklar._
 
 - [x] EmailJS Yapılandırma ve Vercel Deployment Optimizasyonu.
-- [x] Blog İçerik Stratejisinin `llms.txt` ile AI Dostu Hale Getirilmesi.
+- [x] Blog İçerik Stratejisinin `llms.txt` ile AI Dostu Hâle Getirilmesi.
 - [ ] Lighthouse Audit ve Performans İyileştirmeleri (Planlanan).
 - [ ] **Xiaomi Unlocker Repo Analizi:** Çok kanallı isteklerle (Multi-threading) kilit açma başarısını artırma.
 - [ ] **Qusafe Güvenlik Notları:** Şifre kasası uygulamalarında istemci tarafı (client-side) şifreleme nasıl yapılır?

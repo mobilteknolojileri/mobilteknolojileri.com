@@ -15,7 +15,7 @@ Nitekim Goldsword portfolyo sitesini Vercel'de yayına alırken EmailJS tarafın
 
 ## Sorunun kaynağı
 
-Ortam değişkenleri (environment variables) Vercel Dashboard'da doğru şekilde tanımlanmıştı; buna karşın Astro projesi onları okuyamıyordu. İnceleyince sorunun iki sebebi olduğu ortaya çıktı:
+Ortam değişkenleri (environment variables) Vercel Dashboard'da doğru şekilde tanımlanmıştı. Buna karşın Astro projesi onları okuyamıyordu. İnceleyince sorunun iki sebebi olduğu ortaya çıktı:
 
 1. Ön ekler uyuşmuyordu. Değişkenler Vercel'de `NEXT_PUBLIC_` ön ekiyle tanımlanmıştı, kod ise onları `PUBLIC_` ön ekiyle arıyordu.
 2. EmailJS istemci tarafında, yani React bileşeninin içinde açıkça başlatılmıyordu. Bu da prop'lar aktarılırken zamanlama sorunlarına yol açabiliyordu.

@@ -54,7 +54,7 @@ Teknik SEO tarafında kontrol etmeniz gereken temel maddeleri [Astro SEO teknik 
 
 ## Geliştirme ve kalite kontrolü
 
-Kod yazma aşamasında işini bilen bir geliştirici bileşenleri tekrar kullanılabilir şekilde kurar; aynı parçayı her sayfada baştan yazmamak işi hızlandırır. Meta verileri ve şema işaretlemesini tek bir yerden yönetir, böylece bir sayfada unutulan bir etiket SEO hatasına dönüşmez. Otomatik test komutlarıyla da hataları yayına çıkmadan yakalar.
+Kod yazma aşamasında işini bilen bir geliştirici bileşenleri tekrar kullanılabilir şekilde kurar. Aynı parçayı her sayfada baştan yazmamak işi hızlandırır. Meta verileri ve şema işaretlemesini tek bir yerden yönetir, böylece bir sayfada unutulan bir etiket SEO hatasına dönüşmez. Otomatik test komutlarıyla da hataları yayına çıkmadan yakalar.
 
 ## Yayından sonra bakım
 
@@ -64,6 +64,6 @@ Sitemap'iniz 404 veriyorsa [bu sorunu anlattığım vaka yazısına](/blog/sitem
 
 ## Süreç de tasarım kadar önemli
 
-Kısacası plan doğru, içerik net ve altyapı temiz olduğunda Gaziantep'te aramada görünür olmak da, gelen ziyaretçiyi müşteriye çevirmek de kolaylaşır.
+Plan doğru, içerik net ve altyapı temiz olduğunda Gaziantep'te aramada görünür olmak da gelen ziyaretçiyi müşteriye çevirmek de kolaylaşır.
 
 Projenizin kapsamını birlikte netleştirmek isterseniz [iletişim formundan](/#contact) bana yazabilirsiniz.
