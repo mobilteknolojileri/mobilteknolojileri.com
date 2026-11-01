@@ -162,7 +162,7 @@ const Contact = ({ emailjsConfig }: ContactProps) => {
 
     // No EmailJS config: open the visitor's mail app instead
     if (!isConfigured) {
-      openMailApp("E-posta uygulamanız açılıyor; mesajınızı oradan gönderebilirsiniz.");
+      openMailApp("E-posta uygulamanız açılıyor, mesajınızı oradan gönderebilirsiniz.");
       return;
     }
 
@@ -191,7 +191,7 @@ const Contact = ({ emailjsConfig }: ContactProps) => {
       if (import.meta.env.DEV) console.error("EmailJS send failed:", error);
       // The message still reaches the inbox through the visitor's mail app
       openMailApp(
-        "Mesaj buradan gönderilemedi; e-posta uygulamanız açılıyor, oradan gönderebilirsiniz.",
+        "Mesaj buradan gönderilemedi. E-posta uygulamanız açılıyor, oradan gönderebilirsiniz.",
       );
     } finally {
       setIsSubmitting(false);

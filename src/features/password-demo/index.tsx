@@ -24,7 +24,7 @@ const SAMPLE_PASSWORDS = [
 const FACTS = [
   "Ad, soyad, kulüp, plaka ve şehir dâhil 12 Türkçe kategori",
   "Varsayılan paket yaklaşık 37 kB (gzip)",
-  "Analiz tamamen tarayıcıda; parola hiçbir yere gönderilmez",
+  "Analiz tamamen tarayıcıda yapılır, parola hiçbir yere gönderilmez",
 ] as const;
 
 const PATTERN_LABELS: Record<string, string> = {
@@ -38,7 +38,7 @@ const PATTERN_LABELS: Record<string, string> = {
   turkish_cultural: "Kültürel terim",
   turkish_keyboard: "Klavye yürüyüşü",
   turkish_romantic: "Romantik terim",
-  turkish_religious: "Dinî/ideolojik",
+  turkish_religious: "Dinî veya ideolojik",
   turkish_common: "Yaygın TR parola",
   turkish_zodiac: "Burç",
   turkish_brands: "Türk markası",
@@ -52,7 +52,7 @@ const formatMatch = (match: { pattern: string; token?: string; dictionaryName?: 
   if (match.pattern === "spatial") return `Klavye dizisi: "${match.token}"`;
   if (match.pattern === "repeat") return `Tekrar: "${match.token}"`;
   if (match.pattern === "sequence") return `Ardışık dizi: "${match.token}"`;
-  if (match.pattern === "regex") return `Tarih/yıl: "${match.token}"`;
+  if (match.pattern === "regex") return `Tarih veya yıl: "${match.token}"`;
   if (match.pattern === "date") return `Tarih: "${match.token}"`;
   if (match.token) return `${match.pattern}: "${match.token}"`;
   return match.pattern;
@@ -208,7 +208,7 @@ const PasswordDemo = () => {
                 </span>
                 {crackTime && (
                   <span className="text-xs text-gray-400">
-                    Tahmini kırılma süresi:{" "}
+                    Tahminî kırılma süresi:{" "}
                     <span className="font-semibold text-white">{crackTime}</span>
                   </span>
                 )}
@@ -259,7 +259,7 @@ const PasswordDemo = () => {
                   <FaCheck className="h-5 w-5 shrink-0 text-emerald-300" aria-hidden="true" />
                   <p className="text-emerald-100">
                     <strong>Bu ölçere göre güçlü görünüyor.</strong> Yine de her hesap için ayrı bir
-                    parola kullanın; bir parola yöneticisi bu işi oldukça kolaylaştırır.
+                    parola kullanın. Parola yöneticisi bu işi oldukça kolaylaştırır.
                   </p>
                 </div>
               )}
