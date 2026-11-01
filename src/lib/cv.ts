@@ -57,7 +57,7 @@ export const CV: CVData = {
   headline: "Yazılım Geliştirici · React Native ve Açık Kaynak",
   summary:
     "Mobil ürünler ve Türkçeye odaklanan açık kaynak kütüphaneler geliştiriyorum. " +
-    "react-native-password-intelligence paketinin yazarıyım; zxcvbn-ts ve faker-js/faker " +
+    "react-native-password-intelligence paketinin yazarıyım, zxcvbn-ts ve faker-js/faker " +
     "projelerine gönderdiğim Türkçe katkılar birleştirildi. Çalıştığım alanlar: React Native " +
     "(Expo, EAS), TypeScript, Supabase, Astro, Vercel ve npm'de provenance ile OIDC'ye dayanan yayın akışları.",
   contact: {
@@ -88,7 +88,7 @@ export const CV: CVData = {
     {
       title: "zxcvbn-ts Türkçe dil paketi (birleştirildi)",
       detail:
-        "zxcvbn-ts/zxcvbn#315: 30 bin sık kelime ve 10 bin Vikipedi kelimesiyle hazırlanan Türkçe dil paketi. 10 Mayıs 2026'da birleştirildi; npm'de @zxcvbn-ts/language-tr adıyla yayında.",
+        "zxcvbn-ts/zxcvbn#315: 30 bin sık kelime ve 10 bin Vikipedi kelimesiyle hazırlanan Türkçe dil paketi. Paket 10 Mayıs 2026'da birleştirildi, npm'de @zxcvbn-ts/language-tr adıyla yayında.",
       link: "https://github.com/zxcvbn-ts/zxcvbn/pull/315",
     },
     {
@@ -110,7 +110,7 @@ export const CV: CVData = {
       description:
         "Dijital miras platformu: Kişinin yazdığı mektuplar vefatı doğrulandıktan sonra ya da kendi seçtiği tarihte seçtiği kişilere ulaşır.",
       highlights: [
-        "Yalnızca ekleme yapılabilen denetim zinciri ve outbox tabanlı iş kuyruğu",
+        "Sadece ekleme yapılabilen denetim zinciri ve outbox tabanlı iş kuyruğu",
         "CI'da veri tabanı şemasıyla TypeScript tiplerinin birbirini tuttuğunu denetleyen kontrol",
         "Şifreleme, platformun herkese açılmasının ön koşulu olarak tasarlandı",
       ],
@@ -124,8 +124,8 @@ export const CV: CVData = {
         "Türkçeye odaklanan parola gücü tahmin kütüphanesi. zxcvbn-ts'in üzerine 12 kategoriden oluşan bir Türkçe tehdit sözlüğü ekler.",
       highlights: [
         "v0.4.1'de çekirdek, React bağımlılığı olmayan ayrı bir pakette: password-intelligence",
-        "Paketin gzip boyutu 236 kB'tan yaklaşık 37 kB'a indi; CI'da boyut bütçesi var",
-        "230+ test; npm Trusted Publisher (OIDC) ve Sigstore provenance ile yayın",
+        "Paketin gzip boyutu 236 kB'tan yaklaşık 37 kB'a indi, CI'da boyut bütçesi var",
+        "230+ test, npm Trusted Publisher (OIDC) ve Sigstore provenance ile yayın",
         "Türkçe büyük harf onarımı: İSTANBUL34 ve IBRAHIM gibi kalıplar da yakalanır",
         "Sınırlı özel sözlük API'si (10 bin girdi, idempotent Set)",
         "React Native Directory'de listeleniyor; iOS, Android, Web ve Expo Go desteği var",
