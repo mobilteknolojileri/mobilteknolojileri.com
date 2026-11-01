@@ -6,7 +6,29 @@ export interface Metadata {
   title?: string | { default: string; template: string };
   description?: string;
   keywords?: string[];
-  [key: string]: any;
+  image?: string;
+  authors?: { name: string }[];
+  creator?: string;
+  publisher?: string;
+  robots?: {
+    index: boolean;
+    follow: boolean;
+    googleBot?: Record<string, boolean | number | string>;
+  };
+  openGraph?: {
+    type: string;
+    locale: string;
+    url: string;
+    title: string;
+    description: string;
+    siteName: string;
+    images: { url: string; width: number; height: number; alt: string }[];
+  };
+  twitter?: { card: string; title: string; description: string; images: string[]; url?: string };
+  verification?: { google?: string; yandex?: string; bing?: string };
+  themeColor?: string;
+  alternates?: { canonical: string; languages: Record<string, string> };
+  metadataBase?: URL;
 }
 
 interface GenerateMetadataProps {
