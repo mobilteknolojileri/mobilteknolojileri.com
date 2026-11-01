@@ -1,14 +1,7 @@
 // Portfolio data. Store and usage numbers are from 26 August 2026 unless the text says otherwise.
 
 export type ProjectCategory =
-  | "Mobile"
-  | "Web"
-  | "Game"
-  | "Backend"
-  | "SEO"
-  | "Design"
-  | "AI"
-  | "Open Source";
+  "Mobile" | "Web" | "Game" | "Backend" | "SEO" | "Design" | "AI" | "Open Source";
 
 /** Leave unset if unsure */
 export type ProjectKind = "client" | "own" | "open-source";
