@@ -710,7 +710,7 @@ export const PROJECTS: Project[] = [
       "/assets/projects/graphic-design/emirhan-kuyumcu-story.webp",
       "/assets/projects/graphic-design/getyo-mobile-reklam-tasarimi.webp",
       "/assets/projects/graphic-design/mobilyaci-ikra-logo.webp",
-      "/assets/projects/graphic-design/mobilyaci-ikra-instagram-post.jpg",
+      "/assets/projects/graphic-design/mobilyaci-ikra-instagram-post.webp",
     ],
   },
   {
