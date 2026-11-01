@@ -12,7 +12,7 @@ export const OPEN_SOURCE: OpenSourceItem[] = [
   {
     kind: "Kütüphane",
     title: "Türkçeyi tanıyan parola ölçer",
-    body: "Türkçe ad, soyadı, takım ve plaka kalıplarını tanıyan parola gücü kütüphanesi. zxcvbn-ts üzerine kurulu; çekirdek paket her JavaScript projesinde, React Native paketi mobil uygulamalarda çalışır.",
+    body: "Türkçe ad, soyadı, takım ve plaka kalıplarını tanıyan parola gücü kütüphanesi. zxcvbn-ts üzerine kurulu. Çekirdek paket her JavaScript projesinde, React Native paketi mobil uygulamalarda çalışır.",
     meta: "v0.4.1 · ~37 kB gzip · 230+ test",
     links: [
       {
@@ -33,7 +33,7 @@ export const OPEN_SOURCE: OpenSourceItem[] = [
   {
     kind: "Katkı",
     title: "zxcvbn-ts için Türkçe dil paketi",
-    body: "30 bin sık kelime, 10 bin Vikipedi kelimesi, ad ve soyadı listeleri. Mayıs 2026'da birleştirildi.",
+    body: "Pakette 30 bin sık kelime, 10 bin Vikipedi kelimesi, ad ve soyadı listeleri var. Mayıs 2026'da birleştirildi.",
     meta: "@zxcvbn-ts/language-tr",
     links: [
       { label: "PR #315", href: "https://github.com/zxcvbn-ts/zxcvbn/pull/315" },

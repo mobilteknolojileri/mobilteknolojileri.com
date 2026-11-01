@@ -86,7 +86,7 @@ export const PROJECTS: Project[] = [
       image: "/assets/projects/kafadar-mobile/showcase.webp",
       alt: "Kafadar uygulamasından üç ekran: soru yazma ekranı, paylaşım düğmeli test listesi ve profil",
       caption:
-        "Soldan sağa: sorunun yazılıp doğru cevabın işaretlendiği ekran; her testin yanında paylaşma ve kopyalama düğmesi olan test listesi; tema ve dilin seçildiği profil. Üçüncü ekrandaki e-postayı bulanıklaştırdım.",
+        "Soldan sağa: sorunun yazılıp doğru cevabın işaretlendiği ekran, her testin yanında paylaşma ve kopyalama düğmesi olan test listesi, tema ve dilin seçildiği profil. Üçüncü ekrandaki e-postayı bulanıklaştırdım.",
     },
     caseStudy: "/vaka-calismalari/kafadar",
     metrics: [
@@ -95,7 +95,7 @@ export const PROJECTS: Project[] = [
       { value: "108", label: "commit, 25 günde" },
     ],
     detailedDescription:
-      "Kendi uygulamam. Kullanıcı kendi hakkında sorular yazar, tek bir bağlantı paylaşır ve arkadaşlarının onu ne kadar tanıdığını görür. Böyle bir uygulamada her şey o bağlantıya dayanır. Dolayısıyla aynı adres üç farklı ziyaretçiye cevap vermek zorunda: uygulaması kurulu olan kişiye, kurulu olmayan kişiye ve bağlantı bir sohbete yapıştırılınca ön izleme çeken sunucuya. Uygulama kuruluysa Android App Links sayesinde işletim sistemi bağlantıyı webe uğratmadan uygulamaya verir; kurulu değilse veri tabanına hiç bağlanmayan statik bir Astro sitesi karşılar. Veri tarafı dört tablolu bir Supabase şeması. Uygulamayı Şubat ve Mart 2026'da 25 günde 108 commit'le yazdım; 8 Mart 2026'dan beri Google Play'de.",
+      "Kendi uygulamam. Kullanıcı kendi hakkında sorular yazar, tek bağlantı paylaşır ve arkadaşlarının onu ne kadar tanıdığını görür. Böyle bir uygulamada her şey o bağlantıya dayanır. Dolayısıyla aynı adres üç farklı ziyaretçiye cevap vermek zorunda: uygulaması kurulu olan kişiye, kurulu olmayan kişiye ve bağlantı bir sohbete yapıştırılınca ön izleme çeken sunucuya. Uygulama kuruluysa Android App Links sayesinde işletim sistemi bağlantıyı webe uğratmadan uygulamaya verir. Kurulu değilse veri tabanına hiç bağlanmayan statik bir Astro sitesi karşılar. Veri tarafı dört tablolu bir Supabase şeması. Uygulamayı Şubat ve Mart 2026'da 25 günde 108 commit'le yazdım, 8 Mart 2026'dan beri Google Play'de.",
     features: [
       "Soru tipi ve tema seçerek test kurma",
       "Uygulama kuruluysa doğrudan teste açılan paylaşım bağlantısı (Android App Links)",
@@ -108,7 +108,7 @@ export const PROJECTS: Project[] = [
       "AdMob: test yayımlarken ödüllü video, test çözüldükten sonra geçiş reklamı",
     ],
     challenges:
-      "Asıl zorluk, aynı paylaşım adresinin uygulaması kurulu olana da, olmayana da, ön izleme çeken sunucuya da doğru cevap vermesiydi. Test bitince reklam kapanmadan sonuç ekranına geçildiği için bazı cihazlarda uygulama çöküyordu; artık uygulama reklamın kapanmasını bekliyor. Tanıtım sitesi mobilde 84 alıyordu: 337 KB'lık PNG logoyu gösterildiği boyutlarda WebP'ye çevirdim, yazı tipini ve mağaza rozetlerini siteye taşıdım; PageSpeed hem mobilde hem masaüstünde dört kategoride 100 verdi. Öte yandan bir sorun hâlâ açık: Paylaşım bağlantısı webde 404 dönüyor ve bağlantıyı 404 sayfasındaki bir betik kurtarıyor. Sohbet ön izlemeleri ve arama motorları bu yüzden hata sayfası görüyor.",
+      "Asıl zorluk, aynı paylaşım adresinin uygulaması kurulu olana da olmayana da ön izleme çeken sunucuya da doğru cevap vermesiydi. Test bitince reklam kapanmadan sonuç ekranına geçildiği için bazı cihazlarda uygulama çöküyordu. Artık uygulama reklamın kapanmasını bekliyor. Tanıtım sitesi mobilde 84 alıyordu: 337 KB'lik PNG logoyu gösterildiği boyutlarda WebP'ye çevirdim, yazı tipini ve mağaza rozetlerini siteye taşıdım. PageSpeed hem mobilde hem masaüstünde dört kategoride 100 verdi. Öte yandan bir sorun hâlâ açık: Paylaşım bağlantısı webde 404 dönüyor ve bağlantıyı 404 sayfasındaki bir betik kurtarıyor. Sohbet ön izlemeleri ve arama motorları bu yüzden hata sayfası görüyor.",
     links: [
       {
         label: "Google Play",
@@ -154,18 +154,18 @@ export const PROJECTS: Project[] = [
       { value: "100", label: "site PageSpeed, mobil" },
     ],
     detailedDescription:
-      "New Jersey, Marlboro'daki bir frozen yogurt dükkânı için Ağustos 2025 ile Mayıs 2026 arasında üç uygulama yazdım: iOS ve Android uygulaması, personelin kullandığı yönetim paneli ve dükkânın sitesi. Üçü de aynı menüyü, aynı puan bakiyesini ve aynı çalışma saatlerini okur; personel bir tadı tükendi diye işaretleyince telefondaki liste de değişir, yeni sürüm gerekmez. Sadakat programı işletmenin kullandığı RewardUp'ta; 12 tek işlevli sunucu fonksiyonu RewardUp anahtarını isteğe sunucu tarafında ekler, anahtar uygulamanın içine hiç girmez. Uygulama 4 Kasım 2025'ten beri App Store'da, Google Play'de de yayında. İşletme 22 Nisan 2026'da el değiştirdi; alan adlarını, Supabase'i, Vercel'i, e-posta servisini ve iki mağaza kaydını yeni sahibine ben devrettim. 2.0.0 sürümü devirden sonra, 19 Mayıs 2026'da çıktı. Kodun dışında da çalıştım: Dükkânın baskı tasarımlarını hazırladım, bir dönem sosyal medya hesaplarını yönettim, hatta dükkânın videosunu çekip kurguladım.",
+      "New Jersey, Marlboro'daki bir frozen yogurt dükkânı için Ağustos 2025 ile Mayıs 2026 arasında üç uygulama yazdım: iOS ve Android uygulaması, personelin kullandığı yönetim paneli ve dükkânın sitesi. Üçü de aynı menüyü, aynı puan bakiyesini ve aynı çalışma saatlerini okur; personel bir tadı tükendi diye işaretleyince telefondaki liste de değişir, yeni sürüm gerekmez. Sadakat programı işletmenin kullandığı RewardUp'ta. Tek işlevli 12 sunucu fonksiyonu RewardUp anahtarını isteğe sunucu tarafında ekler, anahtar uygulamanın içine hiç girmez. Uygulama 4 Kasım 2025'ten beri App Store'da, Google Play'de de yayında. İşletme 22 Nisan 2026'da el değiştirdi. Alan adlarını, Supabase'i, Vercel'i, e-posta servisini ve iki mağaza kaydını yeni sahibine ben devrettim. Uygulamanın 2.0.0 sürümü devirden sonra, 19 Mayıs 2026'da çıktı. Kodun dışında da çalıştım: Dükkânın baskı tasarımlarını hazırladım, bir dönem sosyal medya hesaplarını yönettim, hatta dükkânın videosunu çekip kurguladım.",
     features: [
-      "O an dükkânda olan tatlar; sütsüz, şekersiz ve koşer işaretleriyle",
-      "Puan ve ödül bakiyesi; RewardUp anahtarı telefona inmeden",
+      "Sütsüz, şekersiz ve koşer işaretleriyle o an dükkânda olan tatlar",
+      "Puan ve ödül bakiyesi, RewardUp anahtarı telefona inmeden",
       "Oy verene puan kazandıran tat oylaması",
       "Kategori kategori açılan bildirimler: yeni tat, favori tadın dönüşü, kampanya, oylama sonucu",
       "Doğum günü ödülü",
       "Favoriler ve geri bildirim formu",
-      "Yönetim paneli ve siteyle ortak menü; personelin değişikliği yeni sürüm gerekmeden telefona yansır",
+      "Yönetim paneli ve siteyle ortak menü: Personelin değişikliği yeni sürüm gerekmeden telefona yansır",
     ],
     challenges:
-      "RewardUp anahtarı müşteri puanlarını hem okuyabiliyor hem değiştirebiliyor; uygulamanın içine konan bir anahtar, uygulamayı indiren herkesin eline geçerdi. Her isteği olduğu gibi ileten genel bir fonksiyon aynı açığı bir adım geriye taşıyacağı için her işlemin kendi fonksiyonu var. Bildirimlerin alıcı listesi gönderimden önce sunucuda, müşterinin seçtiği kategorilere göre süzülüyor. Sistem iki şube için kurulmuştu; ikinci şube işletmeden ayrılınca müşterinin gördüğü her yeri Marlboro'ya sabitledim ama API'nin döndürdüğü alanlara dokunmadım, çünkü güncellemeyi almamış telefonlar o uç noktaları hâlâ şube parametresiyle çağırıyordu.",
+      "RewardUp anahtarı müşteri puanlarını hem okuyabiliyor hem değiştirebiliyor. Uygulamanın içine konan bir anahtar, uygulamayı indiren herkesin eline geçerdi. Her isteği olduğu gibi ileten genel bir fonksiyon aynı açığı bir adım geriye taşıyacağı için her işlemin kendi fonksiyonu var. Bildirimlerin alıcı listesi gönderimden önce sunucuda, müşterinin seçtiği kategorilere göre süzülüyor. Sistem iki şube için kurulmuştu. İkinci şube işletmeden ayrılınca müşterinin gördüğü her yeri Marlboro'ya sabitledim ama API'nin döndürdüğü alanlara dokunmadım, çünkü güncellemeyi almamış telefonlar o uç noktaları hâlâ şube parametresiyle çağırıyordu.",
     links: [
       {
         label: "App Store",
@@ -190,7 +190,7 @@ export const PROJECTS: Project[] = [
     slug: "ingilizceciyiz",
     title: "İngilizceciyiz",
     description:
-      "İngilizce öğretmenlerinin resmî evrakını, bir kez girdikleri bilgilerle hazırlayan uygulama. 2023'ten beri mağazada; 2025'te devralıp platformu sıfırdan yazdım.",
+      "İngilizce öğretmenlerinin resmî evrakını bir kez girdikleri bilgilerle hazırlayan uygulama. Mağazada 2023'ten beri var, 2025'te devralıp platformu sıfırdan yazdım.",
     category: "Mobile",
     kind: "client",
     status: "live",
@@ -213,7 +213,7 @@ export const PROJECTS: Project[] = [
       image: "/assets/projects/ingilizceciyiz/showcase.webp",
       alt: "İngilizceciyiz uygulamasından üç ekran: öğretmenin ana ekranı, bilgileri dolu gelen yıllık plan formu ve hazır evrak",
       caption:
-        "Soldan sağa: öğretmenin ana ekranı; profil ve tarih alanları hesaptan dolu gelen yıllık plan formu; Word'de açılmaya hazır evrak. Ekranlarda örnek veri var.",
+        "Soldan sağa: öğretmenin ana ekranı, profil ve tarih alanları hesaptan dolu gelen yıllık plan formu, Word'de açılmaya hazır evrak. Ekranlarda örnek veri var.",
     },
     gallery: [
       {
@@ -232,21 +232,21 @@ export const PROJECTS: Project[] = [
       { value: "100", label: "PageSpeed, 4 kategori" },
     ],
     detailedDescription:
-      "Türkiye'de bir İngilizce öğretmeni her dönem bir yığın resmî evrak teslim eder: yıllık ve günlük planlar, BEP ve DYK planları, seçmeli ders planları, kulüp dosyaları, zümre ve ŞÖK tutanakları. Üstelik hepsi aynı bilgileri yeniden ister. Uygulama Eylül 2023'ten beri mağazadaydı; Ağustos 2025'te tek geliştirici olarak devraldım ve platformun tamamını sıfırdan yazdım, yeni hâli Nisan 2026'dan beri yayında. Öğretmen bilgisini bir kez girer; her resmî şablon kendi formunu üretir ve bilinen her alan dolu gelir. Belgeyi Supabase Edge Functions sunucuda hazırlar ve Word'de düzenlenebilir bir dosya olarak geri verir. 9 Ekim 2026 itibarıyla 6.679 öğretmen hesabı açıldı ve 3.416 öğretmen 28.963 belge üretti; uygulamanın App Store'da 13.594, Google Play'de 10.000'den fazla indirmesi var.",
+      "Türkiye'de bir İngilizce öğretmeni her dönem bir yığın resmî evrak teslim eder: yıllık ve günlük planlar, BEP ve DYK planları, seçmeli ders planları, kulüp dosyaları, zümre ve ŞÖK tutanakları. Üstelik hepsi aynı bilgileri yeniden ister. Uygulama Eylül 2023'ten beri mağazadaydı. Ağustos 2025'te tek geliştirici olarak devraldım ve platformun tamamını sıfırdan yazdım, yeni hâli Nisan 2026'dan beri yayında. Öğretmen bilgisini bir kez girer, her resmî şablon kendi formunu üretir ve bilinen her alan dolu gelir. Belgeyi Supabase Edge Functions sunucuda hazırlar ve Word'de düzenlenebilir bir dosya olarak geri verir. Platformda 9 Ekim 2026 itibarıyla 6.679 öğretmen hesabı açıldı ve 3.416 öğretmen 28.963 belge üretti. Uygulamanın App Store'da 13.594, Google Play'de 10.000'den fazla indirmesi var.",
     features: [
       "Profil, sınıf ve akademik takvimden kendiliğinden dolan evrak formu",
-      "Her resmî şablondan kendi formunu üreten sistem; 1.069 şablon",
+      "Her resmî şablondan kendi formunu üreten sistem (1.069 şablon)",
       "Word'de düzenlenebilir DOCX çıktı, sunucuda üretilir",
       "Yıllık ve günlük plan, BEP, DYK, seçmeli ders, kulüp, zümre ve ŞÖK evrakı",
       "42 haftalık yıllık plan: ünite, kazanım, görev ve öğretmenin kendi notu",
       "Her ders saatini ait olduğu haftaya bağlayan ders programı",
       "Tek Astro uygulamasında herkese açık site ve yönetim paneli",
-      "Yönetim panelinden tek tıkla yedek; kimin aldığı kayda geçer",
+      "Yönetim panelinden tek tıkla yedek, kimin aldığı kayda geçer",
       "Mağaza incelemesini beklemeden cihaza inen düzeltmeler",
       "RevenueCat ile iki mağazada abonelik",
     ],
     challenges:
-      "Yönetim panelindeki şablon listesi tablodaki 1.002 şablonun 1.000'ini gösteriyor ve hata da vermiyordu; sebep Supabase'in API katmanındaki varsayılan 1.000 satır sınırıydı. Sınırı yükseltmek aslında sorunu yalnızca erteledi; asıl çözüm gruplamayı, aramayı ve sayfalamayı veri tabanı fonksiyonlarına taşımak oldu. Sitenin Lighthouse performansı bir hafta 94, ertesi hafta 72 çıktı; o günden beri ölçümü, yavaşlatılmış 4G'de birkaç kez çalışıp ortancayı alan ve eşiğin altında hata veren bir komut yapıyor. Talep okul takvimini izliyor: Riskli değişiklikler baharda çıkıyor, eylül öncesi haftalar kararlılığa ayrılıyor.",
+      "Yönetim panelindeki şablon listesi tablodaki 1.002 şablonun 1.000'ini gösteriyordu ve hata da vermiyordu. Sebep Supabase'in API katmanındaki varsayılan 1.000 satır sınırıydı. Sınırı yükseltmek aslında sorunu sadece erteledi. Asıl çözüm gruplamayı, aramayı ve sayfalamayı veri tabanı fonksiyonlarına taşımak oldu. Sitenin Lighthouse performansı bir hafta 94, ertesi hafta 72 çıktı. O günden beri ölçümü, yavaşlatılmış 4G'de birkaç kez çalışıp ortancayı alan ve eşiğin altında hata veren bir komut yapıyor. Talep okul takvimini izliyor: Riskli değişiklikler baharda çıkıyor, eylül öncesi haftalar kararlılığa ayrılıyor.",
     links: [
       {
         label: "App Store",
@@ -276,7 +276,7 @@ export const PROJECTS: Project[] = [
     slug: "yanitla-kazan",
     title: "Yanıtla Kazan: Sohbet ve Arkadaşlık",
     description:
-      "Var olan bir Flutter uygulamasının sunucu tarafını sıfırdan yazdım; gerçek zamanlı sohbeti ve arkadaşlık sistemini hem sunucuda hem uygulamada ekledim.",
+      "Var olan bir Flutter uygulamasının sunucu tarafını sıfırdan yazdım. Gerçek zamanlı sohbeti ve arkadaşlık sistemini hem sunucuda hem uygulamada ekledim.",
     category: "Backend",
     kind: "client",
     technologies: [
@@ -301,7 +301,7 @@ export const PROJECTS: Project[] = [
       "Sesli mesaj kaydı, gönderimi ve oynatma",
       "Emoji seçici",
       "Mesaj silme, yıldızlama ve okundu bilgisi",
-      "PostgreSQL şeması; Redis'te oturum ve önbellek",
+      "PostgreSQL şeması, Redis'te oturum ve önbellek",
       "Docker, Nginx ve SSL ile Hetzner'de yayına alma",
       "Helmet ve CORS ile temel güvenlik ayarları",
       "Türkçe ve İngilizce arayüz",
@@ -407,7 +407,7 @@ export const PROJECTS: Project[] = [
       { value: "%86,8", label: "duyarlılık" },
     ],
     detailedDescription:
-      "Kasım 2024 ile Ocak 2025 arasında Trakya Üniversitesinde bir proje olarak yazdım. Kumaşın fotoğrafı çekilir; sistem delikleri kutuyla işaretler ve her birine bir güven skoru verir. Veri setini Kaggle ve Roboflow kaynaklarından toplayıp elle etiketledim, sonra çevirme, döndürme ve kontrast değişimiyle çoğalttım; tek sınıf var: delik. Modeli PyTorch'ta eğittim, ONNX üzerinden TensorFlow Lite'a aktardım ve FastAPI arkasında çalıştırdım. Kod, eğitim ayarları ve 16 sayfalık Türkçe proje raporu GitHub'da herkese açık. Geliştirme sırasında kullandığım barındırılan sunucu artık yok; denemek isterseniz servisi kendi bilgisayarınızda çalıştırabilirsiniz.",
+      "Kasım 2024 ile Ocak 2025 arasında Trakya Üniversitesinde bir proje olarak yazdım. Kumaşın fotoğrafı çekilir, sistem delikleri kutuyla işaretler ve her birine bir güven skoru verir. Veri setini Kaggle ve Roboflow kaynaklarından toplayıp elle etiketledim, sonra çevirme, döndürme ve kontrast değişimiyle çoğalttım. Tek sınıf var: delik. Modeli PyTorch'ta eğittim, ONNX üzerinden TensorFlow Lite'a aktardım ve FastAPI arkasında çalıştırdım. Kod, eğitim ayarları ve 16 sayfalık Türkçe proje raporu GitHub'da herkese açık. Geliştirme sırasında kullandığım barındırılan sunucu artık yok. Denemek isterseniz servisi kendi bilgisayarınızda çalıştırabilirsiniz.",
     features: [
       "Fotoğraftaki delikleri kutuyla işaretleme ve her tespit için güven skoru",
       "Kaggle ve Roboflow görsellerinden elle etiketlenmiş tek sınıflı veri seti",
@@ -418,7 +418,7 @@ export const PROJECTS: Project[] = [
       "Fotoğrafı servise gönderen Flutter uygulaması",
     ],
     challenges:
-      "Sonuçlar: mAP %95,1, kesinlik %97,9, duyarlılık %86,8. Geliştirilmesi gereken sayı duyarlılık; diğer bir deyişle model temiz kumaşı neredeyse hiç işaretlemiyor ama gerçek deliklerin bir kısmını kaçırıyor. Telefonla çekilen fotoğrafta ışık düzensiz düştüğü için ön işleme parlaklık kanalında histogram eşitliyor; model sunucu açılırken bir kez yüklendiği için yükleme gecikmesi yalnızca ilk isteğe düşüyor.",
+      "Sonuçlar: mAP %95,1, kesinlik %97,9, duyarlılık %86,8. Geliştirilmesi gereken sayı duyarlılık. Diğer bir deyişle model temiz kumaşı neredeyse hiç işaretlemiyor ama gerçek deliklerin bir kısmını kaçırıyor. Telefonla çekilen fotoğrafta ışık düzensiz düştüğü için ön işleme parlaklık kanalında histogram eşitliyor. Model sunucu açılırken bir kez yüklendiği için yükleme gecikmesi sadece ilk isteğe düşüyor.",
     links: [
       { label: "GitHub", url: "https://github.com/mobilteknolojileri/fabric-defect-detection" },
       {
@@ -438,7 +438,7 @@ export const PROJECTS: Project[] = [
     slug: "frozen-yogurt-website",
     title: "Frozen Yogurt Cafe: Web Sitesi",
     description:
-      "Get Yo dükkânının sitesi. Kapalı bir platformdan çıkarıp Mart 2026'da statik bir Astro sitesine taşıdım; menüyü ve çalışma saatlerini yönetim panelinden canlı okur.",
+      "Get Yo dükkânının sitesi. Kapalı bir platformdan çıkarıp Mart 2026'da statik bir Astro sitesine taşıdım. Site menüyü ve çalışma saatlerini yönetim panelinden canlı okur.",
     category: "Web",
     kind: "client",
     status: "live",
@@ -458,9 +458,9 @@ export const PROJECTS: Project[] = [
       { value: "0,9 sn", label: "LCP, mobil" },
     ],
     detailedDescription:
-      "Get Yo dükkânının sitesi. İlk hâli Readdy adlı kapalı bir platformdaydı: Koda erişim yoktu ve iletişim formu bot mesajlarıyla doluyordu. Önce Next.js ile yeniden yazdım; forma reCAPTCHA ve sunucu tarafında doğrulama eklenince spam kesildi. Mart 2026'da siteyi Astro ve Tailwind'e taşıyıp statik çıktıya çevirdim. Statik bir sayfa menüyü istek anında üretemez; bu yüzden menüyü tarayıcı ayrıca ister, barındırma katmanı /api/* isteklerini yönetim paneline iletir ve panel, mobil uygulamanın okuduğu veri tabanından okur. Böylece sitedeki menü uygulamadakinden farklı olamaz. Astro'ya geçmeden önce yerel Lighthouse ölçümünde performans 18'di; 26 Ağustos 2026'da PageSpeed Insights mobilde performans, erişilebilirlik, en iyi uygulamalar ve SEO için 100, 96, 100 ve 100 ölçtü.",
+      "Get Yo dükkânının sitesi. İlk hâli Readdy adlı kapalı bir platformdaydı: Koda erişim yoktu ve iletişim formu bot mesajlarıyla doluyordu. Önce Next.js ile yeniden yazdım. Forma reCAPTCHA ve sunucu tarafında doğrulama eklenince spam kesildi. Mart 2026'da siteyi Astro ve Tailwind'e taşıyıp statik çıktıya çevirdim. Statik bir sayfa menüyü istek anında üretemez. Bu yüzden menüyü tarayıcı ayrıca ister, barındırma katmanı /api/* isteklerini yönetim paneline iletir ve panel, mobil uygulamanın okuduğu veri tabanından okur. Böylece sitedeki menü uygulamadakinden farklı olamaz. Astro'ya geçmeden önce yerel Lighthouse ölçümünde performans 18'di. PageSpeed Insights ise 26 Ağustos 2026'da mobilde performans, erişilebilirlik, en iyi uygulamalar ve SEO için 100, 96, 100 ve 100 ölçtü.",
     features: [
-      "Statik site; menü ve stok durumu yönetim panelinden canlı geliyor",
+      "Statik site: Menü ve stok durumu yönetim panelinden canlı geliyor",
       "Besin, alerjen, koşer ve glütensiz sertifika bilgisi menünün içinde",
       "Tatil günleri dâhil çalışma saatleri panelden",
       "reCAPTCHA ve sunucu tarafında doğrulamayla korunan formlar",
@@ -468,7 +468,7 @@ export const PROJECTS: Project[] = [
       "PageSpeed Insights'ta mobil performans 100",
     ],
     challenges:
-      "Readdy'de koda erişim yoktu ve form bot mesajlarıyla doluyordu. Statik bir sitede canlı menü göstermek için /api/* isteklerini barındırma katmanında yönetim paneline yönlendirdim; site sunucuya dönüşmeden o anki stoğu gösteriyor. Erişilebilirliği 96'da bırakan tek bulgu bir renk kontrastı sorunu; işletme el değiştirdiği için bunu artık ben düzeltemiyorum.",
+      "Readdy'de koda erişim yoktu ve form bot mesajlarıyla doluyordu. Statik bir sitede canlı menü göstermek için /api/* isteklerini barındırma katmanında yönetim paneline yönlendirdim. Site sunucuya dönüşmeden o anki stoğu gösteriyor. Erişilebilirliği 96'da bırakan tek bulgu bir renk kontrastı sorunu. İşletme el değiştirdiği için bunu artık ben düzeltemiyorum.",
     links: [{ label: "Web sitesi", url: "https://www.frozenyogurtcafe.com" }],
     screenshots: [
       "/assets/projects/frozen-yogurt-website/screenshot-1.webp",
@@ -488,7 +488,7 @@ export const PROJECTS: Project[] = [
     color: "from-blue-700 to-indigo-700",
     image: "/assets/projects/legends-of-aestera/hero.webp",
     detailedDescription:
-      "Kendi oyunum. Grafikleri hazır paketlerden aldım; mekanikleri ve bölüm tasarımını ben yaptım. Hareketler çift zıplama, duvarda koşma ve kaymaya dayanıyor. En çok zamanı dengeleme aldı: Bölümlerin zorluğunu, düşmanların yerini ve boss davranışlarını defalarca elden geçirdim. Oyun Google Play'de yayında.",
+      "Kendi oyunum. Grafikleri hazır paketlerden aldım, mekanikleri ve bölüm tasarımını ben yaptım. Hareketler çift zıplama, duvarda koşma ve kaymaya dayanıyor. En çok zamanı dengeleme aldı: Bölümlerin zorluğunu, düşmanların yerini ve boss davranışlarını defalarca elden geçirdim. Oyun Google Play'de yayında.",
     features: [
       "İki karakter: Red kılıçla kombo yapar, Robinhood ok atar",
       "Elle tasarlanmış 20'den fazla bölüm: tuzaklar, gizli geçitler ve bulmacalar",
@@ -498,7 +498,7 @@ export const PROJECTS: Project[] = [
       "Çift zıplama, duvarda koşma ve kayma",
       "Varil, testere ve diken gibi engeller",
       "Dokunmatik kontrol ve oyun kolu desteği",
-      "İlerleme yalnızca cihazda saklanır; reklamlar Google AdMob üzerinden",
+      "İlerleme sadece cihazda saklanır, reklamlar Google AdMob üzerinden",
     ],
     challenges:
       "Platform mekaniklerini dengelemek, bölümleri tasarlamak ve boss davranışlarını oturtmak uzun sürdü. Dokunmatik ve oyun kolu kontrollerini ayarlamak, Google Play politikalarına uymak da işin parçasıydı.",
@@ -533,10 +533,10 @@ export const PROJECTS: Project[] = [
       "Bir renkteki bütün topları patlatan joker",
       "Patlama animasyonları",
       "Skor ve bonus kaydı",
-      "Hatırlanan müzik ve ses tercihi; arka plana geçince müzik duraklar",
+      "Hatırlanan müzik ve ses tercihi, arka plana geçince müzik duraklar",
       "Telefon ve tablette 60 FPS",
       "AdMob reklamları",
-      "Capacitor ile yerel Android paketi; API 21'den API 35'e",
+      "Capacitor ile yerel Android paketi, API 21'den API 35'e",
     ],
     challenges:
       "Çökmeler Canvas tarafından geliyordu. Onları giderdikten sonra iş, HTML5 oyununu yerel Android paketinde akıcı çalıştırmak, joker sistemini kurmak ve telefonla tablette 60 FPS'i tutturmaktı.",
@@ -556,13 +556,13 @@ export const PROJECTS: Project[] = [
     slug: "mood-tracker",
     title: "Mood Tracker: Arayüz Yenileme",
     description:
-      "Flutter ile yazılmış bir ruh hâli takip uygulamasının arayüzünü yeniledim; kodu ve kullanıcı verisini koruyup ekranları Material Design'a taşıdım.",
+      "Flutter ile yazılmış bir ruh hâli takip uygulamasının arayüzünü yeniledim. Kodu ve kullanıcı verisini koruyup ekranları Material Design'a taşıdım.",
     category: "Mobile",
     technologies: ["Flutter", "Firebase", "Material Design"],
     color: "from-teal-500 to-blue-500",
     image: "/assets/projects/mood-tracker/hero.webp",
     detailedDescription:
-      "Uygulamayı yeniden yazmadım, yeniledim. Kod tabanı ve kullanıcı verisi olduğu gibi kaldı; ekranları, tipografiyi, renkleri ve boşlukları tek bir düzene oturttum. Koyu temada bazı ekranlar okunmuyordu, onu da bu sırada düzelttim.",
+      "Uygulamayı yeniden yazmadım, yeniledim. Kod tabanı ve kullanıcı verisi olduğu gibi kaldı. Ekranları, tipografiyi, renkleri ve boşlukları tek düzene oturttum. Koyu temada bazı ekranlar okunmuyordu, onu da bu sırada düzelttim.",
     features: [
       "Yeni uygulama ikonu ve açılış ekranı",
       "Ekranların Material Design'a taşınması",
@@ -594,7 +594,7 @@ export const PROJECTS: Project[] = [
     technologies: ["React Native", "Expo", "AsyncStorage", "i18next", "NativeWind"],
     color: "from-emerald-500 to-teal-500",
     detailedDescription:
-      "Okul öğretmenlerinin nöbet görevlerini yönetmek için yazılmış bir mobil uygulama. Müşterinin elindeki kod birkaç büyük dosyada birikmişti; eklenen her yeni özellik başka bir yeri bozuyordu. Büyük dosyaları böldüm, tekrar eden kısımları ortak bileşenlere taşıdım, kullanılmayan kodu temizledim. Üstüne i18next ile İngilizce dil desteği ekledim.",
+      "Okul öğretmenlerinin nöbet görevlerini yönetmek için yazılmış bir mobil uygulama. Müşterinin elindeki kod birkaç büyük dosyada birikmişti. Eklenen her yeni özellik başka bir yeri bozuyordu. Büyük dosyaları böldüm, tekrar eden kısımları ortak bileşenlere taşıdım, kullanılmayan kodu temizledim. Üstüne i18next ile İngilizce dil desteği ekledim.",
     features: [
       "Karışık dosya yapısının 25'ten fazla bileşene ayrılması",
       "Tekrar eden açılır pencerelerin tek ortak bileşende toplanması",
@@ -629,7 +629,7 @@ export const PROJECTS: Project[] = [
     image: "/assets/projects/getyo-admin/hero.webp",
     caseStudy: "/vaka-calismalari/getyo",
     detailedDescription:
-      "Get Yo uygulamasının personel tarafı. Tatları, toppingleri, kategorileri, çalışma saatlerini, yorumları, geri bildirimleri, oylamayı, kullanıcıları ve bildirimleri personel buradan yönetir. Bir tadı bir kez düzenlemek yeter; mobil uygulama da dükkânın sitesi de değişikliği aynı veri tabanından okur, statik site menüyü tarayıcıda panelin açık API'sinden çeker. Personel bir tadı kaydederken bildirimi de açarsa panel yalnızca o kategoride bildirim almak isteyen müşterilerin cihazlarını seçer ve gönderimi bir sunucu fonksiyonuna bırakır. Doğum günü ödüllerini zamanlanmış bir fonksiyon gönderir, e-postalar Resend üzerinden çıkar.",
+      "Get Yo uygulamasının personel tarafı. Tatları, toppingleri, kategorileri, çalışma saatlerini, yorumları, geri bildirimleri, oylamayı, kullanıcıları ve bildirimleri personel buradan yönetir. Bir tadı bir kez düzenlemek yeter. Mobil uygulama da dükkânın sitesi de değişikliği aynı veri tabanından okur, statik site menüyü tarayıcıda panelin açık API'sinden çeker. Personel bir tadı kaydederken bildirimi de açarsa panel sadece o kategoride bildirim almak isteyen müşterilerin cihazlarını seçer ve gönderimi bir sunucu fonksiyonuna bırakır. Doğum günü ödüllerini zamanlanmış bir fonksiyon gönderir, e-postalar Resend üzerinden çıkar.",
     features: [
       "Tat menüsü: fotoğraf, kategori, sos ve alerjen bilgisi",
       "Topping stoğu ve tükendi işareti",
@@ -641,7 +641,7 @@ export const PROJECTS: Project[] = [
       "Resend ile otomatik e-posta bildirimleri",
     ],
     challenges:
-      "Personelin yaptığı tek bir düzenleme uygulamaya ve siteye aynı anda yansımalıydı; bildirimin alıcıları da gönderimden önce sunucuda süzülmeliydi. Tek şube kalınca paneldeki şube seçimini Marlboro'ya sabitledim; eski uygulama sürümleri bozulmasın diye API'nin şube alanlarına dokunmadım.",
+      "Personelin yaptığı tek bir düzenleme uygulamaya ve siteye aynı anda yansımalıydı. Bildirimin alıcıları da gönderimden önce sunucuda süzülmeliydi. Tek şube kalınca paneldeki şube seçimini Marlboro'ya sabitledim. Eski uygulama sürümleri bozulmasın diye API'nin şube alanlarına dokunmadım.",
     links: [],
     screenshots: [],
   },
@@ -657,7 +657,7 @@ export const PROJECTS: Project[] = [
     image: "/assets/projects/gmb-optimizasyonu/hero.webp",
     imageBg: "#1e1e1e",
     detailedDescription:
-      "Frozen Yogurt Cafe'nin Google işletme profilleri yarım kalmıştı: Bilgiler eksikti, fotoğrafların çözünürlüğü düşüktü, kategori yanlış seçilmişti. O dönem işletmenin iki şubesi vardı; ikisinin de eksik bilgilerini tamamladım, fotoğrafları yapay zekâ araçlarıyla iyileştirdim ve kadrajda kalan müşterilerin yüzlerini gizlilik için kapattım. Kategorileri ve anahtar kelimeleri de yerel aramaya göre yeniden seçtim.",
+      "Frozen Yogurt Cafe'nin Google işletme profilleri yarım kalmıştı: Bilgiler eksikti, fotoğrafların çözünürlüğü düşüktü, kategori yanlış seçilmişti. O dönem işletmenin iki şubesi vardı. İkisinin de eksik bilgilerini tamamladım, fotoğrafları yapay zekâ araçlarıyla iyileştirdim ve kadrajda kalan müşterilerin yüzlerini gizlilik için kapattım. Kategorileri ve anahtar kelimeleri de yerel aramaya göre yeniden seçtim.",
     features: [
       "İki şubenin eksik profil bilgilerinin tamamlanması",
       "Fotoğrafların yapay zekâ araçlarıyla iyileştirilmesi",
@@ -726,7 +726,7 @@ export const PROJECTS: Project[] = [
     image: "/assets/projects/tracker-web/hero.webp",
     imageBg: "#181d2c",
     detailedDescription:
-      "Kendi ihtiyacım için yazdım, zamanla başkalarının da kullanabileceği hâle geldi. Ödemeler ve görevler ayrı listelerde tutuluyor; son ödeme tarihi geçen bir kayıt kendiliğinden gecikmiş sayılır, ayrıca işaretlemeye gerek kalmaz. Kimin hangi kaydı göreceğine Postgres'in satır düzeyinde güvenliği (RLS) karar verir; herkes yalnızca kendi kayıtlarını görür.",
+      "Kendi ihtiyacım için yazdım, zamanla başkalarının da kullanabileceği hâle geldi. Ödemeler ve görevler ayrı listelerde tutuluyor. Son ödeme tarihi geçen bir kayıt kendiliğinden gecikmiş sayılır, ayrıca işaretlemeye gerek kalmaz. Kimin hangi kaydı göreceğine Postgres'in satır düzeyinde güvenliği (RLS) karar verir, herkes sadece kendi kayıtlarını görür.",
     features: [
       "Tutar, son ödeme tarihi ve durumla ödeme takibi",
       "Tarihi geçen ödemenin kendiliğinden gecikmiş sayılması",
@@ -753,7 +753,7 @@ export const PROJECTS: Project[] = [
     slug: "qusafe-mobile",
     title: "QuSafe: Şifreli Kasa",
     description:
-      "Parolalar ve notlar için şifreli bir kasa. Anahtar ana paroladan cihazda türetilir ve cihazdan hiç çıkmaz; sunucu yalnızca okuyamadığı şifreli veriyi saklar.",
+      "Parolalar ve notlar için şifreli bir kasa. Anahtar ana paroladan cihazda türetilir ve cihazdan hiç çıkmaz, sunucu sadece okuyamadığı şifreli veriyi saklar.",
     category: "Mobile",
     kind: "own",
     status: "live",
@@ -777,28 +777,28 @@ export const PROJECTS: Project[] = [
       image: "/assets/projects/qusafe-mobile/showcase.webp",
       alt: "QuSafe uygulamasından üç ekran: modül ekranı, parola listesi ve güvenlik ayarları",
       caption:
-        "Soldan sağa: ana ekran; örnek verilerle doldurulmuş parola listesi; biyometrik kilit ve otomatik kilit ayarlarının bulunduğu ayarlar ekranı. Bugün iki modül çalışıyor, parolalar ve notlar; ana ekrandaki diğer dört kareyi henüz yazmadım.",
+        "Soldan sağa: ana ekran, örnek verilerle doldurulmuş parola listesi, biyometrik kilit ve otomatik kilit ayarlarının bulunduğu ayarlar ekranı. Bugün iki modül çalışıyor: parolalar ve notlar. Ana ekrandaki diğer dört kareyi henüz yazmadım.",
     },
     caseStudy: "/vaka-calismalari/qusafe",
     metrics: [
       { value: "42", label: "şifreli kasa hâlâ eşitleniyor" },
       { value: "100+", label: "Google Play indirmesi" },
-      { value: "10", label: "dil, biri sağdan sola" },
+      { value: "10", label: "dil, ikisi sağdan sola" },
       { value: "636", label: "commit, 49 günde" },
     ],
     detailedDescription:
-      "Kendi uygulamam: parolalar ve özel notlar için şifreli bir kasa. Şifreleme kararlarını hazır bir kütüphaneye bırakmak yerine kendim vermek istedim. Ana parola cihazda Argon2id ile (64 MiB bellek, üç geçiş) bir anahtara dönüşür; veri AES-256-GCM ile şifrelenir ve buluta giden blok hesaba bağlanır. Biyometrik kilit ana anahtarı saklamaz: Ana anahtarı rastgele üretilen ikinci bir anahtar sarar ve cihazın güvenli deposuna yalnızca o yazılır. Kasa önce cihazdaki şifreli depoya yazar, sonra bulutla eşitlenir; sunucu veriyi okuyamaz. Aralık 2025 ile Ocak 2026 arasında 636 commit'le yazdım. Uygulama yalnızca Android'de, Google Play'de 1.4.0 sürümünde; App Store sürümü yok. Bugün iki modül çalışıyor: parolalar ve notlar. 26 Ağustos 2026 itibarıyla 42 şifreli kasa hâlâ eşitleniyordu.",
+      "Kendi uygulamam: parolalar ve özel notlar için şifreli bir kasa. Şifreleme kararlarını hazır bir kütüphaneye bırakmak yerine kendim vermek istedim. Ana parola cihazda Argon2id ile (64 MiB bellek, üç geçiş) bir anahtara dönüşür. Veri AES-256-GCM ile şifrelenir ve buluta giden blok hesaba bağlanır. Biyometrik kilit ana anahtarı saklamaz: Ana anahtarı rastgele üretilen ikinci bir anahtar sarar ve cihazın güvenli deposuna sadece o yazılır. Kasa önce cihazdaki şifreli depoya yazar, sonra bulutla eşitlenir. Sunucu veriyi okuyamaz. Aralık 2025 ile Ocak 2026 arasında 636 commit'le yazdım. Uygulama sadece Android'de, Google Play'de 1.4.0 sürümünde. App Store sürümü yok. Bugün iki modül çalışıyor: parolalar ve notlar. Hâlâ eşitlenen şifreli kasa sayısı 26 Ağustos 2026 itibarıyla 42'ydi.",
     features: [
       "Ana paroladan cihazda anahtar türetme: Argon2id, 64 MiB, üç geçiş",
-      "AES-256-GCM; buluttaki şifreli veri hesaba bağlı",
+      "AES-256-GCM, buluttaki şifreli veri hesaba bağlı",
       "Ana anahtarı saklamayan biyometrik kilit",
       "Şifreli yerel depolama ve bulutla eşitleme",
       "Parolalar ve notlar modülleri",
       "Beş yanlış ana paroladan sonra on beş dakikalık kilit",
-      "On dil, sağdan sola yazılan İbranice dâhil",
+      "On dil, sağdan sola yazılan Arapça ve İbranice dâhil",
     ],
     challenges:
-      "Sunucu veriyi okuyamadığı için buluttaki kopyanın aynı parolayla şifrelenip şifrelenmediğini söyleyemez; uygulama bloğu indirip çözmeyi dener, çözemiyorsa cevap budur. İbraniceye geçince sağdan sola düzen için yapılan anlık yeniden yükleme gerçek bir cihazda uygulamayı çökertiyordu; artık yeniden yükleme kullanıcı onay verdikten sonra ayrı bir adımda yapılıyor. Otomatik kilit “hemen” ayarındayken ödüllü reklam izleyen kullanıcı ödülünü alamadan kilit ekranına düşüyordu; reklam boyunca otomatik kilit artık duraklıyor. Açık kalan bir bulgu var: Hesap girişinde deneme sayacı yok, orayı yalnızca Supabase'in hız sınırı koruyor. Bununla birlikte hesap parolası kasayı açmadığı için etkisi sınırlı.",
+      "Sunucu veriyi okuyamadığı için buluttaki kopyanın aynı parolayla şifrelenip şifrelenmediğini söyleyemez. Uygulama bloğu indirip çözmeyi dener, çözemiyorsa cevap budur. Sağdan sola yazılan bir dile geçince düzen için yapılan anlık yeniden yükleme gerçek bir cihazda uygulamayı çökertiyordu. Artık yeniden yükleme kullanıcı onay verdikten sonra ayrı bir adımda yapılıyor. Otomatik kilit “hemen” ayarındayken ödüllü reklam izleyen kullanıcı ödülünü alamadan kilit ekranına düşüyordu. Reklam boyunca otomatik kilit artık duraklıyor. Açık kalan bir bulgu var: Hesap girişinde deneme sayacı yok, orayı sadece Supabase'in hız sınırı koruyor. Bununla birlikte hesap parolası kasayı açmadığı için etkisi sınırlı.",
     links: [
       {
         label: "Google Play",
@@ -812,7 +812,7 @@ export const PROJECTS: Project[] = [
     slug: "react-native-password-intelligence",
     title: "react-native-password-intelligence",
     description:
-      "Türkçe parolaları tanıyan parola gücü kiti. Standart ölçerlerin zayıf saymadığı mehmet1907, karakartal ya da askim34 gibi kalıpları yakalar; npm'de, MIT lisansıyla.",
+      "Türkçe parolaları tanıyan parola gücü kiti. Standart ölçerlerin zayıf saymadığı mehmet1907, karakartal ya da askim34 gibi kalıpları yakalar. MIT lisansıyla npm'de.",
     category: "Open Source",
     kind: "open-source",
     status: "live",
@@ -834,20 +834,20 @@ export const PROJECTS: Project[] = [
       { value: "0.4.1", label: "npm, provenance imzalı" },
     ],
     detailedDescription:
-      "Standart parola ölçerler password123'ü zayıf sayar ama mehmet1907, karakartal ya da askim34 gibi Türkçe kalıpları zayıf bulmaz. Bu kit zxcvbn-ts motorunu Türkçeye özgü bir katmanla sarar: adlar ve soyadları, futbol kulüpleri, şehirler ve plakalar, markalar, sevgi sözcükleri ve klavye yürüyüşleri. Çekirdeği, React bağımlılığı taşımayan ayrı bir pakete (password-intelligence) ayırdım; React Native paketi bunun üzerine bir hook ve hazır bir ölçer bileşeni ekler. 0.4.0 sürümünde tam İngilizce parola listesi yerine en sık 4.000 parolayı gömerek paketin gzip boyutunu 236 kB'tan yaklaşık 37 kB'a indirdim. Altındaki Türkçe dil paketini zxcvbn-ts'e de ben ekledim (PR #315, birleştirildi). 0.4.1 sürümü 6 Eylül 2026'da npm provenance imzasıyla yayımlandı; paket React Native Directory'de iOS, Android, Web ve Expo Go desteğiyle listeleniyor.",
+      "Standart parola ölçerler password123'ü zayıf sayar ama mehmet1907, karakartal ya da askim34 gibi Türkçe kalıpları zayıf bulmaz. Bu kit zxcvbn-ts motorunu Türkçeye özgü bir katmanla sarar: adlar ve soyadları, futbol kulüpleri, şehirler ve plakalar, markalar, sevgi sözcükleri ve klavye yürüyüşleri. Çekirdeği React bağımlılığı taşımayan ayrı bir pakete (password-intelligence) ayırdım. React Native paketi bunun üzerine bir hook ve hazır bir ölçer bileşeni ekler. Paketin gzip boyutunu 0.4.0 sürümünde tam İngilizce parola listesi yerine en sık 4.000 parolayı gömerek 236 kB'tan yaklaşık 37 kB'a indirdim. Altındaki Türkçe dil paketini zxcvbn-ts'e de ben ekledim (PR #315, birleştirildi). Paketin 0.4.1 sürümü 6 Eylül 2026'da npm provenance imzasıyla yayımlandı. React Native Directory'de iOS, Android, Web ve Expo Go desteğiyle listeleniyor.",
     features: [
       "877 kaynak terimden türetilen yaklaşık 1.260 Türkçe kayıt",
       "Adlar, soyadları, futbol kulüpleri, şehir ve plakalar, markalar, burçlar ve klavye yürüyüşleri",
       "Türkçe büyük harf onarımı: İSTANBUL34 ve ŞANLIURFA da yakalanır",
       "Türkçe uyarı ve öneri metinleri",
       "usePasswordRisk hook'u ve hazır PasswordMeter bileşeni",
-      "React'siz çekirdek paket: password-intelligence (Node, Next.js, komut satırı)",
-      "Yerel kod ya da Expo eklentisi gerektirmez; iOS, Android, Web ve Expo Go",
+      "React bağımlılığı olmayan çekirdek paket: password-intelligence (Node, Next.js, komut satırı)",
+      "Yerel kod ya da Expo eklentisi gerektirmez, iOS, Android, Web ve Expo Go'da çalışır",
       "CI'da gzip bütçesi ve yayımlanan paket içeriği denetimi",
       "npm provenance imzalı yayın",
     ],
     challenges:
-      "0.3.0 tam İngilizce parola listesini statik olarak içeri aldığı için her uygulamaya 229 kB gzip sözlük ekliyordu; Metro tree-shaking yapmadığından uygulamaların kaçışı yoktu. 0.4.0 en sık 4.000 parolayı gömüyor ve bedeli de ölçüldü: Listenin ötesindeki 1.223 gerçek sızdırılmış parolanın %3,4'ü artık 3 ya da 4 puan alıyor. Tam listeyi isteyen iki satırla geri yükleyebilir. Kütüphane istemci tarafında yalnızca puan verir, hiçbir parolayı reddetmez; NIST SP 800-63B'nin istediği engelleme listesi kontrolü sunucuda yapılmalı.",
+      "Paketin 0.3.0 sürümü tam İngilizce parola listesini statik olarak içeri aldığı için her uygulamaya 229 kB gzip sözlük ekliyordu. Metro tree-shaking yapmadığından uygulamaların kaçışı yoktu. Sürüm 0.4.0 en sık 4.000 parolayı gömüyor ve bedeli de ölçüldü: Listenin ötesindeki 1.223 gerçek sızdırılmış parolanın %3,4'ü artık 3 ya da 4 puan alıyor. Tam listeyi isteyen iki satırla geri yükleyebilir. Kütüphane istemci tarafında sadece puan verir, hiçbir parolayı reddetmez. NIST SP 800-63B'nin istediği engelleme listesi kontrolü sunucuda yapılmalı.",
     links: [
       { label: "npm", url: "https://www.npmjs.com/package/react-native-password-intelligence" },
       {
@@ -875,7 +875,7 @@ export const PROJECTS: Project[] = [
       { value: "8", label: "GitHub yıldızı" },
     ],
     detailedDescription:
-      "Xiaomi, bootloader kilidi açma başvurularını günlük bir kotayla sınırlıyor ve kota Pekin saatiyle gece yarısı sıfırlanıyor. Bu araç Xiaomi hesabınızla giriş yapar, hesabın başvuruya uygun olup olmadığını kontrol eder ve sistem saatine güvenmeden Pekin saatini NTP'den alır. Sıfırlanma anında 15 ms arayla 30 paralel istek gönderir; hepsi yaklaşık 450 ms içinde çıkar. Sonuçlar terminale ve bir günlük dosyasına yazılır. MIT lisanslı; GitHub'da 8 yıldız ve 3 fork aldı.",
+      "Xiaomi, bootloader kilidi açma başvurularını günlük bir kotayla sınırlıyor ve kota Pekin saatiyle gece yarısı sıfırlanıyor. Bu araç Xiaomi hesabınızla giriş yapar, hesabın başvuruya uygun olup olmadığını kontrol eder ve sistem saatine güvenmeden Pekin saatini NTP'den alır. Sıfırlanma anında 15 ms arayla 30 paralel istek gönderir, hepsi yaklaşık 450 ms içinde çıkar. Sonuçlar terminale ve bir günlük dosyasına yazılır. MIT lisanslı, GitHub'da 8 yıldız ve 3 fork aldı.",
     features: [
       "Xiaomi hesabıyla giriş ve hesabın başvuruya uygunluk kontrolü",
       "Yedi NTP sunucusunu sırayla deneyerek Pekin saatini alma",
