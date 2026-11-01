@@ -147,7 +147,7 @@ export const CV: CVData = {
       description:
         "Mobil ve web ürünlerini baştan sona geliştiriyorum: müşteriyle ihtiyaç analizi, geliştirme ve App Store ile Google Play'de yayın.",
       highlights: [
-        "İngilizceciyiz: Öğretmenler için belge platformunu baştan yazdım; 23K+ indirme, 3.416 öğretmenin ürettiği 28.963 belge",
+        "İngilizceciyiz: Öğretmenler için belge platformunu baştan yazdım; 23K+ indirme, 3.849 öğretmenin ürettiği 36.460 belge",
         "Get Yo: bir frozen yogurt dükkânı için mobil uygulama, yönetim paneli ve web sitesi; işletme el değiştirince alan adlarını, altyapıyı ve iki mağaza kaydını yeni sahibine devrettim",
         "Kafadar: paylaşım bağlantısı, uygulama kurulu olsa da olmasa da çalışan arkadaşlık testi; Google Play'de yayında",
         "QuSafe: anahtarı cihazda Argon2id ile türeten, veriyi AES-256-GCM ile şifreleyen kasa; Google Play'de yayında",

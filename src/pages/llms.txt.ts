@@ -37,7 +37,7 @@ export async function GET() {
 
     if (project.slug === "ingilizceciyiz") {
       impact =
-        "**23K+ indirme (App Store 13.594, Google Play 10.000+); 9 Ekim 2026 itibarıyla 6.679 öğretmen hesabı, 3.416 öğretmenin ürettiği 28.963 belge.**";
+        "**23K+ indirme (App Store 13.594, Google Play 10.000+); 1 Kasım 2026 itibarıyla 7.568 öğretmen hesabı, 3.849 öğretmenin ürettiği 36.460 belge.**";
       techDecision =
         "Platformu sıfırdan yazdım. Expo uygulamasını ve Astro'daki site ile yönetim panelini tek Turborepo deposunda topladım. Hepsi aynı SQL şemasını kullanıyor. Word belgelerini telefonda değil, sunucuda Supabase Edge Functions hazırlıyor.";
     }

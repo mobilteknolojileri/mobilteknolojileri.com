@@ -226,13 +226,13 @@ export const PROJECTS: Project[] = [
     caseStudy: "/vaka-calismalari/ingilizceciyiz",
     metrics: [
       { value: "23K+", label: "indirme" },
-      { value: "28.963", label: "üretilen belge" },
-      { value: "6.679", label: "öğretmen hesabı" },
+      { value: "36.460", label: "üretilen belge" },
+      { value: "7.568", label: "öğretmen hesabı" },
       { value: "1.069", label: "belge şablonu" },
       { value: "100", label: "PageSpeed, 4 kategori" },
     ],
     detailedDescription:
-      "Türkiye'de bir İngilizce öğretmeni her dönem bir yığın resmî evrak teslim eder: yıllık ve günlük planlar, BEP ve DYK planları, seçmeli ders planları, kulüp dosyaları, zümre ve ŞÖK tutanakları. Üstelik hepsi aynı bilgileri yeniden ister. Uygulama Eylül 2023'ten beri mağazadaydı. Ağustos 2025'te tek geliştirici olarak devraldım ve platformun tamamını sıfırdan yazdım, yeni hâli Nisan 2026'dan beri yayında. Öğretmen bilgisini bir kez girer, her resmî şablon kendi formunu üretir ve bilinen her alan dolu gelir. Belgeyi Supabase Edge Functions sunucuda hazırlar ve Word'de düzenlenebilir bir dosya olarak geri verir. Platformda 9 Ekim 2026 itibarıyla 6.679 öğretmen hesabı açıldı ve 3.416 öğretmen 28.963 belge üretti. Uygulamanın App Store'da 13.594, Google Play'de 10.000'den fazla indirmesi var.",
+      "Türkiye'de bir İngilizce öğretmeni her dönem bir yığın resmî evrak teslim eder: yıllık ve günlük planlar, BEP ve DYK planları, seçmeli ders planları, kulüp dosyaları, zümre ve ŞÖK tutanakları. Üstelik hepsi aynı bilgileri yeniden ister. Uygulama Eylül 2023'ten beri mağazadaydı. Ağustos 2025'te tek geliştirici olarak devraldım ve platformun tamamını sıfırdan yazdım, yeni hâli Nisan 2026'dan beri yayında. Öğretmen bilgisini bir kez girer, her resmî şablon kendi formunu üretir ve bilinen her alan dolu gelir. Belgeyi Supabase Edge Functions sunucuda hazırlar ve Word'de düzenlenebilir bir dosya olarak geri verir. Platformda 1 Kasım 2026 itibarıyla 7.568 öğretmen hesabı açıldı ve 3.849 öğretmen 36.460 belge üretti. Uygulamanın App Store'da 13.594, Google Play'de 10.000'den fazla indirmesi var.",
     features: [
       "Profil, sınıf ve akademik takvimden kendiliğinden dolan evrak formu",
       "Her resmî şablondan kendi formunu üreten sistem (1.069 şablon)",
