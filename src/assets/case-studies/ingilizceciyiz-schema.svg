@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 528 252" width="528" height="252" role="img" style="--w:528px">
-<title>Tek kaynak olan packages/db/schema.sql, Row Level Security kurallarını tabloların yanında tutuyor ve types.ts bu dosyadan üretiliyor; hem Expo ile yazılan apps/mobile hem Astro ile yazılan apps/web bu tipleri kullanıyor.</title>
+<title>Tek kaynak olan packages/db/schema.sql, Row Level Security kurallarını tabloların yanında tutuyor ve types.ts bu dosyadan üretiliyor. Hem Expo ile yazılan apps/mobile hem Astro ile yazılan apps/web bu tipleri kullanıyor.</title>
 <g class="cs-edges">
 <path class="cs-edge" d="M222.3 65V77Q222.3 85 214.3 85H94.5Q86.5 85 86.5 93V98"/>
 <path class="cs-arrow" d="M81.5 98L91.5 98L86.5 105Z"/>

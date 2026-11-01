@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 391 410" width="391" height="410" role="img" style="--w:391px">
-<title>Kilit açılınca uygulama buluttaki bloğu indirip ana anahtarla çözmeyi deniyor; çözebilirse kopyaları updatedAt değerine göre birleştiriyor, çözemezse sonucu yanlış ana parola olarak yorumluyor.</title>
+<title>Kilit açılınca uygulama buluttaki bloğu indirip ana anahtarla çözmeyi deniyor. Çözebilirse kopyaları updatedAt değerine göre birleştiriyor, çözemezse sonucu yanlış ana parola olarak yorumluyor.</title>
 <g class="cs-edges">
 <path class="cs-edge" d="M210.3 48V81"/>
 <path class="cs-arrow" d="M205.3 81L215.3 81L210.3 88Z"/>
@@ -22,7 +22,7 @@
 <rect class="cs-box cs-box-decision" x="146.3" y="252" width="128" height="42" rx="21"/>
 <text class="cs-title" x="210.3" y="273" text-anchor="middle" dominant-baseline="central">Çözüldü mü?</text>
 <rect class="cs-box cs-box-plain" x="6" y="362" width="205" height="42" rx="10"/>
-<text class="cs-title" x="108.5" y="383" text-anchor="middle" dominant-baseline="central">UpdatedAt'e göre birleştir</text>
+<text class="cs-title" x="108.5" y="383" text-anchor="middle" dominant-baseline="central">updatedAt'e göre birleştir</text>
 <rect class="cs-box cs-box-plain" x="239" y="362" width="146" height="42" rx="10"/>
 <text class="cs-title" x="312" y="383" text-anchor="middle" dominant-baseline="central">Yanlış ana parola</text>
 </g>

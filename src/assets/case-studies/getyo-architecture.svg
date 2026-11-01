@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 356 362" width="356" height="362" role="img" style="--w:356px">
-<title>Ziyaretçi statik frozenyogurtcafe.com sitesini açar, site /api/* isteklerini bir rewrite kuralıyla yönetim uygulamasına aktarır; yönetim uygulaması da mobil uygulama da aynı Supabase veritabanından okur.</title>
+<title>Ziyaretçi statik frozenyogurtcafe.com sitesini açar, site /api/* isteklerini bir rewrite kuralıyla yönetim uygulamasına aktarır. Yönetim uygulaması da mobil uygulama da aynı Supabase veri tabanından okur.</title>
 <g class="cs-edges">
 <path class="cs-edge" d="M100 48V81"/>
 <path class="cs-arrow" d="M95 81L105 81L100 88Z"/>

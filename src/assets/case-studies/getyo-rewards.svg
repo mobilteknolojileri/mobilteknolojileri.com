@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 371 252" width="371" height="252" role="img" style="--w:371px">
-<title>Mobil uygulama sadakat işlemleri için bearer token'ın tutulduğu 12 rewardup-* fonksiyonunu çağırır, bu fonksiyonlar RewardUp sadakat API'sine bağlanır; uygulama diğer verileri doğrudan Supabase'ten okur.</title>
+<title>Mobil uygulama sadakat işlemleri için bearer token'ın tutulduğu 12 rewardup-* fonksiyonunu çağırır, bu fonksiyonlar RewardUp sadakat API'sine bağlanır. Uygulama diğer verileri doğrudan Supabase'ten okur.</title>
 <g class="cs-edges">
 <path class="cs-edge" d="M204.3 48V60Q204.3 68 196.3 68H115.5Q107.5 68 107.5 76V81"/>
 <path class="cs-arrow" d="M102.5 81L112.5 81L107.5 88Z"/>

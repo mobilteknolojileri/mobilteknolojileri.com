@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 452 328" width="452" height="328" role="img" style="--w:452px">
-<title>Paylaşılan bağlantı açıldığında işletim sistemi uygulamanın kurulu olup olmadığına bakar: kuruluysa uygulamayı açar ve bağlantıyı native-intent yönlendirir, değilse istek siteye ulaşır ve 404 sayfası yönlendirme yapar.</title>
+<title>Paylaşılan bağlantı açıldığında işletim sistemi uygulamanın kurulu olup olmadığına bakar: Kuruluysa uygulamayı açar ve bağlantıyı native-intent yönlendirir, değilse istek siteye ulaşır ve 404 sayfası yönlendirme yapar.</title>
 <g class="cs-edges">
 <path class="cs-edge" d="M240 48V81"/>
 <path class="cs-arrow" d="M235 81L245 81L240 88Z"/>
