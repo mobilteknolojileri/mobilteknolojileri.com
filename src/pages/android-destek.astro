@@ -30,7 +30,7 @@ const HIGHLIGHTS = [
   { label: "Kurulum", value: "Bootloader kilidi açma, kurtarma, custom ROM ve root" },
   {
     label: "Çalışma şekli",
-    value: "Telefon genelde sizde kalır; gerekirse bilgisayarınız üzerinden bağlanırım",
+    value: "Telefon genelde sizde kalır, gerekirse bilgisayarınız üzerinden bağlanırım",
   },
   {
     label: "Yapmadığım",
@@ -118,27 +118,27 @@ const FAQS: FaqItem[] = [
   {
     question: "Root'lu ya da custom ROM yüklü cihaza bakıyor musunuz?",
     answer:
-      "Evet, işin büyük kısmı zaten bu cihazlardan gelir. ROM yüklenirken bir adım atlanmış, yanlış imaj yazılmış ya da kurtarma moduna dönülemiyor olabilir; bu cihazların çoğu doğru imajla ve doğru sırayla geri gelir. Kilit açıldıktan sonra banka, ödeme ve WhatsApp uygulamalarının açılmaması ayrı bir konudur. Sebebi cihazın bütünlük kontrolünü geçememesidir; bu da kilit açık kalarak ve veri kaybetmeden çözülebilir.",
+      "Evet, işin büyük kısmı zaten bu cihazlardan gelir. ROM yüklenirken bir adım atlanmış, yanlış imaj yazılmış ya da kurtarma moduna dönülemiyor olabilir. Bu cihazların çoğu doğru imajla ve doğru sırayla geri gelir. Kilit açıldıktan sonra banka, ödeme ve WhatsApp uygulamalarının açılmaması ayrı bir konudur. Sebebi cihazın bütünlük kontrolünü geçememesidir. Bu da kilit açık kalarak ve veri kaybetmeden çözülebilir.",
   },
   {
     question: "Telefonuma root ya da custom ROM kurar mısınız?",
     answer:
-      "Evet. Bootloader kilidini açar, kurtarma kurar, ROM yükler ve root'larım. Önce neleri kaybedeceğinizi konuşuruz: Garanti düşer, cihaz sıfırlanır, bazı banka ve ödeme uygulamaları çalışmayı bırakır. Her cihazda mümkün de değildir; Xiaomi'de kilit açmanın kendi şartları var. Sizin cihazınızda ne olacağını bakıp söylerim.",
+      "Evet. Bootloader kilidini açar, kurtarma kurar, ROM yükler ve root'larım. Önce neleri kaybedeceğinizi konuşuruz: Garanti düşer, cihaz sıfırlanır, bazı banka ve ödeme uygulamaları çalışmayı bırakır. Her cihazda mümkün de değildir. Xiaomi'de kilit açmanın kendi şartları var. Sizin cihazınızda ne olacağını bakıp söylerim.",
   },
   {
     question: "Verilerim silinir mi?",
     answer:
-      "Amacım silmemek; işlerin çoğu hiçbir şey silinmeden biter. Bununla birlikte bazı sorunlarda cihazı ayağa kaldırmanın tek yolu sıfırlamaktır. O noktada dururum ve önce bunu konuşuruz; siz onaylamadan veri silen bir adım atmam. Alınabilecek bir yedek varsa önce onu alırım.",
+      "Amacım silmemek. İşlerin çoğu hiçbir şey silinmeden biter. Bununla birlikte bazı sorunlarda cihazı ayağa kaldırmanın tek yolu sıfırlamaktır. O noktada dururum ve önce bunu konuşuruz. Siz onaylamadan veri silen bir adım atmam. Alınabilecek bir yedek varsa önce onu alırım.",
   },
   {
     question: "Silinen fotoğraf ve mesajlarım geri gelir mi?",
     answer:
-      "Telefonun kendi hafızasından silinenler kurtarma programlarıyla çoğu zaman geri gelmez, çünkü Android'in deposu şifrelidir ve telefon boşalan yeri kendiliğinden temizler. Geri gelen, fotoğrafın başka yerdeki bir kopyasıdır: çöp kutuları, Google Fotoğraflar, sohbet uygulamaları, eski telefon ya da bilgisayar. Mesajlarda da bakılacak yer yedek ve karşı taraftır. Taşınabilir depolama olarak kullanılan hafıza kartı istisnadır; karta yeni bir şey yazılmadıysa şans vardır. Açılmayan telefon ise ayrı bir durum: Açılmaması verinin silindiği anlamına gelmez ve iş ona yeniden ulaşmaktır.",
+      "Telefonun kendi hafızasından silinenler kurtarma programlarıyla çoğu zaman geri gelmez, çünkü Android'in deposu şifrelidir ve telefon boşalan yeri kendiliğinden temizler. Geri gelen, fotoğrafın başka yerdeki bir kopyasıdır: çöp kutuları, Google Fotoğraflar, sohbet uygulamaları, eski telefon ya da bilgisayar. Mesajlarda da bakılacak yer yedek ve karşı taraftır. Taşınabilir depolama olarak kullanılan hafıza kartı istisnadır. Karta yeni bir şey yazılmadıysa şans vardır. Açılmayan telefon ise ayrı bir durum: Açılmaması verinin silindiği anlamına gelmez ve iş ona yeniden ulaşmaktır.",
   },
   {
     question: 'WhatsApp "resmi uygulamaya sahip olmanız gerekir" diyor, hesabım kapanır mı?',
     answer:
-      "Hayır. Bootloader kilidi açık cihazlarda Play Store'dan indirilen resmî uygulama da bu mesajı verir. Hesabınıza bir şey olmaz, yalnızca o cihazdan giriş yapamazsınız. Sebep cihazın bütünlük kontrolünü geçememesidir; banka, ödeme ve oyun uygulamaları da aynı yerde takılır. Sorun, kilidi kapatmadan ve veri kaybetmeden çözülebilir. Yapılabilecek en kötü şey, mesajı görüp dışarıdan kurulum dosyası indirmektir: O kopya gerçekten resmî değildir ve hesabın yasaklanma riski orada başlar.",
+      "Hayır. Bootloader kilidi açık cihazlarda Play Store'dan indirilen resmî uygulama da bu mesajı verir. Hesabınıza bir şey olmaz, sadece o cihazdan giriş yapamazsınız. Sebep cihazın bütünlük kontrolünü geçememesidir. Banka, ödeme ve oyun uygulamaları da aynı yerde takılır. Sorun, kilidi kapatmadan ve veri kaybetmeden çözülebilir. Yapılabilecek en kötü şey, mesajı görüp dışarıdan kurulum dosyası indirmektir: O kopya gerçekten resmî değildir ve hesabın yasaklanma riski orada başlar.",
   },
   {
     question: "Cihazı göndermem gerekiyor mu?",
@@ -148,7 +148,7 @@ const FAQS: FaqItem[] = [
   {
     question: "Ücret nasıl belirleniyor?",
     answer:
-      "Sabit bir fiyat listem yok, çünkü aynı belirtinin arkasından beş dakikalık da yarım günlük de bir iş çıkabilir. Sorunun ne olduğu anlaşılınca fiyatı söylerim; siz onaylamadan işe başlamam. Kapsam büyürse yeniden konuşuruz; sonradan habersiz ücret eklenmez.",
+      "Sabit bir fiyat listem yok, çünkü aynı belirtinin arkasından beş dakikalık da yarım günlük de bir iş çıkabilir. Sorunun ne olduğu anlaşılınca fiyatı söylerim. Siz onaylamadan işe başlamam. Kapsam büyürse yeniden konuşuruz, sonradan habersiz ücret eklenmez.",
   },
 ];
 
@@ -181,7 +181,7 @@ const guides = (
       root'lanmış ya da custom ROM yüklenmiş cihazlar dâhil. Çoğu yerin "siz bozmuşsunuz" deyip geri
       verdiği cihazlar bunlar.
     </p>
-    <p>Her sorun telefon sizdeyken çözülmez; hangisinin öyle olduğunu en başta söylerim.</p>
+    <p>Her sorun telefon sizdeyken çözülmez. Hangisinin öyle olduğunu en başta söylerim.</p>
     <p>
       Sorunları cihazın neresinde çıktıklarına göre sıraladım. Hakkında yazı olan bir soruna
       dokunursanız o yazı açılır.
@@ -226,16 +226,16 @@ const guides = (
       Kurulumu da yaparım: kilidi açmak, kurtarma kurmak, ROM yüklemek, root'lamak. Önce neleri
       kaybedeceğinizi konuşuruz. Garanti düşer, cihaz sıfırlanır, bazı banka ve ödeme uygulamaları
       çalışmayı bırakır. Xiaomi'de kilit açmanın kendi şartları var. Bunları duyup vazgeçen de
-      oluyor; bu da aslında iyi bir sonuç.
+      oluyor, bu da aslında iyi bir sonuç.
     </p>
     <p>
       Kurulumdan sonra en sık gelen durum şu: ROM yüklenirken bir adım atlanmış ve cihaz artık
       açılmıyor. Bu cihazların çoğu doğru imajla ve doğru sırayla geri gelir. Ne yaptığınızı olduğu
-      gibi yazmanız yeter; bir şeyi bozmuş olmak sorun değil, saklamak sorun.
+      gibi yazmanız yeter. Bir şeyi bozmuş olmak sorun değil, saklamak sorun.
     </p>
     <p>
       Kilit açıldıktan sonra banka, ödeme ve WhatsApp açılmıyorsa sebep hepsinde aynı: Cihaz
-      bütünlük kontrolünü geçemiyor. Çoğu kilidi kapatmadan ve veri kaybetmeden çözülür. İki sınırı
+      bütünlük kontrolünü geçemiyor. Çoğu, kilidi kapatmadan ve veri kaybetmeden çözülür. İki sınırı
       baştan söyleyeyim. Telefonla temassız ödeme çoğunlukla geri gelmez. Kontroller de
       güncellemelerle değişir, dolayısıyla bugün geçen bir cihaz aylar sonra yeniden takılabilir.
     </p>
@@ -244,7 +244,7 @@ const guides = (
   <ProseSection title="Veri kaybı ve kurtarma" tinted>
     <p>
       Açılmayan telefonda veri genelde silinmemiştir, hâlâ cihazın içindedir. Yapılacak iş ona
-      yeniden ulaşmaktır. Önceliğim de veriyi korumak; işlerin büyük kısmı tek bir dosya silinmeden
+      yeniden ulaşmaktır. Önceliğim de veriyi korumak. İşlerin büyük kısmı tek bir dosya silinmeden
       biter. Telefonu açmanın tek yolu sıfırlamaksa orada durur, önce sizinle konuşurum. Onayınız
       olmadan veri silen bir adım atmam.
     </p>
@@ -260,7 +260,7 @@ const guides = (
 
   <Steps
     title="Nasıl ilerliyor"
-    lead="Kabloyla yapılacak bir iş çıkarsa telefonu yanınızdaki bir bilgisayara takmanız gerekir; bilgisayar yoksa cihazı Gaziantep'e gönderirsiniz."
+    lead="Kabloyla yapılacak bir iş çıkarsa telefonu yanınızdaki bir bilgisayara takmanız gerekir. Bilgisayar yoksa cihazı Gaziantep'e gönderirsiniz."
     steps={STEPS}
   />
 

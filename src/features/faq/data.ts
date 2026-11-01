@@ -17,7 +17,7 @@ export const FAQ_DATA: FaqItem[] = [
   {
     question: "Hangi teknolojilerle çalışıyorsunuz?",
     answer:
-      "Mobil uygulamada genellikle React Native ve Expo ya da Flutter, web tarafında Astro, Next.js ve Supabase kullanırım. Seçimi projenin ihtiyacına göre yaparım; hangi projede neyi kullandığımı portfolyoda görebilirsiniz.",
+      "Mobil uygulamada genellikle React Native ve Expo ya da Flutter, web tarafında Astro, Next.js ve Supabase kullanırım. Seçimi projenin ihtiyacına göre yaparım. Hangi projede neyi kullandığımı portfolyoda görebilirsiniz.",
   },
   {
     question: "Arama motoru optimizasyonu (SEO) dâhil mi?",
@@ -27,6 +27,6 @@ export const FAQ_DATA: FaqItem[] = [
   {
     question: "Teslimden sonra destek veriyor musunuz?",
     answer:
-      "Evet. Teslimden sonra da hata düzeltme, güncelleme ve bakım işlerine bakarım. İsterseniz düzenli bir bakım anlaşması yaparız, isterseniz yalnızca ihtiyaç olduğunda çalışırız.",
+      "Evet. Teslimden sonra da hata düzeltme, güncelleme ve bakım işlerine bakarım. İsterseniz düzenli bir bakım anlaşması yaparız, isterseniz sadece ihtiyaç olduğunda çalışırız.",
   },
 ];
