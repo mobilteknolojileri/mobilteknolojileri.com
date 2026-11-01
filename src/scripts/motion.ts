@@ -243,7 +243,8 @@ function setupTouch() {
           entry.target.classList.toggle("is-centered", entry.isIntersecting);
         }
       },
-      { rootMargin: "-45% 0px -45% 0px" },
+      // A thin line: cards that sit close together must not light up in pairs
+      { rootMargin: "-49.5% 0px -49.5% 0px" },
     );
     // Cards in a swipe row are lit by setupCarousels instead
     document.querySelectorAll(".card-interactive").forEach((card) => {

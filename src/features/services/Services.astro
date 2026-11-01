@@ -2,16 +2,15 @@
 import { BionlukIcon } from "@/components/icons/brands";
 import SectionHeader from "@/components/ui/SectionHeader.astro";
 import Stars from "@/components/ui/Stars.astro";
-import SwipeRow from "@/components/ui/SwipeRow.astro";
 import { SITE_CONFIG } from "@/config/site";
+import { smallImageSrcset } from "@/lib/images";
 
 const BIONLUK = SITE_CONFIG.links.bionluk;
 
-// Ratings are from each Bionluk listing. 3D icons: Fluent Emoji (MIT, see public/assets/icons/3d).
+// Ratings and covers come from each Bionluk listing.
 const SERVICES = [
   {
-    icon: "/assets/icons/3d/rocket.webp",
-    glow: "139 92 246",
+    cover: "mobil-uygulama",
     check: "text-violet-600 dark:text-violet-300",
     title: "Mobil uygulama",
     lead: "Önce neyin yapılacağını birlikte yazıya dökeriz. Tasarım, geliştirme, mağazaya yükleme ve yayından sonraki güncellemeler bende.",
@@ -34,8 +33,7 @@ const SERVICES = [
     },
   },
   {
-    icon: "/assets/icons/3d/globe.webp",
-    glow: "14 165 233",
+    cover: "web-sitesi",
     check: "text-sky-600 dark:text-sky-300",
     title: "Web sitesi ve web uygulaması",
     lead: "Tanıtım sitesi de yaparım, giriş ekranı ve paneli olan bir web uygulaması da. Hız ve teknik SEO işin baştan parçası.",
@@ -57,8 +55,7 @@ const SERVICES = [
     },
   },
   {
-    icon: "/assets/icons/3d/robot.webp",
-    glow: "16 185 129",
+    cover: "android-destek",
     check: "text-emerald-600 dark:text-emerald-300",
     title: "Android yazılım desteği",
     lead: "Telefonun donanımı çoğu zaman sağlamdır, sorun yazılımdadır. Ben yazılım tarafına bakarım; çözemeyeceğim bir şeyse bunu en başta söylerim.",
@@ -82,52 +79,63 @@ const SERVICES = [
   },
 ];
 
-// Other Bionluk listings. A card opens the contact form with its title as the subject.
+// The other Bionluk listings, the ones a visitor understands at a glance first. A card opens the
+// contact form with its label as the subject. The title is the headline drawn on the cover, and
+// the card's only text.
 const OTHER_GIGS = [
   {
-    label: "Build ve çalışma hataları",
-    image: "build-hatalari",
-    slug: "mobil-uygulamanizdaki-build-ve-calisma-hatalarini-gideririm-785733",
+    label: "SEO ve GEO",
+    title: "Google'da Öne Çıkın",
+    image: "seo-geo",
+    slug: "SEO-ve-GEO-optimizasyonu-yapiyorum-799949",
   },
   {
     label: "Siteyi mobil uygulamaya dönüştürme",
+    title: "Web Sitenizi Mobil Uygulamaya Dönüştürürüm",
     image: "siteden-mobil-uygulama",
     slug: "web-sitenizi-profesyonel-bir-mobil-uygulamaya-donustururum-774332",
   },
   {
-    label: "Masaüstü uygulama",
-    image: "masaustu-uygulama",
-    slug: "ihtiyaciniza-ozel-masaustu-uygulamalar-gelistiririm-785804",
-  },
-  {
-    label: "Lisans ve aktivasyon sistemi",
-    image: "lisans-aktivasyon",
-    slug: "yaziliminiza-lisans-ve-aktivasyon-sistemi-entegre-ederim-789604",
-  },
-  {
-    label: "İş süreci otomasyonu",
-    image: "surec-otomasyonu",
-    slug: "dijital-is-sureclerinizi-otomatiklestiririm-871618",
-  },
-  {
     label: "Excel ve veri aktarımı otomasyonu",
+    title: "Excel İşlem Otomasyonu",
     image: "excel-otomasyonu",
     slug: "Excel-islemlerinizi-ve-veri-aktarimini-otomatiklestiririm-785807",
   },
   {
-    label: "YOLO ile görüntü işleme",
-    image: "yolo-goruntu-isleme",
-    slug: "YOLO-tabanli-goruntu-isleme-projelerinizi-gelistiririm-789609",
+    label: "Masaüstü uygulama",
+    title: "Özel Masaüstü Uygulamalar",
+    image: "masaustu-uygulama",
+    slug: "ihtiyaciniza-ozel-masaustu-uygulamalar-gelistiririm-785804",
+  },
+  {
+    label: "İş süreci otomasyonu",
+    title: "Dijital Süreçleri Otomatikleştiririm",
+    image: "surec-otomasyonu",
+    slug: "dijital-is-sureclerinizi-otomatiklestiririm-871618",
+  },
+  {
+    label: "Build ve çalışma hataları",
+    title: "Mobil Uygulama Build Hatalarını Gideririm",
+    image: "build-hatalari",
+    slug: "mobil-uygulamanizdaki-build-ve-calisma-hatalarini-gideririm-785733",
+  },
+  {
+    label: "Lisans ve aktivasyon sistemi",
+    title: "Yazılımınıza Lisans ve Aktivasyon Sistemi Entegre Ederim",
+    image: "lisans-aktivasyon",
+    slug: "yaziliminiza-lisans-ve-aktivasyon-sistemi-entegre-ederim-789604",
   },
   {
     label: "Jetson Nano ve Arduino",
+    title: "Gömülü Sistem Entegrasyonu",
     image: "jetson-arduino",
     slug: "Jetson-Nano-ve-Arduino-projelerinizi-kodlarim-789615",
   },
   {
-    label: "SEO ve GEO",
-    image: "seo-geo",
-    slug: "SEO-ve-GEO-optimizasyonu-yapiyorum-799949",
+    label: "YOLO ile görüntü işleme",
+    title: "YOLO Görüntü İşleme",
+    image: "yolo-goruntu-isleme",
+    slug: "YOLO-tabanli-goruntu-isleme-projelerinizi-gelistiririm-789609",
   },
 ];
 ---
@@ -137,128 +145,128 @@ const OTHER_GIGS = [
     <SectionHeader
       eyebrow="Hizmetler"
       title="Neler yapıyorum"
-      lead="Üç alanda çalışıyorum. Her birinin ayrıntısı ve örnek işleri kendi sayfasında."
+      lead="Bir ilanı seçin, mesajınız o konuyla başlasın."
     />
 
-    <div class="mt-14 grid gap-6 lg:grid-cols-3">
-      {SERVICES.map(({ icon, glow, check, title, lead, rows, href, linkLabel, gig }) => (
-        <article class="card-interactive group flex flex-col p-7 sm:p-8" data-reveal>
-          <div class="text-center">
-            <div class="relative mx-auto size-20">
-              <span
-                aria-hidden="true"
-                class="absolute -inset-5 rounded-full opacity-70 transition-opacity duration-500 group-lit:opacity-100"
-                style={`background: radial-gradient(closest-side, rgb(${glow} / 0.38), transparent)`}
-              />
-              <img
-                src={icon}
-                alt=""
-                width="160"
-                height="160"
-                loading="lazy"
-                decoding="async"
-                class="relative size-20 transition-transform duration-500 ease-out group-lit:-translate-y-1 group-lit:-rotate-3 group-lit:scale-110"
-              />
-            </div>
-            <h3 class="text-heading mt-5 text-xl font-bold tracking-tight">{title}</h3>
-            <p class="text-body mt-3 leading-relaxed">{lead}</p>
-          </div>
-          <dl class="mt-6 space-y-4 border-t border-gray-100 pt-6 dark:border-dark-700">
-            {rows.map((row) => (
-              <div>
-                <dt class="text-heading flex items-center gap-2.5 text-sm font-semibold">
-                  <svg
-                    class:list={["h-4 w-4 flex-none", check]}
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2.5"
-                    aria-hidden="true"
-                  >
-                    <path d="M20 6 9 17l-5-5" />
-                  </svg>
-                  {row.label}
-                </dt>
-                <dd class="text-muted mt-1 pl-6.5 text-sm leading-relaxed">{row.value}</dd>
-              </div>
-            ))}
-          </dl>
-          <div class="mt-auto flex flex-col items-center gap-1 pt-6 text-center">
-            <a href={href} class="link inline-flex items-center gap-1.5 py-1.5 text-sm">
-              {linkLabel}
-              <span aria-hidden="true">→</span>
-            </a>
-            <a
-              href={gig.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-muted inline-flex items-center gap-1.5 py-2 text-xs font-medium transition-colors hover:text-gray-900 dark:hover:text-white"
-            >
-              <BionlukIcon size={13} className="flex-none" />
-              <span class="text-heading font-semibold">5,0</span>
-              <Stars count={1} class="-ml-0.5 text-[0.8rem]" />· Bionluk ilanında {gig.reviews}{" "}
-              değerlendirme
-              <span aria-hidden="true">↗</span>
-            </a>
-          </div>
-        </article>
-      ))}
+    <div class="mt-12 flex flex-wrap items-end justify-between gap-x-6 gap-y-2" data-reveal>
+      <h3 class="text-heading flex items-center gap-2.5 text-lg font-bold tracking-tight">
+        <BionlukIcon size={17} />
+        Bionluk'taki ilanlarım
+      </h3>
+      <a href={BIONLUK} target="_blank" rel="noopener noreferrer" class="link py-1.5 text-sm">
+        Bionluk profilim <span aria-hidden="true">↗</span>
+      </a>
     </div>
-
-    <div class="mt-16">
-      <div class="flex flex-wrap items-end justify-between gap-x-6 gap-y-2" data-reveal>
-        <h3 class="text-heading flex items-center gap-2.5 text-lg font-bold tracking-tight">
-          <BionlukIcon size={17} />
-          Bionluk'taki diğer ilanlarım
-        </h3>
-        <a href={BIONLUK} target="_blank" rel="noopener noreferrer" class="link py-1.5 text-sm">
-          Bionluk profilim <span aria-hidden="true">↗</span>
-        </a>
-      </div>
-      <SwipeRow
-        label="Bionluk ilanları"
-        count={OTHER_GIGS.length}
-        until="md"
-        class="mt-5 md:mx-0 md:grid md:grid-cols-3 md:gap-5 md:overflow-visible md:px-0 md:pt-0 md:pb-0"
-      >
-        {OTHER_GIGS.map((item) => (
-          <li class="w-[72%] flex-none snap-start md:w-auto" data-reveal>
+    <ul class="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
+      {OTHER_GIGS.map((item) => {
+        const src = `/assets/bionluk/${item.image}.webp`;
+        return (
+          <li data-reveal>
             <a
               href="/#contact"
               data-contact-subject={item.label}
-              class="card-interactive group flex h-full flex-col overflow-hidden"
+              class="card-interactive group block overflow-hidden"
             >
               <span class="block aspect-video overflow-hidden bg-slate-100 dark:bg-dark-900">
                 <img
-                  src={`/assets/bionluk/${item.image}.webp`}
-                  alt=""
-                  width="640"
-                  height="360"
+                  src={src}
+                  srcset={smallImageSrcset(src, 1200)}
+                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 92vw"
+                  alt={item.title}
+                  width="1200"
+                  height="675"
                   loading="lazy"
                   decoding="async"
-                  class="h-full w-full object-cover transition duration-700 ease-out group-lit:scale-105"
+                  class="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-105"
                 />
-              </span>
-              <span class="flex flex-1 items-center justify-between gap-3 px-4 py-3.5">
-                <span class="text-heading text-sm font-semibold">{item.label}</span>
-                <span
-                  aria-hidden="true"
-                  class="text-gray-400 transition duration-300 group-lit:translate-x-1 group-lit:text-gold-600 dark:group-lit:text-gold-300"
-                >
-                  →
-                </span>
               </span>
             </a>
           </li>
-        ))}
-      </SwipeRow>
-      <p class="text-body mt-6 text-sm md:mt-8" data-reveal>
-        Gaziantep'teyseniz yüz yüze de görüşebiliriz:{" "}
-        <a href="/gaziantep-freelancer" class="link">
-          Gaziantep'te freelancer
-        </a>
+        );
+      })}
+    </ul>
+
+    <div class="mt-16" data-reveal>
+      <h3 class="text-heading text-lg font-bold tracking-tight">Ana hizmetlerim</h3>
+      <p class="text-body mt-2">
+        Üç alanda çalışıyorum. Her birinin ayrıntısı ve örnek işleri kendi sayfasında.
       </p>
     </div>
+
+    <div class="mt-8 grid gap-6 lg:grid-cols-3">
+      {SERVICES.map(({ cover, check, title, lead, rows, href, linkLabel, gig }) => {
+        const src = `/assets/bionluk/${cover}.webp`;
+        return (
+          <article class="card-interactive group flex flex-col overflow-hidden" data-reveal>
+            <span class="block aspect-video overflow-hidden bg-slate-100 dark:bg-dark-900">
+              <img
+                src={src}
+                srcset={smallImageSrcset(src, 1200)}
+                sizes="(min-width: 1024px) 33vw, 92vw"
+                alt=""
+                width="1200"
+                height="675"
+                loading="lazy"
+                decoding="async"
+                class="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-105"
+              />
+            </span>
+            <div class="flex flex-1 flex-col p-7 sm:p-8">
+              <div class="text-center">
+                <h4 class="text-heading text-xl font-bold tracking-tight">{title}</h4>
+                <p class="text-body mt-3 leading-relaxed">{lead}</p>
+              </div>
+              <dl class="mt-6 space-y-4 border-t border-gray-100 pt-6 dark:border-dark-700">
+                {rows.map((row) => (
+                  <div>
+                    <dt class="text-heading flex items-center gap-2.5 text-sm font-semibold">
+                      <svg
+                        class:list={["h-4 w-4 flex-none", check]}
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                        aria-hidden="true"
+                      >
+                        <path d="M20 6 9 17l-5-5" />
+                      </svg>
+                      {row.label}
+                    </dt>
+                    <dd class="text-muted mt-1 pl-6.5 text-sm leading-relaxed">{row.value}</dd>
+                  </div>
+                ))}
+              </dl>
+              <div class="mt-auto flex flex-col items-center gap-1 pt-6 text-center">
+                <a href={href} class="link inline-flex items-center gap-1.5 py-1.5 text-sm">
+                  {linkLabel}
+                  <span aria-hidden="true">→</span>
+                </a>
+                <a
+                  href={gig.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-muted inline-flex items-center gap-1.5 py-2 text-xs font-medium transition-colors hover:text-gray-900 dark:hover:text-white"
+                >
+                  <BionlukIcon size={13} className="flex-none" />
+                  <span class="text-heading font-semibold">5,0</span>
+                  <Stars count={1} class="-ml-0.5 text-[0.8rem]" />· Bionluk ilanında {gig.reviews}{" "}
+                  değerlendirme
+                  <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </div>
+          </article>
+        );
+      })}
+    </div>
+
+    <p class="text-body mt-8 text-sm" data-reveal>
+      Gaziantep'teyseniz yüz yüze de görüşebiliriz:{" "}
+      <a href="/gaziantep-freelancer" class="link">
+        {" "}
+        Gaziantep'te freelancer{" "}
+      </a>
+    </p>
   </div>
 </section>
 
