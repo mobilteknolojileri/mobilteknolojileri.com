@@ -1,6 +1,7 @@
 ---
 title: "Astro SEO İçin 10 Maddelik Teknik Kontrol Listesi"
 description: "Astro ile yaptığım siteleri yayına almadan önce kullandığım teknik SEO kontrol listesi: canonical, sitemap, görseller, meta etiketleri, yapılandırılmış veri ve performans için 10 madde."
+seoDescription: "Astro sitelerini yayına almadan önce baktığım teknik SEO listesi: canonical, sitemap, görseller, meta etiketleri, yapılandırılmış veri ve performans için 10 madde."
 date: 2026-02-15
 updated: 2026-10-07
 tags: ["seo checklist", "astro", "teknik seo", "web performans"]

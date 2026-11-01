@@ -8,7 +8,11 @@ const blog = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/blog" }),
   schema: z.object({
     title: z.string().min(30).max(90),
+    /** Replaces the title in the head when it is too long for a search result */
+    seoTitle: z.string().min(30).max(58).optional(),
     description: z.string().min(80).max(220),
+    /** Replaces the description in the head; the description stays the page's lead */
+    seoDescription: z.string().min(80).max(165).optional(),
     date: z.date(),
     updated: z.date().optional(),
     tags: z.array(z.string().min(2).max(40)).min(2).max(8),
@@ -35,7 +39,7 @@ const caseStudies = defineCollection({
   loader: glob({ pattern: "**/*.mdx", base: "./src/content/case-studies" }),
   schema: z.object({
     title: z.string().min(2).max(40),
-    seoTitle: z.string().min(30).max(65),
+    seoTitle: z.string().min(30).max(58),
     description: z.string().min(110).max(160),
     summary: z.string().min(20).max(170),
     lead: z.string().min(20).max(420),

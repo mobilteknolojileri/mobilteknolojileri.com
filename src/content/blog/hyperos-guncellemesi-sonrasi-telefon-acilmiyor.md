@@ -1,6 +1,8 @@
 ---
 title: "HyperOS Güncellemesinden Sonra Telefon Açılmıyor: Verilerim Gider mi?"
+seoTitle: "HyperOS Güncellemesi Sonrası Telefon Açılmıyor"
 description: "Güncelleme yarıda kaldı, telefon logoda takılı. Bunun ne demek olduğunu, verilerin çoğu zaman neden silinmediğini, kurtarma menüsünde neye dokunmamanız gerektiğini ve hangi noktadan sonra işin bana kaldığını yazdım."
+seoDescription: "Güncelleme yarıda kaldı, telefon logoda takılı. Verilerin neden çoğu zaman silinmediğini ve kurtarma menüsünde neye dokunmamanız gerektiğini yazdım."
 date: 2026-08-26
 updated: 2026-10-07
 tags: ["android", "xiaomi", "hyperos", "güncelleme", "açılmayan telefon", "veri kurtarma"]

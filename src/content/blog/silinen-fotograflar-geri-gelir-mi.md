@@ -1,6 +1,7 @@
 ---
 title: "Silinen Fotoğraflar Geri Gelir mi, Nereye Bakmalısınız?"
 description: "Telefonun hafızasından silinen fotoğraf çoğu zaman geri gelmez; geri gelen, başka yerdeki kopyasıdır. Nereye bakacağınızı, ne zaman gerçekten şansınız olduğunu ve fotoğrafın hâlâ yerinde olduğu tek durumu yazdım."
+seoDescription: "Telefonun hafızasından silinen fotoğraf çoğu zaman geri gelmez, geri gelen başka yerdeki kopyasıdır. Nereye bakacağınızı ve ne zaman şansınız olduğunu yazdım."
 date: 2026-08-29
 updated: 2026-10-07
 tags: ["android", "silinen fotoğraf", "veri kurtarma", "çöp kutusu", "hafıza kartı", "yedek"]

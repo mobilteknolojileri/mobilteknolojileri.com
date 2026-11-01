@@ -1,6 +1,7 @@
 ---
 title: "Gaziantep Web Sitesi Yapımı: Planlama ve Yayımlama"
 description: "Gaziantep'teki işletmeler için web sitesi yapımını adım adım anlattım: sitenin hedefi, site yapısı, altyapı seçimi, içerik planı, geliştirme ve yayından sonraki bakım."
+seoDescription: "Gaziantep'teki işletmeler için web sitesi yapımını adım adım anlattım: hedef, site yapısı, altyapı seçimi, içerik planı, geliştirme ve yayından sonraki bakım."
 date: 2026-02-15
 updated: 2026-10-07
 tags: ["gaziantep web tasarım", "web sitesi yapımı", "dijital strateji", "astro"]

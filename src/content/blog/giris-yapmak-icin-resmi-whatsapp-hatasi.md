@@ -1,6 +1,8 @@
 ---
 title: "Giriş Yapmak İçin Resmi WhatsApp Uygulamasına Sahip Olmanız Gerekir Hatası"
+seoTitle: "Resmi WhatsApp Uygulamasına Sahip Olmanız Gerekir Hatası"
 description: "Play Store'dan indirdiğiniz WhatsApp giriş yaptırmıyor. Sebep uygulamada değil, telefonda: Bootloader kilidi açıkken cihaz doğrulamadan geçemiyor. Hesabınıza bir şey olmaz, banka uygulamaları da aynı yerde takılır."
+seoDescription: "Play Store'dan indirdiğiniz WhatsApp giriş yaptırmıyor. Sebep telefonda: Bootloader kilidi açıkken cihaz doğrulamadan geçemiyor. Hesabınıza bir şey olmaz."
 date: 2026-08-26
 updated: 2026-10-07
 tags: ["android", "whatsapp", "bootloader", "root", "custom rom", "xiaomi"]

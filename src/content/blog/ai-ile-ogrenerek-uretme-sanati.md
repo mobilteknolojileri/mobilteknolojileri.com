@@ -1,6 +1,7 @@
 ---
 title: "Tutorial Hell'den Çıkış: AI ile Öğrenerek Üretmek"
 description: "Saatlerce eğitim izleyip hiçbir şey üretememe döngüsünü kırmak için yapay zekâyı nasıl kullandığımı yazdım: yalnızca kod yazdıran bir araç olarak değil, mimariyi birlikte düşündüğüm bir mentor olarak."
+seoDescription: "Eğitim izleyip üretememe döngüsünü yapay zekâyla nasıl kırdığımı yazdım: yalnızca kod yazdıran bir araç olarak değil, mimariyi birlikte düşündüğüm bir mentor olarak."
 date: 2026-03-22
 updated: 2026-10-07
 tags: ["ai", "öğrenme", "yazılım", "verimlilik", "kariyer"]

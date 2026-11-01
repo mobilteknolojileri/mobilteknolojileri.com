@@ -1,6 +1,7 @@
 ---
 title: "Standart Parola Ölçerlerin Atladığı: mehmet1907 Sorunu"
 description: "Standart zxcvbn, mehmet1907 gibi Türkçe kalıpları zayıf saymıyor. 2.564 gerçek parolanın %30'unun kırıldığı çalışmayı, 5 milyonu aşkın sızıntı verisini ve noktalı/noktasız I sorununun çözümünü yazdım."
+seoDescription: "Standart zxcvbn, mehmet1907 gibi Türkçe kalıpları zayıf saymıyor. 2.564 parolanın %30'unun kırıldığı çalışmayı ve noktalı/noktasız I sorununun çözümünü yazdım."
 date: 2026-05-03
 updated: 2026-10-07
 tags:

@@ -1,6 +1,7 @@
 ---
 title: "Geliştirici Blogları İçin Markdown Şablonu ve SEO"
 description: "Teknik yazılarımda okumayı kolaylaştırmak ve SEO'ya katkı sağlamak için kullandığım Markdown kalıpları. Yeni bir yazıya başlarken kopyaladığım şablon da yazının sonunda."
+seoDescription: "Teknik yazılarımda okumayı kolaylaştırmak ve SEO'ya katkı sağlamak için kullandığım Markdown kalıpları. Başlarken kopyaladığım şablon da yazının sonunda."
 date: 2026-03-22
 updated: 2026-10-07
 tags: ["markdown", "astro", "blog-sablonu", "seo", "teknik-yazarlik"]

@@ -1,6 +1,7 @@
 ---
 title: "Astro SEO: Trailing Slash '/' Sorunu ve Çözümü"
 description: "Astro ile yaptığım sitemde 39 sayfanın yalnızca 3'ü Google'da dizine girmişti. Sebep, sitemap ile canonical etiketi arasındaki trailing slash farkıydı. Sorunu nasıl bulup çözdüğümü anlatıyorum."
+seoDescription: "Astro sitemde 39 sayfanın yalnızca 3'ü Google'da dizine girmişti. Sebep, sitemap ile canonical arasındaki trailing slash farkıydı. Nasıl bulup çözdüğümü anlatıyorum."
 date: 2026-03-22
 updated: 2026-10-07
 tags: ["seo", "astro", "trailing slash", "google indexing", "case study", "vaka analizi"]

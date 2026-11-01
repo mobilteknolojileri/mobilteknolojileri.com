@@ -152,7 +152,7 @@ export const aesteraMetadata: Metadata = generateMetadata({
 });
 
 export const kafadarMetadata: Metadata = generateMetadata({
-  title: "Kafadar: Arkadaşlık Testi",
+  title: "Kafadar: Arkadaşlık Testi Uygulaması",
   description:
     "Kendiniz hakkında bir test hazırlayın, bağlantısını arkadaşlarınıza gönderin ve sizi kimin ne kadar tanıdığını görün. Android için arkadaşlık testi uygulaması.",
   path: "/kafadar",

@@ -1,6 +1,7 @@
 ---
 title: "EmailJS ve Vercel Üzerinde Environment Variable Sorunları"
 description: "Vercel'de EmailJS değişkenlerinin PUBLIC_ ve NEXT_PUBLIC_ ön ekleri karışınca iletişim formum canlıda “The public key is required” hatası verdi. Sorunun iki sebebini ve çözümünü yazdım."
+seoDescription: "Vercel'de EmailJS'in PUBLIC_ ve NEXT_PUBLIC_ ön ekleri karışınca iletişim formum “The public key is required” hatası verdi. İki sebebini ve çözümünü yazdım."
 date: 2026-03-10
 updated: 2026-10-07
 tags: ["emailjs", "vercel", "environment-variables", "astro", "bug-fix"]

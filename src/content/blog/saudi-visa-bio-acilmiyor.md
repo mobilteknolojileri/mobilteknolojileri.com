@@ -1,6 +1,8 @@
 ---
 title: "Saudi Visa Bio Açılmıyor: Hangi Sorun Sizde, Hangisi Uygulamada"
+seoTitle: "Saudi Visa Bio Açılmıyor: Sorun Sizde mi, Uygulamada mı?"
 description: "Hac ve umre vizesinde ilk adım bu uygulama ve kaydı kimse sizin yerinize yapamaz. Uygulama hiç açılmıyorsa sebep telefonda olabilir; parmak izini okumuyorsa genelde değildir. İkisini ayırt etmek zaman kazandırır."
+seoDescription: "Hac ve umre vizesinde ilk adım bu uygulama. Hiç açılmıyorsa sebep telefonda olabilir, parmak izini okumuyorsa genelde değildir. İkisini ayırt etmek zaman kazandırır."
 date: 2026-08-26
 updated: 2026-10-07
 tags: ["android", "saudi visa bio", "umre", "hac", "biyometrik kayıt", "cihaz doğrulama"]

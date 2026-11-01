@@ -1,6 +1,7 @@
 ---
 title: "Banka Uygulaması Açılmıyor: Cihazınız Güvenli Değil Hatası"
 description: "Banka uygulaması açılmıyor, 'cihazınız güvenli değil' diyor, banka da bir sorun görmüyor. Aynı anda oyunlar, yayın uygulamaları ve bazı resmî uygulamalar da bozulduysa sebep tek: Telefon kendini doğrulayamıyor."
+seoDescription: "Banka uygulaması 'cihazınız güvenli değil' diyor, banka sorun görmüyor. Oyunlar ve bazı resmî uygulamalar da bozulduysa sebep tek: Telefon kendini doğrulayamıyor."
 date: 2026-08-26
 updated: 2026-10-07
 tags: ["android", "banka uygulaması", "bootloader", "root", "custom rom", "cihaz doğrulama"]
