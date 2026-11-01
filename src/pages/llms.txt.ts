@@ -39,13 +39,13 @@ export async function GET() {
       impact =
         "**23K+ indirme (App Store 13.594, Google Play 10.000+); 9 Ekim 2026 itibarıyla 6.679 öğretmen hesabı, 3.416 öğretmenin ürettiği 28.963 belge.**";
       techDecision =
-        "Platformu sıfırdan yazdım. Expo uygulamasını ve Astro'daki site ile yönetim panelini tek bir Turborepo deposunda topladım; hepsi aynı SQL şemasını kullanıyor. Word belgelerini telefonda değil, sunucuda Supabase Edge Functions hazırlıyor.";
+        "Platformu sıfırdan yazdım. Expo uygulamasını ve Astro'daki site ile yönetim panelini tek Turborepo deposunda topladım. Hepsi aynı SQL şemasını kullanıyor. Word belgelerini telefonda değil, sunucuda Supabase Edge Functions hazırlıyor.";
     }
     if (project.slug === "getyo-mobile") {
       impact =
-        "**App Store ve Google Play'de yayında; işletme Nisan 2026'da el değiştirdi ve teknik devri ben yaptım.**";
+        "**App Store ve Google Play'de yayında. İşletme Nisan 2026'da el değiştirdi ve teknik devri ben yaptım.**";
       techDecision =
-        "Sadakat sağlayıcısının API anahtarını uygulamaya koymak yerine 12 tek işlevli sunucu fonksiyonu yazdım; anahtar telefona hiç inmiyor.";
+        "Sadakat sağlayıcısının API anahtarını uygulamaya koymak yerine 12 tek işlevli sunucu fonksiyonu yazdım. Anahtar telefona hiç inmiyor.";
     }
     if (project.slug === "kafadar-mobile") {
       impact = "**8 Mart 2026'dan beri Google Play'de.**";
@@ -57,14 +57,14 @@ export async function GET() {
         "Siteyi Readdy'den çıkarıp önce Next.js'e, Mart 2026'da statik Astro'ya taşıdım; menü yönetim panelinin açık API'sinden canlı geliyor. PageSpeed Insights mobil puanları: performans 100, erişilebilirlik 96, en iyi uygulamalar 100, SEO 100.";
     }
     if (project.slug === "qusafe-mobile") {
-      impact = "**Google Play'de 1.4.0 sürümünde; 42 şifreli kasa hâlâ eşitleniyor.**";
+      impact = "**Google Play'de 1.4.0 sürümünde, 42 şifreli kasa hâlâ eşitleniyor.**";
       techDecision =
-        "Anahtar ana paroladan cihazda Argon2id ile türetiliyor ve cihazdan çıkmıyor; sunucu yalnızca okuyamadığı AES-256-GCM şifreli veriyi saklıyor.";
+        "Anahtar ana paroladan cihazda Argon2id ile türetiliyor ve cihazdan çıkmıyor. Sunucu sadece okuyamadığı AES-256-GCM şifreli veriyi saklıyor.";
     }
     if (project.slug === "react-native-password-intelligence") {
       impact = "**npm'de 0.4.1, provenance imzalı; React Native Directory'de listeleniyor.**";
       techDecision =
-        "Tam İngilizce parola listesi yerine en sık 4.000 parolayı gömerek paketin gzip boyutunu 236 kB'tan yaklaşık 37 kB'a indirdim; çekirdeği React'siz ayrı bir pakete ayırdım.";
+        "Tam İngilizce parola listesi yerine en sık 4.000 parolayı gömerek paketin gzip boyutunu 236 kB'tan yaklaşık 37 kB'a indirdim. Çekirdeği React bağımlılığı olmayan ayrı bir pakete ayırdım.";
     }
     if (project.slug === "xiaomi-bootloader-unlocker") {
       techDecision =
@@ -90,8 +90,8 @@ Ekip de taşeron da yok: Kapsamdan mağazaya çıkışa, sonrasına kadar muhata
 
 ## Çalışma biçimi
 - **Uçtan uca:** Tasarım, frontend, backend ve yayına alma (deploy) işini tek başıma yaparım; muhatabınız tek kişidir.
-- **Yayındaki işler:** Demo projelerle sınırlı kalmadım; müşteriler için yayında çalışan sistemler kurdum. Örnekleri aşağıdaki Projeler bölümünde.
-- **Kısa karar zinciri:** Tek kişi olduğum için araya onay zinciri girmez; dolayısıyla geri bildirimi doğrudan koda yansıtırım.
+- **Yayındaki işler:** Demo projelerle sınırlı kalmadım, müşteriler için yayında çalışan sistemler kurdum. Örnekleri aşağıdaki Projeler bölümünde.
+- **Kısa karar zinciri:** Tek kişi olduğum için araya onay zinciri girmez. Dolayısıyla geri bildirimi doğrudan koda yansıtırım.
 - **Araçlar:** Bugün en çok Astro, React, Expo ve Supabase ile çalışıyorum.
 - **Mimari ve planlama:** Kod yazmadan önce ihtiyacı ve veri modelini çıkarır, gerekirse teknik araştırma yaparım. Yapıyı, ürünün ileride büyüyebileceğini hesaba katarak kurarım.
 - **Yayına alma:** Projeyi Vercel'de, Docker'la ya da Hetzner gibi bir VPS'te yayına alırım; güncellemeler için CI/CD kurarım.

@@ -20,7 +20,7 @@ export function getPersonSchema(locale: string = SITE_CONFIG.locale) {
     jobTitle: locale === "tr" ? "Full Stack Yazılım Geliştirici" : "Full Stack Software Developer",
     description:
       locale === "tr"
-        ? "Freelance yazılım geliştirici. Mobil uygulama ve web sitesi geliştirir, Android telefonlarda yazılım desteği verir. 30'dan fazla proje teslim etti; React Native, Flutter, Astro ve Next.js ile çalışır."
+        ? "Freelance yazılım geliştirici. Mobil uygulama ve web sitesi geliştirir, Android telefonlarda yazılım desteği verir. Bugüne kadar 30'dan fazla proje teslim etti; React Native, Flutter, Astro ve Next.js ile çalışır."
         : "Freelance software developer building mobile apps and websites, and providing Android software support. 30+ delivered projects; works with React Native, Flutter, Astro and Next.js.",
     knowsAbout: [
       "Flutter Development",
