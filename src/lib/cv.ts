@@ -65,7 +65,7 @@ export const CV: CVData = {
     location: "Türkiye",
     github: "https://github.com/mobilteknolojileri",
     npm: "https://www.npmjs.com/~mobilteknolojileri",
-    website: "https://goldsword.dev",
+    website: "https://mobilteknolojileri.com",
   },
   highlights: [
     {

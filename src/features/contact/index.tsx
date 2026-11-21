@@ -154,7 +154,7 @@ const Contact = ({ emailjsConfig }: ContactProps) => {
     const message = `Konu: ${TOPICS[topic].label}\n\n${trimmedMessage}`;
 
     const openMailApp = (note: string) => {
-      const subject = encodeURIComponent(`goldsword.dev üzerinden mesaj: ${trimmedName}`);
+      const subject = encodeURIComponent(`mobilteknolojileri.com üzerinden mesaj: ${trimmedName}`);
       const body = encodeURIComponent(`${message}\n\n${trimmedName} <${trimmedEmail}>`);
       window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
       setSubmitStatus({ type: "success", message: note });

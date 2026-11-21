@@ -13,7 +13,7 @@
     "fix": "eslint \"src/**/*.{ts,tsx,astro}\" --fix && prettier --ignore-path .gitignore --ignore-path .prettierignore --ignore-path .git/info/exclude --write \"**/*.{astro,tsx,ts,md,mdx,json,css,mjs}\" && astro check",
     "lighthouse": "npx --yes @unlighthouse/cli@^0.19.1 --site http://localhost:4321",
     "lighthouse:ci": "npx --yes -p @unlighthouse/cli@^0.19.1 unlighthouse-ci --site http://localhost:4321",
-    "lighthouse:live": "npx --yes @unlighthouse/cli@^0.19.1 --site https://goldsword.dev",
+    "lighthouse:live": "npx --yes @unlighthouse/cli@^0.19.1 --site https://mobilteknolojileri.com",
     "validate": "npm run check"
   },
   "dependencies": {
@@ -41,7 +41,6 @@
     "@types/react-dom": "^19.2.3",
     "@typescript-eslint/eslint-plugin": "^8.71.1",
     "@typescript-eslint/parser": "^8.71.1",
-    "@vercel/analytics": "^2.0.1",
     "eslint": "^10.0.3",
     "eslint-plugin-astro": "^3.2.1",
     "eslint-plugin-react-hooks": "^7.1.1",

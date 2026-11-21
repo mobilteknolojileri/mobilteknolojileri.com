@@ -3,7 +3,7 @@ import { CATEGORY_LABELS } from "@/config/portfolio";
 import { PROJECTS, type Project } from "@/lib/constants";
 
 export async function GET() {
-  const BASE_URL = import.meta.env.PUBLIC_SITE_URL || "https://goldsword.dev";
+  const BASE_URL = import.meta.env.PUBLIC_SITE_URL || "https://mobilteknolojileri.com";
 
   const posts = await getCollection("blog", ({ data }) => {
     return data.draft !== true;
@@ -81,7 +81,7 @@ ${techDecision ? `- **Teknik karar**: ${techDecision}\n` : ""}${project.caseStud
 
   const projectList = projects.map(formatProject).join("\n\n");
 
-  const content = `# goldsword.dev
+  const content = `# mobilteknolojileri.com
 
 ## Geliştirici hakkında
 **Ağırlıklı olarak mobil uygulama ve SaaS ürünleri geliştiriyorum.** Gaziantep'te yaşayan, full-stack çalışan freelance bir yazılım geliştiriciyim; 30'dan fazla ticari projede geliştirme yaptım. Projeyi fikir aşamasından yayına kadar tek başıma götürürüm.

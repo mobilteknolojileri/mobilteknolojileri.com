@@ -52,7 +52,7 @@ import { defineConfig } from "astro/config";
 export default defineConfig({
   output: "static",
   trailingSlash: "never", // Asıl ayar bu satır
-  site: "https://goldsword.dev",
+  site: "https://mobilteknolojileri.com",
   // ...diğer ayarlar
 });
 ```

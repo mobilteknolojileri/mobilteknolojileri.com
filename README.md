@@ -1,8 +1,8 @@
-# goldsword.dev
+# mobilteknolojileri.com
 
-Source of [goldsword.dev](https://goldsword.dev), my portfolio and Turkish blog. I build mobile apps and websites and help with software problems on Android phones; the site shows that work, the case studies behind it and a few guides.
+Source of [mobilteknolojileri.com](https://mobilteknolojileri.com), my portfolio and Turkish blog. I build mobile apps and websites and help with software problems on Android phones; the site shows that work, the case studies behind it and a few guides.
 
-It's a static Astro 7 site styled with Tailwind CSS 4. React 19 is only used for the two interactive parts (the contact form and the password strength demo), and the case studies are written in MDX. Hosted on Vercel.
+It's a static Astro 7 site styled with Tailwind CSS 4. React 19 is only used for the two interactive parts (the contact form and the password strength demo), and the case studies are written in MDX. Hosted on Cloudflare Workers.
 
 ## Running it
 
@@ -28,7 +28,7 @@ Nothing is required. With these set, the contact form sends mail through EmailJS
 PUBLIC_EMAILJS_SERVICE_ID=
 PUBLIC_EMAILJS_TEMPLATE_ID=
 PUBLIC_EMAILJS_PUBLIC_KEY=
-PUBLIC_SITE_URL=https://goldsword.dev
+PUBLIC_SITE_URL=https://mobilteknolojileri.com
 PUBLIC_GOOGLE_VERIFICATION=
 PUBLIC_BING_VERIFICATION=
 PUBLIC_YANDEX_VERIFICATION=

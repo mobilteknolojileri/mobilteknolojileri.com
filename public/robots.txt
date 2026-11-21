@@ -18,4 +18,4 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://goldsword.dev/sitemap-index.xml
+Sitemap: https://mobilteknolojileri.com/sitemap-index.xml

@@ -8,7 +8,7 @@ import tailwindcss from "@tailwindcss/vite";
 const UNLISTED_PATHS = new Set(["/cv"]);
 
 export default defineConfig({
-  site: "https://goldsword.dev",
+  site: "https://mobilteknolojileri.com",
   output: "static",
   trailingSlash: "never",
   // The default ("jsx") drops the space between inline elements on separate lines

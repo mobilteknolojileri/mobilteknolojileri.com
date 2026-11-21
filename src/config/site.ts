@@ -3,7 +3,7 @@ export const SITE_CONFIG = {
   titleSuffix: "| goldsword",
   description:
     "Gaziantep'te freelance yazılım geliştiriciyim. Mobil uygulama, web tasarım ve teknik SEO işlerini baştan sona ben yaparım; Android yazılım desteği de veririm.",
-  url: "https://goldsword.dev",
+  url: "https://mobilteknolojileri.com",
   author: "goldsword",
   locale: "tr",
   links: {

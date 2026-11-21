@@ -28,7 +28,7 @@ Sitemap entegrasyonu dosyayı build sürecinin en sonunda yazar. Dolayısıyla d
 import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
-  site: "https://goldsword.dev", // Sondaki slash olmamalı
+  site: "https://mobilteknolojileri.com", // Sondaki slash olmamalı
   integrations: [sitemap()],
 });
 ```
@@ -41,7 +41,7 @@ Sitemap adresini `robots.txt` dosyasına da yazın. Google, sitemap'i Search Con
 User-agent: *
 Allow: /
 
-Sitemap: https://goldsword.dev/sitemap-index.xml
+Sitemap: https://mobilteknolojileri.com/sitemap-index.xml
 ```
 
 ## `trailingSlash` ayarı ve yönlendirmeler
