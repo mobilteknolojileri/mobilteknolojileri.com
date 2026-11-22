@@ -1,21 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /api/
-Disallow: /admin/
-Disallow: /private/
-Disallow: /opengraph-image
-Disallow: /_next/
-
-# GPTBot - OpenAI
-User-agent: GPTBot
-Allow: /
-
-# Google-Extended - Gemini/SGE
-User-agent: Google-Extended
-Allow: /
-
-# CCBot - Common Crawl
-User-agent: CCBot
-Allow: /
 
 Sitemap: https://mobilteknolojileri.com/sitemap-index.xml
