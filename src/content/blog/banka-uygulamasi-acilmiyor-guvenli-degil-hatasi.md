@@ -64,7 +64,7 @@ Hepsi cihaza aynı soruyu sorar ama her biri bunu başka bir belirtiyle belli ed
 
 **Yayın ve abonelik uygulamaları.** Burada durum biraz farklı: Uygulama çoğu zaman açılıyor ama görüntü düşük çözünürlükte kalıyor, bazı içerikler hiç oynamıyor ya da uygulama mağazada aranınca hiç çıkmıyor.
 
-**Resmî kimlik ve biyometri uygulamaları.** Bu grup doğrulamayı en sıkı isteyenlerden. Tipik örnek, vize başvurusunda kullanılan biyometrik kayıt uygulamalarının açılır açılmaz kapanması. Umre ve hac başvurusunda bu adım atlanamadığı için iş bir de zamanla yarışa döner.
+**Resmî kimlik ve biyometri uygulamaları.** Bu grup doğrulamayı en sıkı isteyenlerden. Tipik örnek, vize başvurusunda kullanılan biyometrik kayıt uygulamalarının açılır açılmaz kapanması. Umre ve hac başvurusunda bu adım atlanamadığı için iş bir de zamanla yarışa döner. [e-Devlet uygulamasının açılmamasını](/blog/e-devlet-uygulamasi-acilmiyor) ayrı yazdım.
 
 WhatsApp da aynı yerde takılıyor ama bunu kendi diliyle söylüyor. [O mesajın ne anlama geldiğini ayrı yazdım](/blog/giris-yapmak-icin-resmi-whatsapp-hatasi).
 
@@ -105,7 +105,7 @@ Bununla birlikte telefonu ikinci el aldıysanız ve üstündeki ROM'u kimin kurd
 
 ## Kalan iş ne
 
-Yaptığım iş, telefonu bu kontrolden geçer hâle getirmek.
+Yaptığım iş, telefonu bu kontrolden geçer hâle getirmek. Hangi uygulamanın neye baktığını [kilidi açık telefonda uygulamalar yazısında](/blog/bootloader-kilidi-acik-telefonda-uygulamalar) ayrıntılı anlattım.
 
 Kilit açık kalır. Telefonda ne varsa yerinde kalır; cihaz sıfırlanmaz, verileriniz gitmez. Kaynak düzelince uygulamaların çoğu da tek tek uğraşmadan birlikte düzelir.
 

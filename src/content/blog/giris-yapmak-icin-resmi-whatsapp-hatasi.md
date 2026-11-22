@@ -4,7 +4,7 @@ seoTitle: "Resmi WhatsApp Uygulamasına Sahip Olmanız Gerekir Hatası"
 description: "Play Store'dan indirdiğiniz WhatsApp giriş yaptırmıyor. Sebep uygulamada değil, telefonda: Bootloader kilidi açıkken cihaz doğrulamadan geçemiyor. Hesabınıza bir şey olmaz, banka uygulamaları da aynı yerde takılır."
 seoDescription: "Play Store'dan indirdiğiniz WhatsApp giriş yaptırmıyor. Sebep telefonda: Bootloader kilidi açıkken cihaz doğrulamadan geçemiyor. Hesabınıza bir şey olmaz."
 date: 2026-08-26
-updated: 2026-10-07
+updated: 2026-11-22
 tags: ["android", "whatsapp", "bootloader", "root", "custom rom", "xiaomi"]
 category: "android"
 draft: false
@@ -21,6 +21,10 @@ faq:
     answer: "Evet, sebep aynı. Banka ve ödeme uygulamaları ile bazı oyunlar cihaza aynı soruyu sorar ve aynı yerde takılır. WhatsApp'taki mesaj resmî uygulamadan bahsettiği için ayrı bir sorun sanılıyor, ama değil. Bu yüzden biri düzeltilince ötekiler de çoğu zaman onunla birlikte düzelir."
   - question: "Telefonu ikinci elden aldım, kilidin açık olduğunu nereden bileyim?"
     answer: "Açılışta kısa bir uyarı ekranı geçiyorsa ya da telefon stok görünmesine rağmen bu tür uygulamalar açılmıyorsa kilit büyük ihtimalle açıktır. İkinci el telefonlarda satıcının ROM yükleyip sonra kilidi kapatmadığı durumlara sık rastlanır. Modeli ve birkaç ekran görüntüsünü gönderirseniz bakıp söylerim."
+  - question: "Telefonum Play Protect sertifikalı değil, WhatsApp hesabım yasaklanır mı?"
+    answer: "WhatsApp'ın yardım sayfalarında sertifikasız telefonların yasaklandığı yazmıyor. Sayfalar yasağı resmî olmayan uygulamalara bağlıyor. Yine de sertifikasız telefonlarda giriş sorunu ve oturum kapanması anlatan kullanıcılar var. Sebebi kesin söyleyemem, önce telefonun durumuna ve uygulamanın sürümüne bakmak gerekir."
+  - question: "Çin sürümü ya da custom ROM'lu telefonda WhatsApp neden sürekli sorun çıkarıyor?"
+    answer: "Bu telefonların bir kısmı Play Protect sertifikasız çıkar, bir kısmının da kilidi açıktır. WhatsApp bu durumda cihaz bildirimine güvenmeyebilir ya da giriş yarıda kalabilir. Hangisinin olduğu telefona göre değişir. Ayarlardan sertifika durumuna bakmak ilk adım olur."
 intent: "troubleshooting"
 ---
 
@@ -76,6 +80,18 @@ Dolayısıyla bu sorunlar tek tek çözülmez, kaynak düzeltilince çoğu zaman
 Kilidi kendiniz açtıysanız bunu zaten biliyorsunuz. Öte yandan ikinci el telefonlarda kilit sık sık açık gelir: Satıcı ya da önceki sahibi ROM yüklemiş, sonra kilidi kapatmamıştır. Telefon dışarıdan stok, yani hiç dokunulmamış gibi görünür. Uygulamalar ise öyle olmadığını bilir.
 
 Açılışta kısa bir uyarı ekranı geçiyorsa ilk işaret budur. Emin değilseniz modeli ve birkaç ekran görüntüsünü gönderin, bakıp söyleyeyim.
+
+## Telefon Play Protect sertifikalı değilse
+
+Kilit açık değilken de benzer bir tablo çıkabilir. Çin sürümü bir telefon, sahte ya da özel (custom) bir ROM kurulu telefon, Google'ın sertifikasını taşımayabilir. Play Store'u açıp profil simgesi, Ayarlar, Hakkında ve Play Protect sertifikası yolundan durumu görebilirsiniz. "Cihaz sertifikalı değil" yazıyorsa telefon bu gruptadır. [Ne anlama geldiğini ayrı yazdım](/blog/cihaz-play-protect-sertifikali-degil).
+
+WhatsApp bu konuda ne diyor, bunu ayırmak gerekiyor. Yardım Merkezi'nde "Giriş yapmak için resmi WhatsApp uygulamasına ihtiyacınız var" mesajı da oturumun kapanması da resmî olmayan uygulamalara bağlanıyor. Bu uygulamaların Hizmet Koşulları'nı ihlal ettiği, hesabın geçici ya da kalıcı olarak engellenebileceği ve bağlı cihaz özelliğinin kısıtlanabileceği yazıyor. Sertifikasız telefonların engellendiğine dair bir cümle bulamadım.
+
+Öte yandan kullanıcılar, sertifikasız telefonlarda girişin yarıda kaldığını ya da hesabın tekrar tekrar engellendiğini anlatıyor. Bu şikâyetle ben de karşılaşıyorum. Telefonun sertifikasızlığı yasağın sebebi mi, yoksa o telefona kurulan uygulama ya da sistem yazılımı mı, bunu dışarıdan kesin söyleyemem. WhatsApp da açıklamıyor. Dolayısıyla bunu kesin bilgi değil, bildirilen bir durum olarak okuyun.
+
+Telefonda GB WhatsApp gibi bir kopya ya da kaynağı belirsiz bir kurulum varsa yasağın asıl adayı odur, WhatsApp'ın kendi sayfaları da bunu söylüyor. Telefonun sertifika durumu ayrı bir soru. [Sahte ROM'un nasıl anlaşıldığını](/blog/fake-rom-nasil-anlasilir) ve [kilidi açık telefonlarda uygulamaların neden bozulduğunu](/blog/bootloader-kilidi-acik-telefonda-uygulamalar) ayrı yazılarda anlattım.
+
+Hesabınız engellendiyse WhatsApp'ın sayfası, resmî olmayan uygulamada ısrar edilirse engelin kalıcı olabileceğini söylüyor. Telefonun durumunu netleştirmeden aynı telefonda tekrar tekrar denemeyin.
 
 ## Kalan iş ne
 
