@@ -9,6 +9,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "check:markdown": "node scripts/check-markdown.mjs",
     "check": "astro check && eslint \"src/**/*.{ts,tsx,astro}\" && prettier --ignore-path .gitignore --ignore-path .prettierignore --ignore-path .git/info/exclude --check \"**/*.{astro,tsx,ts,md,mdx,json,css,mjs}\"",
     "fix": "eslint \"src/**/*.{ts,tsx,astro}\" --fix && prettier --ignore-path .gitignore --ignore-path .prettierignore --ignore-path .git/info/exclude --write \"**/*.{astro,tsx,ts,md,mdx,json,css,mjs}\" && astro check",
     "lighthouse": "npx --yes @unlighthouse/cli@^0.19.1 --site http://localhost:4321",
@@ -48,7 +49,8 @@
     "prettier-plugin-astro": "^1.1.0",
     "prettier-plugin-tailwindcss": "^0.8.1",
     "tailwindcss": "^4.3.3",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "ultrahtml": "^1.7.0"
   },
   "overrides": {
     "postcss-selector-parser": "^7.1.6",
