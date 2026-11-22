@@ -1,9 +1,10 @@
 ---
 title: "Banka Uygulaması Açılmıyor: Cihazınız Güvenli Değil Hatası"
 description: "Banka uygulaması açılmıyor, 'cihazınız güvenli değil' diyor, banka da bir sorun görmüyor. Aynı anda oyunlar, yayın uygulamaları ve bazı resmî uygulamalar da bozulduysa sebep tek: Telefon kendini doğrulayamıyor."
-seoDescription: "Banka uygulaması 'cihazınız güvenli değil' diyor, banka sorun görmüyor. Oyunlar ve bazı resmî uygulamalar da bozulduysa sebep tek: Telefon kendini doğrulayamıyor."
+seoTitle: "Telefonda Banka Uygulaması Açılmıyor: Sebepler ve Çözüm"
+seoDescription: "Banka uygulaması açılmıyor ya da 'cihazınız güvenli değil' mi diyor? Önce beş kısa kontrol, sonra root, ROM ve ikinci el telefonlarda asıl sebep ve çözümü."
 date: 2026-08-26
-updated: 2026-10-07
+updated: 2026-11-22
 tags: ["android", "banka uygulaması", "bootloader", "root", "custom rom", "cihaz doğrulama"]
 category: "android"
 draft: false
@@ -31,7 +32,19 @@ Bankayı arıyorsunuz. Onlar bir sorun görmüyor: Hesap açık, kart açık, ka
 
 Sorun bankada değil, telefonda. Büyük ihtimalle telefona ne olduğunu da bilmiyorsunuz.
 
-## Önce şunu ayırın: Sorun telefonunuzda mı, bankanın sunucusunda mı
+## Önce beş kısa kontrol
+
+Uygulama hiçbir uyarı göstermeden açılmıyorsa sebep her zaman bu yazının konusu olan doğrulama sorunu olmaz. Aşağıdakiler birkaç dakika sürer ve sorunların bir kısmını tek başına çözer.
+
+1. Uygulamayı Google Play'den güncelleyin. Bankalar eski sürümleri bir süre sonra kabul etmez.
+2. Tarih ve saati otomatiğe alın. Uygulama bankanın sunucusuyla şifreli bağlantı kurarken telefonun saatine bakar, saat yanlışsa bağlantı kurulmaz.
+3. Google Play Hizmetleri'ni güncelleyin. Cihaz doğrulaması bu bileşen üzerinden yapılır. Play Store'da adını aratıp güncelleme varsa yükleyin.
+4. VPN'i ve geliştirici seçeneklerini kapatın. Bazı banka uygulamaları ikisinden biri açıkken çalışmayı reddeder.
+5. Telefon yurt dışından geldiyse IMEI kaydına bakın. Kaydı yapılmamış telefon bir süre sonra şebekeden düşer, girişte gelen SMS şifresi de bu yüzden ulaşmaz. Durumu e-Devlet'teki IMEI sorgulamasından görebilirsiniz.
+
+Bunlardan sonra uygulama hâlâ açılmıyorsa, "cihazınız güvenli değil" diyorsa ya da başka uygulamalar da bozulduysa sebep büyük ihtimalle bu yazının geri kalanında anlattığım şey.
+
+## Sorun telefonunuzda mı, bankanın sunucusunda mı
 
 Bunu birkaç dakikada anlayabilirsiniz ve cevap, sonrasını tamamen değiştirir.
 
