@@ -49,9 +49,9 @@ Ekranda ne gördüğünüz sorunun yarısını söyler. Üstelik ayırt etmek i�
 
 **Logo geliyor, ekran kararıyor, logo yine geliyor.** Buna açılış döngüsü denir. Sistem başlıyor, bir hata alıyor, kendini yeniden başlatıyor, aynı hatayı yine alıyor.
 
-**Siyah ekranda İngilizce bir menü.** Bu kurtarma modu. Kötü haber gibi görünür ama aslında iyi haberdir: Cihaz bir şey çalıştırabiliyor demektir.
+**Siyah ekranda İngilizce bir menü.** Bu kurtarma modu. Kötü haber gibi görünür ama aslında iyi haberdir: Cihaz bir şey çalıştırabiliyor demektir. Xiaomi bu ekrana Main Menu der, [seçeneklerini ayrı yazdım](/blog/xiaomi-main-menu-ekraninda-kaldi). Altında kırmızı "NV data is corrupted" yazısı varsa [o ayrı bir hata](/blog/nv-data-is-corrupted-hatasi).
 
-**Küçük yazılar, bir çizim ve `fastboot` kelimesi.** Bu, cihazın alt seviye modlarından biri. Buraya düşen telefonların çoğu geri gelir, çünkü bu modda cihazla konuşulabilir.
+**Küçük yazılar, bir çizim ve `fastboot` kelimesi.** Bu, cihazın alt seviye modlarından biri. Buraya düşen telefonların çoğu geri gelir, çünkü bu modda cihazla konuşulabilir. [Fastboot ekranını ayrıca anlattım](/blog/xiaomi-fastboot-ekraninda-kaldi).
 
 **Telefonun açılış yolu:**
 
