@@ -2,7 +2,7 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { getCollection, render } from "astro:content";
 import { generateMetadata } from "@/lib/seo/metadata";
-import { getBlogFAQSchema, getBlogPostingSchema } from "@/lib/seo/schema";
+import { getBlogFAQSchema, getBlogPostingSchema, getBreadcrumbSchema } from "@/lib/seo/schema";
 import {
   getCategoryBadge,
   getLocalizedCategory,
@@ -90,9 +90,15 @@ const blogSchema = getBlogPostingSchema({
   deviceModel: entry.data.deviceModel,
 });
 
+const breadcrumb = getBreadcrumbSchema([
+  { name: "Ana sayfa", url: SITE_CONFIG.url },
+  { name: "Blog", url: `${SITE_CONFIG.url}/blog` },
+  { name: entry.data.title, url: `${SITE_CONFIG.url}/blog/${entry.id}` },
+]);
+
 // FAQ schema only for the questions shown on the page
 const faqSchema = faq.length ? getBlogFAQSchema(faq) : undefined;
-const extraSchemas = faqSchema ? [blogSchema, faqSchema] : [blogSchema];
+const extraSchemas = faqSchema ? [blogSchema, breadcrumb, faqSchema] : [blogSchema, breadcrumb];
 ---
 
 <BaseLayout {...metadata} extraSchemas={extraSchemas}>
