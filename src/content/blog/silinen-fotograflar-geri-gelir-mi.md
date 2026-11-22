@@ -9,7 +9,7 @@ category: "android"
 draft: false
 faq:
   - question: "Silinen fotoğraflar kurtarma programıyla geri gelir mi?"
-    answer: "Telefonun kendi hafızasından silinenler için çoğu zaman hayır. Android'in deposu şifrelidir ve telefon boşalan yeri kendiliğinden temizler. Bu programların bilgisayar diskinde aradığı 'silinmiş dosyanın kalıntısı' telefonda okunabilir hâlde kalmaz. Buldukları şey genelde galerinin küçük ön izleme kopyaları ya da bir uygulamanın kendi klasöründe unuttuğu düşük çözünürlüklü bir kopyadır. Hatıra olarak işe yarayabilir ama aslının yerini tutmaz."
+    answer: "Telefonun kendi hafızasından silinenler için çoğu zaman hayır. Android'in deposu şifrelidir ve telefon boşalan yeri kendiliğinden temizler. Bu programların bilgisayar diskinde aradığı “silinmiş dosyanın kalıntısı” telefonda okunabilir hâlde kalmaz. Buldukları şey genelde galerinin küçük ön izleme kopyaları ya da bir uygulamanın kendi klasöründe unuttuğu düşük çözünürlüklü bir kopyadır. Hatıra olarak işe yarayabilir ama aslının yerini tutmaz."
   - question: "Fotoğrafları geri getirmek için telefonu sıfırlamalı mıyım?"
     answer: "Hayır, tam tersi. Sıfırlama silinen fotoğrafı geri getirmez, telefonda kalan her şeyi de siler ve modern cihazlarda bunu geri dönüşü olmayacak şekilde yapar. Fotoğraf ararken atabileceğiniz en kötü adım budur. Sıfırlamayı öneren bir tarif okuduysanız o tarif başka bir sorun için yazılmıştır."
   - question: "Galerinin çöp kutusuna baktım, boş. Başka nereye bakabilirim?"
@@ -19,7 +19,7 @@ faq:
   - question: "Telefonum açılmıyor, fotoğraflarım silindi mi?"
     answer: "Bu ayrı bir sorun ve cevabı genelde hayır. Telefonun açılmaması fotoğrafların silindiği anlamına gelmez. Sistem tarafı bozulmuş olsa da dosyalarınız başka bir bölümde duruyor olabilir. Silinmiş fotoğraf başka, ulaşılamayan fotoğraf başka. Ulaşılamayan fotoğraf için yapılacak bir iş var."
   - question: "Fotoğrafları kurtarabileceğini söyleyen yerlere para vermeli miyim?"
-    answer: "Ödemeden önce tek bir şey isteyin: Kurtardığını söylediği fotoğrafın tam boyutlu hâlini göstersin. Ücretli yazılımlar ve bazı yerler küçük ön izlemeleri bulup 'bulundu' der. Para ödendikten sonra elinizde o bulanık kopyalar kalır. Aslını gösteremiyorsa elinde de yoktur."
+    answer: "Ödemeden önce tek bir şey isteyin: Kurtardığını söylediği fotoğrafın tam boyutlu hâlini göstersin. Ücretli yazılımlar ve bazı yerler küçük ön izlemeleri bulup “bulundu” der. Para ödendikten sonra elinizde o bulanık kopyalar kalır. Aslını gösteremiyorsa elinde de yoktur."
   - question: "WhatsApp'tan silinen fotoğraf geri gelir mi?"
     answer: "Telefondan silindiyse en hızlı yol karşı taraf. Fotoğraf, onu gönderen ya da alan kişinin sohbetinde büyük ihtimalle duruyor ve tekrar göndermesi bir dakikalık iş. Kendi telefonunuzdaki yedekten geri de dönebilirsiniz ama yedek fotoğrafı sildikten sonra alındıysa işe yaramaz. Üstelik geri dönerken o tarihten sonraki mesajlar gider."
 intent: "troubleshooting"

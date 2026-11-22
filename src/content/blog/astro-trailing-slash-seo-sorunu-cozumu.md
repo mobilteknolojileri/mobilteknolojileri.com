@@ -1,5 +1,5 @@
 ---
-title: "Astro SEO: Trailing Slash '/' Sorunu ve Çözümü"
+title: "Astro SEO: Trailing Slash “/” Sorunu ve Çözümü"
 description: "Astro ile yaptığım sitemde 39 sayfanın sadece 3'ü Google'da dizine girmişti. Sebep, sitemap ile canonical etiketi arasındaki trailing slash farkıydı. Sorunu nasıl bulup çözdüğümü anlatıyorum."
 seoDescription: "Astro sitemde 39 sayfanın sadece 3'ü Google'da dizine girmişti. Sebep, sitemap ile canonical arasındaki trailing slash farkıydı. Nasıl bulup çözdüğümü anlatıyorum."
 date: 2026-03-22
@@ -10,7 +10,7 @@ draft: false
 intent: "troubleshooting"
 faq:
   - question: "Trailing slash nedir?"
-    answer: "URL'nin en sonundaki eğik çizgidir (/). Arama motorları için '/blog' ile '/blog/' teknik olarak iki ayrı sayfa anlamına gelebilir."
+    answer: "URL'nin en sonundaki eğik çizgidir (/). Arama motorları için “/blog” ile “/blog/” teknik olarak iki ayrı sayfa anlamına gelebilir."
   - question: "Astro'da trailing slash canonical sorunu nasıl çözülür?"
     answer: "Astro'nun yapılandırma dosyasında (astro.config.mjs) trailingSlash ayarını canonical adreslerinizle aynı biçime getirin: sonda slash yoksa 'never', varsa 'always'. Böylece sitemap'teki URL'ler de canonical adreslerle aynı biçimde üretilir."
 ---
