@@ -1,0 +1,146 @@
+---
+title: "Bilgisayar Telefonu Fastboot Modunda Görmüyor: Xiaomi ve Redmi"
+seoTitle: "Bilgisayar Telefonu Fastboot'ta Görmüyor: Sebepleri"
+description: "Telefon Fastboot ekranında ama bilgisayar onu görmüyor, araçlar “cihaz bulunamadı” diyor. Sebep çoğu zaman sürücü, USB 3 portu ya da kablodur. Hangisi olduğunu ve neye dokunmamanız gerektiğini yazdım."
+seoDescription: "Telefon Fastboot'ta ama bilgisayar görmüyor mu? Sebep çoğu zaman sürücü, USB 3 portu ya da kablodur. Farkını ve tek güvenli adımı yazdım."
+date: 2026-11-22
+tags: ["android", "fastboot", "xiaomi", "usb sürücüsü", "bilgisayar görmüyor", "redmi"]
+category: "android"
+draft: false
+faq:
+  - question: "Telefon normalde bilgisayarda görünüyor, Fastboot'ta neden görünmüyor?"
+    answer: "Telefon açıkken dosya aktarımı için bir bağlantı kullanır, Fastboot'ta ise bilgisayara başka bir cihaz olarak tanıtılır. Bu cihaz ayrı bir sürücü ister. Fotoğraf aktarabiliyor olmanız Fastboot sürücüsünün de kurulu olduğunu göstermez."
+  - question: "Hangi sürücüyü kurmam gerekiyor?"
+    answer: "Fastboot için Google'ın USB sürücüsü ya da üreticinin kendi sürücüsü kullanılır. Hangisinin çalışacağı telefona ve Windows sürümüne göre değişir. Bazı durumlarda sürücü kurulu görünür ama bilgisayar telefonu yine bulamaz. Kaynağı belli olmayan sürücü paketlerini kurmayın."
+  - question: "USB 3 portu neden sorun çıkarıyor?"
+    answer: "Kesin bir sebep açıklanmış değil. Kullanıcılar özellikle AMD işlemcili bilgisayarlarda Fastboot bağlantısının USB 3 portunda görünmediğini ya da koptuğunu, USB 2.0 portunda çalıştığını anlatıyor. Bu her bilgisayarda işe yaramıyor, bazılarında USB 2.0 hub da çözmüyor."
+  - question: "Fastboot'ta görünmeyen telefon bozuk mu?"
+    answer: "Hayır. Ekranda Fastboot yazıyorsa telefon bu modda çalışıyor demektir. Sorun telefonla bilgisayar arasındaki bağlantıda. Telefonun asıl sorunu ne olursa olsun, ona ancak bu bağlantı kurulunca bakılabilir."
+  - question: "Mac ya da Linux bilgisayarla olur mu?"
+    answer: "Xiaomi'nin kilit açma ve yazılım yükleme araçları Windows için yayımlanıyor. Uzaktan çalışmam da Windows bilgisayar üzerinden yürüyor. Elinizde sadece Mac varsa bunu ilk mesajda yazın, ne yapılabileceğini söylerim."
+intent: "troubleshooting"
+deviceBrand: "Xiaomi"
+related:
+  - "xiaomi-fastboot-ekraninda-kaldi"
+  - "xiaomi-bootloader-kilidi-acma"
+  - "hyperos-guncellemesi-sonrasi-telefon-acilmiyor"
+---
+
+<Summary
+  what="Telefon Fastboot modunda ama bilgisayar onu tanımıyor. Sorun çoğu zaman aradaki sürücüde, portta ya da kablodadır."
+  avoid="Kaynağı belli olmayan sürücü paketleri, Windows'un sürücü imza korumasını kapatmak, bağlantısı kopan bir kabloyla yazma işlemine başlamak."
+  safe="Telefonla gelen kabloyu bilgisayarın arkasındaki bir USB 2.0 portuna takmak."
+/>
+
+Telefon Fastboot ekranındaysa bilgisayarla konuşmaya hazırdır. Bilgisayar onu görmüyorsa sorun büyük ihtimalle ikisi arasındaki bağlantıdadır.
+
+Bu durum genelde kilit açmaya ya da yazılım yüklemeye çalışırken çıkar. Xiaomi'nin aracı telefonun bağlı olmadığını söyler, komut satırındaki araç da cihaz beklerken öylece durur.
+
+## Belirtiler
+
+<Cards
+  items={[
+    {
+      icon: "laptop",
+      tone: "sky",
+      title: "Aygıt Yöneticisi'nde sarı ünlem",
+      text: "Diğer aygıtlar altında sarı ünlemli bir “Android” görünür. Windows cihazı fark etmiştir ama ne olduğunu bilmiyordur.",
+    },
+    {
+      icon: "search",
+      tone: "slate",
+      title: "Araç cihaz bulamıyor",
+      text: "Kilit açma ya da yazılım yükleme aracı telefonu listelemez, sürekli bağlantı bekler.",
+    },
+    {
+      icon: "usb",
+      tone: "violet",
+      title: "Açıkken görünüyor",
+      text: "Telefon normal açıkken fotoğraflar bilgisayara aktarılıyor ama Fastboot'ta hiçbir şey olmuyor.",
+    },
+    {
+      icon: "cable",
+      tone: "gold",
+      title: "Takınca ses yok",
+      text: "Kabloyu takınca Windows'un bağlantı sesi hiç gelmiyor. Bu çoğu zaman kabloya ya da porta işaret eder.",
+    },
+  ]}
+/>
+
+## Sebep
+
+Sık anlatılan dört sebep var.
+
+### Sürücü
+
+Telefon Fastboot'ta bilgisayara başka bir cihaz gibi tanıtılır ve bu cihaz ayrı bir sürücü ister. Dosya aktarımının çalışması bu sürücünün kurulu olduğunu göstermez.
+
+Sürücü kurulu göründüğü hâlde sorun sürebilir. Elle seçilen ya da yanlış paketten gelen bir sürücü Aygıt Yöneticisi'nde yerinde görünür, ama Fastboot araçlarının aradığı şekilde kaydolmamış olabilir. O zaman araçlar telefonu yine bulamaz. “Sürücüyü kurdum, olmadı” diyen birinin sorunu da bu yüzden hâlâ sürücüde olabilir.
+
+### USB portu
+
+Özellikle AMD işlemcili bilgisayarlarda Xiaomi telefonların Fastboot'ta USB 3 portunda görünmediği ya da bağlantının koptuğu anlatılıyor. USB 3 portları çoğu zaman mavi renklidir. Ön paneldeki portlar ve hub'lar araya bir kablo ya da devre daha koyar, bağlantı orada da kopabilir.
+
+### Kablo
+
+Bazı kablolar sadece şarj eder, veri taşımaz. Telefonun şarj olması kablonun veri de taşıdığını göstermez.
+
+### Yanlış ekran
+
+İngilizce seçenekli kurtarma ekranı Fastboot sayılmaz, bilgisayar telefonu orada Fastboot cihazı olarak görmez. O ekran için [Main Menu yazısına](/blog/xiaomi-main-menu-ekraninda-kaldi) bakın.
+
+## Yapmamanız gerekenler
+
+<Cards
+  items={[
+    {
+      icon: "package",
+      tone: "rose",
+      title: "Kaynağı belli olmayan sürücü paketleri",
+      text: "İnternette “hepsi bir arada” diye dağıtılan paketler yönetici yetkisiyle çalışır ve bilgisayarınıza ne kurduğunu söylemez.",
+    },
+    {
+      icon: "lock",
+      tone: "rose",
+      title: "Sürücü imza korumasını kapatmak",
+      text: "Bazı videolar imzasız sürücü kurmak için bu korumanın kapatılmasını önerir. Bilgisayarınızı bu iş bittikten sonra da açıkta bırakır.",
+    },
+    {
+      icon: "warning",
+      tone: "rose",
+      title: "Kopan bağlantıyla yazma işlemi",
+      text: "Telefon bir görünüp bir kayboluyorsa yazmaya başlamayın. İşlem yarıda kalırsa telefon Fastboot'tan da çıkamaz hâle gelebilir.",
+    },
+  ]}
+  columns={1}
+/>
+
+## Tek güvenli adım
+
+Telefonla gelen ya da veri taşıdığından emin olduğunuz kabloyu bilgisayarın arkasındaki bir USB 2.0 portuna takın. Ön paneldeki portları, uzatma kablolarını ve hub'ları kullanmayın. Dizüstü bilgisayarınızda USB 2.0 portu yoksa diğer portu deneyin.
+
+<Flow
+  question="Bilgisayar telefonu gördü mü?"
+  branches={[
+    {
+      label: "Evet",
+      text: "Sorun port ya da kabloymuş. Asıl işe aynı port ve kabloyla devam edin.",
+      tone: "safe",
+    },
+    {
+      label: "Hayır",
+      text: "Sorun büyük ihtimalle sürücüde. Bir şey kurmadan önce bana yazın.",
+      tone: "warn",
+    },
+  ]}
+/>
+
+Telefonun neden Fastboot'a düştüğünü merak ediyorsanız [Fastboot ekranı yazısı](/blog/xiaomi-fastboot-ekraninda-kaldi) bunu anlatıyor.
+
+## Kalan iş ne
+
+Bilgisayarınıza uzaktan bağlanır, telefonunuza uygun sürücüyü kurar ve telefonun Fastboot'ta göründüğünü doğrularım. Bağlantı kurulunca asıl işe geçeriz: kilit açma, yazılım yükleme ya da açılmayan telefonun onarımı.
+
+Bana yazarken telefonun modelini, bilgisayarınızın işlemcisini (Intel ya da AMD) ve Aygıt Yöneticisi'nin ekran görüntüsünü gönderin. Bunlar sorunun sürücüde mi portta mı olduğunu çoğu zaman ilk bakışta gösterir.
+
+Bazı bilgisayarlarda port sorunu sürücüyle çözülmez. O durumda başka bir Windows bilgisayar gerekebilir, bunu baştan söylerim.
