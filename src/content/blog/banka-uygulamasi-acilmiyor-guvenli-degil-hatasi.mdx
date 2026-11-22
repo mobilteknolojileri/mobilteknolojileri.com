@@ -26,6 +26,12 @@ faq:
 intent: "troubleshooting"
 ---
 
+<Summary
+  what="Uygulama ya basit bir sebepten ya da telefon kendini doğrulayamadığı için açılmıyor. Hesabınız ve paranız bundan etkilenmez."
+  avoid="Uygulamayı tekrar tekrar silip kurmak. Sorun telefondaysa bir şey değiştirmez."
+  safe="Aynı hesaba bilgisayardan girmek. Açılıyorsa hesabınızda bir sorun yok."
+/>
+
 Bankanın uygulaması açılmıyor. Ya hiçbir şey demeden kapanıyor ya da bir uyarı gösteriyor: "cihazınız güvenli değil", "bu uygulama değiştirilmiş cihazlarda çalışmaz" ya da doğrudan "rootlu cihaz" diye bir şey.
 
 Bankayı arıyorsunuz. Onlar bir sorun görmüyor: Hesap açık, kart açık, kayıtlarda engel yok. Uygulamayı silip yeniden kurmanızı söylüyorlar; silip kuruyorsunuz, değişen bir şey olmuyor.
@@ -56,19 +62,61 @@ Aynı hesaba bilgisayardan, tarayıcıyla girin. Açılıyorsa hesabınızda bir
 
 Hepsi cihaza aynı soruyu sorar ama her biri bunu başka bir belirtiyle belli eder. Listede size tanıdık gelen birden fazla satır varsa teşhis zaten konmuş demektir.
 
-**Banka ve ödeme uygulamaları.** Açılmıyor ya da açılıp işlem adımında takılıyor. En çok şikâyet edilen ve en çok fark edilen taraf burası.
+<Cards
+  items={[
+    {
+      icon: "bank",
+      tone: "indigo",
+      title: "Banka ve ödeme uygulamaları",
+      text: "Açılmıyor ya da açılıp işlem adımında takılıyor. En çok şikâyet edilen ve en çok fark edilen taraf burası.",
+    },
+    {
+      icon: "nfc",
+      tone: "emerald",
+      title: "Telefonla temassız ödeme",
+      text: "Kart eklenmiyor ya da eklenmiş kart ödeme anında çalışmıyor.",
+    },
+    {
+      icon: "game",
+      tone: "violet",
+      title: "Oyunlar",
+      text: "Bir kısmı hiç açılmıyor, bir kısmı açılıyor ama hesap bağlamıyor ya da oynarken atıyor.",
+    },
+    {
+      icon: "video",
+      tone: "rose",
+      title: "Yayın ve abonelik uygulamaları",
+      text: "Burada durum biraz farklı: Uygulama çoğu zaman açılıyor ama görüntü düşük çözünürlükte kalıyor, bazı içerikler hiç oynamıyor ya da uygulama mağazada aranınca hiç çıkmıyor.",
+    },
+    {
+      icon: "certified",
+      tone: "gold",
+      title: "Resmî kimlik ve biyometri uygulamaları",
+      text: "Bu grup doğrulamayı en sıkı isteyenlerden. Tipik örnek, vize başvurusunda kullanılan biyometrik kayıt uygulamalarının açılır açılmaz kapanması. Umre ve hac başvurusunda bu adım atlanamadığı için iş bir de zamanla yarışa döner.",
+    },
+  ]}
+/>
 
-**Telefonla temassız ödeme.** Kart eklenmiyor ya da eklenmiş kart ödeme anında çalışmıyor.
-
-**Oyunlar.** Bir kısmı hiç açılmıyor, bir kısmı açılıyor ama hesap bağlamıyor ya da oynarken atıyor.
-
-**Yayın ve abonelik uygulamaları.** Burada durum biraz farklı: Uygulama çoğu zaman açılıyor ama görüntü düşük çözünürlükte kalıyor, bazı içerikler hiç oynamıyor ya da uygulama mağazada aranınca hiç çıkmıyor.
-
-**Resmî kimlik ve biyometri uygulamaları.** Bu grup doğrulamayı en sıkı isteyenlerden. Tipik örnek, vize başvurusunda kullanılan biyometrik kayıt uygulamalarının açılır açılmaz kapanması. Umre ve hac başvurusunda bu adım atlanamadığı için iş bir de zamanla yarışa döner. [e-Devlet uygulamasının açılmamasını](/blog/e-devlet-uygulamasi-acilmiyor) ayrı yazdım.
+[e-Devlet uygulamasının açılmamasını](/blog/e-devlet-uygulamasi-acilmiyor) ayrı yazdım.
 
 WhatsApp da aynı yerde takılıyor ama bunu kendi diliyle söylüyor. [O mesajın ne anlama geldiğini ayrı yazdım](/blog/giris-yapmak-icin-resmi-whatsapp-hatasi).
 
 ## Sebep: Cihaz kendini doğrulayamıyor
+
+<PhoneScreen
+  screen="alert"
+  title="Güvenlik uyarısı"
+  message="Cihazınız güvenli değil"
+  notes={[
+    {
+      tone: "danger",
+      text: "Uygulama, telefonun kendi durumu hakkındaki bildirimini olumsuz buldu.",
+    },
+    { tone: "info", text: "Bu uyarı hesabınıza, paranıza ve kartlarınıza dokunmaz." },
+  ]}
+>
+  Uyarının sözleri bankadan bankaya değişir. Kimi uygulama hiçbir şey demeden kapanır.
+</PhoneScreen>
 
 Android telefonlar açılırken kendi durumlarını bildirir: Üstündeki yazılım üreticinin verdiği yazılım mı, sonradan değiştirilmiş mi. Hassas iş yapan uygulamalar açılmadan önce bu bildirime bakar. Banka açısından bu oldukça mantıklı bir kontrol, çünkü değiştirilmiş bir telefonda ekrandaki rakamın doğru olduğunu kimse garanti edemez.
 

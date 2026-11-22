@@ -25,6 +25,12 @@ intent: "troubleshooting"
 deviceBrand: "Xiaomi"
 ---
 
+<Summary
+  what="Güncelleme yarıda kaldı ya da sistem başlayamıyor. Verileriniz çoğu zaman yerinde."
+  avoid="Kurtarma ekranındaki Wipe data / factory reset satırı. Telefonu verilerinizi silerek açar."
+  safe="Telefonu yarım saat şarja takmak, sonra güç tuşunu bir kez 20-30 saniye basılı tutmak."
+/>
+
 Güncelleme ya bitti ya yarıda kaldı, telefon yeniden başladı ve orada kaldı. Ekranda Mi ya da Redmi logosu var, belki açılış animasyonu dönüp duruyor, belki cihaz kendi kendine kapanıp aynı yerden başlıyor. Elinizde ısınıyor.
 
 Bu tür telefonlara sık bakarım ve ilk soru hep aynıdır: Verilerim gitti mi?
@@ -38,6 +44,10 @@ Telefon açılmayınca çoğu kişi kurtarma ekranına düşer: siyah zemin üst
 O satıra dokunmayın. Telefonu gerçekten açar ama sorunu çözerek değil, verilerinizi silerek açar. Fotoğraflar, WhatsApp geçmişi, uygulama verileri, hepsi gider. O adımdan sonra geri getirmenin bir yolu yok. Bunu ben de yapamam.
 
 O ekranda sizin için güvenli olan tek satır `Reboot` ya da `Reboot to system`. Buna karşın başında `Wipe` veya `Format` geçen her şeyin geri dönüşü yoktur.
+
+<PhoneScreen screen="main-menu">
+  Sürüme göre menü farklı görünebilir. Eski sürümlerde satırın adı `Wipe data / factory reset`.
+</PhoneScreen>
 
 İki şey daha. Telefonu arka arkaya yeniden başlatıp sorunun geçmesini beklemeyin: Her zorla kapatma, yarım kalmış bir yazma işleminin üstüne biner. "Format atalım" diyen ilk yere de bırakmayın. O cümle çoğu zaman "ben bakmayacağım" demenin kolay yoludur, bedelini de siz ödersiniz.
 
@@ -82,7 +92,17 @@ Buradaki adımların hiçbiri veri silmez, hiçbiri cihazı daha kötü duruma s
 3. Ekran hiç yanmıyorsa başka bir kablo ve başka bir priz deneyin. Beş dakikalık bu eleme, cihazı yola çıkarmaya değip değmeyeceğini gösterir.
 4. Kurtarma ekranına düştüyseniz `Reboot` satırını seçin, gerisine karışmayın.
 
-Bunlar işe yaradıysa mesele kapanmıştır. Yaramadıysa telefon bu noktadan sonra kendi kendine düzelmez.
+<Flow
+  question="Telefon açıldı mı?"
+  branches={[
+    { label: "Evet", text: "Mesele kapanmıştır.", tone: "safe" },
+    {
+      label: "Hayır",
+      text: "Telefon bu noktadan sonra kendi kendine düzelmez. Başka bir şey denemeden bana yazın.",
+      tone: "warn",
+    },
+  ]}
+/>
 
 ## Kalan iş ne
 
