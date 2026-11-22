@@ -61,6 +61,8 @@ const SERVICE_BY_CATEGORY: Record<string, { label: string; href: string } | unde
   mobile: { label: "Mobil uygulama geliştirme", href: "/mobil-uygulama-gelistirme" },
 };
 const service = SERVICE_BY_CATEGORY[entry.data.category];
+// The form opens with the post's title, so the reader starts from their problem
+const contactSubject = `"${entry.data.title}" yazısı`;
 
 const metadata = generateMetadata({
   title: entry.data.seoTitle ?? entry.data.title,
@@ -290,12 +292,13 @@ const extraSchemas = faqSchema ? [blogSchema, faqSchema] : [blogSchema];
           <div class="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
               href="/#contact"
+              data-contact-subject={contactSubject}
               class="btn btn-lg bg-white text-gray-900 hover:-translate-y-px hover:bg-gray-100"
             >
               {cta.primary} <span aria-hidden="true">→</span>
             </a>
             <a
-              href={`mailto:${SITE_CONFIG.links.email}`}
+              href={`mailto:${SITE_CONFIG.links.email}?subject=${encodeURIComponent(entry.data.title)}`}
               class="btn btn-lg text-white ring-1 ring-white/25 hover:bg-white/10"
             >
               {COPY_TOKENS.blogContactSecondaryCta}
@@ -344,3 +347,7 @@ const extraSchemas = faqSchema ? [blogSchema, faqSchema] : [blogSchema];
     </article>
   </div>
 </BaseLayout>
+
+<script>
+  import "@/scripts/contact-subject";
+</script>

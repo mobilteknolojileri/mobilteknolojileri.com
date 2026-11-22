@@ -271,16 +271,5 @@ const OTHER_GIGS = [
 </section>
 
 <script>
-  // Hand the card title to the contact form. sessionStorage covers a form that isn't hydrated yet.
-  document.addEventListener("click", (event) => {
-    const card = (event.target as Element | null)?.closest<HTMLElement>("[data-contact-subject]");
-    const subject = card?.dataset.contactSubject;
-    if (!subject) return;
-    try {
-      sessionStorage.setItem("contact-subject", subject);
-    } catch {
-      // Private mode
-    }
-    window.dispatchEvent(new CustomEvent("contact:subject", { detail: subject }));
-  });
+  import "@/scripts/contact-subject";
 </script>
