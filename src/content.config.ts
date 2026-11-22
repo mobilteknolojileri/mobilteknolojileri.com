@@ -31,6 +31,8 @@ const blog = defineCollection({
     intent: z.enum(CONTENT_INTENTS).optional(),
     deviceBrand: z.string().min(2).max(40).optional(),
     deviceModel: z.string().min(2).max(60).optional(),
+    /** Slugs shown first under "İlgili yazılar"; tag overlap fills the rest */
+    related: z.array(z.string()).max(3).optional(),
   }),
 });
 

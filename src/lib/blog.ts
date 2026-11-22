@@ -48,6 +48,47 @@ export function buildToc(headings: { depth: number; slug: string; text: string }
     }));
 }
 
+interface RelatablePost {
+  id: string;
+  data: { tags: string[]; date: Date; related?: string[] };
+}
+
+/**
+ * Hand-picked `related` slugs first, then the posts sharing the rarest tags.
+ * A shared tag weighs log(posts / posts with that tag): "android" sits on most
+ * posts and adds almost nothing, "fastboot" sits on two and decides.
+ */
+export function getRelatedPosts<T extends RelatablePost>(entry: T, posts: T[], limit = 3): T[] {
+  const byId = new Map(posts.map((post) => [post.id, post]));
+  const picked = (entry.data.related ?? []).map((id) => {
+    const post = byId.get(id);
+    if (!post || post.id === entry.id) {
+      throw new Error(`${entry.id}: related "${id}" is not a published post`);
+    }
+    return post;
+  });
+
+  const tagCounts = new Map<string, number>();
+  for (const post of posts) {
+    for (const tag of new Set(post.data.tags)) tagCounts.set(tag, (tagCounts.get(tag) ?? 0) + 1);
+  }
+  const weight = (tag: string) => Math.log(posts.length / (tagCounts.get(tag) ?? posts.length));
+
+  const scored = posts
+    .filter((post) => post.id !== entry.id && !picked.includes(post))
+    .map((post) => ({
+      post,
+      score: post.data.tags
+        .filter((tag) => entry.data.tags.includes(tag))
+        .reduce((sum, tag) => sum + weight(tag), 0),
+    }))
+    .filter(({ score }) => score > 0)
+    .sort((a, b) => b.score - a.score || b.post.data.date.valueOf() - a.post.data.date.valueOf())
+    .map(({ post }) => post);
+
+  return [...picked, ...scored].slice(0, limit);
+}
+
 export function formatDate(date: Date, locale = "tr-TR"): string {
   return date.toLocaleDateString(locale, {
     day: "numeric",

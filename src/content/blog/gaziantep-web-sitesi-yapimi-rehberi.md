@@ -13,6 +13,10 @@ faq:
   - question: "Web sitesi ne kadar sürede yayına hazır olur?"
     answer: "Kapsama göre değişir. Kurumsal bir site ortalama 2-4 hafta, daha büyük projeler 4-8 hafta içinde tamamlanır."
 intent: "guide"
+related:
+  - "mobil-uygulama-yaptirmak-ne-kadara-mal-olur"
+  - "kafe-restoran-mobil-uygulama-gerekli-mi"
+  - "astro-seo-10-madde-checklist"
 ---
 
 Gaziantep'te rekabet eden bir işletme için web sitesi, "bir sitemiz olsun" diye yaptırılan bir vitrin değil. Doğrudan satış yaptığınız ve müşterinin güvenini kazandığınız bir kanal. Buna rağmen "hızlı yapalım bitsin, ucuza gelsin" anlayışıyla kurulan siteler yüzünden internette görünmez kalan birçok yerel işletme görüyorum.

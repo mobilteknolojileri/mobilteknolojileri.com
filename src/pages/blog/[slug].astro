@@ -9,6 +9,7 @@ import {
   formatDate,
   calculateReadingTime,
   buildToc,
+  getRelatedPosts,
 } from "@/lib/blog";
 import { SITE_CONFIG } from "@/config/site";
 import { COPY_TOKENS } from "@/config/seo";
@@ -35,10 +36,7 @@ const allPosts = (await getCollection("blog"))
   .filter((post) => !post.data.draft)
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
-const relatedPosts = allPosts
-  .filter((post) => post.id !== entry.id)
-  .filter((post) => post.data.tags.some((tag) => entry.data.tags.includes(tag)))
-  .slice(0, 3);
+const relatedPosts = getRelatedPosts(entry, allPosts);
 
 const readingTime = calculateReadingTime(entry.body ?? "");
 const toc = buildToc(headings);

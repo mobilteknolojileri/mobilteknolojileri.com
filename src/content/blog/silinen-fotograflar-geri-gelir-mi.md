@@ -23,6 +23,10 @@ faq:
   - question: "WhatsApp'tan silinen fotoğraf geri gelir mi?"
     answer: "Telefondan silindiyse en hızlı yol karşı taraf. Fotoğraf, onu gönderen ya da alan kişinin sohbetinde büyük ihtimalle duruyor ve tekrar göndermesi bir dakikalık iş. Kendi telefonunuzdaki yedekten geri de dönebilirsiniz ama yedek fotoğrafı sildikten sonra alındıysa işe yaramaz. Üstelik geri dönerken o tarihten sonraki mesajlar gider."
 intent: "troubleshooting"
+related:
+  - "hyperos-guncellemesi-sonrasi-telefon-acilmiyor"
+  - "xiaomi-main-menu-ekraninda-kaldi"
+  - "telefona-yazilim-atma"
 ---
 
 Fotoğraf gitti. Ya başka bir şeyi silmek isterken oldu ya telefon çocuğun elindeydi ya da temizlik yaparken toplu seçime girdi. Hangisi olursa olsun şimdi aranan şey fotoğrafın nasıl geri geleceği.
