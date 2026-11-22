@@ -45,3 +45,6 @@ next-env.d.ts
 null
 nul
 docs/secret.txt
+
+# Internal content plan, kept out of the public repo
+src/content/blog/task.md
