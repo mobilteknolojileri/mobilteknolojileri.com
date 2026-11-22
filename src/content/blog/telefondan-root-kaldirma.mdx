@@ -1,0 +1,102 @@
+---
+title: "Telefondan Root Kaldırma Nasıl Yapılır? Veriler ve Banka Uygulamaları"
+seoTitle: "Root Kaldırma Nasıl Yapılır? Xiaomi, Redmi, Samsung"
+description: "Rootu kaldırmanın dört düzeyi var ve her biri farklı bir şeyi düzeltiyor. Hangisinin verilere, banka uygulamalarına ve garantiye ne yaptığını, kilidi yeniden kapatmanın riskini yazdım."
+seoDescription: "Telefondan root kaldırmanın dört düzeyi: hangisi veriyi siler, banka uygulamalarını düzeltir, garantiyi geri getirir. Kilidi kapatmadan önce okuyun."
+date: 2026-11-22
+tags: ["android", "root kaldırma", "unroot", "magisk", "bootloader", "xiaomi", "redmi", "samsung"]
+category: "android"
+draft: false
+faq:
+  - question: "Rootu kaldırınca telefona ne olur?"
+    answer: "Uygulamaların yönetici yetkisi gider, telefon root'tan önceki davranışına yaklaşır. Hangi düzeyde kaldırdığınıza göre veriler yerinde kalabilir ya da silinebilir. Bootloader kilidi açık kaldıkça bazı uygulamalar yine uyarı verebilir."
+  - question: "Root kaldırmak telefona zarar verir mi?"
+    answer: "Root uygulamasını kaldırmak ya da orijinal boot dosyasını geri yazmak tek başına zarar vermez. Risk, yanlış ya da bölgeyle uyuşmayan yazılım üstündeyken bootloader'ı yeniden kilitlemekte. Telefon o zaman açılmayabilir."
+  - question: "Rootlu telefon nasıl eski haline getirilir?"
+    answer: "Orijinal yazılımın tamamını telefona yeniden yazmak gerekir. Bu, sistemdeki değişikliklerin hepsini siler. Veriler çoğu zaman bu işlemle de gider, o yüzden önce yedek alınır. Yedek alınamıyorsa karar sizin onayınızla verilir."
+  - question: "Mobil bankacılık için rootu kaldırmak şart mı?"
+    answer: "Her zaman değil. Root'u gizleyip uygulamaları çalıştırmak bazen yeterli oluyor, ama bu uygulama ve sistem güncellemeleriyle bozulabilir. Kalıcı olarak temiz bir telefon istiyorsanız root'u ve değişiklikleri tamamen kaldırmak gerekir."
+  - question: "Rootu kaldıramıyorum, neden?"
+    answer: "Genellikle root uygulamasını silmek yetmez, sistem bölümünde yapılan değişiklikler ve eklenen modüller kalır. Güncelleme de bu değişiklikler yüzünden yarıda kalabilir. Bu durumda yazılımın tamamını yeniden yazmak gerekir."
+  - question: "Samsung'da root kaldırınca garanti geri gelir mi?"
+    answer: "Gelmez. Samsung telefonlarda Knox adlı bir sayaç, bootloader kilidi açılınca ya da özel yazılım yüklenince geri dönmeyecek biçimde değişir. Orijinal yazılımı yazmak bunu sıfırlamaz. Diğer markalarda garanti kuralı üreticiye ve satıcıya göre değiştiği için bir şey söyleyemiyorum."
+intent: "troubleshooting"
+---
+
+<Summary
+  what="Root'u kaldırmak tek bir işlem değil, dört düzeyi var. Her düzey farklı bir şeyi düzeltiyor."
+  avoid="Bootloader kilidini, telefonun kendi orijinal yazılımı üstünde olduğundan emin olmadan kapatmak. Telefon açılmaz hâle gelebilir."
+  safe="Önce neden kaldırmak istediğinize karar verin. Hiçbir şeyi silmeden bir yedek almak her düzeyde işe yarar."
+/>
+
+Root'u kaldırmak (unroot), uygulamalara verilmiş yönetici yetkisini geri almak demek. Ama telefonu root'tan önceki hâline döndürmek için bu çoğu zaman yetmez, çünkü root atarken değişen başka şeyler de var.
+
+Telefonu rootlamak için genellikle bootloader kilidi açılır, sistemin bir bölümü değiştirilir ve bir root uygulaması kurulur. Root'u kaldırdığınızı sanırsınız, ama kilit hâlâ açıktır. En çok karşılaştığım durum bu: banka uygulaması root gitmesine rağmen yine uyarı verir. Nedenini [bootloader kilidi açık telefonda uygulamalar](/blog/bootloader-kilidi-acik-telefonda-uygulamalar) yazısında anlattım. Root'un ne olduğunu ise [telefona root atma](/blog/telefona-root-atma) yazısında bulabilirsiniz.
+
+## Root kaldırmanın dört düzeyi
+
+<Cards
+  columns={1}
+  items={[
+    {
+      icon: "app",
+      tone: "emerald",
+      title: "1. Root uygulamasını kaldırmak",
+      text: "Uygulamalar yönetici yetkisini kaybeder. Veriler silinmez. Ama sistemdeki değişiklikler ve açık kilit durur, bazı uygulamalar yine uyarı verir.",
+    },
+    {
+      icon: "refresh",
+      tone: "sky",
+      title: "2. Orijinal boot dosyasını geri yazmak",
+      text: "Root'un yerleştiği bölümü orijinaline döndürür, böylece root gerçekten gider. Veriler genellikle yerinde kalır. Kilit açık kaldığı için banka uygulamaları yine sorun çıkarabilir.",
+    },
+    {
+      icon: "package",
+      tone: "violet",
+      title: "3. Tüm orijinal yazılımı yeniden yazmak",
+      text: "Sistemdeki bütün değişiklikleri siler, telefon fabrikadaki yazılıma döner. Çoğu zaman veri de gider. Rootu kaldıramayanlar için asıl çözüm bu.",
+    },
+    {
+      icon: "lock",
+      tone: "rose",
+      title: "4. Bootloader'ı yeniden kilitlemek",
+      text: "Telefonu fabrika durumuna en çok yaklaştıran adım, ama en riskli olanı. Android'in resmî belgelerine göre kilitleme kişisel verileri siler. Yazılım orijinal değilse telefon açılmayabilir.",
+    },
+  ]}
+/>
+
+## Kilidi kapatmadan önce
+
+Bootloader kilidi kapanınca telefon, üstündeki yazılımın orijinal olup olmadığını denetlemeye başlar. Android'in doğrulanmış önyükleme belgesi, doğrulamayı geçemeyen bir görüntü için "geçerli işletim sistemi bulunamadı" uyarısını anlatıyor. Kilit açıkken telefon turuncu bir uyarı gösterir ama açılır, bu yüzden uyuşmayan yazılım sorunsuz çalışıyormuş gibi görünebilir.
+
+Kilidi kapatınca telefonun açılmaması buradan geliyor. Aynı uyarıyı [Fastboot yazısında](/blog/xiaomi-fastboot-ekraninda-kaldi) da yaptım: kilidi yalnızca telefonun kendi orijinal yazılımı üstündeyken kapatın.
+
+## Garanti geri gelir mi
+
+Samsung telefonlarda gelmez. Kilidi açmak ya da özel yazılım yüklemek Knox sayacını kalıcı olarak değiştirir ve orijinal yazılımı yazmak bunu sıfırlamaz. XDA'da aktarılan Samsung yönergesine göre sayaç ancak ana kart değişirse sıfırlanıyor. Diğer markalarda kural üreticiye ve satıcıya göre değişiyor, ben doğrulayamadım.
+
+## Hangisi size lazım
+
+<Flow
+  question="Rootu neden kaldırmak istiyorsunuz?"
+  branches={[
+    {
+      label: "Yalnızca banka ve e-Devlet uygulamaları açılsın",
+      text: "Root'u tamamen kaldırmak gerekmeyebilir. Bazen root kalarak uygulamaları çalıştırmak yeterli oluyor, ama bu uygulama ve sistem güncellemeleriyle bozulabilir.",
+      tone: "safe",
+    },
+    {
+      label: "Telefonu satacağım ya da iade edeceğim",
+      text: "Tam orijinal yazılım ve doğru sırayla kilit gerekir. Samsung'da Knox izi yine de kalır.",
+      tone: "warn",
+    },
+  ]}
+/>
+
+Rootu kaldırmaya çalışıp olmuyorsa, çoğu zaman root uygulamasını silmek yetmemiştir, çünkü sistemde modüller ve değişiklikler kalmıştır. Telefon Fastboot ekranında takıldıysa [o yazıya](/blog/xiaomi-fastboot-ekraninda-kaldi) bakın. Stok yazılımın ne anlama geldiği için [telefona yazılım atma](/blog/telefona-yazilim-atma) yazısı var.
+
+## Kalan iş ne
+
+Root'u kaldırmam, telefonu orijinal yazılıma döndürmem ya da root'u tutup uygulamaları çalıştırmam, hangisine ihtiyacınız varsa ona göre değişir. Önce modelinize, yazılımınıza ve bootloader durumuna bakarım. Veri silen bir adıma ancak siz onaylarsanız geçerim. Mümkünse önce fotoğraflarınızı ve mesajlarınızı yedeklemenizi isterim. Yedek alınamıyorsa seçenekleri birlikte konuşuruz.
+
+Uygulama güncellemeleri bunları sonradan bozabilir, o yüzden kalıcı bir söz veremem. Bana yazarken modeli, root'u neden attığınızı ve kaldırmaya çalışınca ne olduğunu yazın. Hangi işlere baktığımı [Android destek sayfasında](/android-destek) yazdım.

@@ -1,0 +1,142 @@
+---
+title: "Telefona Root Atma Nedir, Zararlı mı? Samsung ve Xiaomi'de Nasıl Yapılır"
+seoTitle: "Telefona Root Atma: Ne İşe Yarar, Zararlı mı?"
+description: "Telefona root atma, sistemin en üst yetkisini almaktır. Magisk, KernelSU ve APatch'in ne olduğunu, root'un ne verip neyi bozduğunu ve Samsung'da Knox'un neden kalıcı olduğunu yazdım."
+seoDescription: "Telefona root atma nedir, zararlı mı? Magisk, KernelSU ve APatch'in farkı, root'un faydası ve bedeli: veri silinmesi, garanti, banka uygulamaları, Samsung Knox."
+date: 2026-11-22
+tags: ["android", "root", "magisk", "kernelsu", "apatch", "samsung", "xiaomi", "bootloader"]
+category: "android"
+draft: false
+faq:
+  - question: "Telefona root atmak zararlı mı?"
+    answer: "Root telefona zarar vermez ama korumayı gevşetir. Sistemde her uygulamaya verebileceğiniz bir tam yetki oluşur, yanlış verilen yetki ya da güvenilmeyen bir modül telefonu bozabilir. Asıl bedel güvenlikte değil kullanımdadır: banka ve resmî uygulamalar rootlu telefonda çoğunlukla çalışmaz."
+  - question: "Root atmak garantiyi bozar mı?"
+    answer: "Genellikle bozar, ama şartlar üreticiye ve ülkeye göre değişir, o yüzden satıcınızdan ya da üreticiden öğrenin. Samsung'da durum daha sert: root için gereken işlem Knox garanti sigortasını kalıcı olarak yakar ve Samsung'un belgelerine göre bu geri alınamaz."
+  - question: "Root atınca telefon sıfırlanır mı?"
+    answer: "Evet, çoğu telefonda. Root'tan önce bootloader kilidinin açılması gerekir ve kilit açılırken telefondaki her şey silinir. Bu yüzden önce yedek almak gerekir. Kilit zaten açıksa bu aşama yoktur."
+  - question: "Root atma ne kadar sürer?"
+    answer: "Süre telefona göre değişir. Zaman daha çok Xiaomi'de kilit açma bekleme süresine, veri yedeğine ve sonrasında uygulamaları çalışır hâle getirmeye gider. Kesin bir süre veremem."
+  - question: "Bilgisayarsız root atılır mı?"
+    answer: "Magisk'in resmî rehberi bilgisayar kullandığınızı varsayar. Bilgisayarsız anlatan videolar var ama hangi telefonlarda ve hangi şartlarda çalıştıklarını doğrulayamadım."
+  - question: "Rootlu telefonda banka uygulaması çalışır mı?"
+    answer: "Varsayılan olarak çalışmaz, çünkü uygulamalar cihaz bütünlüğü kontrolünden geçmek ister ve rootlu telefon bu kontrolü geçemez. Bazı durumlarda çalışır hâle getirilebilir, ama bir güncellemeyle yeniden bozulabilir."
+intent: "guide"
+---
+
+<Summary
+  what="Root, telefonda sistemin en üst yetkisini almaktır. Siz ve seçtiğiniz uygulamalar, normalde kilitli olan her yere erişir."
+  avoid="Root'u bir sıfırlama ya da hız ayarı gibi görmek. Veriler silinir, garanti ve banka uygulamaları etkilenir."
+  safe="Önce root'a gerçekten ihtiyacınız olup olmadığına bakın, aşağıdaki akış bunun için."
+/>
+
+Telefona root atmak, Android'in sistem dosyalarına ve ayarlarına normalde kapalı olan en üst yetkiyi açmaktır. Kullanıcıların çoğu bunu telefonu özelleştirmek, uygulamaları sınırsız denetlemek ya da sistemden çıkarılamayan bir uygulamayı silmek için ister.
+
+Yetki cazip görünür, ama bedeli çoğu kişinin düşündüğünden büyüktür.
+
+## Root nasıl atılıyor: Magisk, KernelSU ve APatch
+
+Üçü de aynı işi yapar: bir uygulamaya, telefonun çekirdeğinden yetki aktarır. Fark, bunu nerede yaptıklarıdır.
+
+<Cards
+  items={[
+    {
+      icon: "key",
+      tone: "gold",
+      title: "Magisk",
+      text: "En eski ve en yaygın yöntem. Telefonun açılış görüntüsünü (boot image) yamar ve yetkiyi bir uygulama üzerinden dağıtır. Resmî rehberi bootloader kilidinin açık olmasını şart koşar.",
+    },
+    {
+      icon: "chip",
+      tone: "violet",
+      title: "KernelSU ve KernelSU Next",
+      text: "Yetkiyi doğrudan çekirdekte (kernel) verir. Projenin kendi belgesi GKI denilen çekirdek yapısındaki telefonları hedefler, diğerleri için ek iş gerekir. KernelSU Next, aynı fikrin ayrı geliştirilen bir devamıdır.",
+    },
+    {
+      icon: "package",
+      tone: "sky",
+      title: "APatch",
+      text: "O da çekirdek tarafında çalışır ve Magisk'e benzer modüller destekler. Belgelerine göre 3.18 ile 6.12 arası çekirdek sürümlerini kapsar, yani eski telefonlara da uzanır.",
+    },
+  ]}
+/>
+
+Hangisinin sizin telefonunuza uyduğu modele, çekirdeğe ve Android sürümüne bağlıdır. Bu yazı bir kurulum rehberi değil, o yüzden komut ve dosya vermiyorum.
+
+## Root ne veriyor, neyi bozuyor
+
+<Cards
+  columns={2}
+  items={[
+    {
+      icon: "unlock",
+      tone: "emerald",
+      title: "Verdikleri",
+      text: "Sistem uygulamalarını kaldırmak, her uygulamanın izinlerini ayrıntılı denetlemek, sistem dosyalarını değiştirmek, modül kullanmak.",
+    },
+    {
+      icon: "wipe",
+      tone: "rose",
+      title: "Veri silinmesi",
+      text: "Root için bootloader kilidi açılır ve bu sırada telefondaki her şey silinir. Önce yedek alınmalı.",
+    },
+    {
+      icon: "bank",
+      tone: "rose",
+      title: "Banka ve e-Devlet",
+      text: "Uygulamalar cihaz bütünlüğünü sorgular, rootlu telefon bunu geçemez. Çoğu açılmaz ya da uyarı verir.",
+    },
+    {
+      icon: "nfc",
+      tone: "gold",
+      title: "Temassız ödeme",
+      text: "Google Cüzdan gibi ödeme uygulamaları çoğu zaman geri gelmez. Bunu baştan bilin.",
+    },
+    {
+      icon: "certified",
+      tone: "slate",
+      title: "Garanti",
+      text: "Şartlar üreticiye ve ülkeye göre değişir, çoğu durumda root garantiyi etkiler.",
+    },
+  ]}
+/>
+
+Banka tarafı [bootloader kilidi açık telefonlarda uygulamalar](/blog/bootloader-kilidi-acik-telefonda-uygulamalar) yazısında ayrıntılı. Xiaomi'de kilit açma işi ayrı bir süreç, onu [Xiaomi bootloader kilidi açma](/blog/xiaomi-bootloader-kilidi-acma) yazısında anlattım.
+
+<PhoneScreen screen="integrity">
+  Rootlu telefonda bütünlük kontrolünün üç düzeyi de geçmez. Bankaların bu kontrolü isteme biçimi
+  uygulamaya göre değişir.
+</PhoneScreen>
+
+## Samsung'da Knox neden ayrı bir mesele
+
+Samsung telefonlarda Knox garanti biti denen kalıcı bir işaret var. Samsung'un kendi destek sayfasına göre bu bit, Samsung dışı bir çekirdek yüklendiğinde 0x0'dan 0x1'e geçer ve geri dönmez.
+
+Samsung'un belgelerinde bit yandıktan sonra Samsung Pay, Secure Folder ve Knox'a bağlı kurumsal özelliklerin çalışmadığı yazıyor. Samsung Wallet için Samsung'un belgesinde ayrı bir ifade bulamadım. Üçüncü taraf kaynaklar onun da etkilendiğini söylüyor, ben bunu doğrulayamadım. Telefon çalışmaya devam eder, ama o özelliklere artık dönülmez.
+
+## Root'a gerçekten ihtiyacınız var mı
+
+<Flow
+  question="Root'a gerçekten ihtiyacınız var mı?"
+  branches={[
+    {
+      label: "Banka, e-Devlet ya da temassız ödeme kullanıyorum",
+      text: "Root büyük olasılıkla bunları bozar. Bunlar vazgeçilmezse root çoğu zaman değmez.",
+      tone: "warn",
+    },
+    {
+      label: "Asıl derdim bir özelleştirme ya da bir uygulamanın tam yetkisi",
+      text: "Mantıklı olabilir. Önce yedek alın, garantiyi ve Samsung'daysanız Knox'u göze alın.",
+      tone: "safe",
+    },
+  ]}
+/>
+
+Zaten root atılmış bir telefondan geri dönmek için [telefondan root kaldırma](/blog/telefondan-root-kaldirma) yazısına bakın. Root değil, telefonun sistemini yeniden kurmak istiyorsanız [telefona yazılım atma](/blog/telefona-yazilim-atma) yazısı size daha uygun.
+
+## Kalan iş ne
+
+Root'u uzaktan atabilirim. Bunun ardından banka ve resmî uygulamaların rootlu telefonda çalışmasını sağlamaya da bakarım, yöntemini anlatmam.
+
+Hiçbir şeyi kalıcı diye söyleyemem. Uygulama ve sistem güncellemeleri bu kontrolleri değiştirir, bugün çalışan yarın bozulabilir. Temassız ödeme de çoğu zaman geri gelmez.
+
+Yazarken telefonun modelini ve rootlu hâliyle ne yapmak istediğinizi belirtin. Hangi işlere baktığımı [Android destek sayfasında](/android-destek) yazdım.

@@ -1,0 +1,140 @@
+---
+title: "Telefona Yazılım Atmak Nedir? Fotoğraflar Silinir mi, Ne Kadar Sürer"
+seoTitle: "Telefona Yazılım Atmak Nedir? Silinir mi?"
+description: "Telefona yazılım atmak, yani telefonun orijinal yazılımını (stock ROM, firmware) yeniden yüklemek demek. Ne zaman gerekir, format atmaktan farkı ne ve fotoğraflar silinir mi, yazdım."
+seoDescription: "Telefona yazılım atmak, telefonun orijinal yazılımını (stock ROM) yeniden yüklemektir. Ne zaman gerekir, formattan farkı ne, fotoğraflar silinir mi?"
+date: 2026-11-22
+tags: ["android", "yazılım atma", "stock rom", "firmware", "format atmak", "xiaomi", "samsung"]
+category: "android"
+draft: false
+faq:
+  - question: "Telefona yazılım atınca fotoğraflar silinir mi?"
+    answer: "Yönteme ve telefona bağlı. Bazı seçenekler sistemi yeniden yazarken veriyi korur, bazıları her şeyi siler. Xiaomi'de bunu yazılım yüklenirken seçilen mod belirler, Samsung'da dosya türü. Hangisinin uygulanacağını işe başlamadan söylerim, siz onaylamadan veri silen bir seçenek kullanmam."
+  - question: "Yazılım atmak telefonu sıfırlar mı?"
+    answer: "Veriyi koruyan bir yöntem seçilmediyse evet, telefon fabrika çıkışı gibi açılır. Veriyi koruyan yöntem seçilirse yalnızca sistem yeniden yazılır, uygulamalarınız ve dosyalarınız yerinde kalır. Sistem bozuksa bu yöntem her zaman çalışmaz."
+  - question: "Yazılım atmak garantiyi bozar mı?"
+    answer: "Garanti koşullarını üretici belirler, o yüzden kesin bir cevap veremem. Bootloader kilidi açılmış ya da root atılmış bir telefonda üretici garantiyi reddedebilir. Telefon garantideyse önce üreticinin koşullarına bakmanızı öneririm."
+  - question: "Telefona yazılım atmak yasak mı, zararlı mı?"
+    answer: "Telefonun kendi yazılımını yeniden yüklemek yasak değildir. Zarar, yanlış modele ya da bölgeye ait dosya yüklendiğinde ortaya çıkar. Doğru dosyayla ve doğru sırayla yapılan işte telefona zarar gelmesi beklenmez."
+  - question: "Telefona yazılım atmak ne kadar sürer?"
+    answer: "Süre telefonun modeline, dosyanın boyutuna ve bilgisayarın telefonu ne kadar sorunsuz tanıdığına göre değişir. Sabit bir süre veremem. Telefonun durumuna bakınca kabaca ne kadar süreceğini söylerim."
+  - question: "Telefona yazılım attırmak için ne gerekir?"
+    answer: "Telefonun modeli, ekranın ya da hatanın fotoğrafı, bir Windows bilgisayar ve USB kablo. Telefon sizde kalır, ben bilgisayarınıza bağlanıp işi uzaktan yaparım. Ücret telefonun modeline göre değişir, form üzerinden sorabilirsiniz."
+intent: "guide"
+---
+
+<Summary
+  what="Yazılım atmak, telefonun üreticinin yazdığı orijinal sistemini (stock ROM, firmware) bilgisayardan yeniden yüklemektir."
+  avoid="Telefona uymayan yazılımı yüklemek. Yanlış model ya da bölge telefonu açılmaz hâle getirebilir."
+  safe="Önce telefonu şarja takıp yeniden başlatmayı deneyin. Verilerinizi yedekleyebiliyorsanız yedekleyin."
+/>
+
+Telefona yazılım atmak, günlük dilde telefonun orijinal sistemini (stock ROM, firmware) bilgisayardan yeniden yüklemek demektir. Telefon açılmadığında ya da sistem bozulduğunda başvurulan, ayarlardaki sıfırlamadan çok daha derin bir işlemdir.
+
+Aramalarda çoğu kişi buna "format atmak" da diyor. İkisi aynı şey değil, aşağıda farkını anlattım.
+
+## Yazılım atmak ne zaman gerekir
+
+<Cards
+  items={[
+    {
+      icon: "refresh",
+      tone: "rose",
+      title: "Sürekli yeniden başlıyor",
+      text: "Telefon açılış logosunda kalıyor ya da döngüye giriyor (bootloop).",
+    },
+    {
+      icon: "usb",
+      tone: "slate",
+      title: "Fastboot ya da recovery",
+      text: "Telefon sisteme geçmeden bu ekranlarda kalıyor.",
+    },
+    {
+      icon: "update",
+      tone: "gold",
+      title: "Güncelleme yarıda kaldı",
+      text: "Sistem güncellemesi sırasında telefon kapandı ve bir daha düzgün açılmadı.",
+    },
+    {
+      icon: "unlock",
+      tone: "violet",
+      title: "Root ya da özel ROM sonrası",
+      text: "Sistemi değiştirdiniz, ama telefon bozuldu ya da orijinale dönmek istiyorsunuz.",
+    },
+  ]}
+/>
+
+Telefonu fabrika yazılımına döndürmek istiyorsanız da yazılım atılır, telefonun bozuk olması gerekmez.
+
+<PhoneScreen screen="fastboot">
+  Bu ekranda kaldıysa yazılım atmak gerekebilir, ama her zaman gerekmez. Ayrıntısı için [Fastboot
+  yazısına](/blog/xiaomi-fastboot-ekraninda-kaldi) ve [Main Menu
+  yazısına](/blog/xiaomi-main-menu-ekraninda-kaldi) bakın.
+</PhoneScreen>
+
+## Format atmak ile yazılım atmak aynı şey mi
+
+Hayır. Format atmak (fabrika ayarlarına sıfırlama) sistemi olduğu gibi bırakıp verileri siler. Yazılım atmak ise sistemin kendisini yeniden yazar.
+
+<Cards
+  items={[
+    {
+      icon: "factory",
+      tone: "sky",
+      title: "Format atmak",
+      text: "Sistem yerinde kalır, fotoğraflar, uygulamalar ve ayarlar silinir. Telefon açılıyorsa denenir.",
+    },
+    {
+      icon: "chip",
+      tone: "indigo",
+      title: "Yazılım atmak",
+      text: "Sistem bilgisayardan yeniden yazılır. Telefon açılmasa bile yapılabilir. Verinin silinip silinmeyeceği yönteme bağlıdır.",
+    },
+  ]}
+/>
+
+## Fotoğraflar silinir mi
+
+Yönteme ve telefona bağlı. Bunu tek bir cevapla vermek doğru olmaz.
+
+Xiaomi'de yazılım yüklenirken üç mod var. Biri her şeyi siler, biri kullanıcı verisini korur, biri her şeyi silip bootloader'ı yeniden kilitler. Samsung'da firmware dosyalarından CSC verinin silinmesine, HOME_CSC ise korunmasına yönelik. Ama HOME_CSC her durumda çalışmaz. Telefondaki bölge kodu eşleşmiyorsa ya da yazılım eskiyse veri yine silinebilir.
+
+Sistem ciddi hasarlıysa veriyi koruyan seçenek telefonu açmayabilir. O zaman karar sizindir, ben siz onaylamadan veri silmem.
+
+## Ne kadar sürer
+
+Sabit bir süre veremem. Süre telefonun modeline, yazılımın boyutuna ve bilgisayarın telefonu sorunsuz tanıyıp tanımadığına göre değişir. Telefonun durumunu görünce kabaca ne kadar süreceğini söylerim.
+
+## Doğru yazılım ve riskler
+
+Yazılım telefonun tam modeline ve bölgesine uymalıdır. Aynı adı taşıyan iki telefonun yazılımı farklı olabilir.
+
+- **Yanlış yazılım:** Telefon açılmayabilir, ağ ya da kamera gibi bölümler bozulabilir.
+- **Geri sürüm (anti-rollback):** Xiaomi'de bazı modeller eski bir sürümün yüklenmesini engeller. Telefona uygun sürüme dikkat etmek gerekir.
+- **Yanlış kilitleme:** Bootloader'ı, telefona uymayan yazılımın üstünde kilitlemek telefonu açılmaz hâle getirebilir.
+
+Çin sürümü telefonlarda durum biraz daha karmaşık, onu [Çin sürümü telefona global ROM](/blog/cin-surumu-telefona-global-rom) yazısında anlattım.
+
+<Flow
+  question="Telefon açılıyor mu?"
+  branches={[
+    {
+      label: "Evet, açılıyor",
+      text: "Önce yedek alın, sonra formatı deneyin. Yazılım atmak genellikle ilk adım değildir.",
+      tone: "safe",
+    },
+    {
+      label: "Hayır, açılmıyor",
+      text: "Güncellemeden sonra olduysa HyperOS yazısına bakın. Değişmiyorsa bana yazın.",
+      tone: "warn",
+    },
+  ]}
+/>
+
+Güncelleme sonrası açılmayan Xiaomi için [HyperOS yazısı](/blog/hyperos-guncellemesi-sonrasi-telefon-acilmiyor) var. Root kaldırma konusu ayrı bir iştir, onu [root kaldırma yazısında](/blog/telefondan-root-kaldirma) anlattım.
+
+## Kalan iş ne
+
+"Telefona yazılım attırma" diye arıyorsanız yapılacak iş budur. Telefonun modelini, bölgesini ve hangi aşamada kaldığına bakarım, uygun yazılımı seçerim. Sonra yükleme yöntemini sizinle konuşurum, çünkü veriyi koruyup korumayacağı ona bağlı.
+
+Ücret telefonun modeline göre değişir, form üzerinden sorabilirsiniz. Donanım arızasını, örneğin bozuk bir anakartı yazılımla düzeltemem. Bana yazarken modeli, ekranın fotoğrafını ve telefonun nasıl bozulduğunu ekleyin. Hangi işlere baktığımı [Android destek sayfasında](/android-destek) yazdım.
