@@ -53,6 +53,15 @@ const cta =
         primary: "Formu doldurun",
       };
 
+// Readers arrive through the blog; the service page is where they become clients
+const SERVICE_BY_CATEGORY: Record<string, { label: string; href: string } | undefined> = {
+  android: { label: "Android yazılım desteği", href: "/android-destek" },
+  web: { label: "Web sitesi yapımı", href: "/web-site-yapimi-gaziantep" },
+  seo: { label: "Web sitesi yapımı", href: "/web-site-yapimi-gaziantep" },
+  mobile: { label: "Mobil uygulama geliştirme", href: "/mobil-uygulama-gelistirme" },
+};
+const service = SERVICE_BY_CATEGORY[entry.data.category];
+
 const metadata = generateMetadata({
   title: entry.data.seoTitle ?? entry.data.title,
   description: entry.data.seoDescription ?? entry.data.description,
@@ -117,7 +126,7 @@ const extraSchemas = faqSchema ? [blogSchema, faqSchema] : [blogSchema];
             class="h-10 w-10 rounded-full object-cover"
           />
           <div class="text-sm">
-            <p class="text-heading font-semibold">goldsword</p>
+            <p class="text-heading font-semibold">{SITE_CONFIG.author}</p>
             <p class="text-muted">
               <time datetime={entry.data.date.toISOString()}>{formatDate(entry.data.date)}</time>
               {entry.data.updated && (
@@ -292,6 +301,18 @@ const extraSchemas = faqSchema ? [blogSchema, faqSchema] : [blogSchema];
               {COPY_TOKENS.blogContactSecondaryCta}
             </a>
           </div>
+          {service && (
+            <p class="mt-6 text-sm text-gray-300">
+              Bu konuda nasıl çalıştığımı{" "}
+              <a
+                href={service.href}
+                class="font-semibold text-white underline decoration-white/40 underline-offset-4 hover:decoration-white"
+              >
+                {service.label}
+              </a>{" "}
+              sayfasında anlattım.
+            </p>
+          )}
         </div>
       </footer>
 
