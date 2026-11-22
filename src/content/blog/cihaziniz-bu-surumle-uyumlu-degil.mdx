@@ -1,0 +1,140 @@
+---
+title: "Cihazınız Bu Sürümle Uyumlu Değil Hatası: Play Store'da Sebepler"
+seoTitle: "Cihazınız Bu Sürümle Uyumlu Değil Hatası ve Sebepleri"
+description: "Play Store 'cihazınız bu sürümle uyumlu değil' diyorsa sebep beş farklı şey olabilir: Eski Android, yetersiz donanım, hesap ülkesi, geliştiricinin kısıtı ya da telefonun sertifika ve doğrulama durumu."
+seoDescription: "Play Store'da 'cihazınız bu sürümle uyumlu değil' mi çıkıyor? Beş olası sebep ve hangisinin sizin telefonunuz olduğunu nasıl anlayacağınız."
+date: 2026-11-22
+tags: ["android", "play store", "uyumlu değil", "play protect", "sertifika", "oyun"]
+category: "android"
+draft: false
+faq:
+  - question: "Aynı oyun arkadaşımın telefonunda yükleniyor, benimkinde yüklenmiyor. Neden?"
+    answer: "Telefonlar aynı değildir. Android sürümü, bellek, donanım özellikleri ya da cihazın sertifika durumu farklı olabilir. Play Store her telefon için ayrı karar verir. Hangisi olduğunu anlamak için önce Android sürümüne ve Play Protect sertifikasına bakın."
+  - question: "Oyunu APK dosyasıyla kurarsam sorun çözülür mü?"
+    answer: "Sorun donanım ya da Android sürümüyse hayır, oyun kurulsa bile açılmayabilir. Kaynağı belirsiz dosyalar da zararlı yazılım riski taşır. Ben bu yöntemi önermiyorum. Önce sebebin hangisi olduğunu anlayın."
+  - question: "Play Store'da hesabımın ülkesi bu hataya yol açar mı?"
+    answer: "Evet, bazı uygulamalar yalnızca belirli ülkelerde yayımlanır. Yayın ülkesi dışındaysanız uygulama aramada görünmez ya da uyumsuz görünür. Hangi ülkede yayımlandığı geliştiriciye bağlıdır, buna ben müdahale edemem."
+  - question: "Eski telefonumda yeni oyun açılır mı, bir yazılımla düzelir mi?"
+    answer: "Telefon oyunun istediği Android sürümünün, belleğin ya da donanımın altındaysa hayır. Bunu yazılımla düzeltemem. Yalnızca sebep telefonun sertifika ya da cihaz doğrulama durumuysa yardımcı olabilirim."
+  - question: "Telefonum sertifikalı değil, bu yüzden mi uyumlu değil diyor?"
+    answer: "Olabilir. Google'ın yardım sayfası yalnızca Play Protect sertifikalı cihazların desteklendiğini söylüyor. Geliştiriciler de uygulamalarını doğrulamayı geçemeyen cihazlara kapatabiliyor. Ayarlardan sertifika durumuna bakmak bu ihtimali eler."
+intent: "troubleshooting"
+---
+
+<Summary
+  what="Play Store, telefonunuzun uygulamayı kurması için gereken koşulları sağlamadığına karar verdi. Sebep her zaman telefonun eski olması değildir."
+  avoid="Kaynağı belirsiz APK indirmek, build.prop düzenlemek ve telefonu sıfırlamak. Sebep Android sürümü ya da donanımsa hiçbir şey değişmez, verilerinizi kaybedersiniz."
+  safe="Android sürümüne ve Play Protect sertifikasına bakın. İkisi de hiçbir şeyi değiştirmez."
+/>
+
+Play Store "Bu uygulama cihazınızla uyumlu değil" ya da "Cihazınız bu sürümle uyumlu değil" diyorsa mağaza, telefonunuzun o uygulamayı kurması için gereken koşulları sağlamadığına karar vermiştir. Sebep her zaman telefonun eski olması değildir.
+
+Bu hata en çok oyunlarda, özellikle EA SPORTS FC Mobile ve eFootball gibi büyük oyunların yeni sürümlerinde sorulur. Arkadaşınızın telefonunda kurulan oyun sizde "Yükle" yerine bu mesajı gösterir ya da yüklü oyun güncellemeden sonra açılmaz. Beş farklı sebep var ve her birinin çözümü ayrı.
+
+## Hangi sebep sizin telefonunuzda
+
+Sıralama, kontrolü kolaydan zora doğru gider.
+
+<Cards
+  columns={1}
+  items={[
+    {
+      icon: "update",
+      tone: "sky",
+      title: "1. Android sürümü eski",
+      text: "Her uygulama en düşük bir Android sürümü ister ve bunu geliştirici belirler. Google'ın geliştirici sayfasındaki örneğe göre en düşük sürüm Android 9 yapılırsa yalnızca Android 9 ve üstündeki cihazlar uygun olur.",
+    },
+    {
+      icon: "chip",
+      tone: "slate",
+      title: "2. Donanım ya da bellek yetersiz",
+      text: "Uygulama belirli bir ekran, sensör ya da yeterli RAM istiyor ve telefonda yoksa mağaza uyumsuz der. Geliştirici düşük bellekli cihazları kural koyarak da dışarıda bırakabilir.",
+    },
+    {
+      icon: "globe",
+      tone: "violet",
+      title: "3. Hesabın ülkesi",
+      text: "Bazı uygulamalar her ülkede yayımlanmaz. Hesabınızın ülkesi yayın listesinde yoksa uygulama görünmez ya da uyumsuz görünür.",
+    },
+    {
+      icon: "ban",
+      tone: "gold",
+      title: "4. Geliştirici modelinizi dışarıda bırakmış",
+      text: "Google'ın Play Console yardım sayfası, geliştiricinin cihaz kataloğundan belirli modelleri dışlayabildiğini söylüyor. Dışlanan cihazlar uygulamayı Google Play'de göremiyor ve kuramıyor.",
+    },
+    {
+      icon: "uncertified",
+      tone: "rose",
+      title: "5. Telefon sertifika ya da doğrulama kontrolünden geçemiyor",
+      text: "Google'ın yardım sayfasına göre yalnızca Play Protect sertifikalı cihazlar desteklenir. Geliştirici uygulamasını cihaz doğrulamasını geçemeyen telefonlara da kapatabilir. Çin sürümü, sahte ya da custom ROM'lu ve bootloader kilidi açık telefonlar bu gruba girebilir.",
+    },
+  ]}
+/>
+
+Hangi geliştiricinin hangi kuralı koyduğunu dışarıdan bilmek mümkün değil. Bu yüzden sebebi ancak telefonunuzun durumuna bakarak elersiniz.
+
+## Kendi telefonunuzda nasıl ayırırsınız
+
+Önce Ayarlar, Telefon hakkında yolundan Android sürümüne bakın ve oyunun Play Store sayfasındaki ya da resmî sitesindeki en düşük sürümle karşılaştırın.
+
+<Flow
+  question="Android sürümünüz oyunun istediği en düşük sürümün altında mı?"
+  branches={[
+    {
+      label: "Evet",
+      text: "Sebep büyük ihtimalle birinci sebep. Yazılımla çözümü yok, ben de boşuna uğraştırmam.",
+      tone: "warn",
+    },
+    {
+      label: "Hayır",
+      text: "Sertifikaya bakın. Play Store'u açın, sağ üstteki profil simgesine, Ayarlar'a, sonra Hakkında'ya dokunun.",
+      tone: "safe",
+    },
+  ]}
+/>
+
+<PhoneScreen screen="play-protect">
+  Sertifika durumu Hakkında ekranında yazar. Burada yalnızca okursunuz.
+</PhoneScreen>
+
+<Flow
+  question="Hakkında ekranında telefon sertifikalı görünüyor mu?"
+  branches={[
+    {
+      label: "Evet",
+      text: "Beşinci sebep büyük ihtimalle elenir. Geriye model dışlaması, donanım ya da hesabın ülkesi kalır. Aynı hesapla başka bir telefonda uygulama görünüyorsa sebep modeliniz ya da donanımınız olabilir.",
+      tone: "safe",
+    },
+    {
+      label: "Hayır, sertifikalı değil",
+      text: "Yazılım tarafında bakılabilecek durum bu.",
+      tone: "warn",
+    },
+  ]}
+/>
+
+[Sertifikalı değil uyarısının ne anlama geldiğini](/blog/cihaz-play-protect-sertifikali-degil) ve sebeplerini ayrı yazıda anlattım.
+
+## Sertifika sorunu neden ayrı bir yer tutuyor
+
+Telefonlar açılırken kendi durumlarını bildirir: Üstündeki yazılım üreticinin verdiği mi, değiştirilmiş mi. Play Store ve bazı uygulamalar bu bildirime bakar. Kilidi açılmış, root'lanmış ya da yazılımı Google tarafından onaylanmamış bir telefon bu kontrolden geçemeyebilir.
+
+Aynı sebep banka uygulamalarını da bozar, [mekanizmayı o yazıda anlattım](/blog/banka-uygulamasi-acilmiyor-guvenli-degil-hatasi). [Kilidi açık telefonlarda uygulamaların davranışını](/blog/bootloader-kilidi-acik-telefonda-uygulamalar) da ayrı topladım.
+
+Bir oyunun hangi geliştirici kuralıyla bu telefonlara kapandığını ben de dışarıdan göremem. Play Console'daki doğrulama ayarının oyunlarda ne kadar kullanıldığına dair bir veri bulamadım. Kesin bildiğim, sertifikalı olmayan telefonlarda mağazanın uyumsuzluk mesajı verebildiği ve geliştiricinin bunu bilerek seçebildiği.
+
+## Dokunmayın
+
+- Kaynağı belirsiz sitelerden APK indirmeyin. Zararlı yazılım riski taşır, sebep donanımsa oyun yine açılmaz.
+- Videolardaki "cihaz modelini değiştirme" ya da "build.prop düzenleme" yöntemlerini denemeyin. Yanlış bir değişiklikte telefon açılmayabilir.
+- Telefonu sıfırlamayın. Sebep Android sürümü ya da donanımsa hiçbir şeyi değiştirmez, verilerinizi ise kaybedersiniz.
+
+## Kalan iş ne
+
+Telefonunuz oyunun istediği Android sürümünün, belleğin ya da donanımın altındaysa yazılımla yapılabilecek bir şey yok. Bunu söylerim ve boşuna uğraştırmam.
+
+Sebep telefonun sertifika ya da cihaz doğrulama durumuysa bakabilirim. Ne bulacağımı önceden söyleyemem ve uygulamanın açılacağına da söz veremem. Kontroller uygulama ve sistem güncellemeleriyle değişir, bugün geçen bir telefon aylar sonra yeniden takılabilir.
+
+Bana yazarken modeli, Android sürümünü ve hata mesajının ekran görüntüsünü gönderin. Play Protect sertifika ekranının görüntüsü de çok işe yarar.
+
+Hangi işlere baktığımı [Android destek sayfasında](/android-destek) yazdım.

@@ -1,0 +1,131 @@
+---
+title: "Cihaz Play Protect Sertifikalı Değil Ne Demek? Nedenleri ve Ne Bozulur"
+seoTitle: "Cihaz Play Protect Sertifikalı Değil: Ne Demek?"
+description: "Play Store 'Cihazınız Play Protect sertifikalı değil' diyor. Bunun ne anlama geldiğini, nerede görüldüğünü, telefonun neden sertifikasız kaldığını ve hangi uygulamaların bundan etkilendiğini yazdım."
+seoDescription: "'Cihaz Play Protect sertifikalı değil' uyarısı ne demek, nerede görülür, telefon neden sertifikasız kalır ve hangi uygulamalar bozulur? Nedenleri ve güvenli kontrol."
+date: 2026-11-22
+tags:
+  ["android", "play protect", "sertifika", "play store", "custom rom", "çin sürümü", "bootloader"]
+category: "android"
+draft: false
+faq:
+  - question: "Play Protect sertifikalı değil ne demek?"
+    answer: "Google, telefonun yazılımı için bir uyumluluk testi sonucu görmüyor demek. Telefon bu testten geçmemiş olabilir, hiç girmemiş olabilir ya da üstündeki yazılım sonradan değiştirilmiş olabilir. Google'ın yardım sayfası, sertifikasız telefonlarda Google uygulamalarının lisanslı olmadığını söylüyor."
+  - question: "Play Protect sertifikası ile Google Play Protect taraması aynı şey mi?"
+    answer: "Hayır. Tarama, uygulamalardaki zararlı yazılımı arayan güvenlik özelliği. Sertifika ise telefonun yazılımının Google'ın uyumluluk testinden geçtiğini gösteren kayıt. Taramayı açmak ya da kapatmak sertifika durumunu değiştirmez."
+  - question: "Çin sürümü telefonum neden sertifikasız çıkıyor?"
+    answer: "Çin pazarı için üretilen sürümler Google'ın hizmetleriyle gelmez, sonradan Google uygulamaları eklenmiş olsa bile telefon sertifikalı sayılmayabilir. Bu tür telefonlarda ayrıca yüklenen bir global ROM da sertifika durumunu her zaman düzeltmez."
+  - question: "Sertifikasız telefonda banka uygulamaları çalışır mı?"
+    answer: "Bazen çalışır, bazen çalışmaz. Bankanın cihaz doğrulamasına baktığı telefonlarda sertifikasız durum çoğu zaman sorun çıkarır. Google Wallet gibi ödeme uygulamaları ise sertifikasız telefonlarda en sıkı denetlenen gruptur."
+  - question: "Telefonu sıfırlarsam sertifika geri gelir mi?"
+    answer: "Telefonda üreticinin orijinal yazılımı varsa bazen gelir. Sebep değiştirilmiş yazılım ya da kilidi açık bootloader ise sıfırlama tek başına yetmez. Üstelik sıfırlama verilerinizi siler, o yüzden ilk adım olarak önermem."
+intent: "troubleshooting"
+---
+
+<Summary
+  what="Google, telefonunuzun yazılımı için bir uyumluluk testi sonucu görmüyor. Telefon testten geçmemiş, hiç girmemiş ya da yazılımı sonradan değiştirilmiş olabilir."
+  avoid="Telefonu sıfırlamak ya da sertifikayı düzeltir denilen, kaynağı belirsiz APK ve modüller. Verileriniz gider, sertifika çoğu zaman yine gelmez."
+  safe="Play Store'da Hakkında ekranını açın, ekran görüntüsü alın. Hiçbir şey değişmez."
+/>
+
+"Cihaz Play Protect sertifikalı değil" uyarısı, Google'ın telefonunuzun yazılımı için bir uyumluluk testi sonucu görmediği anlamına gelir. Telefon bu testten geçmemiş, hiç girmemiş ya da üstündeki yazılım sonradan değiştirilmiş olabilir.
+
+Uyarıyı çoğu kişi Play Store'u açtığında ya da bir Google uygulaması takıldığında görüyor. Bazen bir uygulama bu yüzden hiç kurulmuyor. İkisi de aynı şeyi söylüyor, Google bu telefonu kendi listesinde tanımıyor.
+
+## Bu uyarı nerede görülür
+
+Durumu kendiniz de görebilirsiniz. Google'ın yardım sayfasındaki yola göre Play Store'u açın, sağ üstteki profil simgesine, sonra Ayarlar'a dokunun ve Hakkında bölümünü açın. Orada telefonun Play Protect sertifikalı olup olmadığı yazar.
+
+<PhoneScreen screen="play-protect">
+  Sertifikasızsa Google'ın sayfası bunu "cihazınız Google Play Protect sertifikalı değildir" diye
+  belirtiyor. Bu yolda yalnızca okursunuz, hiçbir şey değişmez.
+</PhoneScreen>
+
+Sertifika ile Google Play Protect taraması farklı şeyler. Tarama, uygulamalardaki zararlı yazılımı arar. Sertifika ise yazılımın Google'ın uyumluluk testinden geçtiğini gösteren kayıttır. Taramayı kapatıp açmak sertifikayı değiştirmez.
+
+## Telefonlar neden sertifikasız kalır
+
+Her telefon, Google uygulamalarıyla gelmeden önce bir uyumluluk testinden geçmek zorunda. Sertifikasız kalmanın dört yolu var.
+
+<Cards
+  items={[
+    {
+      icon: "region",
+      tone: "violet",
+      title: "Hiç sertifikalandırılmamış telefon",
+      text: "Çin pazarı için üretilen sürümler genellikle Google'ın hizmetleri olmadan çıkar. Bazı ucuz tablet ve markasız telefonlar da testten hiç geçmemiştir. Google, önce telefonunuzun sertifikalı cihaz listesinde olup olmadığına bakmanızı öneriyor.",
+    },
+    {
+      icon: "package",
+      tone: "rose",
+      title: "Değiştirilmiş yazılım",
+      text: "Custom ROM, sonradan değiştirilmiş sistem ya da root. Google bu üçünü sertifika kontrolünün başarısız olmasının yaygın nedenleri arasında sayıyor.",
+    },
+    {
+      icon: "unlock",
+      tone: "gold",
+      title: "Kilidi açık bootloader",
+      text: "Bootloader, telefonun açılışta yazılımı doğrulayan ilk aşaması. Kilidi açık olunca telefon üreticinin imzalamadığı yazılımı da çalıştırabiliyor. Google bunu da aynı listede sayıyor.",
+    },
+    {
+      icon: "warning",
+      tone: "slate",
+      title: "Sahte ya da karıştırılmış ROM",
+      text: "Marka ve model gerçek görünse de yazılım başka bir yerden gelmiş olabilir. İkinci el telefon aldıysanız bu ihtimali atlamayın.",
+    },
+  ]}
+/>
+
+[Çin sürümü telefona global ROM kurulması](/blog/cin-surumu-telefona-global-rom) bu gruplarda sık karşılaşılan bir durum. [Kilidi açık telefonda uygulamaların davranışını](/blog/bootloader-kilidi-acik-telefonda-uygulamalar) ve [sahte ROM'u nasıl anlayacağınızı](/blog/fake-rom-nasil-anlasilir) ayrı yazdım.
+
+Hangi grupta olduğunuzu tek bir ekrandan söyleyemem. Telefonun modeline ve açılışta ne yaptığına bakınca çoğu zaman ayırt edebiliyorum.
+
+<Flow
+  question="Uyarı telefonu aldığınızdan beri mi var?"
+  branches={[
+    {
+      label: "Evet",
+      text: "Sorun büyük ihtimalle telefonun kendisinde ya da satıcının kurduğu yazılımda. Çin sürümü, tablet ve ikinci el telefon bu gruba girer.",
+      tone: "warn",
+    },
+    {
+      label: "Hayır, sonradan çıktı",
+      text: "O noktada ne yapıldığına bakmak gerekir: ROM değişikliği, kilit açma, root ya da bir sistem güncellemesi. Telefonu başkası kullandıysa ya da servise verildiyse onu da hatırlayın.",
+      tone: "warn",
+    },
+  ]}
+/>
+
+## Sertifikasız telefonda ne bozulur
+
+Google'ın yardım sayfasına göre sertifikasız telefonlar daha az güvenli olabilir, sistem ve uygulama güncellemelerini alamayabilir, uygulamalar hatalı çalışabilir ve güvenli yedekleme olmayabilir. Bu telefonlardaki Google uygulamaları da lisanslı değil.
+
+- Play Store'da bazı uygulamalar çıkmaz ya da kurulmaz, Google uygulamaları eksik ya da takılır. Play Store "cihazınız bu sürümle uyumlu değil" diyorsa [onu ayrı anlattım](/blog/cihaziniz-bu-surumle-uyumlu-degil).
+- Telefonla temassız ödeme çalışmaz. Google, Google Wallet'ın root'lu, custom ROM'lu ya da kilidi açık telefonlarda çalışmadığını yazıyor.
+- Bazı banka ve mesajlaşma uygulamaları cihaz doğrulamasında takılır. [Banka uygulamalarının açılmama sebebini](/blog/banka-uygulamasi-acilmiyor-guvenli-degil-hatasi) ayrıca yazdım.
+
+## Kendi başınıza yapmayın
+
+Videoların çoğu bir ID kaydettirmenizi ya da bir uygulama kurmanızı öneriyor. Ben o yöntemleri anlatmıyorum, çünkü telefona göre değişiyor ve bir kısmı sistem dosyalarına dokunuyor. Yanlışı telefonu açılmaz hâle getirebilir.
+
+- Telefonu sıfırlamayın. Verileriniz gider, sertifika çoğu zaman yine gelmez.
+- Üstünde custom ROM varken bootloader kilidini kapatmayın. Telefon açılmaz hâle gelebilir.
+- Sertifikayı "düzeltir" denilen, kaynağı belirsiz bir APK ya da modül kurmayın. Bankanız ve kişisel verileriniz için bu, uyarıdan daha büyük bir risk.
+
+## Tek güvenli adım
+
+Hakkında ekranını açın ve gördüğünüzü ekran görüntüsüyle kaydedin. Model adını, Android sürümünü ve telefonu nereden aldığınızı, yeni mi ikinci el mi olduğunu da not alın. Telefona dokunmaz ve ihtiyacım olan ilk bilgilerdir.
+
+## Kalan iş ne
+
+Önce telefonun hangi gruba girdiğine bakarım: Çin sürümü mü, sahte ROM mu, kilidi açık orijinal sistem mi, custom ROM mu. İş buna göre değişir. Bazen telefona doğru yazılımı yüklemek yeterli olur, bazen sertifikanın geri gelmesi mümkün olmaz.
+
+Söz veremeyeceğim şeyler de var.
+
+- Sertifikasız bırakılmış bazı telefonlar hiçbir zaman sertifikalı hâle gelmez.
+- Temassız ödeme sertifika düzelse bile geri gelmeyebilir.
+- Kontroller uygulama ve sistem güncellemeleriyle değişir, bugün düzelen bir telefon aylar sonra yeniden takılabilir.
+
+Olmayacaksa olmayacağını baştan söylerim. Bana yazarken modeli, nereden aldığınızı, Hakkında ekranının görüntüsünü ve önceden yapılanları belirtin.
+
+Hangi işlere baktığımı [Android destek sayfasında](/android-destek) yazdım.

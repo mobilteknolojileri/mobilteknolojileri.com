@@ -1,0 +1,158 @@
+---
+title: "E-Devlet Uygulaması Açılmıyor: Kilidi Açık (Bootloader) ve Rootlu Telefonlarda Sebep"
+seoTitle: "E-Devlet Uygulaması Açılmıyor: Sebepler ve Çözüm Yolları"
+description: "e-Devlet uygulaması açılmıyor ya da açılır açılmaz kapanıyor, tarayıcıdan giriş sorunsuz. Önce basit sebepler, sonra kilidi açık (bootloader unlocked) ve rootlu telefonlarda cihaz doğrulaması."
+seoDescription: "e-Devlet uygulaması açılmıyor mu? Önce kısa kontroller, sonra kilidi açık (bootloader) ve rootlu telefonlarda uygulamanın açılmamasının asıl sebebi."
+date: 2026-11-22
+tags: ["android", "e-devlet", "bootloader", "root", "cihaz doğrulama", "custom rom"]
+category: "android"
+draft: false
+faq:
+  - question: "e-Devlet tarayıcıdan açılıyor ama uygulama açılmıyor, neden?"
+    answer: "Hesabınızın sağlam olduğunu gösterir, sorun uygulamayla telefon arasında. Tarayıcıdan girişte cihaz kontrolü yok. Uygulama ise sürüm, saat ve telefonun durumu gibi şeylere bakabilir. Önce uygulamayı güncelleyin ve tarih ile saati otomatiğe alın. Düzelmezse telefonun durumundan şüphelenmek gerekir."
+  - question: "e-Devlet uygulaması rootlu telefonda açılmıyor mu?"
+    answer: "Kullanıcılar bu sorunu forumlarda anlatıyor, ama e-Devlet bu kontrolü kendi yardım sayfalarında açıklamıyor. Uygulamanın tam olarak neye baktığını söyleyemem. Gözlemim, rootlu ya da bootloader kilidi açık telefonlarda resmî uygulamaların açılmadığı ya da takıldığı yönünde."
+  - question: "Kayıtlı cihaza erişemiyorum, e-Devlet'e nasıl girerim?"
+    answer: "e-Devlet'in yardım sayfasına göre şifrenizle giriş yapın, bildirim süresinin dolmasını bekleyin ve 'Mesaj Gönder' ile kimlikle doğrulanmış numaranıza SMS kodu alın. Bu, uygulamanın hiç açılmamasından ayrı bir konu ve telefonun durumuyla ilgili değil."
+  - question: "Uygulamanın verisini silmek ya da yeniden kurmak işe yarar mı?"
+    answer: "Sorun uygulamadaki bozuk bir kayıttan geliyorsa yarar. Telefon doğrulamadan geçemediği için açılmıyorsa değişen bir şey olmaz. Silip kurmanın zararı yok ama yeniden giriş yapmanız gerekir. İki aşamalı girişte kayıtlı cihaz bildirimi de gelmeyebilir."
+  - question: "e-Devlet açılmıyorsa hesabım ya da bilgilerim risk altında mı?"
+    answer: "Hayır. Uygulamanın açılmaması, hesabınıza birinin girdiği anlamına gelmez. Tarayıcıdan girip hesabınızı kontrol edebilirsiniz. Telefonu ikinci el aldıysanız ve üstündeki yazılımı kimin kurduğunu bilmiyorsanız bu ayrı bir risktir."
+intent: "troubleshooting"
+---
+
+<Summary
+  what="Uygulama açılmıyor ya da açılır açılmaz kapanıyor, ama tarayıcıdan giriş sorunsuz. Hesabınız sağlam, sorun uygulamayla telefon arasında."
+  avoid="Telefonu sıfırlamak, e-Devlet APK'sı indirmek, Magisk modülü denemek, bootloader'ı kendi başınıza kilitlemek."
+  safe="Uygulamayı güncelleyin, tarih ve saati otomatiğe alın, telefonu yeniden başlatın. Sonra tarayıcıdan turkiye.gov.tr'ye girin."
+/>
+
+e-Devlet uygulaması açılmıyor ya da açılır açılmaz kapanıyor. Çoğu zaman sebep uygulamanın ya da telefonun küçük bir sorunudur, bazen de telefon kendini doğrulayamadığı için (kilidi açık ya da rootlu telefonlarda) uygulama çalışmayı reddeder.
+
+## Önce birkaç kısa kontrol
+
+Birkaç dakika sürer ve sorunların bir bölümünü tek başına çözer.
+
+<Cards
+  items={[
+    {
+      icon: "update",
+      tone: "sky",
+      title: "Güncelleme",
+      text: "Uygulamayı ve Google Play Hizmetleri'ni güncelleyin. Cihaz doğrulaması o bileşenden yapılır.",
+    },
+    {
+      icon: "refresh",
+      tone: "indigo",
+      title: "Tarih ve saat",
+      text: "Otomatiğe alın. Saat yanlışsa sunucuyla güvenli bağlantı kurulmaz.",
+    },
+    {
+      icon: "reboot",
+      tone: "emerald",
+      title: "Yeniden başlatma ve ağ",
+      text: "Wi-Fi'da açılmıyorsa mobil veriyle, mobil veride açılmıyorsa Wi-Fi ile deneyin.",
+    },
+    {
+      icon: "signal",
+      tone: "slate",
+      title: "Yoğunluk",
+      text: "e-Devlet'in tarafında geçici yoğunluk olabilir. Tarayıcıda da yavaşlık varsa biraz bekleyin.",
+    },
+  ]}
+/>
+
+## Sorun hesapta mı, telefonda mı
+
+Bilgisayardan ya da telefonun tarayıcısından turkiye.gov.tr'ye girin. Bu deneme tamamen risksizdir ve sorunun nerede olduğunu ilk anda gösterir.
+
+<Flow
+  question="Tarayıcıdan e-Devlet'e girebiliyor musunuz?"
+  branches={[
+    {
+      label: "Evet",
+      text: "Hesabınız sağlam, sorun uygulamayla telefon arasında. Aynı uygulamayı başka bir telefona kurun, orada açılıyorsa sorun sizin telefonunuzda.",
+      tone: "safe",
+    },
+    {
+      label: "Hayır",
+      text: "Mesele hesap ya da girişte. İki aşamalı girişte telefonu sıfırladıysanız ya da uygulamayı sildiyseniz kayıtlı cihaza bildirim gitmeyebilir. e-Devlet'in yardım sayfasına göre şifrenizle girin, bildirim süresinin dolmasını bekleyin ve Mesaj Gönder ile kimlikle doğrulanmış numaranıza SMS kodu alın.",
+      tone: "warn",
+    },
+  ]}
+/>
+
+Banka uygulamanız, bir oyun ya da başka bir resmî uygulama da aynı dönemde sorun çıkarmaya başladıysa tablo tek bir uygulamayla ilgili değildir.
+
+## Uygulama telefonu kontrol ediyor olabilir
+
+Android telefonlar açılırken kendi durumlarını bildirir: üstündeki yazılım üreticinin verdiği mi, sonradan değiştirilmiş mi. Banka gibi hassas işler yapan uygulamalar bu bildirime bakar ve olumsuzsa açılmaz. Aynı sebep banka uygulamalarını da bozar, [onu ayrıca anlattım](/blog/banka-uygulamasi-acilmiyor-guvenli-degil-hatasi).
+
+e-Devlet'in bu kontrolü yapıp yapmadığını ve neye baktığını kendi yardım sayfalarında bulamadım. Elimdeki bilgi kullanıcıların forumlardaki şikâyetlerinden ve bu tür telefonlarda sık gördüğüm tablodan geliyor: rootlu ya da bootloader kilidi açık telefonlarda resmî uygulamalar açılmıyor ya da takılıyor. Ekranda hangi mesajın çıktığı telefona ve sürüme göre değişebilir, o yüzden mesajı tahmin etmiyorum, ekran görüntüsüne bakıyorum.
+
+Bootloader kilidi, telefonun yalnızca üreticinin imzaladığı yazılımı çalıştırmasını sağlar. Kilit açılınca telefon başka yazılımları da çalıştırabilir ve bunu her açılışta bildirir. Root'lanmış olması, custom ROM kurulmuş olması ya da yalnızca kilidin açık kalması aynı sonucu verir. Bu duruma üç yoldan gelinebilir:
+
+<Cards
+  items={[
+    {
+      icon: "unlock",
+      tone: "gold",
+      title: "Kendiniz yaptınız",
+      text: "Kilidi ya da root'u kendiniz açtınız.",
+    },
+    {
+      icon: "phone",
+      tone: "violet",
+      title: "İkinci el telefon",
+      text: "Satıcı kilidi açık bırakmış. Telefon dışarıdan sıfır gibi görünür ama uygulamalar öyle olmadığını bilir.",
+    },
+    {
+      icon: "uncertified",
+      tone: "rose",
+      title: "Sertifikasız yazılım",
+      text: "Yazılım Google'ın sertifikasını taşımıyor. Çin sürümü ya da kaynağı belirsiz bir ROM'da görülür.",
+    },
+  ]}
+  columns={1}
+/>
+
+Sertifika konusunu [ayrı yazdım](/blog/cihaz-play-protect-sertifikali-degil). Banka, e-Devlet ve WhatsApp'ın kilidi açık telefondaki durumu için de [başka bir yazıma](/blog/bootloader-kilidi-acik-telefonda-uygulamalar) bakabilirsiniz.
+
+## Dokunmayın
+
+<Cards
+  items={[
+    {
+      icon: "factory",
+      tone: "rose",
+      title: "Telefonu sıfırlamak",
+      text: "Sebep telefonun durumuysa sorunu çözmeyebilir, verilerinizi ise kaybedersiniz.",
+    },
+    {
+      icon: "package",
+      tone: "rose",
+      title: "e-Devlet APK'sı indirmek",
+      text: "Kaynağı belli olmayan sitelerden indirirseniz kimlik bilgilerinizi yanlış bir uygulamaya girmiş olursunuz.",
+    },
+    {
+      icon: "warning",
+      tone: "rose",
+      title: "Magisk modülü gibi yöntemler",
+      text: "Videolardaki yöntemleri kendi başınıza denemeyin. Yanlış bir adımda telefon açılmaz hâle gelebilir.",
+    },
+    {
+      icon: "lock",
+      tone: "rose",
+      title: "Bootloader'ı yeniden kilitlemek",
+      text: "Yanlış yazılım üstündeyken kilitlenen bir telefon açılmayabilir.",
+    },
+  ]}
+/>
+
+## Kalan iş ne
+
+Yaptığım iş, telefonu bu kontrolden geçer hâle getirmek. Kilit açık kalır, çoğu zaman telefon sıfırlanmaz ve verileriniz gitmez. Ama uygulamanın açılacağına söz vermem. e-Devlet'in neye baktığını bilmediğim için önce bakar, sonucu söylerim. Olmayacaksa onu da söylerim.
+
+Kalıcılık konusunda da söz veremem. Bu kontroller uygulama ve sistem güncellemeleriyle değişir, bugün geçen bir cihaz aylar sonra yeniden takılabilir.
+
+Bana yazarken telefonun modelini, Android sürümünü ve telefonda ne yapıldığını bildiğiniz kadarıyla belirtin. Uygulamanın verdiği hatanın ekran görüntüsünü de ekleyin. Hangi işlere baktığımı [Android destek sayfasında](/android-destek) yazdım.

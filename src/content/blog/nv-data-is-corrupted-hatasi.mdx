@@ -1,0 +1,113 @@
+---
+title: "NV Data Is Corrupted Hatası: Xiaomi Telefon Neden Kurtarma Ekranına Düşüyor"
+seoTitle: "NV Data Is Corrupted Hatası Nedir? Xiaomi ve Redmi"
+description: "Xiaomi telefon kırmızı yazıyla 'NV data is corrupted' deyip kurtarma ekranına dönüyorsa telefonun modem ayarları okunamıyor demektir. Nedenini, neye dokunmamanız gerektiğini ve kalan işi yazdım."
+seoDescription: "Xiaomi telefonda kırmızı 'NV data is corrupted' yazısı ne demek, neden olur, fabrika ayarı işe yarar mı ve güvenle yapabileceğiniz tek adım nedir."
+date: 2026-11-22
+tags: ["android", "xiaomi", "nv data is corrupted", "hyperos", "modem", "açılmayan telefon"]
+category: "android"
+draft: false
+faq:
+  - question: "NV data is corrupted ne demek?"
+    answer: "Telefonun radyo yapılandırması, yani modemin çalışması için gereken ayarlar okunamıyor ya da bozulmuş demektir. Telefon bu ayarlar olmadan şebekeye bağlanamaz ve çoğu modelde açılışı da tamamlayamaz. Bu yüzden kurtarma ekranına düşer."
+  - question: "Fabrika ayarlarına dönmek NV data hatasını çözer mi?"
+    answer: "Çözmesini beklemeyin. Sıfırlama sistemi ve verilerinizi siler ama bozulan modem ayarlarını onarmaz. Yabancı forumlarda hatanın sıfırlamadan hemen sonra başladığını anlatan kullanıcılar da var. Üstelik sıfırladığınız anda fotoğraflarınız ve mesajlarınız gider."
+  - question: "Verilerim silinir mi?"
+    answer: "Hata kendiliğinden veri silmez. Modem ayarları ayrı bir bölümde durur, fotoğraflarınız ve mesajlarınız başka bir bölümde. Kurtarma ekranında veriyi silen satır 'Wipe data'. O satıra dokunmazsanız veriler yerinde kalır."
+  - question: "Videolardaki NV fix araçlarını denemeli miyim?"
+    answer: "Önermem. Bu araçlar ve dosyalar belirli bir model ve sürüm için hazırlanır. Yanlış dosya, telefonun elinizde kalan tek açılabilir hâlini de bozabilir. Hatanın nedeni modeline ve yüklü yazılıma göre değiştiği için önce neye bakıldığını bilmek gerekir."
+  - question: "Telefon sürekli kurtarma ekranına dönüyor, ne yapmalıyım?"
+    answer: "Ekranda Reboot satırını seçip telefonun açılıp açılmadığına bakın. Açılmıyorsa başka bir şeye dokunmayın. Modeli, ekranın fotoğrafını ve hatadan önce ne yaptığınızı bana yazın."
+intent: "troubleshooting"
+deviceBrand: "Xiaomi"
+---
+
+<Summary
+  what="Telefonun radyo (modem) ayarlarının tutulduğu alan okunamıyor. Telefon şebekeye bağlanamıyor ve çoğu zaman açılmıyor."
+  avoid="Wipe data ve videolardaki NV fix araçları. Wipe data verileri siler ama bu hatayı onarmaz."
+  safe="Kurtarma ekranında Reboot ya da Reboot to system. Veri silmez."
+/>
+
+Kurtarma ekranının altında kırmızı harflerle `NV data is corrupted` yazıyorsa telefonun radyo ayarlarının tutulduğu alan bozulmuş ya da okunamıyor demektir. Bu ayarlar olmadan modem çalışmaz, telefon da genellikle açılmaz.
+
+Çoğu zaman bir güncellemeden ya da sıfırlamadan sonra olur. Telefon logodan sonra kendiliğinden kurtarma ekranına dönüyor. Açılsa bile şebeke yok, operatör adı görünmüyor, SIM tanınmıyor. Bu telefonlara sık bakarım. Ekran korkutucu ama çoğu zaman verileriniz yerinde.
+
+<PhoneScreen screen="nv-data">
+  Kurtarma ekranının (Xiaomi'nin Main Menu dediği menü) altında kırmızı yazı çıkar. Menüde yalnızca
+  `Reboot` güvenlidir.
+</PhoneScreen>
+
+## Önce şuna dokunmayın
+
+`Wipe data` bu hatada ilk akla gelen satırdır ama çözüm olmaz. Fotoğrafları, WhatsApp geçmişini ve uygulamaları siler, bozulan modem ayarlarını ise onarmaz. Yurt dışı forumlarda hatanın bir sıfırlamadan hemen sonra başladığını anlatanlar bile var. Dolayısıyla sıfırlama bazı telefonlarda sorunun kaynağı olabilir.
+
+Videolardaki "NV fix" araçları, modem dosyaları ve rastgele ROM'lar için de aynısı geçerli. Bunlar tek bir model ve tek bir yazılım sürümü için hazırlanır. Aynı adı taşıyan başka bir sürüme yazarsanız telefonun elinizdeki tek açılabilir hâlini de bozabilirsiniz. Bu geri alınamayabilir.
+
+Ekranda yazı yoksa ve telefon logoda takılı kalıyorsa başka bir sorundur, onu [HyperOS yazısında](/blog/hyperos-guncellemesi-sonrasi-telefon-acilmiyor) anlattım.
+
+## Neden olur
+
+Telefonun içinde iki ayrı yazılım parçası var: Android ve modem, yani telefonun şebekeyle konuşmasını sağlayan ayrı bir işlemci. Modemin ayarları depolama alanında ayrı bir bölümde saklanır. Açılışta sistem bu bölümü okur. Okuyamazsa ya da içeriği telefonla uyuşmuyorsa uyarıyı verip kurtarma ekranına döner. Bölümün bozulmasının, bildiğim kadarıyla, birkaç yaygın yolu var.
+
+<Cards
+  items={[
+    {
+      icon: "update",
+      tone: "gold",
+      title: "Yarıda kesilen güncelleme",
+      text: "Güncelleme kesildi ya da yanlış sürüm yazıldı.",
+    },
+    {
+      icon: "region",
+      tone: "violet",
+      title: "Başka bölgenin yazılımı",
+      text: "Telefon başka bir bölgenin yazılımıyla çalışıyordu, kendi bölgesinin güncellemesi gelince modem ayarlarıyla yazılım uyuşmadı.",
+    },
+    {
+      icon: "refresh",
+      tone: "sky",
+      title: "Sonradan değiştirilen sistem",
+      text: "Sistem ya da modem tarafı değiştirilmişti, sonraki güncelleme ya da sıfırlama bunu bozdu.",
+    },
+    {
+      icon: "wipe",
+      tone: "rose",
+      title: "Kurtarma ekranından sıfırlama",
+      text: "Sıfırlama sırasında bu bölüm bozuldu.",
+    },
+  ]}
+/>
+
+Hangi çipli telefonlarda görüldüğüne dair net bir liste yok. Forumlarda ve videolarda en çok MediaTek işlemcili Xiaomi ve Redmi modellerinde karşılaşıldığı yazılıyor, Qualcomm'lu telefonlarda da bildirenler var, ama oran vermek mümkün değil. HyperOS 3 güncellemesinden sonra bildirenler de oldu. Hatayı güncellemenin kendisi mi çıkardı, yoksa telefonun önceki durumunu mu ortaya çıkardı, bilmiyorum. Kimde çıkacağını önceden bilmek de mümkün değil.
+
+Ekran yanıyor ve kurtarma ekranı görünüyorsa cihaz canlıdır, sorun çoğu zaman yazılım tarafındadır.
+
+## Tek güvenli adım
+
+Kurtarma ekranında `Reboot` ya da `Reboot to system` satırını seçin. Telefonu şarja takıp birkaç dakika bırakmak da zarar vermez. Bunların dışında kendi başınıza yapacağınız bir şey bu hatada işe yaramaz, çoğu zaman da zarar verir.
+
+<Flow
+  question="Telefon açıldı mı?"
+  branches={[
+    {
+      label: "Evet",
+      text: "Şebeke yoksa ya da hata geri gelirse bana yazın, açılması sorunun bittiği anlamına gelmeyebilir.",
+      tone: "safe",
+    },
+    {
+      label: "Hayır, yine kurtarma ekranı",
+      text: "Tekrar tekrar denemeyin, başka satıra da dokunmayın. Modeli, ekran fotoğrafını ve hatadan önce ne yaptığınızı yazın.",
+      tone: "warn",
+    },
+  ]}
+/>
+
+Telefon `fastboot` yazılı bir ekranda duruyorsa [Fastboot yazısına](/blog/xiaomi-fastboot-ekraninda-kaldi), İngilizce menüde duruyorsa [Main Menu yazısına](/blog/xiaomi-main-menu-ekraninda-kaldi) bakın.
+
+## Kalan iş ne
+
+Kalanı kabloyla ve bilgisayarla yapılan bir iş. Zor kısım, o telefonun modeline ve bölgesine ait doğru dosyayı bulmak. Aynı adla satılan iki telefonun modem yazılımı farklı olabilir ve birinin dosyası öbürüne yazılmaz.
+
+Veri silmeden çözebildiğim durumlar var, silmeden çözemediğim durumlar da. Hangisinin sizin telefonunuz olduğu önceden bilinmez. Verilerinizi silecek bir adıma sizinle konuşmadan geçmem. Bazı telefonlarda hiç düzelmeyebilir, bunu da baştan söylerim.
+
+Yazarken telefonun modelini, ekranın fotoğrafını ve hatadan önce ne yaptığınızı belirtin (güncelleme, sıfırlama, ROM değişikliği). Çoğu zaman bu kadarı yetiyor. Hangi işlere baktığımı [Android destek sayfasında](/android-destek) yazdım.

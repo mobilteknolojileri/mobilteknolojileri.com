@@ -1,0 +1,142 @@
+---
+title: "Xiaomi Fastboot Ekranında Kaldı: Telefon Neden Açılmıyor?"
+seoTitle: "Xiaomi Fastboot Ekranında Kaldı: Nedeni ve Ne Yapmalı"
+description: "Xiaomi telefon turuncu FASTBOOT yazısında ya da tavşan ekranında takıldı. Bunun ne demek olduğunu, tuşa basılmasıyla sistem arızasının farkını ve hangi adımların telefonu geri dönülmez hâle getirdiğini yazdım."
+seoDescription: "Xiaomi telefon Fastboot ekranında kaldıysa sebep tuş basması ya da sistem arızası olabilir. Farkını, yapılmayacakları ve tek güvenli adımı yazdım."
+date: 2026-11-22
+tags: ["android", "xiaomi", "fastboot", "açılmayan telefon", "bootloader", "redmi"]
+category: "android"
+draft: false
+faq:
+  - question: "Xiaomi'de Fastboot modundan nasıl çıkılır?"
+    answer: "Önce kılıfı çıkarın, sonra güç tuşunu telefon kapanıp yeniden açılana kadar basılı tutun. Kaynaklar bunun için yedi ile on beş saniye arası bir süre veriyor, cihaza göre değişiyor. Telefon normal açılırsa ekrana yanlışlıkla bir tuş kombinasyonuyla girilmiştir. Hemen aynı ekrana dönüyorsa sorun sistemdedir ve tekrar tekrar denemenin faydası yok."
+  - question: "Fastboot ekranında takılı kalan telefonun verileri silinir mi?"
+    answer: "Ekranın kendisi veri silmez. Fotoğraflarınız ve uygulama verileriniz ayrı bir bölümde durur. Verileri silen şey, telefonu kurtarmak için yapılan işlemdir: bazı yazma seçenekleri her şeyi temizler. Bu yüzden bilgisayara bağlayıp bir şey denemeden önce hangi seçeneğin ne yaptığını bilmek gerekir."
+  - question: "Videolardaki programlarla telefonu kendim düzeltebilir miyim?"
+    answer: "Telefonunuzun tam modelini ve bölgesini bilmiyorsanız önermem. Videolardaki yöntemlerin çoğu tek bir model için hazırlanmıştır. Yanlış sürümü yazmak ya da veri silen bir seçeneği işaretlemek, açılmayan bir telefonu kurtarılması çok daha zor bir hâle getirebilir."
+  - question: "Telefon her yeniden başlatmada Fastboot'a düşüyor, neden?"
+    answer: "Sistemin açılışı bir yerde bozulmuştur. Sık anlatılan sebepler yarıda kalmış bir güncelleme ya da yazma işlemi, eksik veya bozuk bir açılış bölümü ve telefonun kendi yazılımıyla uyuşmayan bir sürüm. Bir de ses kısma tuşunun fiziksel olarak takılı kalması var. Bu durumda belirti aynıdır ama sorun yazılımda değil, tuştadır."
+  - question: "Bootloader'ı yeniden kilitlersem telefon düzelir mi?"
+    answer: "Hayır, tersi de olabilir. Kilit açıkken sistem bölge kontrolünü yapmaz, kilitlenince yapar. Telefonun kendi bölgesine ait olmayan bir yazılımla kilitlerseniz açılmayan ve kendi başınıza kurtaramayacağınız bir cihaz elde edebilirsiniz. Kilidi kapatmak ancak telefonun kendi orijinal yazılımı üzerindeyken güvenlidir."
+  - question: "Telefonu göndermem gerekiyor mu?"
+    answer: "Çoğunlukla gerekmez. Telefon sizde kalır, siz onu Windows bilgisayarınıza USB kabloyla bağlarsınız, ben de internet üzerinden o bilgisayara bağlanıp işi yaparım. Ekran hiç yanmıyorsa ya da tuş fiziksel olarak bozuksa bu yol işe yaramaz, bunu ilk yanıtta söylerim."
+intent: "troubleshooting"
+deviceBrand: "Xiaomi"
+---
+
+<Summary
+  what="Telefon, sistemin açılmasından bir adım önceki Fastboot moduna girdi. Ya bir tuş kombinasyonuna basıldı ya da sistem başlayamadı."
+  avoid="Videolardaki araçlar, veri silen seçenekler ve kilidi yeniden kapatmak. Telefon açılmaz hâle gelebilir."
+  safe="Kılıfı çıkarıp güç tuşunu telefon kapanıp açılana kadar basılı tutmak."
+/>
+
+Fastboot, telefonun açılış sırasında girebildiği ve bilgisayarla konuşmaya yarayan alt seviye bir moddur. Xiaomi ve Redmi telefonlarda siyah ekranda turuncu `FASTBOOT` yazısı olarak görünür.
+
+Telefon bozuk olmak zorunda değil, sistem açılmadan bir adım önce durmuştur. Bu modun görünmesi telefonun açılış yazılımının çalıştığını da gösterir, yani cihazla hâlâ konuşulabilir. Ekranın hiç yanmadığı telefon bundan çok daha zor bir durumdur.
+
+<PhoneScreen screen="fastboot">
+  Eski MIUI sürümlerinde aynı mod kürklü şapkalı bir tavşanla görünür. İkisi aynı moddur.
+</PhoneScreen>
+
+## Tuşa mı basıldı, sistem mi bozuk
+
+Xiaomi'de telefon kapalıyken güç ve ses kısma tuşuna birlikte basmak bu ekranı açar. Kılıf ya da çantada sıkışan telefon bunu kendiliğinden yapabilir. Kılıfı çıkarıp güç tuşuna uzun basınca telefon normal açılıyor ve sonraki açılışlarda sorun çıkmıyorsa durum budur.
+
+Her yeniden başlatmada Fastboot'a dönüyorsa ya da sorun bir güncelleme veya yazma işleminden hemen sonra başladıysa, sistem sizi buraya düşürmüştür. Sık anlatılan sebepleri aşağıya yazdım.
+
+<Cards
+  items={[
+    {
+      icon: "hand",
+      tone: "gold",
+      title: "Kılıf ya da cep",
+      text: "Güç ve ses kısma tuşuna kendiliğinden basılır. Telefon sağlamdır, yanlış kapıdan girmiştir.",
+    },
+    {
+      icon: "broken",
+      tone: "rose",
+      title: "Yarıda kalan işlem",
+      text: "Güncelleme ya da yazma sırasında pil bitti, kablo çıktı ya da telefon zorla kapatıldı.",
+    },
+    {
+      icon: "chip",
+      tone: "slate",
+      title: "Eksik veya bozuk açılış bölümü",
+      text: "Açılış için gereken bölümlerden biri eksik ya da bozuk.",
+    },
+    {
+      icon: "region",
+      tone: "violet",
+      title: "Bölgeyle uyuşmayan yazılım",
+      text: "Telefona kendi bölgesine ait olmayan bir yazılım yüklenmiş ve kilit sonradan kapatılmış.",
+    },
+    {
+      icon: "key",
+      tone: "sky",
+      title: "Takılı ses kısma tuşu",
+      text: "Telefon her açılışta tuşa basılıyor sanıp Fastboot'a girer. Belirti aynı ama arıza yazılımda değil.",
+    },
+  ]}
+/>
+
+Hangisinin olduğunu ekrandan anlayamazsınız, anlamak için cihazın kendisine bakmak gerekir.
+
+## Yapmamanız gerekenler
+
+Fastboot bir geliştirici modudur ve internetteki çözümlerin çoğu bu yüzden bilgisayar gerektirir. Üç şeyden uzak durun.
+
+<Cards
+  items={[
+    {
+      icon: "package",
+      tone: "rose",
+      title: "Videolardaki araçlar ve script'ler",
+      text: "Bir model için hazırlanmış yöntem yanındaki model için çalışmaz. Aynı adla satılan telefonun farklı bölge sürümleri olabilir ve yazılımları birbirinin yerine geçmez.",
+    },
+    {
+      icon: "wipe",
+      tone: "rose",
+      title: "Veri silen seçenekler",
+      text: "Bazı yazma araçlarında işaretliyse fotoğraflarınız, mesajlarınız ve uygulama verileriniz gider. Geri dönüşü yoktur.",
+    },
+    {
+      icon: "lock",
+      tone: "rose",
+      title: "Kilidi yeniden kapatmak",
+      text: "En tehlikelisi bu. Kilit açıkken yazılımın bölgesine bakılmaz, kilitlenince bakılır. Kendi bölgesine ait olmayan yazılım yüklüyken kapatırsanız telefon açılmaz hâle gelebilir. Kurtarma, Xiaomi'nin yalnızca yetkili hesaplara açtığı bir moda kalır.",
+    },
+  ]}
+  columns={1}
+/>
+
+## Tek güvenli adım
+
+Telefonu kılıfından çıkarın, ses tuşlarının basılı kalmadığına bakın ve güç tuşunu telefon kapanıp yeniden açılana kadar bırakmayın. Kaynaklar yedi ile on beş saniye arası bir süre veriyor, gerekirse biraz daha tutun. Bir kez yeterli, sonuç aynıysa tekrar tekrar denemeyin.
+
+<Flow
+  question="Telefon normal açıldı mı?"
+  branches={[
+    {
+      label: "Evet",
+      text: "Mesele bitti, Fastboot'a yanlışlıkla girilmişti.",
+      tone: "safe",
+    },
+    {
+      label: "Hayır, yine Fastboot",
+      text: "Sorun sistemde ya da tuştadır. Bilgisayarda bir şey denemeden bana yazın.",
+      tone: "warn",
+    },
+  ]}
+/>
+
+Güncellemeden sonra açılmayan telefon için [HyperOS yazısına](/blog/hyperos-guncellemesi-sonrasi-telefon-acilmiyor) bakın. İngilizce seçeneklerin olduğu bir kurtarma ekranı görüyorsanız [Main Menu yazısı](/blog/xiaomi-main-menu-ekraninda-kaldi), ekranda "NV data is corrupted" yazıyorsa [o hata](/blog/nv-data-is-corrupted-hatasi) işinize yarar.
+
+## Kalan iş ne
+
+Sistem tarafında bir bozulma varsa kalanı bilgisayarla ve kabloyla yapılır. Telefonun hangi modda cevap verdiğine bakarım, tam modeline ve bölgesine uygun yazılımı seçer, doğru sırayla yazarım.
+
+Bana yazarken telefonun modelini, ekranın fotoğrafını ve bozulmadan önce ne olduğunu belirtin: güncelleme, kilit açma, düşme, ROM yükleme. Bunlar sorunun hangi taraftan geldiğini gösterir.
+
+Veriler çoğu zaman yerinde kalır ama bazı durumlarda telefonu kurtarmanın tek yolu veriyi silmektir. O noktada dururum, sizinle konuşurum ve siz onaylamadan veri silen bir adım atmam. Ses tuşu fiziksel olarak bozuksa ya da ekran hiç yanmıyorsa bu yazılım işi değildir, onu da baştan söylerim.
+
+Hangi işlere baktığımı [Android destek sayfasında](/android-destek) yazdım.

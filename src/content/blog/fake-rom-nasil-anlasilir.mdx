@@ -1,0 +1,106 @@
+---
+title: "Xiaomi Fake ROM Nedir, Nasıl Anlaşılır? Güncelleme Kayıtlarına Erişim İzniniz Yok"
+seoTitle: "Xiaomi Fake ROM Nasıl Anlaşılır? Belirtiler ve Kontrol"
+description: "Fake ROM, satıcının Çin sürümü telefona kurduğu ve global gibi görünen değiştirilmiş yazılımdır. 'Güncelleme kayıtlarına erişim izniniz yok' hatası ve global olup olmadığını anlama yolları."
+seoDescription: "Xiaomi'nizde fake ROM mu var? Güncelleme kayıtlarına erişim izniniz yok hatası, Play Protect durumu ve sürüm kodundaki bölge harfleriyle nasıl anlaşılır."
+date: 2026-11-22
+tags: ["android", "fake rom", "xiaomi", "hyperos", "global rom", "çin sürümü", "güncelleme"]
+category: "android"
+draft: false
+faq:
+  - question: "Fake ROM nedir?"
+    answer: "Çin pazarı için üretilmiş bir telefonun yazılımında satıcının oynama yapıp onu global gibi göstermesidir. Dil Türkçe, Play Store yüklü görünür ama sistem üreticinin o bölge için yayımladığı yazılım değildir. Güncelleme ve sertifika sorunları genelde bu yüzden çıkar."
+  - question: '"Güncelleme kayıtlarına erişim izniniz yok" hatası ne demek?'
+    answer: "Mesajın tam teknik sebebini Xiaomi açıklamıyor. Büyük olasılıkla yazılımınız üreticinin sunucusundaki kayıtlarla eşleşmiyor. Bu mesaj Xiaomi'lerde değiştirilmiş yazılımın en sık görülen işaretlerinden biri. Tek başına kanıt sayılmaz, ama başka belirtilerle birlikte güçlü bir ipucudur."
+  - question: "Xiaomi'nin global olup olmadığını nasıl anlarım?"
+    answer: "Ayarlar'da Telefon hakkına girin. Sürüm kodunun sonundaki bölge harflerine (MI global, EU Avrupa, TR Türkiye, CN Çin) ve model numarasının son harfine bakın. Play Store'daki sertifika durumunu da kontrol edin. Birinin tutmaması telefonun ya da yazılımın değiştirildiğini düşündürür."
+  - question: "Fake ROM'lu telefon tehlikeli mi?"
+    answer: "Bunu baştan söylemek mümkün değil. Yazılımda neyin değiştirildiğini bilmiyorsunuz. Güvenlik yamaları gelmez, hesap ve banka bilgileri girdiğiniz bir sistemin kaynağı belirsiz kalır. Hesap çalındı demek değil, ama doğrulayamadığınız bir risk."
+  - question: "Fake ROM'u kendim silebilir miyim?"
+    answer: "Güvenli bir kısayol yok. Telefonu recovery ekranından silmek ya da videodaki bir yazılımı kurmak, verilerinizi kaybettirebilir ve telefonu açılmaz hâle getirebilir. Önce verilerinizi yedekleyin, sonra ne yapılacağına karar verin."
+intent: "troubleshooting"
+deviceBrand: "Xiaomi"
+---
+
+<Summary
+  what="Fake ROM, satıcının Çin sürümü telefona kurduğu ve global gibi görünen değiştirilmiş yazılımdır. En bilinen işareti güncelleme ekranındaki hatadır."
+  avoid="Recovery'den Wipe Data, videodan öğrendiğiniz yazılımı kurmak ve bootloader kilidini kapatmak."
+  safe="Sürüm kodunu, model numarasını ve Play Store sertifika durumunu okuyup ekran görüntüsü almak. Hiçbir şey değişmez."
+/>
+
+Fake ROM, Çin sürümü bir Xiaomi telefona satıcının kurduğu, global sürüm gibi görünen değiştirilmiş yazılımdır. Telefonu yurt dışı ya da "global" diye aldınız, dil Türkçe, Play Store yüklü, ilk günler her şey yolunda. Sonra güncelleme gelmiyor, WhatsApp bir şeye itiraz ediyor ya da banka uygulamayı açmıyor. Güncelleme ekranında da aşağıdaki mesajı görüyorsunuz.
+
+<PhoneScreen
+  screen="alert"
+  title="Sistem güncellemesi"
+  message="Güncelleme kayıtlarına erişim izniniz yok"
+  notes={[
+    { tone: "warn", text: "Xiaomi bu mesajın teknik sebebini açıklamıyor" },
+    { tone: "info", text: "Büyük olasılıkla yazılım üreticinin kayıtlarıyla eşleşmiyor" },
+    { tone: "warn", text: "Tek başına kanıt sayılmaz, ama bakmak için yeterli sebep" },
+  ]}
+/>
+
+## Satıcı bunu neden yapar
+
+Çin telefonlarında Google hizmetleri ve Türkçe yoktur. Bunları eklemek hızlıdır, resmî global yazılıma geçmek ise bootloader kilidini açmayı ve telefonu sıfırlamayı gerektirir, üstelik her telefonda yapılamaz. Satıcının niyeti her zaman kötü olmayabilir, ama sonuç alıcı için aynıdır: Telefonda ne olduğunu bilmediğiniz bir yazılım çalışır.
+
+## Belirtiler
+
+<Cards
+  items={[
+    {
+      icon: "update",
+      tone: "rose",
+      title: "Güncelleme çalışmıyor",
+      text: "Yukarıdaki hata ya da benzeri çıkıyor, telefon yeni sürümleri hiç görmüyor.",
+    },
+    {
+      icon: "uncertified",
+      tone: "rose",
+      title: "Play Protect sertifikası yok",
+      text: "Play Store'da Hakkında bölümünde Cihaz sertifikalı değil yazıyor. [Anlamını ayrı anlattım](/blog/cihaz-play-protect-sertifikali-degil).",
+    },
+    {
+      icon: "app",
+      tone: "gold",
+      title: "Uygulamalar takılıyor",
+      text: "WhatsApp resmî uygulamayı isteyebilir, banka ve oyunlar açılmayabilir. [WhatsApp yazısı burada](/blog/giris-yapmak-icin-resmi-whatsapp-hatasi).",
+    },
+    {
+      icon: "warning",
+      tone: "slate",
+      title: "Eksik özellik, belirsiz değişiklik",
+      text: "Menülerin bir kısmı İngilizce kalır, bazı özellikler eksiktir. Neyin değiştirildiğini bilmediğiniz için girdiğiniz bilgilerin kime ulaştığı doğrulanamaz.",
+    },
+  ]}
+/>
+
+Hepsi aynı anda olmak zorunda değil. Güncelleme hatası tek başına bile yakından bakmak için yeterli bir sebep.
+
+## Sürüm kodundaki harfler
+
+<PhoneScreen screen="version" region="CN">
+  Ayarlar, Telefon hakkında, HyperOS kartı. Kodun sonunda bölge harfleri, ardından genellikle `XM`
+  gelir: MI global, EU Avrupa, TR Türkiye, IN Hindistan, CN Çin.
+</PhoneScreen>
+
+"Global" diye aldığınız telefonda hâlâ CN yazıyorsa ya da global denmesine rağmen güncelleme gelmiyorsa bir uyumsuzluk var demektir. Model numarasının son harfi de çoğu modelde bölgeyi gösterir: C Çin, G global, I Hindistan. Global cihazların arka kapağında genellikle CE işareti bulunur.
+
+Hiçbiri tek başına kesin kanıt değil, çünkü değiştirilmiş yazılım sürüm yazısını da değiştirmiş olabilir. Sürüm kodu, model numarası, sertifika durumu ve güncelleme davranışının birbiriyle tutup tutmadığına birlikte bakın.
+
+## Satıcıya ne sormalısınız
+
+Sakin bir mesajla üç şey sorun: Hangi yazılımı kurdunuz, nereden aldınız, bootloader kilidi açık mı kapalı mı. Cevap vermiyorsa ya da "global" deyip geçiyorsa bu da bir bilgidir. İade hakkınızı satıcı yazışmalarından ve ilandan kontrol edin, onu ben değerlendiremem.
+
+## Bunlara dokunmayın
+
+- Recovery ekranındaki `Wipe Data` gibi seçeneklere basmayın. Telefon sıfırlanır.
+- Videodan öğrendiğiniz yazılımı kurmayın. Yanlış bölgenin ya da eski sürümün yazılımı telefonu açılmaz hâle getirebilir.
+- Bootloader kilidini kapatmayın. Bölgeyle uyuşmayan yazılımın üstünde kapatılan kilit telefonu açılmaz hâle getirebilir.
+
+## Kalan iş ne
+
+Telefonun gerçekte ne çalıştırdığına bakarım, gerekiyorsa üreticinin kendi yazılımına geri döndürürüm. Çoğu durumda telefon sıfırlanır, bu yüzden önce verilerinizi yedekleyin. Yazarken modeli, üç ekran görüntüsünü ve satıcının ne yaptığını ekleyin.
+
+Vaat edemediğim şeyler var. Bootloader kilidi açılamayan Çin sürümünde global yazılıma geçmek mümkün olmayabilir, üreticinin yazılım çıkarmadığı modelde de resmî global yazılım yok. Baktıktan sonra söylerim. Almadan önce okuyorsanız [neye bakacağınızı](/blog/cin-surumu-telefon-almadan-once) ve [global ROM'un neleri değiştirdiğini](/blog/cin-surumu-telefona-global-rom) yazdım. Hangi işlere baktığımı [Android destek sayfasında](/android-destek) yazdım.

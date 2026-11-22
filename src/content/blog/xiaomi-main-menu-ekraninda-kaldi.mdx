@@ -1,0 +1,146 @@
+---
+title: "Xiaomi Main Menu (Recovery) Ekranında Kaldı: Wipe Data'ya Basmayın"
+seoTitle: "Xiaomi Main Menü (Recovery) Ekranından Nasıl Çıkılır?"
+description: "Xiaomi telefon Main Menu, yani recovery (kurtarma) ekranında kaldı. Bu ekranın ne olduğunu, seçeneklerin ne işe yaradığını, telefonun neden oraya düştüğünü ve hangi satırın verileri sildiğini yazdım."
+seoDescription: "Xiaomi telefon Main Menu (recovery) ekranında kaldıysa Wipe Data'ya basmayın, veriler silinir. Seçeneklerin anlamı, sebepleri ve tek güvenli adım."
+date: 2026-11-22
+tags: ["android", "xiaomi", "main menu", "recovery", "wipe data", "redmi", "hyperos"]
+category: "android"
+draft: false
+faq:
+  - question: "Xiaomi'de Main Menu ekranından nasıl çıkılır?"
+    answer: "Ses tuşlarıyla Reboot satırına gelip güç tuşuyla seçin, ardından Reboot to System'i seçin. Telefon normal açılırsa mesele bitmiştir. Kılıf ses tuşuna basıyor olabilir, onu da çıkarın. Telefon yeniden aynı ekrana dönüyorsa sorun sistemde ya da tuştadır."
+  - question: "Main Menu'deki Wipe Data neyi siler?"
+    answer: "Telefondaki her şeyi: fotoğraflar, videolar, mesajlar, uygulamalar ve verileri. Onay sorusuna evet derseniz geri dönüşü yoktur. Bazı HyperOS sürümlerinde bu seçenek menüde hiç görünmeyebilir."
+  - question: "Connect with MIAssistant ne işe yarar, basmalı mıyım?"
+    answer: "Telefonu USB kabloyla bilgisayara bağlayıp sistemi dışarıdan yüklemek için var. Bilgisayar tarafında doğru dosya ve program yoksa tek başına bir işe yaramaz. Yanlışlıkla girdiyseniz Back to Main Menu ile geri çıkabilirsiniz."
+  - question: "Reboot dedim ama telefon yine Main Menu'ye dönüyor, neden?"
+    answer: "Üç sebep olabilir. Ses açma tuşu basılı kalıyordur, telefon sistemi başlatamıyordur ya da yazılım telefonun bölgesiyle uyuşmuyordur. İlki donanım, diğer ikisi yazılım sorunudur. Menüde ses açma tuşuna dokunmadığınız hâlde seçim kendi kendine kayıyorsa tuş takılıdır."
+  - question: "HyperOS 3 güncellemesinden sonra gelen Main Menu uyarısı ne demek?"
+    answer: "Ekranın altında kırmızı bir yazıyla bu sistem sürümünün cihaza kurulamadığı bildiriliyor. Kullanıcıların aktardığına göre bu, Çin için üretilmiş telefonlara sonradan global yazılım yüklenmiş olduğunda görülüyor. Sistem, telefonun donanımının bölgesiyle yazılımın bölgesini karşılaştırıyor ve uyuşmazsa güncellemeyi kabul etmiyor. Bunu doğrulayabileceğim resmî bir Xiaomi açıklaması bulamadım."
+  - question: "Verilerim gider mi?"
+    answer: "Main Menu ekranına düşmek veri silmez. Verileri silen, Wipe Data'yı seçmek ya da telefonu kurtarmak için veri silen bir sürüm yazmaktır. Önce telefonun neden orada olduğuna bakarım ve siz onaylamadan veri silen bir adım atmam."
+intent: "troubleshooting"
+deviceBrand: "Xiaomi"
+---
+
+<Summary
+  what="Telefon, Xiaomi'nin kurtarma (recovery) ekranında açıldı. Ya sistem başlayamadı ya da bu ekrana bir tuş kombinasyonuyla girildi."
+  avoid="Wipe Data. Telefondaki her şeyi kalıcı olarak siler."
+  safe="Reboot, ardından Reboot to System. Veri silmez."
+/>
+
+Main Menu, Xiaomi telefonların kurtarma (recovery) ekranıdır. Ekranın başlığında "Main Menu" yazdığı için çoğu kişi ona Main Menü der. Siyah zeminde ses tuşlarıyla gezilen birkaç İngilizce satırdan oluşur ve telefon sistemi başlatamadığında ya da bu ekrana bilerek girildiğinde açılır.
+
+Seçeneklerden biri `Wipe Data` ve "sıfırlarsam düzelir" diye düşünmek çok kolay. Telefon düzelebilir, ama `Wipe Data` bunu her şeyinizi silerek yapar.
+
+<PhoneScreen screen="main-menu">
+  Ses tuşlarıyla gezilir, güç tuşuyla seçilir. Satırlar sürüme göre değişir, bazı HyperOS
+  sürümlerinde `Wipe Data` hiç görünmez.
+</PhoneScreen>
+
+## Wipe Data'ya basmayın
+
+`Wipe Data` fotoğrafları, videoları, mesajları, uygulamaları ve içlerindeki verileri siler. Onayladıktan sonra geri dönüşü yoktur, ben de geri getiremem.
+
+Telefonun açılmaması verilerin gittiği anlamına gelmez. Veriler sistemden ayrı bir bölümde durur ve çoğu zaman yerindedir.
+
+## Diğer satırlar ne yapıyor
+
+<Cards
+  items={[
+    {
+      icon: "reboot",
+      tone: "emerald",
+      title: "Reboot",
+      text: "İçinde Reboot to System ve Back to Main Menu var. Telefonu yeniden başlatır, veri silmez.",
+    },
+    {
+      icon: "cable",
+      tone: "sky",
+      title: "Connect with MIAssistant",
+      text: "Telefonu kabloyla bilgisayara bağlayıp sistemi dışarıdan yüklemek için. Bilgisayarda doğru dosya yoksa bir şey olmaz, Back to Main Menu ile çıkarsınız.",
+    },
+    {
+      icon: "shield",
+      tone: "slate",
+      title: "Safe Mode",
+      text: "Yalnızca sistem uygulamalarıyla açılan bir teşhis modu. Her sürümde yok.",
+    },
+    {
+      icon: "wipe",
+      tone: "rose",
+      title: "Wipe Data",
+      text: "Her şeyi siler. Yukarıda anlattığım gibi, ilk denenecek şey değil.",
+    },
+  ]}
+/>
+
+## Telefon buraya neden düştü
+
+<Cards
+  items={[
+    {
+      icon: "hand",
+      tone: "gold",
+      title: "Kılıf ya da cep",
+      text: "Telefon kapalıyken güç ve ses açma tuşuna birlikte basılınca bu ekran açılır. Sıkı bir kılıf ya da cep bunu kendiliğinden yapabilir.",
+    },
+    {
+      icon: "key",
+      tone: "slate",
+      title: "Takılı ses tuşu",
+      text: "Menüde siz dokunmadan seçim kendi kendine kayıyorsa tuş takılıdır. O zaman sorun yazılımda değil, tuştadır.",
+    },
+    {
+      icon: "broken",
+      tone: "rose",
+      title: "Bozulan sistem",
+      text: "Güncelleme yarıda kaldı ya da bir dosya bozuldu. Telefon açılmayı dener, olmayınca buraya iner.",
+    },
+    {
+      icon: "region",
+      tone: "violet",
+      title: "Bölgeyle uyuşmayan yazılım",
+      text: "Çin için üretilmiş telefona sonradan global yazılım yüklenmişse olur. En güncel örneği HyperOS 3 ile geldi.",
+    },
+  ]}
+/>
+
+### HyperOS 3 sonrası gelen uyarı
+
+HyperOS 3'e geçerken bazı kullanıcılar bu ekranda kaldı. Altta kırmızı bir uyarı çıkıyor ve sistem sürümünün bu cihaza kurulamadığını söylüyor.
+
+Kullanıcıların aktardığına göre bu, Çin için üretilmiş bir telefona sonradan global yazılım yüklenmişse oluyor. Yeni sürüm donanımın bölgesiyle yazılımın bölgesini karşılaştırıyor ve uyuşmazlık görünce güncellemeyi kabul etmiyor. Hangi modellerin etkilendiğini resmî bir kaynakla doğrulayamadım, o yüzden model adı vermiyorum. [Çin sürümü telefona global yazılım](/blog/cin-surumu-telefona-global-rom) konusunu ayrıca anlattım.
+
+Telefon sıfırlanınca bazen açılıyor, ama aynı güncelleme gelince yine buraya düşüyor. Açıldıysa o güncellemeyi hemen yüklemeyin.
+
+## Tek güvenli adım
+
+Kılıfı çıkarın. Ses tuşlarıyla `Reboot` satırına gelin ve güç tuşuyla seçin. Açılan menüde `Reboot to System`'i seçip bekleyin.
+
+<Flow
+  question="Telefon normal açıldı mı?"
+  branches={[
+    {
+      label: "Evet",
+      text: "Mesele kapandı. Aynı güncelleme yeniden gelirse hemen yüklemeyin.",
+      tone: "safe",
+    },
+    {
+      label: "Hayır, yine Main Menu",
+      text: "Tuş takılı, sistem başlayamıyor ya da yazılım uyuşmuyor. Wipe Data'ya basmadan bana yazın.",
+      tone: "warn",
+    },
+  ]}
+/>
+
+Telefon Fastboot ekranına geçtiyse [Fastboot yazısına](/blog/xiaomi-fastboot-ekraninda-kaldi) bakın. Altta "NV data is corrupted" yazıyorsa [o ayrı bir hata](/blog/nv-data-is-corrupted-hatasi). Güncellemeden sonra açılmayan telefon için [HyperOS yazısı](/blog/hyperos-guncellemesi-sonrasi-telefon-acilmiyor) da işinize yarar.
+
+## Kalan iş ne
+
+`Reboot to System` işe yaramıyorsa kalan iş kabloyla ve bilgisayarla yapılır. Telefonun hangi modda cevap verdiğine bakarım, modeline ve bölgesine uygun yazılımı seçer, doğru sırayla yazarım.
+
+Veriler çoğu zaman yerindedir, ama yazılım bölgeyle uyuşmadığında telefonu kurtarmanın tek yolu bazen veriyi silmektir. O noktada durur, sizinle konuşurum. Ses tuşu fiziksel olarak bozuksa bu donanım işidir, onu yapmam.
+
+Bana yazarken ekranın fotoğrafını ekleyin, altta kırmızı bir uyarı varsa okunacak şekilde çekin. Hangi işlere baktığımı [Android destek sayfasında](/android-destek) yazdım.

@@ -1,0 +1,136 @@
+---
+title: "Telefonda Sürekli Reklam Çıkıyor: Reklam Virüsü (Adware) mü, Ayar mı?"
+seoTitle: "Telefonumda Reklam Çıkıyor: Reklam Virüsü (Adware)?"
+description: "Telefonda kendiliğinden tam ekran reklam çıkıyorsa kaynağı üç yerden biridir: reklam virüsü (adware) olan yüklü bir uygulama, tarayıcı bildirimleri ya da telefonun kendi reklamları. Nasıl ayıracağınızı yazdım."
+seoDescription: "Telefonda sürekli reklam mı çıkıyor? Reklam virüsü (adware), tarayıcı bildirimi ve telefonun kendi reklamlarını nasıl ayırırsınız, anlattım."
+date: 2026-11-22
+tags: ["android", "reklam", "reklam virüsü", "adware", "tarayıcı bildirimi", "xiaomi"]
+category: "android"
+draft: false
+faq:
+  - question: "Telefonumda kendiliğinden çıkan reklam virüs mü?"
+    answer: "Her zaman değil. Reklamı yüklü bir uygulama gösteriyorsa buna reklam yazılımı (adware) denir ve zararlı sayılır. Tarayıcı bildirimi ya da telefon üreticisinin kendi sistem reklamları ise virüs değil, bir izin ya da ayardır. Hangisi olduğunu, reklam çıktığı anda hangi uygulamanın önde olduğuna bakarak anlarsınız."
+  - question: "Reklam çıkınca kapatıyorum, birkaç dakika sonra yine geliyor. Neden?"
+    answer: "Çünkü kaynak reklamı kapatmakla gitmiyor. Reklamı gösteren uygulama ya da site izni yerinde duruyor ve belli aralıklarla yeniden gösteriyor. Kapatmak yalnızca o seferki pencereyi kaldırır."
+  - question: "Antivirüs uygulaması kurarsam geçer mi?"
+    answer: "Reklamlardan çıkan 'telefonunuz virüslü' ya da 'temizle' tarzı uygulamalara güvenmeyin. Bunların bir kısmı reklam yazılımının kendisidir. Google Play Protect Android'in kendi tarama hizmetidir ve zararlı uygulamaları uyarabilir, devre dışı bırakabilir ya da kaldırabilir. Ek bir temizlik uygulaması yüklemek çoğu zaman sorunu büyütür."
+  - question: "Fabrika ayarlarına döndürürsem reklamlar gider mi?"
+    answer: "Gidebilir ama ilk adım olarak önermem. Fotoğraflar, mesajlar ve uygulama verileri silinir. Üstelik yedekten geri yüklerken sorunlu uygulama da aynı yolla geri yüklenebilir. Önce hangi uygulamanın reklam gösterdiğini bulmak daha az kayıpla sonuç verir."
+  - question: "Xiaomi telefonda çıkan reklamlar da virüs mü?"
+    answer: "Hayır. Xiaomi'nin kendi sistem uygulamalarında ve kilit ekranı içeriğinde gösterdiği reklamlar telefonun bir özelliğidir ve ayarlardan yönetilir. Virüs değildir. Ekranın üstüne bir şeyin kapatılamayan pencereyle gelmesi ise başka bir durumdur."
+  - question: "Uygulama simgesini bulamıyorum, telefondan silinmiş gibi ama reklam sürüyor. Olur mu?"
+    answer: "Olur. Bazı reklam uygulamaları simgesini gizler, bazıları da kaldırılmasını engelleyen yönetici ya da erişilebilirlik izni alır. Bu yüzden ayarlardan kaldırmaya çalışınca düğme çalışmayabilir. Uygulamanın adını bilmeden çözmek zorlaşır."
+intent: "troubleshooting"
+---
+
+<Summary
+  what="Reklamı yüklü bir uygulama, bir sitenin bildirimi ya da telefonun kendi sistemi gösteriyor. Üçünün sebebi ve yapılacak iş birbirinden çok farklı."
+  avoid="Reklamdaki 'telefonunuz virüslü' mesajına tıklamak, temizleyici kurmak, Play Protect'i kapatmak, ilk iş fabrika ayarına dönmek."
+  safe="Reklamı kapatmadan önce son uygulamalar ekranını açıp arkada hangi uygulamanın durduğuna bakın. Hiçbir şeyi silmiyorsunuz."
+/>
+
+Telefonda kendiliğinden tam ekran reklam çıkması, reklam virüsü (adware) dediğiniz bir uygulamanın, bir sitenin ya da telefonun kendi sisteminin ekrana reklam basması demektir. Üçü de aynı şey gibi görünür, ama sebepleri ve yapılacak işler birbirinden çok farklıdır.
+
+Mesajlara girerken, rehbere bakarken, hiçbir şey açık değilken bile reklam çıkıyor. Kapatıyorsunuz, birkaç dakika sonra yenisi geliyor. Telefon yavaşladı, ısınıyor, pil de eskisinden çabuk bitiyor. Yanlış kaynağa göre yapılan işlem hem boşa gider hem veri kaybettirebilir.
+
+<PhoneScreen screen="ad">
+  Tam ekran açılır, kapatma işareti küçük ya da gizlidir. Ekranı kapatıp açınca da sürüyorsa büyük
+  ihtimalle reklam yazılımıdır.
+</PhoneScreen>
+
+## Reklam üç yerden birinden gelir
+
+<Cards
+  items={[
+    {
+      icon: "app",
+      tone: "rose",
+      title: "Yüklü bir uygulama",
+      text: "Genellikle yakın zamanda kurulan bir temizleyici, el feneri, VPN, duvar kâğıdı ya da oyun olur. Play Store dışından kurulan APK da sık görülür. Reklam tam ekran açılır, kapatma düğmesi küçük ya da gizlidir ve ana ekranda, aramada, kilidi açarken bile çıkabilir. Android'in geliştirici belgesine göre uygulamalara diğer tüm uygulamaların üstünde pencere açma izni verilebilir.",
+    },
+    {
+      icon: "bell",
+      tone: "sky",
+      title: "Tarayıcı bildirimleri",
+      text: "Bir sitede bildirime izin ver çıktı, yanlışlıkla ya da robot doğrulaması sanıp dokundunuz. Site artık tarayıcı kapalıyken bile bildirim gönderebilir. Reklam bildirim olarak çıkar, simge ve ad tarayıcının ya da sitenindir, dokununca bir sayfa açılır. Ekrana yayılan, kapatılamayan pencere olmaz ve bu bir uygulama kurulumu değildir.",
+    },
+    {
+      icon: "phone",
+      tone: "slate",
+      title: "Telefon üreticisinin reklamları",
+      text: "Bazı markalar kendi sistem uygulamalarında ve kilit ekranında öneri ve reklam gösterir, Xiaomi en bilinen örnektir. Tema, müzik, video ve dosya uygulamalarında öneri kartları ya da kilit ekranında dönen içerik olarak görürsünüz. Başka bir uygulamanın üstüne binmez. Bunlar virüs sayılmaz, bir ayardır.",
+    },
+  ]}
+  columns={1}
+/>
+
+Bu ayrım önemli. "Xiaomi reklamlarını kapatın" adımları, asıl sorun bir uygulamaysa hiçbir şeyi değiştirmez. Tersi de doğru.
+
+## Uygulama neden bu kadar inatçı
+
+Reklam yazılımı çoğu zaman gönüllü kurulmaz. Bir reklama dokunmuşsunuzdur, bir "temizleyici" kurmuşsunuzdur ya da bir tanıdığınız Play Store dışından bir dosya yüklemiştir. Uygulama simgesini gizleyebilir, cihaz yöneticisi ya da erişilebilirlik izni alıp kendini de koruyabilir. Böyle bir uygulamayı ayarlardan kaldırmaya çalışınca düğme çalışmaz ya da ekran kapanır.
+
+Google'ın yardım sayfasına göre Google Play Protect zararlı uygulama bulursa sizi uyarır, kaldırmanızı ister ya da uygulamayı devre dışı bırakır. Ama Play Store dışından gelen her uygulamayı yakalayacağı anlamına gelmez, yeni ya da az bilinen bir uygulama bir süre fark edilmeden kalabilir. Arka planda sürekli reklam yükleyen uygulama pili çabuk bitirir, telefonu ısıtır.
+
+## Bunları yapmayın
+
+<Cards
+  items={[
+    {
+      icon: "ban",
+      tone: "rose",
+      title: "Virüs uyarısına tıklamak",
+      text: "Temizleyici ya da antivirüs uygulamasını reklamdan kurmayın. Bunların bir kısmı sorunun kendisidir.",
+    },
+    {
+      icon: "hand",
+      tone: "rose",
+      title: "Erişilebilirlik izni vermek",
+      text: "Tanımadığınız uygulamaya vermeyin. Ekrandakileri okuma ve sizin yerinize dokunma imkânı verir, kendini kaldırmanızı da engelleyebilir.",
+    },
+    {
+      icon: "factory",
+      tone: "rose",
+      title: "Fabrika ayarı",
+      text: "İlk adım yapmayın. Fotoğraflarınız, mesajlarınız, uygulama verileriniz silinir ve yedekten geri yüklerken aynı uygulama yeniden kurulabilir.",
+    },
+    {
+      icon: "shield",
+      tone: "rose",
+      title: "Play Protect'i kapatmak",
+      text: "Zararlı uygulamaları tarar, uyarır, gerekirse devre dışı bırakır ya da kaldırır. Kapatmak bunu elinizden alır.",
+    },
+  ]}
+/>
+
+## Kendi başınıza deneyebileceğiniz tek şey
+
+Reklam çıktığında kapatmadan önce son uygulamalar ekranını açın (üç çizgi, kare ya da aşağıdan yukarı kaydırma, telefona göre değişir). Bazı reklam uygulamaları kendini hemen kapatır, o yüzden birkaç reklamda tekrar bakmanız gerekebilir.
+
+<Flow
+  question="Reklamın arkasında hangi uygulama duruyor?"
+  branches={[
+    {
+      label: "Tarayıcı ya da bildiğiniz bir uygulama",
+      text: "Tarayıcı bildirimi ya da telefonun kendi reklamı olabilir. Bunlar virüs değil, izin ya da ayardır.",
+      tone: "safe",
+    },
+    {
+      label: "Tanımadığınız bir ad",
+      text: "Reklam yazılımı olabilir. Adı not edin, hiçbir şeyi kaldırmayın ve bana yazın.",
+      tone: "warn",
+    },
+  ]}
+/>
+
+Reklamların ne zaman başladığını, o günlerde ne kurduğunuzu, hangi siteye izin verdiğinizi ve telefonu birine verip vermediğinizi de not edin. Bu adımda bir şeyi kaldırmıyor ya da değiştirmiyorsunuz, riski yok.
+
+## Kalan iş ne
+
+Reklamın hangi uygulamadan geldiğini bulup kaldırmak benim işim. Gizlenmiş ya da kendini koruyan uygulamalar dâhil kaldırırım. Telefonu sıfırlamam, verileriniz yerinde kalır.
+
+Bana yazarken telefonun modelini, reklamların yaklaşık ne zaman başladığını ve çıkan reklamın ekran görüntüsünü gönderin.
+
+Dürüst olmam gereken yerler var. Reklam telefon üreticisinin kendi sisteminden geliyorsa bu virüs değildir, bir ayardır. Kaldırmak yerine kapatmanın yolunu gösteririm, ama ortada temizlenecek bir şey yoktur. Aynı uygulama sonradan başka bir yolla yeniden kurulursa reklamlar geri gelebilir.
+
+Telefon aynı dönemde başka sorunlar da veriyorsa, örneğin banka uygulamaları açılmıyorsa, [bu ayrı bir sebepten olabilir](/blog/banka-uygulamasi-acilmiyor-guvenli-degil-hatasi). Hangi işlere baktığımı [Android destek sayfasında](/android-destek) yazdım.

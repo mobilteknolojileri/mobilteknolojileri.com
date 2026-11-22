@@ -1,0 +1,164 @@
+---
+title: "Kilidi Açık (Bootloader Unlocked) Telefonda Banka, e-Devlet ve WhatsApp Çalışır mı?"
+seoTitle: "Kilidi Açık Telefonda Banka ve e-Devlet Çalışır mı?"
+description: "Kilidi açık (bootloader unlocked) telefonda bazı uygulamalar çalışır, bazıları çalışmaz. Uygulamaların kilidi nasıl anladığını, hangisinin neye baktığını ve neyi garanti edemeyeceğimi yazdım."
+seoDescription: "Bootloader kilidi açık telefonda banka, e-Devlet, WhatsApp ve ödeme uygulamaları neden takılır? Play Integrity düzeylerini ve uygulamaların neye baktığını yazdım."
+date: 2026-11-22
+tags:
+  [
+    "android",
+    "bootloader",
+    "play integrity",
+    "root",
+    "banka uygulaması",
+    "e-devlet",
+    "cihaz doğrulama",
+  ]
+category: "android"
+draft: false
+faq:
+  - question: "Bootloader kilidi açık telefonda banka uygulaması çalışır mı?"
+    answer: "Duruma göre. Bazı banka uygulamaları kilit açıkken sorunsuz açılır, bazıları 'cihazınız güvenli değil' deyip kapanır. Hangisinin hangi kontrolü yaptığı bankaya, uygulama sürümüne ve telefonun Android sürümüne göre değişir. Önceden bilmenin yolu yok, denemek gerekir."
+  - question: "Root yapmadım, sadece kilidi açtım. Yine de sorun olur mu?"
+    answer: "Olabilir. Google'ın tanımına göre Android 13 ve üstünde 'device' düzeyi, kilidin kapalı olduğuna dair donanım destekli kanıt ister. Kilit açıksa root'lu olmasanız da bu düzey gelmez. Uygulama root ile yalnızca kilit açıklığını birbirinden ayırmayabilir."
+  - question: "Play Integrity'deki basic, device ve strong düzeyleri ne demek?"
+    answer: "Basic en zayıf düzeydir, kilit açık olsa bile verilebilir. Device, telefonun gerçek ve sertifikalı olduğunu, Android 13 ve üstünde ayrıca kilidin kapalı olduğunu gösterir. Strong, device düzeyine ek olarak son bir yıl içinde güvenlik güncellemesi ister. Hangi düzeyi isteyeceğine uygulamayı yapan firma karar verir."
+  - question: "Kilidi tekrar kapatırsam sorun biter mi?"
+    answer: "Telefonda üreticinin orijinal yazılımı varsa çoğu zaman biter. Üstünde custom ROM ya da değiştirilmiş sistem varken kilidi kapatmak ise telefonu açılmaz hâle getirebilir. ROM kurulu bir telefonda kilidi kendi başınıza kapatmayın, önce bana yazın."
+  - question: "Telefonla temassız ödeme geri gelir mi?"
+    answer: "Çoğu zaman gelmez. Google, Google Wallet'ın kilidi açık, root'lu ya da custom ROM kurulu telefonlarda çalışmadığını kendi yardım sayfasında yazıyor. Diğer uygulamalar düzelse bile bunu baştan vaat etmem."
+  - question: "Bir kez düzelen uygulamalar sonra yine bozulur mu?"
+    answer: "Bozulabilir. Bu kontroller uygulama ve sistem güncellemeleriyle değişir, bugün geçen telefon aylar sonra yeniden takılabilir. Kalıcılık sözü vermem, bunu baştan söylerim."
+intent: "troubleshooting"
+---
+
+<Summary
+  what="Kilidi açık telefonda bazı uygulamalar çalışır, bazıları açılmaz. Açılmayanlar telefondan yazılımın değiştirilmediğini kanıtlamasını ister ve kilit açıkken telefon bunu kanıtlayamaz."
+  avoid="Kilidi kendi başınıza kapatmak ya da telefonu sıfırlamak. Üstünde orijinal olmayan sistem varsa telefon açılmaz hâle gelebilir."
+  safe="Sorun çıkaran uygulamaların adını ve ekrandaki hata cümlesini not alın."
+/>
+
+Kilidi açık (bootloader unlocked) bir telefonda bazı uygulamalar sorunsuz çalışır, bazıları açılmaz. Açılmayanlar telefona "yazılımın değiştirilmediğini kanıtla" der ve kilit açıkken telefon bunu kanıtlayamaz.
+
+Önce banka uygulaması kapandı, sonra e-Devlet, sonra WhatsApp giriş yapmadı. [Banka uygulamasının neden açılmadığını](/blog/banka-uygulamasi-acilmiyor-guvenli-degil-hatasi) ayrı yazmıştım.
+
+<PhoneScreen
+  screen="alert"
+  title="Banka uygulaması"
+  message="Cihazınız güvenli değil"
+  notes={[
+    { tone: "danger", text: "Uygulama telefonun değiştirilmediğini doğrulayamıyor." },
+    { tone: "info", text: "Hesabı tarayıcıdan açıp deneyin. Açılıyorsa sorun telefondadır." },
+  ]}
+>
+  Bankalarda sık görülen uyarılardan biri.
+</PhoneScreen>
+
+## Uygulama kilidin açık olduğunu nasıl anlıyor
+
+Çoğu uygulama üç mekanizmadan birini ya da birkaçını kullanır. Birincisi Google'ın Play Integrity kontrolü. Uygulamanın sunucusu Google'dan telefon hakkında yanıt ister ve yanıt üç düzeyle gelir.
+
+<Cards
+  columns={1}
+  items={[
+    {
+      icon: "shield",
+      tone: "slate",
+      title: "Basic",
+      text: "En zayıf düzey. Kilit açık ya da kapalı olabilir, telefon sertifikalı olmayabilir. Google bu düzeyde güvenlik, gizlilik ya da uyumluluk güvencesi vermediğini yazıyor.",
+    },
+    {
+      icon: "certified",
+      tone: "sky",
+      title: "Device",
+      text: "Gerçek ve sertifikalı telefon. Android 13 ve üstünde bootloader'ın kilitli olduğuna ve sistemin üreticinin sertifikalı imajı olduğuna dair donanım destekli kanıt aranıyor. Root gibi bir bozulma belirtisi varsa gelmez.",
+    },
+    {
+      icon: "lock",
+      tone: "emerald",
+      title: "Strong",
+      text: "Device düzeyine ek olarak, Android 13 ve üstünde son bir yıl içinde güvenlik güncellemesi alınmış olması gerekiyor.",
+    },
+  ]}
+/>
+
+Kilit açıkken device ve strong gelmez, basic gelebilir. Hangi düzeyin isteneceğine uygulamayı yapan firma karar verir. Bir banka yalnızca device isterken başka bir uygulama strong isteyebilir, aynı telefonda farklı davranışlar bu yüzden ortaya çıkar.
+
+"Donanım destekli", telefonun güvenli bölümünün durumu imzalayarak bildirmesi demek. Android 12 ve öncesinde Google bu kanıtı varsa kullanıyor, yoksa yazılım destekli yönteme dönüyor.
+
+İkinci mekanizma uygulamanın kendi kontrolleri. Bazı uygulamalar Google'a hiç sormadan root izlerine, değiştirilmiş sistem dosyalarına ve root yönetim uygulamalarına bakar. Bunlar dışarıdan görülmez, dolayısıyla Google düzeyi geçen bir telefonda bile bazı uygulamalar takılabilir.
+
+Google'ın Android Enterprise topluluğunda 21 Mayıs 2025'te yayımladığı duyuruya göre Android 13 ve üstü telefonlarda iki şey değişti. Play Integrity'yi çağıran uygulamanın Google Play üzerinden kurulmuş ya da güncellenmiş olması gerekiyor. Strong düzeyi de artık son on iki ayda güvenlik güncellemesi almış telefonlara veriliyor. Aynı telefon bir güncellemeden sonra daha az uygulamayı geçebilir.
+
+## Hangi uygulama neye bakıyor
+
+<Cards
+  columns={1}
+  items={[
+    {
+      icon: "bank",
+      tone: "sky",
+      title: "Banka uygulamaları",
+      text: "Çoğu Google'ın doğrulamasına ve kendi kontrollerine bakar. Hangisinin neye baktığı açıklanmaz, sürümle de değişir.",
+    },
+    {
+      icon: "lock",
+      tone: "indigo",
+      title: "e-Devlet ve resmî uygulamalar",
+      text: "Forumlarda e-Devlet ve e-Nabız'ın kilidi açık telefonlarda açılmadığı sık yazılıyor. Resmî bir açıklama bulamadım, eski kullanıcı deneyimi olarak okuyun. Sürüme göre değişmiş olabilir.",
+    },
+    {
+      icon: "message",
+      tone: "emerald",
+      title: "WhatsApp",
+      text: "Yardım sayfaları engeli resmî olmayan uygulamalara bağlıyor, kilit durumundan söz etmiyor. Kilidi açık ya da sertifikasız telefonlarda giriş sorunlarını kullanıcılar anlatıyor.",
+    },
+    {
+      icon: "nfc",
+      tone: "rose",
+      title: "Google Wallet ve telefonla ödeme",
+      text: "En sıkı yer. Google'ın yardım sayfası, root'lu, custom ROM kurulu, değiştirilmiş yazılımlı ve kilidi açık telefonlarda Google Wallet'ın çalışmadığını söylüyor.",
+    },
+    {
+      icon: "video",
+      tone: "violet",
+      title: "Netflix ve DRM'li yayınlar",
+      text: "Widevine telif korumasına bakarlar. L1'de içerik güvenli donanım bölümünde, L3'te yazılımda çözülür. Android Police 2019'da OnePlus 7 Pro'da kilit açılınca L1'in gittiğini ve Netflix'in HD yerine 480p sunduğunu yazmıştı. Tek telefona ait eski bir örnek, ama mantık aynı.",
+    },
+    {
+      icon: "game",
+      tone: "gold",
+      title: "Oyunlar",
+      text: "Google, Play Integrity'nin amaçları arasında hile ile mücadeleyi sayıyor. Bazı oyunların açılmaması ya da hesap bağlamaması şaşırtıcı değil.",
+    },
+  ]}
+/>
+
+[e-Devlet uygulamasının açılmamasını](/blog/e-devlet-uygulamasi-acilmiyor) ve [WhatsApp giriş hatasını](/blog/giris-yapmak-icin-resmi-whatsapp-hatasi) ayrıca yazdım.
+
+## Bunlara dokunmayın
+
+- Kilidi kendi başınıza kapatmayın. Orijinal olmayan sistem varken telefon açılmaz hâle gelebilir.
+- Telefonu sıfırlamayın. Verileriniz gider ve sebep kilit olduğu için çoğu zaman düzelmez.
+- Videodaki adımı aynen uygulamayın, yanlışı telefonu logoda bırakabilir.
+- "Düzeltilmiş" ya da "root uyumlu" uygulama kopyalarını kurmayın. Kaynağı belirsiz dosya, bankanızın uyarısından çok daha büyük risk açar.
+
+## Tek güvenli adım: Not alın
+
+Sorun çıkaran her uygulamanın adını ve ekrandaki hata cümlesini aynen yazın ya da ekran görüntüsü alın. Model ve Android sürümünü de ekleyin. Hiçbir şeyi değiştirmez, hangi kontrolün takıldığını anlamam için de ilk veridir.
+
+## Kalan iş ne
+
+Amacım, kilit açık kalırken uygulamaların çalışmasını sağlamak. Çoğu zaman kilidi kapatmak, ROM'u değiştirmek ya da telefonu sıfırlamak gerekmez. Yöntemi anlatmıyorum, telefona ve sürüme göre değişiyor.
+
+Garanti edemeyeceklerim şunlar.
+
+- Telefonla temassız ödeme çoğu zaman geri gelmez.
+- Bazı banka uygulamaları kendi kontrolünü ayrıca yapar ve düzeltmeden sonra da açılmayabilir. Hangisi olduğunu denemeden bilemem.
+- Kontroller uygulama ve sistem güncellemeleriyle değişir, bugün geçen bir telefon aylar sonra yeniden takılabilir.
+
+Olmayacaksa olmayacağını da söylerim.
+
+Bana yazarken modeli, Android sürümünü, kilidin ne zaman ve kim tarafından açıldığını bildiğiniz kadarıyla ve notlarınızı gönderin. Xiaomi'nin kilidini kendiniz açmayı düşünüyorsanız önce [Xiaomi bootloader kilidini açma yazısına](/blog/xiaomi-bootloader-kilidi-acma) bakın. "Play Protect sertifikalı değil" uyarısı görüyorsanız [bu yazıyı](/blog/cihaz-play-protect-sertifikali-degil) okuyun.
+
+Hangi işlere baktığımı [Android destek sayfasında](/android-destek) yazdım.

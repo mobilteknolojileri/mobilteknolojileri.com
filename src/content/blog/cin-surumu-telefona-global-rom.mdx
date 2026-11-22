@@ -1,0 +1,131 @@
+---
+title: "Çin Sürümü Telefona Global ROM Yüklenir mi? Neleri Değiştirir, Riskleri Ne"
+seoTitle: "Çin Sürümü Telefona Global ROM Yüklenir mi?"
+description: "Global ROM, Çin sürümü telefonun yazılımını Google hizmetleri, Türkçe ve sertifikayla gelen bölgeye çevirir. Neyi gerektirdiğini, hangi risklerin olduğunu ve nelerin her telefonda mümkün olmadığını anlattım."
+seoDescription: "Çin sürümü Xiaomi'ye global ROM yüklenir mi? Bootloader kilidi, veri silinmesi, anti-rollback ve resmî ile topluluk ROM'u arasındaki fark."
+date: 2026-11-22
+tags: ["android", "global rom", "çin sürümü", "xiaomi", "bootloader", "play protect"]
+category: "android"
+draft: false
+faq:
+  - question: "Çin ROM'lu Xiaomi'ye global ROM yüklenir mi?"
+    answer: "Bootloader kilidi açılabiliyorsa ve o model için kullanılabilir bir global ROM varsa yüklenir. İkisinden biri eksikse olmaz. Bazı yeni modellerin resmî global sürümü hiç çıkmıyor, o zaman yalnızca topluluk ROM'ları kalıyor. Kasım 2026 itibarıyla Xiaomi Çin sürümleri için resmî kilit açma yolu kapalı."
+  - question: "Global ROM yüklemek verileri siler mi?"
+    answer: "Evet. Bootloader kilidini açmak telefonu sıfırlar, ROM değişimi de verileri yeniden kurar. Fotoğraflarınızı, kişilerinizi ve mesaj yedeklerinizi telefondan önce çıkarmanız gerekir. Yedeksiz iş başlamamalı."
+  - question: "Global ROM yüklenen telefonda Play Protect sertifikası olur mu?"
+    answer: "Resmî global ROM ve o model için Google'ın sertifikası varsa olabilir. Topluluk ROM'larında ve bootloader kilidi açık kalan telefonlarda çoğu zaman olmaz. Ayarlardan Play Store'un Hakkında bölümüne bakarak durumu kendiniz görebilirsiniz."
+  - question: "Çin ROM'una Google Play kurmak global ROM ile aynı mı?"
+    answer: "Hayır. Google uygulamalarını yüklemek Play Store'u açar ama telefonu Google'ın sertifikalı cihazı yapmaz. Google, sertifikasız cihazlardaki Google uygulamalarının lisanslı olmadığını ve bazı özelliklerin çalışmayabileceğini söylüyor. Banka ve ödeme uygulamaları bu yüzden takılabilir."
+  - question: "Kilidi yeniden kapatırsam telefona zarar gelir mi?"
+    answer: "Evet, zarar gelebilir. Telefonun gerçek bölgesiyle uyuşmayan bir ROM üstünde bootloader kilidini kapatmak telefonu açılmaz hâle getirebiliyor. Kilidi yalnızca üreticinin telefonla eşleşen orijinal yazılımı üstündeyken kapatın."
+intent: "guide"
+---
+
+<Summary
+  what="Global ROM, Çin sürümü telefonun yazılımını Google hizmetleri ve Türkçe ile gelen bölge sürümüyle değiştirir. Kilit açılabiliyorsa ve o model için ROM varsa olur."
+  avoid="Kilidi açılabilir mi bilmeden videodaki adımlarla sıfırlamak ve bootloader kilidini yeniden kapatmak."
+  safe="Önce yedek alın ve tam model kodunu not edin. İkisi de tehlikesizdir."
+/>
+
+Global ROM, Çin pazarı için hazırlanmış telefonun işletim sistemini ve arayüzünü bölge sürümüyle değiştirmektir. Değişen şey uygulamalar değil, telefonun kendi yazılımı. Videolar "herkes yapabilir" der, ama işin neyi sildiğini ve her modelde işlemediğini pek anlatmaz. Burada adımları değil, neyi gerektirdiğini ve nerede bozulabileceğini anlatıyorum.
+
+## Global ROM neyi değiştirir
+
+<Cards
+  items={[
+    {
+      icon: "globe",
+      tone: "sky",
+      title: "Google hizmetleri",
+      text: "Play Store, Google hesabı ve bildirim altyapısı sistemin parçası olur.",
+    },
+    {
+      icon: "message",
+      tone: "indigo",
+      title: "Türkçe",
+      text: "Dil seçeneği listede bulunur.",
+    },
+    {
+      icon: "app",
+      tone: "violet",
+      title: "Uygulama seti",
+      text: "Bölgeye göre ayarlanmış set gelir, Çin'e özel uygulamaların çoğu kalkar.",
+    },
+    {
+      icon: "certified",
+      tone: "gold",
+      title: "Sertifika, otomatik değil",
+      text: "Google onayı o model ve yazılım için verilir. Üretici global sürüm yayımlamamışsa çoğunlukla olmaz. Mart 2026 haberlerine göre Xiaomi 17 ve 17 Ultra global çıktı, 17 Pro ve Pro Max çıkmadı.",
+    },
+  ]}
+/>
+
+## Neyi gerektirir
+
+İki koşul var. Birincisi bootloader kilidinin açılması: telefon yalnızca üreticinin imzaladığı yazılımı çalıştırır, başka bölgenin ROM'u için kilit açılmalı ve marka bunu her model için vermez ([güncel durum](/blog/xiaomi-bootloader-kilidi-acma)). İkincisi verilerin silinmesi: kilidi açmak telefonu sıfırlar, ROM değişimi sistemi baştan kurar.
+
+<Flow
+  question="Telefonun kilidi açılabiliyor mu?"
+  branches={[
+    {
+      label: "Evet ve o model için ROM var",
+      text: "Yedek aldıktan sonra yazılım değişebilir. Kilit açıkken kalacağını unutmayın.",
+      tone: "safe",
+    },
+    {
+      label: "Hayır ya da ROM yok",
+      text: "Telefon Çin yazılımında kalır. Kasım 2026 itibarıyla Xiaomi Çin sürümleri için resmî kilit açma yolu kapalı.",
+      tone: "warn",
+    },
+  ]}
+/>
+
+## Gerçek riskler
+
+<Cards
+  columns={1}
+  items={[
+    {
+      icon: "refresh",
+      tone: "rose",
+      title: "Anti-rollback",
+      text: "Xiaomi'de yazılımın güvenlik sayacı vardır ve telefon sayacı kendi sürümünden düşük ROM'u kabul etmez. Zorla kurulursa telefon açılmaz hâle gelebilir. Risk, Çin yazılımının globalden yeni olduğu modellerde en yüksektir.",
+    },
+    {
+      icon: "lock",
+      tone: "rose",
+      title: "Uyumsuz ROM üstünde kilit kapatmak",
+      text: "Güvenli görünür, ama telefonun gerçek bölgesiyle uyuşmayan ROM üstünde kapatılırsa telefon açılmayabilir. Güncel Xiaomi rehberleri bunu çalışan telefonun bozulmasının en yaygın yolu olarak anlatıyor.",
+    },
+    {
+      icon: "ban",
+      tone: "gold",
+      title: "Çin'e özel özelliklerin kaybı",
+      text: "Bazıları global ROM'da bulunmaz. Modele göre değişir ve hepsini önceden listelemek mümkün değil. İstediğiniz özellik varsa önce onu sorun.",
+    },
+    {
+      icon: "unlock",
+      tone: "slate",
+      title: "Kilit açık kalır",
+      text: "Telefon bazı uygulamalara kendini güvenli göstermez. Banka, ödeme ve resmî uygulamalar çalışmayabilir. [Cihaz sertifikalı değil uyarısını](/blog/cihaz-play-protect-sertifikali-degil) ayrı yazdım.",
+    },
+  ]}
+/>
+
+Hiçbir yöntem kalıcı bir sonuç sözü vermez. Uygulamaların kontrolleri güncellemelerle değişir.
+
+## Resmî ROM, topluluk ROM'u ve Google yükleyici
+
+Resmî global ROM, üreticinin o model için yayımladığı, imzası ve güncellemeleri üreticiden gelen yazılımdır. Topluluk ROM'u gönüllülerin üreticinin yazılımından hazırladığı değiştirilmiş sürümdür. Xiaomi.eu gibi büyük topluluklar işlerini açıkça yapar, ama güncelleme topluluktan gelir, güvenlik yaması gecikebilir ve Google sertifikası çoğu zaman gelmez. Resmî ROM'u olmayan modelde "global" denince genellikle topluluk ROM'u kastedilir, hangisini kastettiğini sorun. Kaynağını bilmediğiniz yazılımda bankacılık yapmayın, [sahte ROM](/blog/fake-rom-nasil-anlasilir) sorunu da buradan çıkar.
+
+Çin ROM'una Google uygulamalarını yükleyen küçük bir APK da yaygındır. Play Store açılır, ama telefon hâlâ Çin yazılımıyla çalışır. Google'a göre yalnızca sertifikalı cihazlardaki Google uygulamaları lisanslıdır, sertifikasızlarda bazı özellikler çalışmayabilir. Bu yol işe yarar, ama sertifika vermez.
+
+## Tek güvenli adım
+
+Yedek için fotoğraf ve videoları USB ile bilgisayara kopyalayın, kişilerinizi ve WhatsApp yedeğinizi kontrol edin. Çin sürümünde Google yedeği çalışmıyorsa dosyaları elle kopyalayın. Model kodu için Ayarlar, Telefon hakkında, Tüm özellikler yolundan model numarasını ve sürüm kodunu yazın ya da ekran görüntüsü alın. Aynı adla farklı bölge sürümleri olabilir, kod hangisi olduğunu söyler.
+
+## Kalan iş ne
+
+Yazarken model numarasını, sürüm kodunu, telefonu nereden aldığınızı ve şimdiye kadar yapılanları belirtin. Önce bakarım, olacaksa söylerim, olmayacaksa onu da.
+
+Vaat edemediğim şeyler var. Kilidi açılmayan telefonu global yapamam, markanın ROM yayımlamadığı modelde resmî yazılım gösteremem. Sonrasında banka uygulamalarının çalışacağını da garanti edemem, bunlar telefona ve zamana göre değişir. Satın almadan önce okuyorsanız [önce neye bakmanız gerektiğini](/blog/cin-surumu-telefon-almadan-once) yazdım. Hangi işlere baktığımı [Android destek sayfasında](/android-destek) yazdım.
