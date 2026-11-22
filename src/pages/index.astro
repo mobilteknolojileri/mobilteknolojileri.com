@@ -11,9 +11,9 @@ import Process from "@/features/process/Process.astro";
 import Faq from "@/components/ui/Faq.astro";
 import Contact from "@/features/contact";
 import { FAQ_DATA } from "@/features/faq/data";
-import { getLocalBusinessSchema, getFAQSchema } from "@/lib/seo/schema";
+import { getLocalBusinessSchema, getFAQSchema, getWebSiteSchema } from "@/lib/seo/schema";
 
-const extraSchemas = [getLocalBusinessSchema(), getFAQSchema(FAQ_DATA)];
+const extraSchemas = [getWebSiteSchema(), getLocalBusinessSchema(), getFAQSchema(FAQ_DATA)];
 
 const emailjsConfig = {
   serviceId: import.meta.env.PUBLIC_EMAILJS_SERVICE_ID || "",

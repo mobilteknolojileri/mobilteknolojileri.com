@@ -2,6 +2,16 @@ import { SEO_DEFAULTS } from "@/config/seo";
 import { SITE_CONFIG } from "@/config/site";
 import { getKeywords } from "./keywords";
 
+// Results cut titles near 60 characters and show the site name on their own,
+// so a long title keeps its words and drops the brand instead
+const TITLE_LIMIT = 60;
+
+export function withBrand(title: string): string {
+  if (title.includes(SITE_CONFIG.name)) return title;
+  const branded = `${title}${SITE_CONFIG.titleSuffix}`;
+  return branded.length <= TITLE_LIMIT ? branded : title;
+}
+
 export interface Metadata {
   title?: string | { default: string; template: string };
   description?: string;
@@ -58,7 +68,7 @@ export function generateMetadata({
 }: GenerateMetadataProps): Metadata {
   const baseUrl = import.meta.env.PUBLIC_SITE_URL || SITE_CONFIG.url;
   const url = resolveUrl(baseUrl, path);
-  const fullTitle = `${title}${SEO_DEFAULTS.blogTitleSuffix}`;
+  const fullTitle = withBrand(title);
   const allKeywords = [...getKeywords(locale), ...keywords];
   const imageUrl = resolveUrl(baseUrl, image);
 
@@ -68,7 +78,7 @@ export function generateMetadata({
     keywords: allKeywords,
     authors: [{ name: SITE_CONFIG.author }],
     creator: SITE_CONFIG.author,
-    publisher: SITE_CONFIG.author,
+    publisher: SITE_CONFIG.name,
     robots: {
       index: true,
       follow: true,
@@ -86,7 +96,7 @@ export function generateMetadata({
       url,
       title: fullTitle,
       description,
-      siteName: `${SITE_CONFIG.name} Portfolio`,
+      siteName: SITE_CONFIG.name,
       images: [
         {
           url: imageUrl,
@@ -119,7 +129,7 @@ export function generateMetadata({
 }
 
 export const defaultMetadata: Metadata = generateMetadata({
-  title: "Gaziantep Freelancer Yazılım ve Web Tasarım",
+  title: "Mobil Teknolojileri | Gaziantep Mobil Uygulama ve Web Sitesi",
   description: SITE_CONFIG.description,
   locale: "tr",
 });

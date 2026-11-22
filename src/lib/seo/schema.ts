@@ -7,16 +7,84 @@ const joinUrl = (base: string, path?: string) => {
   return `${base}${path.startsWith("/") ? "" : "/"}${path}`;
 };
 
+const getBaseUrl = () => import.meta.env.PUBLIC_SITE_URL || SITE_CONFIG.url;
+
+// One entity graph: every schema on the site points at these ids
+const ids = (baseUrl: string) => ({
+  organization: `${baseUrl}/#organization`,
+  person: `${baseUrl}/#person`,
+  website: `${baseUrl}/#website`,
+});
+
+const SERVICES = [
+  {
+    name: "Mobil uygulama geliştirme",
+    path: "/mobil-uygulama-gelistirme",
+    description: "Fikir aşamasından App Store ve Google Play'deki yayına kadar.",
+  },
+  {
+    name: "Web sitesi yapımı",
+    path: "/web-site-yapimi-gaziantep",
+    description: "Hızı ve teknik SEO'su baştan düşünülmüş web siteleri.",
+  },
+  {
+    name: "Android yazılım desteği",
+    path: "/android-destek",
+    description:
+      "Açılmayan, güncellemeden sonra bozulan ya da yavaşlayan Android cihazların yazılım tarafı: kurtarma, ROM ve veri.",
+  },
+];
+
+const AREA_SERVED = [
+  { "@type": "City", name: "Gaziantep" },
+  { "@type": "Country", name: "Türkiye" },
+];
+
+const publisherRef = (baseUrl: string) => ({
+  "@type": "Organization",
+  "@id": ids(baseUrl).organization,
+  name: SITE_CONFIG.name,
+  logo: {
+    "@type": "ImageObject",
+    url: joinUrl(baseUrl, SITE_CONFIG.logo),
+  },
+});
+
+const authorRef = (baseUrl: string) => ({
+  "@type": "Person",
+  "@id": ids(baseUrl).person,
+  name: SITE_CONFIG.author,
+  url: `${baseUrl}/`,
+});
+
+export function getWebSiteSchema() {
+  const baseUrl = getBaseUrl();
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": ids(baseUrl).website,
+    name: SITE_CONFIG.name,
+    alternateName: [SITE_CONFIG.alternateName, "mobilteknolojileri.com"],
+    url: `${baseUrl}/`,
+    inLanguage: "tr-TR",
+    publisher: { "@id": ids(baseUrl).organization },
+  };
+}
+
 export function getPersonSchema(locale: string = SITE_CONFIG.locale) {
-  const baseUrl = import.meta.env.PUBLIC_SITE_URL || SITE_CONFIG.url;
+  const baseUrl = getBaseUrl();
 
   return {
     "@context": "https://schema.org",
     "@type": "Person",
-    name: SITE_CONFIG.name,
-    url: baseUrl,
-    image: joinUrl(baseUrl, SITE_CONFIG.logo),
+    "@id": ids(baseUrl).person,
+    name: SITE_CONFIG.author,
+    url: `${baseUrl}/`,
+    image: joinUrl(baseUrl, SITE_CONFIG.profileImage),
     sameAs: [SITE_CONFIG.links.github, SITE_CONFIG.links.bionluk],
+    worksFor: { "@id": ids(baseUrl).organization },
+    alumniOf: { "@type": "CollegeOrUniversity", name: "Trakya Üniversitesi" },
     jobTitle: locale === "tr" ? "Full Stack Yazılım Geliştirici" : "Full Stack Software Developer",
     description:
       locale === "tr"
@@ -49,18 +117,28 @@ export function getPersonSchema(locale: string = SITE_CONFIG.locale) {
 }
 
 export function getOrganizationSchema(locale: string = SITE_CONFIG.locale) {
-  const baseUrl = import.meta.env.PUBLIC_SITE_URL || SITE_CONFIG.url;
+  const baseUrl = getBaseUrl();
 
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": ids(baseUrl).organization,
     name: SITE_CONFIG.name,
-    url: baseUrl,
-    logo: joinUrl(baseUrl, SITE_CONFIG.logo),
+    alternateName: SITE_CONFIG.alternateName,
+    url: `${baseUrl}/`,
+    logo: {
+      "@type": "ImageObject",
+      url: joinUrl(baseUrl, SITE_CONFIG.logo),
+    },
+    image: joinUrl(baseUrl, SITE_CONFIG.ogImage),
+    email: SITE_CONFIG.links.email,
     description:
       locale === "tr"
         ? "Tek kişilik yazılım işi: mobil uygulama, web sitesi ve Android yazılım desteği."
         : "One-person software business: mobile apps, websites and Android software support.",
+    founder: { "@id": ids(baseUrl).person },
+    areaServed: AREA_SERVED,
+    sameAs: [SITE_CONFIG.links.github, SITE_CONFIG.links.bionluk],
     contactPoint: {
       "@type": "ContactPoint",
       email: SITE_CONFIG.links.email,
@@ -83,21 +161,28 @@ export function getBreadcrumbSchema(items: { name: string; url: string }[]) {
   };
 }
 
+// The same business as the Organization node (same @id), seen as a local service provider
 export function getLocalBusinessSchema() {
-  const baseUrl = import.meta.env.PUBLIC_SITE_URL || SITE_CONFIG.url;
+  const baseUrl = getBaseUrl();
 
   return {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    name: `${SITE_CONFIG.name}: Gaziantep Freelancer Yazılım & Mobil Uygulama`,
+    "@id": ids(baseUrl).organization,
+    name: SITE_CONFIG.name,
+    alternateName: SITE_CONFIG.alternateName,
+    description: SITE_CONFIG.description,
+    url: `${baseUrl}/`,
     image: joinUrl(baseUrl, SITE_CONFIG.ogImage),
-    "@id": `${baseUrl}/#localbusiness`,
-    url: baseUrl,
+    logo: joinUrl(baseUrl, SITE_CONFIG.logo),
+    email: SITE_CONFIG.links.email,
     address: {
       "@type": "PostalAddress",
       addressLocality: "Gaziantep",
       addressCountry: "TR",
     },
+    areaServed: AREA_SERVED,
+    founder: { "@id": ids(baseUrl).person },
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
@@ -106,6 +191,21 @@ export function getLocalBusinessSchema() {
     },
     sameAs: [SITE_CONFIG.links.github, SITE_CONFIG.links.bionluk],
     priceRange: "$$",
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Hizmetler",
+      itemListElement: SERVICES.map((service) => ({
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: service.name,
+          description: service.description,
+          url: joinUrl(baseUrl, service.path),
+          areaServed: AREA_SERVED,
+          provider: { "@id": ids(baseUrl).organization },
+        },
+      })),
+    },
   };
 }
 
@@ -134,7 +234,7 @@ export function getBlogPostingSchema(post: {
   deviceBrand?: string;
   deviceModel?: string;
 }) {
-  const baseUrl = import.meta.env.PUBLIC_SITE_URL || SITE_CONFIG.url;
+  const baseUrl = getBaseUrl();
 
   const schema: Record<string, unknown> = {
     "@context": "https://schema.org",
@@ -144,19 +244,9 @@ export function getBlogPostingSchema(post: {
     image: joinUrl(baseUrl, post.image || SITE_CONFIG.ogImage),
     datePublished: post.date.toISOString(),
     dateModified: (post.updated ?? post.date).toISOString(),
-    author: {
-      "@type": "Person",
-      name: SITE_CONFIG.author,
-      url: baseUrl,
-    },
-    publisher: {
-      "@type": "Organization",
-      name: SITE_CONFIG.name,
-      logo: {
-        "@type": "ImageObject",
-        url: joinUrl(baseUrl, SITE_CONFIG.logo),
-      },
-    },
+    inLanguage: "tr-TR",
+    author: authorRef(baseUrl),
+    publisher: publisherRef(baseUrl),
     mainEntityOfPage: {
       "@type": "WebPage",
       "@id": post.url,
@@ -188,7 +278,7 @@ export function getCaseStudySchema(study: {
   keywords: string[];
   original: string;
 }) {
-  const baseUrl = import.meta.env.PUBLIC_SITE_URL || SITE_CONFIG.url;
+  const baseUrl = getBaseUrl();
 
   return {
     "@context": "https://schema.org",
@@ -200,19 +290,8 @@ export function getCaseStudySchema(study: {
     dateModified: study.date.toISOString(),
     inLanguage: "tr-TR",
     keywords: study.keywords.join(", "),
-    author: {
-      "@type": "Person",
-      name: SITE_CONFIG.author,
-      url: baseUrl,
-    },
-    publisher: {
-      "@type": "Organization",
-      name: SITE_CONFIG.name,
-      logo: {
-        "@type": "ImageObject",
-        url: joinUrl(baseUrl, SITE_CONFIG.logo),
-      },
-    },
+    author: authorRef(baseUrl),
+    publisher: publisherRef(baseUrl),
     mainEntityOfPage: {
       "@type": "WebPage",
       "@id": study.url,

@@ -81,7 +81,9 @@ ${techDecision ? `- **Teknik karar**: ${techDecision}\n` : ""}${project.caseStud
 
   const projectList = projects.map(formatProject).join("\n\n");
 
-  const content = `# mobilteknolojileri.com
+  const content = `# Mobil Teknolojileri
+
+> Mobil Teknolojileri, Gaziantep'te Mehmet'in yürüttüğü tek kişilik yazılım işidir: mobil uygulama geliştirme, web sitesi yapımı ve Android yazılım desteği. Eski adı goldsword. Site: ${BASE_URL}, e-posta: bilgi@mobilteknolojileri.com.
 
 ## Geliştirici hakkında
 **Ağırlıklı olarak mobil uygulama ve SaaS ürünleri geliştiriyorum.** Gaziantep'te yaşayan, full-stack çalışan freelance bir yazılım geliştiriciyim; 30'dan fazla ticari projede geliştirme yaptım. Projeyi fikir aşamasından yayına kadar tek başıma götürürüm.
@@ -125,7 +127,7 @@ Bütün yazılar: ${BASE_URL}/blog
 ## İletişim
 Yeni bir ürün, var olan bir sistemin iyileştirilmesi ya da Android cihazınızdaki bir sorun için yazabilirsiniz.
 
-- **E-posta:** mobilteknolojileri@gmail.com
+- **E-posta:** bilgi@mobilteknolojileri.com
 - **Web:** ${BASE_URL}
 - **GitHub:** https://github.com/mobilteknolojileri
 - **Bionluk:** https://bionluk.com/goldsword

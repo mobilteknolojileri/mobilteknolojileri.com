@@ -1,6 +1,6 @@
 {
-  "name": "Goldsword: Mobil ve Web Uygulamaları",
-  "short_name": "Goldsword",
+  "name": "Mobil Teknolojileri: Mobil ve Web Uygulamaları",
+  "short_name": "Mobil Teknolojileri",
   "description": "Mobil uygulama ve web geliştirme, Android yazılım desteği. React Native, TypeScript, Astro.",
   "start_url": "/",
   "scope": "/",

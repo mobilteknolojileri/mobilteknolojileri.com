@@ -1,17 +1,20 @@
 export const SITE_CONFIG = {
-  name: "goldsword",
-  titleSuffix: "| goldsword",
+  name: "Mobil Teknolojileri",
+  // The earlier brand, kept so old searches and the Bionluk profile still point here
+  alternateName: "goldsword",
+  titleSuffix: " | Mobil Teknolojileri",
   description:
     "Gaziantep'te freelance yazılım geliştiriciyim. Mobil uygulama, web tasarım ve teknik SEO işlerini baştan sona ben yaparım; Android yazılım desteği de veririm.",
   url: "https://mobilteknolojileri.com",
-  author: "goldsword",
+  author: "Mehmet",
   locale: "tr",
   links: {
     github: "https://github.com/mobilteknolojileri",
     bionluk: "https://bionluk.com/goldsword",
-    email: "mobilteknolojileri@gmail.com",
+    email: "bilgi@mobilteknolojileri.com",
   },
   // og: 1200x630, logo: the square original (used in JSON-LD)
   ogImage: "/og.png",
   logo: "/logo.png",
+  profileImage: "/assets/images/profile.webp",
 };

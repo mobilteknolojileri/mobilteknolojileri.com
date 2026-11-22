@@ -2,7 +2,6 @@ export const SEO_DEFAULTS = {
   locale: "tr",
   defaultOgImage: "/og.png",
   readingTimeWpm: 200,
-  blogTitleSuffix: " | goldsword",
 } as const;
 
 export const BLOG_CATEGORY_LABELS = {

@@ -47,4 +47,4 @@ The case studies are Turkish versions of [mobilteknolojileri/case-studies](https
 
 ## Contact
 
-[mobilteknolojileri@gmail.com](mailto:mobilteknolojileri@gmail.com) · [GitHub](https://github.com/mobilteknolojileri) · [Bionluk](https://bionluk.com/goldsword)
+[bilgi@mobilteknolojileri.com](mailto:bilgi@mobilteknolojileri.com) · [GitHub](https://github.com/mobilteknolojileri) · [Bionluk](https://bionluk.com/goldsword)

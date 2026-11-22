@@ -12,7 +12,7 @@ const SUBJECT_KEY = "contact-subject";
 
 const MIN_SUBMIT_DELAY_MS = 2500;
 const MAX_MESSAGE_LENGTH = 2000;
-const CONTACT_EMAIL = "mobilteknolojileri@gmail.com";
+const CONTACT_EMAIL = "bilgi@mobilteknolojileri.com";
 
 const DIRECT_LINKS = [
   {

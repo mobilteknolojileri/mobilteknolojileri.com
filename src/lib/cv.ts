@@ -61,7 +61,7 @@ export const CV: CVData = {
     "projelerine gönderdiğim Türkçe katkılar birleştirildi. Çalıştığım alanlar: React Native " +
     "(Expo, EAS), TypeScript, Supabase, Astro, Vercel ve npm'de provenance ile OIDC'ye dayanan yayın akışları.",
   contact: {
-    email: "mobilteknolojileri@gmail.com",
+    email: "bilgi@mobilteknolojileri.com",
     location: "Türkiye",
     github: "https://github.com/mobilteknolojileri",
     npm: "https://www.npmjs.com/~mobilteknolojileri",
