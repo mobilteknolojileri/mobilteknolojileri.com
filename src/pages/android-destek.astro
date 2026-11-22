@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import ServicePage from "@/layouts/ServicePage.astro";
 import ProseSection from "@/components/ui/ProseSection.astro";
 import Steps from "@/components/ui/Steps.astro";
+import RemoteHelp from "@/components/blog/RemoteHelp.astro";
 import type { FaqItem } from "@/features/faq/data";
 import { COPY_TOKENS } from "@/config/seo";
 import { formatDate } from "@/lib/blog";
@@ -30,7 +31,7 @@ const HIGHLIGHTS = [
   { label: "Kurulum", value: "Bootloader kilidi açma, kurtarma, custom ROM ve root" },
   {
     label: "Çalışma şekli",
-    value: "Telefon genelde sizde kalır, gerekirse bilgisayarınız üzerinden bağlanırım",
+    value: "Uzaktan: telefon sizde kalır, Windows bilgisayarınız üzerinden bağlanırım",
   },
   {
     label: "Yapmadığım",
@@ -167,12 +168,12 @@ const guides = (
   eyebrow="Android yazılım desteği"
   title="Android Teknik Destek: Açılmayan Telefon, Güncelleme ve ROM Sorunları"
   lead="Logoda kalan, güncellemeden sonra açılmayan, root'lanınca ya da custom ROM yüklenince bozulan Android telefonların yazılım tarafına bakarım. Bootloader kilidi açma ve ROM kurulumu da yaparım."
-  cta={{ label: "Sorununuzu anlatın", href: "/#contact" }}
+  cta={{ label: "Sorununuzu anlatın", href: "/#contact", topic: "support" }}
   secondaryCta={{ label: "Rehberler", href: "#rehberler" }}
   highlights={HIGHLIGHTS}
   faqs={FAQS}
   closingTitle="Nereden başlamalı"
-  closingBody="İletişim formunda “Android destek”i seçip cihaz modelini, Android sürümünü ve sorunu yazın. Ekranda bir hata mesajı varsa onu da olduğu gibi ekleyin."
+  closingBody="İletişim formunda “Android destek”i seçip telefon modelini ve sorunu yazın. Ekranda bir hata mesajı varsa onu da olduğu gibi ekleyin."
 >
   <ProseSection id="katmanlar" title="Hangi sorunlara bakıyorum" tinted>
     <p>
@@ -217,6 +218,12 @@ const guides = (
       özellikle de HyperOS'a geçmiş olanlar.
     </p>
   </ProseSection>
+
+  <section class="section">
+    <div class="section-container section-padding">
+      <RemoteHelp class="" />
+    </div>
+  </section>
 
   <ProseSection
     id="root-custom-rom-ve-bootloader-kilidi"
