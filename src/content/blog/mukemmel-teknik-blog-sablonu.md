@@ -6,7 +6,6 @@ date: 2026-03-22
 updated: 2026-10-07
 tags: ["markdown", "astro", "blog-sablonu", "seo", "teknik-yazarlik"]
 category: "web"
-heroImage: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2400&auto=format&fit=crop"
 draft: false
 intent: "guide"
 ---
@@ -112,7 +111,6 @@ description: "Problemin ne olduğu ve bu yazıda nasıl bir çözüm sunacağın
 date: YYYY-MM-DD
 tags: ["teknoloji", "odak-kelime"]
 category: "web"
-heroImage: "https://images.unsplash.com/photo-gorsel-kimligi?q=80&w=2400&auto=format&fit=crop"
 draft: false
 intent: "troubleshooting"
 ---

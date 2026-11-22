@@ -6,7 +6,6 @@ date: 2026-03-22
 updated: 2026-10-07
 tags: ["ai", "öğrenme", "yazılım", "verimlilik", "kariyer"]
 category: "yazılım"
-heroImage: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2400&auto=format&fit=crop"
 draft: false
 intent: "guide"
 ---

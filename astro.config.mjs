@@ -22,10 +22,6 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  image: {
-    domains: ["images.unsplash.com"],
-    remotePatterns: [{ protocol: "https", hostname: "images.unsplash.com" }],
-  },
   markdown: {
     shikiConfig: {
       themes: {

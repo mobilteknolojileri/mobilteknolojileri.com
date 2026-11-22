@@ -6,7 +6,6 @@ date: 2026-02-15
 updated: 2026-10-07
 tags: ["gaziantep web tasarım", "web sitesi yapımı", "dijital strateji", "astro"]
 category: "web"
-heroImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop"
 draft: false
 faq:
   - question: "Gaziantep'te web sitesi fiyatları nasıl belirlenir?"

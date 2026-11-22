@@ -6,7 +6,6 @@ date: 2026-03-22
 updated: 2026-10-07
 tags: ["seo", "astro", "trailing slash", "google indexing", "case study", "vaka analizi"]
 category: "seo"
-heroImage: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=2400&auto=format&fit=crop"
 draft: false
 intent: "troubleshooting"
 faq:

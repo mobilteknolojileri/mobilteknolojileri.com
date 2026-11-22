@@ -5,7 +5,6 @@ date: 2026-02-15
 updated: 2026-10-07
 tags: ["sitemap", "astro", "teknik seo", "hata çözümü"]
 category: "case-study"
-heroImage: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2340&auto=format&fit=crop"
 draft: false
 intent: "troubleshooting"
 ---
