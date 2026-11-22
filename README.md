@@ -6,7 +6,7 @@ It's a static Astro 7 site styled with Tailwind CSS 4. React 19 is only used for
 
 ## Running it
 
-Needs Node 22.12 or newer.
+Needs Node 22.23.4 or newer.
 
 ```bash
 npm ci
