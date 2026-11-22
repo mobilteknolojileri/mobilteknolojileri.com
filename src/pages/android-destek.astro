@@ -11,9 +11,9 @@ import { generateMetadata } from "@/lib/seo/metadata";
 import { getFAQSchema } from "@/lib/seo/schema";
 
 const metadata = generateMetadata({
-  title: "Android Destek: Açılmayan Telefon ve ROM Sorunları",
+  title: "Uzaktan Android Yazılım Desteği: Açılmayan Telefonlar",
   description:
-    "Logoda kalan, güncellemeden sonra açılmayan, root ya da custom ROM sonrası bozulan Android telefonlar için yazılım desteği. ROM kurulumu da yapıyorum.",
+    "Açılmayan, güncellemeden sonra bozulan, root ya da ROM sonrası sorun çıkaran Android telefonların yazılımını uzaktan onarırım. Telefon sizde kalır.",
   path: "/android-destek",
   locale: "tr",
   keywords: [
@@ -165,9 +165,9 @@ const guides = (
 <ServicePage
   metadata={metadata}
   extraSchemas={[getFAQSchema(FAQS)]}
-  eyebrow="Android yazılım desteği"
-  title="Android Teknik Destek: Açılmayan Telefon, Güncelleme ve ROM Sorunları"
-  lead="Logoda kalan, güncellemeden sonra açılmayan, root'lanınca ya da custom ROM yüklenince bozulan Android telefonların yazılım tarafına bakarım. Bootloader kilidi açma ve ROM kurulumu da yaparım."
+  eyebrow="Uzaktan Android yazılım desteği"
+  title="Uzaktan Android Yazılım Desteği: Açılmayan Telefon, Güncelleme ve ROM Sorunları"
+  lead="Telefonunuzun yazılımını uzaktan onarırım. Logoda kalan, güncellemeden sonra açılmayan, root'lanınca ya da custom ROM yüklenince bozulan Android telefonların yazılım tarafına bakarım. Bootloader kilidi açma ve ROM kurulumu da yaparım."
   cta={{ label: "Sorununuzu anlatın", href: "/#contact", topic: "support" }}
   secondaryCta={{ label: "Rehberler", href: "#rehberler" }}
   highlights={HIGHLIGHTS}
