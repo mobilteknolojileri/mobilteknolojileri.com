@@ -31,6 +31,9 @@ export interface Project {
   title: string;
   /** Also used as the meta description */
   description: string;
+  /** Replace title and description in the head when searchers look for the app by name */
+  seoTitle?: string;
+  seoDescription?: string;
   category: ProjectCategory;
   technologies: string[];
   /** Gradient stops, e.g. "from-indigo-500 to-blue-400" */
@@ -191,6 +194,9 @@ export const PROJECTS: Project[] = [
     title: "İngilizceciyiz",
     description:
       "İngilizce öğretmenlerinin resmî evrakını bir kez girdikleri bilgilerle hazırlayan uygulama. Mağazada 2023'ten beri var, 2025'te devralıp platformu sıfırdan yazdım.",
+    seoTitle: "İngilizceciyiz: İngilizce Öğretmenleri İçin Evrak Uygulaması",
+    seoDescription:
+      "İngilizce öğretmenlerinin yıllık plan, BEP, DYK ve zümre evrakını hazırlayan uygulama. Mağaza bağlantıları, ekranlar ve platformu nasıl yazdığım bu sayfada.",
     category: "Mobile",
     kind: "client",
     status: "live",

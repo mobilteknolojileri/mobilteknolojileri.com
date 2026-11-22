@@ -23,8 +23,8 @@ export function getStaticPaths() {
 const { project } = Astro.props;
 
 const metadata = generateMetadata({
-  title: project.title,
-  description: project.description,
+  title: project.seoTitle ?? project.title,
+  description: project.seoDescription ?? project.description,
   path: `/portfolio/${project.slug}`,
   image: project.showcase?.image ?? project.image ?? "/og.png",
   type: "article",
