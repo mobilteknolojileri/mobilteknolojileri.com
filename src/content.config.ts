@@ -5,7 +5,7 @@ import { CONTENT_INTENTS } from "@/config/seo";
 
 // File name = URL
 const blog = defineCollection({
-  loader: glob({ pattern: "**/*.md", base: "./src/content/blog" }),
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/blog" }),
   schema: z.object({
     title: z.string().min(30).max(90),
     /** Replaces the title in the head when it is too long for a search result */

@@ -14,6 +14,11 @@ import { SITE_CONFIG } from "@/config/site";
 import { COPY_TOKENS } from "@/config/seo";
 import { Image } from "astro:assets";
 import { ARTICLE_PROSE } from "@/lib/prose";
+import Cards from "@/components/blog/Cards.astro";
+import Flow from "@/components/blog/Flow.astro";
+import PhoneScreen from "@/components/blog/PhoneScreen.astro";
+import RemoteHelp from "@/components/blog/RemoteHelp.astro";
+import Summary from "@/components/blog/Summary.astro";
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection("blog", ({ data }) => !data.draft);
@@ -237,8 +242,9 @@ const extraSchemas = faqSchema ? [blogSchema, faqSchema] : [blogSchema];
             "max-sm:[&_table]:scroll-shadow-x max-sm:[&_table]:block max-sm:[&_table]:overflow-x-auto",
           ]}
         >
-          <Content />
+          <Content components={{ Summary, PhoneScreen, Flow, Cards }} />
         </div>
+        {entry.data.category === "android" && <RemoteHelp />}
       </div>
 
       {faq.length > 0 && (
@@ -293,6 +299,7 @@ const extraSchemas = faqSchema ? [blogSchema, faqSchema] : [blogSchema];
             <a
               href="/#contact"
               data-contact-subject={contactSubject}
+              data-contact-topic={entry.data.category === "android" ? "support" : undefined}
               class="btn btn-lg bg-white text-gray-900 hover:-translate-y-px hover:bg-gray-100"
             >
               {cta.primary} <span aria-hidden="true">→</span>

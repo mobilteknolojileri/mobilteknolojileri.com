@@ -1,0 +1,27 @@
+---
+// Component props are plain strings; this lets them carry internal links written as [label](/path)
+interface Props {
+  text: string;
+}
+
+const { text } = Astro.props;
+
+const parts: { text: string; href?: string }[] = [];
+let last = 0;
+for (const match of text.matchAll(/\[([^\]]+)\]\((\/[^)\s]*)\)/g)) {
+  if (match.index > last) parts.push({ text: text.slice(last, match.index) });
+  parts.push({ text: match[1], href: match[2] });
+  last = match.index + match[0].length;
+}
+if (last < text.length) parts.push({ text: text.slice(last) });
+---
+
+{parts.map((part) =>
+  part.href ? (
+    <a href={part.href} class="link">
+      {part.text}
+    </a>
+  ) : (
+    part.text
+  ),
+)}

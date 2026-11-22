@@ -1,0 +1,43 @@
+---
+import InlineText from "@/components/blog/InlineText.astro";
+import { LuCheck, LuInfo, LuX } from "react-icons/lu";
+
+interface Props {
+  /** What the screen or error means */
+  what: string;
+  /** The step that loses data or makes things worse */
+  avoid: string;
+  /** The one zero-risk thing to try */
+  safe: string;
+}
+
+const { what, avoid, safe } = Astro.props;
+
+const ROWS = [
+  { label: "Ne oldu", text: what, tone: "tile-sky", Icon: LuInfo },
+  { label: "Dokunmayın", text: avoid, tone: "tile-rose", Icon: LuX },
+  { label: "Deneyin", text: safe, tone: "tile-emerald", Icon: LuCheck },
+];
+---
+
+<aside
+  aria-label="Kısaca"
+  class="not-prose my-10 rounded-2xl border border-gray-200 bg-slate-50 p-5 sm:p-6 dark:border-dark-700 dark:bg-dark-900/60"
+>
+  <p class="text-muted text-xs font-semibold tracking-[0.14em] uppercase">Kısaca</p>
+  <dl class="mt-4 space-y-4">
+    {ROWS.map(({ label, text, tone, Icon }) => (
+      <div class="flex gap-3.5">
+        <span class:list={["tile tile-sm mt-0.5", tone]} aria-hidden="true">
+          <Icon size={16} />
+        </span>
+        <div class="min-w-0">
+          <dt class="text-heading text-sm font-bold">{label}</dt>
+          <dd class="text-body mt-0.5 leading-relaxed">
+            <InlineText text={text} />
+          </dd>
+        </div>
+      </div>
+    ))}
+  </dl>
+</aside>

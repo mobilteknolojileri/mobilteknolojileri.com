@@ -1,0 +1,142 @@
+---
+import {
+  LuGlobe,
+  LuLaptop,
+  LuMessageSquareText,
+  LuMonitorSmartphone,
+  LuShieldCheck,
+  LuSmartphone,
+  LuUsb,
+} from "react-icons/lu";
+import { SITE_CONFIG } from "@/config/site";
+
+interface Props {
+  class?: string;
+}
+
+const { class: className = "mt-14" } = Astro.props;
+
+// Every Android post ends with the same three steps, so the posts don't repeat them
+const STEPS = [
+  {
+    title: "Bana yazın",
+    body: "Telefonun modelini, ekranın fotoğrafını ve bozulmadan önce ne olduğunu gönderin. Çoğu zaman ilk yanıtta ne yapılabileceğini söylerim.",
+    tone: "tile-sky",
+    Icon: LuMessageSquareText,
+  },
+  {
+    title: "Bilgisayarınıza bağlanırım",
+    body: "Telefon sizde kalır. Windows bilgisayarınıza USB kabloyla bağlarsınız, ben internet üzerinden o bilgisayara bağlanıp işi yaparım.",
+    tone: "tile-indigo",
+    Icon: LuMonitorSmartphone,
+  },
+  {
+    title: "Önce konuşuruz",
+    body: "Veri silecek bir adıma onayınız olmadan geçmem. Olmayacaksa bunu baştan söylerim.",
+    tone: "tile-emerald",
+    Icon: LuShieldCheck,
+  },
+];
+
+const node = "flex w-16 flex-none flex-col items-center text-center sm:w-24";
+const nodeLabel = "text-heading mt-2 text-xs font-bold sm:text-sm";
+const nodeNote = "text-muted text-[0.6875rem] leading-tight sm:text-xs";
+---
+
+<section
+  aria-labelledby="remote-help-heading"
+  class:list={[
+    "rounded-3xl border border-gray-200 bg-slate-50 p-6 sm:p-8 dark:border-dark-700 dark:bg-dark-900/60",
+    className,
+  ]}
+>
+  <h2
+    id="remote-help-heading"
+    class="text-heading text-2xl font-extrabold tracking-tight sm:text-3xl"
+  >
+    Uzaktan nasıl çalışıyorum
+  </h2>
+
+  <!-- Phone, cable, computer, internet, me: the whole setup in one row -->
+  <div
+    role="img"
+    aria-label="Telefonunuz USB kabloyla bilgisayarınıza bağlanır, ben internet üzerinden o bilgisayara bağlanırım."
+    class="mt-6 flex items-start rounded-2xl border border-gray-200 bg-white px-3 py-5 sm:px-6 dark:border-dark-700 dark:bg-dark-800"
+  >
+    <div class={node}>
+      <span class="tile tile-slate size-12 rounded-2xl">
+        <LuSmartphone size={22} />
+      </span>
+      <span class={nodeLabel}>Telefon</span>
+      <span class={nodeNote}>sizde kalır</span>
+    </div>
+
+    <div class="mt-6 flex flex-1 flex-col items-center gap-1 text-gray-400 dark:text-dark-500">
+      <LuUsb size={14} />
+      <span class="h-0.5 w-full rounded-full bg-gray-300 dark:bg-dark-600"></span>
+    </div>
+
+    <div class={node}>
+      <span class="tile tile-indigo size-12 rounded-2xl">
+        <LuLaptop size={22} />
+      </span>
+      <span class={nodeLabel}>Bilgisayar</span>
+      <span class={nodeNote}>Windows</span>
+    </div>
+
+    <div class="mt-6 flex flex-1 flex-col items-center gap-1 text-gold-500">
+      <LuGlobe size={14} />
+      <span class="wire h-0.5 w-full rounded-full"></span>
+    </div>
+
+    <div class={node}>
+      <img
+        src={SITE_CONFIG.profileImage}
+        alt=""
+        width="96"
+        height="96"
+        loading="lazy"
+        decoding="async"
+        class="size-12 rounded-2xl object-cover ring-1 ring-black/5 dark:ring-white/10"
+      />
+      <span class={nodeLabel}>Ben</span>
+      <span class={nodeNote}>uzaktan</span>
+    </div>
+  </div>
+
+  <ol class="mt-6 grid gap-5 sm:grid-cols-3">
+    {STEPS.map(({ title, body, tone, Icon }, index) => (
+      <li>
+        <p class="flex items-center gap-3">
+          <span class:list={["tile tile-sm", tone]} aria-hidden="true">
+            <Icon size={16} />
+          </span>
+          <span class="text-heading font-bold leading-snug">
+            <span class="sr-only">{index + 1}. </span>
+            {title}
+          </span>
+        </p>
+        <p class="text-body mt-2 text-[0.9375rem] leading-relaxed">{body}</p>
+      </li>
+    ))}
+  </ol>
+</section>
+
+<style>
+  /* Data moving over the internet link; still while reduced motion is on */
+  .wire {
+    background: repeating-linear-gradient(90deg, currentColor 0 6px, transparent 6px 11px);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .wire {
+      animation: wire-flow 0.9s linear infinite;
+    }
+  }
+
+  @keyframes wire-flow {
+    to {
+      background-position: 11px 0;
+    }
+  }
+</style>
