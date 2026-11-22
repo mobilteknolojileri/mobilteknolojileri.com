@@ -4,6 +4,12 @@ Source of [mobilteknolojileri.com](https://mobilteknolojileri.com), my portfolio
 
 It's a static Astro 7 site styled with Tailwind CSS 4. React 19 is only used for the two interactive parts (the contact form and the password strength demo), and the case studies are written in MDX. Hosted on Cloudflare Workers.
 
+## PageSpeed
+
+Mobile results for the home page in [PageSpeed Insights](https://pagespeed.web.dev/analysis?url=https://mobilteknolojileri.com/) on 23 November 2026. Desktop scores 100 in all four categories too, and the image opens the full report.
+
+[![PageSpeed Insights on mobile: 100 in performance, accessibility, best practices and SEO](docs/pagespeed/mobile.png)](https://pagespeed.web.dev/analysis/https-mobilteknolojileri-com/bp4d7v7er5?form_factor=mobile)
+
 ## Running it
 
 Needs Node 22.23.4 or newer.
