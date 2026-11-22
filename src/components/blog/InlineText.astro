@@ -14,14 +14,9 @@ for (const match of text.matchAll(/\[([^\]]+)\]\((\/[^)\s]*)\)/g)) {
   last = match.index + match[0].length;
 }
 if (last < text.length) parts.push({ text: text.slice(last) });
+// set:text keeps the label flush with the tags; a child on its own line left a space before the period
 ---
 
 {parts.map((part) =>
-  part.href ? (
-    <a href={part.href} class="link">
-      {part.text}
-    </a>
-  ) : (
-    part.text
-  ),
+  part.href ? <a href={part.href} class="link" set:text={part.text} /> : part.text,
 )}
