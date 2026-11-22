@@ -1,7 +1,7 @@
 ---
 // Link with the destination's logo (picked in lib/link-brand.ts). Add w-full to stretch it.
 import BrandGlyph from "@/components/icons/BrandGlyph.astro";
-import { linkBrand, type LinkBrand } from "@/lib/link-brand";
+import { linkBrand, siteIcon, type LinkBrand } from "@/lib/link-brand";
 
 interface Props {
   href: string;
@@ -16,6 +16,7 @@ interface Props {
 const { href, label, detail, brand, size = "md", class: className } = Astro.props;
 const newTab = /^https?:/.test(href) || /\.pdf(?:$|[?#])/i.test(href);
 const mark = brand ?? linkBrand(href);
+const icon = mark === "web" ? siteIcon(href) : undefined;
 const small = size === "sm";
 ---
 
@@ -34,7 +35,19 @@ const small = size === "sm";
       small ? "size-7" : "size-8",
     ]}
   >
-    <BrandGlyph brand={mark} size={small ? 14 : 16} />
+    {icon ? (
+      <img
+        src={icon}
+        alt=""
+        width="64"
+        height="64"
+        loading="lazy"
+        decoding="async"
+        class={small ? "size-4 rounded-[3px]" : "size-[1.125rem] rounded-[4px]"}
+      />
+    ) : (
+      <BrandGlyph brand={mark} size={small ? 14 : 16} />
+    )}
   </span>
   <span class="min-w-0 flex-1 text-left">
     <span class="block leading-tight">{label}</span>

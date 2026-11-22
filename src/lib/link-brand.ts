@@ -32,3 +32,19 @@ export function linkBrand(href: string): LinkBrand {
   if (host === "bionluk.com") return "bionluk";
   return "web";
 }
+
+// Sites without a mark of their own show their favicon, saved once under /public (never hotlinked)
+const SITE_ICONS: Record<string, string> = {
+  "sechard.com": "/assets/sites/sechard.webp",
+  "frozenyogurtcafe.com": "/assets/sites/frozenyogurtcafe.webp",
+  "ingilizceciyizmobil.com": "/assets/sites/ingilizceciyizmobil.webp",
+  "kafadar-web.vercel.app": "/assets/apps/kafadar.webp",
+};
+
+export function siteIcon(href: string): string | undefined {
+  try {
+    return SITE_ICONS[new URL(href).hostname.replace(/^www\./, "")];
+  } catch {
+    return undefined;
+  }
+}
