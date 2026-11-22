@@ -11,7 +11,8 @@ export const NAV_ITEMS: NavItem[] = [
   {
     label: "Hizmetler",
     href: "/#services",
-    sections: ["services", "process"],
+    // Only sections above the portfolio: process sits further down and made the light jump back
+    sections: ["services"],
     match: [
       "/mobil-uygulama-gelistirme",
       "/web-site-yapimi-gaziantep",
@@ -22,7 +23,8 @@ export const NAV_ITEMS: NavItem[] = [
   {
     label: "Portfolyo",
     href: "/portfolio",
-    sections: ["work", "open-source"],
+    // Reviews sit between the work and open source sections, so the light stays on through them
+    sections: ["work", "testimonials", "open-source"],
     match: ["/kafadar", "/qusafe", "/legends-of-aestera"],
   },
   { label: "Vaka çalışmaları", href: "/vaka-calismalari" },
