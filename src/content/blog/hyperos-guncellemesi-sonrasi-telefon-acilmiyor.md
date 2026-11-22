@@ -1,6 +1,6 @@
 ---
 title: "HyperOS Güncellemesinden Sonra Telefon Açılmıyor: Verilerim Gider mi?"
-seoTitle: "HyperOS Güncellemesi Sonrası Telefon Açılmıyor"
+seoTitle: "Güncellemeden Sonra Telefon Açılmıyor: Xiaomi ve HyperOS"
 description: "Güncelleme yarıda kaldı, telefon logoda takılı. Bunun ne demek olduğunu, verilerin çoğu zaman neden silinmediğini, kurtarma menüsünde neye dokunmamanız gerektiğini ve hangi noktadan sonra işin bana kaldığını yazdım."
 seoDescription: "Güncelleme yarıda kaldı, telefon logoda takılı. Verilerin neden çoğu zaman silinmediğini ve kurtarma menüsünde neye dokunmamanız gerektiğini yazdım."
 date: 2026-08-26
