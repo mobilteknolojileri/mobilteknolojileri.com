@@ -12,7 +12,7 @@ import {
   getRelatedPosts,
 } from "@/lib/blog";
 import { SITE_CONFIG } from "@/config/site";
-import { COPY_TOKENS } from "@/config/seo";
+import { BLOG_CTA, BLOG_SERVICE_BY_CATEGORY, COPY_TOKENS } from "@/config/seo";
 import { Image } from "astro:assets";
 import { ARTICLE_PROSE } from "@/lib/prose";
 import Cards from "@/components/blog/Cards.astro";
@@ -42,28 +42,8 @@ const readingTime = calculateReadingTime(entry.body ?? "");
 const toc = buildToc(headings);
 const faq = entry.data.faq ?? [];
 
-// Android posts get their own call to action
-const cta =
-  entry.data.category === "android"
-    ? {
-        title: "Sorun devam ediyor mu?",
-        body: "Yazı sizin durumunuzu çözmediyse ne olduğunu yazın. Neler denediğinizi de eklerseniz ilk yanıtta daha ileri gideriz.",
-        primary: "Sorununuzu anlatın",
-      }
-    : {
-        title: COPY_TOKENS.blogContactCta,
-        body: "Ne yapmak istediğinizi kısaca yazın, nereden başlayacağımızı birlikte netleştirelim.",
-        primary: "Formu doldurun",
-      };
-
-// Readers arrive through the blog; the service page is where they become clients
-const SERVICE_BY_CATEGORY: Record<string, { label: string; href: string } | undefined> = {
-  android: { label: "Android yazılım desteği", href: "/android-destek" },
-  web: { label: "Web sitesi yapımı", href: "/web-site-yapimi-gaziantep" },
-  seo: { label: "Web sitesi yapımı", href: "/web-site-yapimi-gaziantep" },
-  mobile: { label: "Mobil uygulama geliştirme", href: "/mobil-uygulama-gelistirme" },
-};
-const service = SERVICE_BY_CATEGORY[entry.data.category];
+const cta = entry.data.category === "android" ? BLOG_CTA.android : BLOG_CTA.default;
+const service = BLOG_SERVICE_BY_CATEGORY[entry.data.category];
 // The form opens with the post's title, so the reader starts from their problem
 const contactSubject = `"${entry.data.title}" yazısı`;
 
@@ -99,7 +79,7 @@ const faqSchema = faq.length ? getBlogFAQSchema(faq) : undefined;
 const extraSchemas = faqSchema ? [blogSchema, breadcrumb, faqSchema] : [blogSchema, breadcrumb];
 ---
 
-<BaseLayout {...metadata} extraSchemas={extraSchemas}>
+<BaseLayout {...metadata} extraSchemas={extraSchemas} markdownURL={`/blog/${entry.id}.md`}>
   <div
     data-reading-progress
     aria-hidden="true"

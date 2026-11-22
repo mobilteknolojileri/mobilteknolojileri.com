@@ -13,6 +13,8 @@ interface Props extends Metadata {
   extraSchemas?: any[];
   /** Landing pages: the call to action that follows the reader on phones */
   contactBar?: { label: string; href: string; topic?: string };
+  /** The page's Markdown copy for agents (llmstxt.org) */
+  markdownURL?: string;
 }
 
 const props = Astro.props;
@@ -89,6 +91,7 @@ const SPECULATION_RULES = {
       title="Mobil Teknolojileri blog"
       href="/rss.xml"
     />
+    {props.markdownURL && <link rel="alternate" type="text/markdown" href={props.markdownURL} />}
 
     <meta
       name="robots"
