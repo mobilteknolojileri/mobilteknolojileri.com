@@ -2,7 +2,9 @@
 import InlineText from "@/components/blog/InlineText.astro";
 import { LuCheck, LuInfo, LuX } from "react-icons/lu";
 
-type Screen = "main-menu" | "nv-data" | "fastboot" | "play-protect" | "version" | "ad" | "alert";
+type Screen =
+  "main-menu" | "nv-data" | "fastboot" | "play-protect" | "version" | "ad" | "alert" | "integrity";
+type Level = "basic" | "device" | "strong";
 type Tone = "safe" | "danger" | "warn" | "info" | "key";
 type Note = { tone: Tone; text: string };
 
@@ -17,6 +19,8 @@ interface Props {
   /** alert: dialog title and message, as the app shows them */
   title?: string;
   message?: string;
+  /** integrity: the Play Integrity levels that pass, the rest are drawn as failing */
+  pass?: Level[];
   /** Replaces the notes next to the drawing */
   notes?: Note[];
 }
@@ -28,6 +32,7 @@ const {
   region = "CN",
   title = "Uyarı",
   message = "",
+  pass = [],
   notes,
 } = Astro.props;
 
@@ -43,6 +48,7 @@ const LABELS: Record<Screen, string> = {
   version: `Telefon hakkında ekranı çizimi: HyperOS sürüm kodunun sonundaki bölge harfleri ${region} olarak işaretli.`,
   ad: "Telefon ekranını kaplayan reklam çizimi: büyük bir 'Temizle' düğmesi ve köşede küçücük bir kapatma işareti.",
   alert: `Uygulama uyarısı çizimi: ${title}. ${message}`,
+  integrity: `Play Integrity kontrol ekranı çizimi: ${pass.length ? `geçen düzeyler ${pass.join(", ")}` : "basic, device ve strong düzeylerinin üçü de geçmiyor"}.`,
 };
 
 const DEFAULT_NOTES: Record<Screen, Note[]> = {
@@ -78,13 +84,24 @@ const DEFAULT_NOTES: Record<Screen, Note[]> = {
     { tone: "warn", text: '"Temizle" gibi büyük düğmelere dokunmayın.' },
   ],
   alert: [],
+  integrity: [
+    pass.length === 3
+      ? { tone: "safe", text: "Üç düzey de geçiyor: uygulamalar telefona güveniyor." }
+      : {
+          tone: "danger",
+          text: "Geçmeyen düzeyler kırmızı: o düzeyi isteyen uygulamalar açılmaz ya da uyarı verir.",
+        },
+    { tone: "info", text: "Basic en gevşek, strong en sıkı kontrol." },
+  ],
 };
 
 const shownNotes = notes ?? DEFAULT_NOTES[screen];
 
 const MENU = ["Reboot", "Wipe Data", "Connect with MIAssistant", "Safe Mode"];
 const showMenu = screen === "main-menu" || screen === "nv-data";
-const lightScreen = !showMenu && screen !== "fastboot";
+const lightScreen = !showMenu && screen !== "fastboot" && screen !== "integrity";
+
+const LEVELS: Level[] = ["basic", "device", "strong"];
 
 const KEY_Y = { volume: 153, power: 226 };
 
@@ -404,6 +421,39 @@ const regionColor = region === "CN" ? "#d97706" : "#059669";
           fill="#1d4ed8"
         >
           Tamam
+        </text>
+      </g>
+    )}
+
+    {screen === "integrity" && (
+      <g>
+        <text x="56" y="92" font-size="14" font-weight="600" fill="#e6e7f2">
+          Play Integrity
+        </text>
+        <line x1="36" y1="112" x2="248" y2="112" stroke="#2a2d34" />
+        {LEVELS.map((level, index) => {
+          const y = 200 + index * 62;
+          const ok = pass.includes(level);
+          return (
+            <g>
+              <circle cx="68" cy={y} r="15" fill={ok ? "#10b981" : "#dc2626"} />
+              <path
+                d={ok ? `M61 ${y}l5 5 9-10` : `M62 ${y - 6}l12 12m0-12l-12 12`}
+                fill="none"
+                stroke="#ffffff"
+                stroke-width="2.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <text x="92" y={y + 4} font-size="10.5" font-weight="500" fill="#e6e7f2">
+                {`MEETS_${level.toUpperCase()}_INTEGRITY`}
+              </text>
+            </g>
+          );
+        })}
+        <rect x="102" y="400" width="80" height="30" rx="5" fill="none" stroke="#4b4f58" />
+        <text x="142" y="420" text-anchor="middle" font-size="11" letter-spacing="1" fill="#e6e7f2">
+          CHECK
         </text>
       </g>
     )}

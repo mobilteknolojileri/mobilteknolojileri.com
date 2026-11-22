@@ -1,8 +1,8 @@
 ---
 title: "Kilidi Açık (Bootloader Unlocked) Telefonda Banka, e-Devlet ve WhatsApp Çalışır mı?"
-seoTitle: "Kilidi Açık Telefonda Banka ve e-Devlet Çalışır mı?"
+seoTitle: "Rootlu Telefonda Banka Açılmıyor: Root Gizleme Nedir?"
 description: "Kilidi açık (bootloader unlocked) telefonda bazı uygulamalar çalışır, bazıları çalışmaz. Uygulamaların kilidi nasıl anladığını, hangisinin neye baktığını ve neyi garanti edemeyeceğimi yazdım."
-seoDescription: "Bootloader kilidi açık telefonda banka, e-Devlet, WhatsApp ve ödeme uygulamaları neden takılır? Play Integrity düzeylerini ve uygulamaların neye baktığını yazdım."
+seoDescription: "Rootlu ya da kilidi açık telefonda banka, e-Devlet ve WhatsApp neden açılmaz, root gizleme ne işe yarar? Play Integrity düzeyleri ve uygulamaların neye baktığı."
 date: 2026-11-22
 tags:
   [
@@ -38,7 +38,7 @@ intent: "troubleshooting"
   safe="Sorun çıkaran uygulamaların adını ve ekrandaki hata cümlesini not alın."
 />
 
-Kilidi açık (bootloader unlocked) bir telefonda bazı uygulamalar sorunsuz çalışır, bazıları açılmaz. Açılmayanlar telefona "yazılımın değiştirilmediğini kanıtla" der ve kilit açıkken telefon bunu kanıtlayamaz.
+Kilidi açık (bootloader unlocked) bir telefonda bazı uygulamalar sorunsuz çalışır, bazıları açılmaz. Açılmayanlar telefona "yazılımın değiştirilmediğini kanıtla" der ve kilit açıkken telefon bunu kanıtlayamaz. Root'lu telefonlarda bu işe internette "root gizleme" deniyor. Aslında yapılan, telefonu bu kontrolden geçer hâle getirmek.
 
 Önce banka uygulaması kapandı, sonra e-Devlet, sonra WhatsApp giriş yapmadı. [Banka uygulamasının neden açılmadığını](/blog/banka-uygulamasi-acilmiyor-guvenli-degil-hatasi) ayrı yazmıştım.
 
@@ -89,6 +89,11 @@ Kilit açıkken device ve strong gelmez, basic gelebilir. Hangi düzeyin istenec
 İkinci mekanizma uygulamanın kendi kontrolleri. Bazı uygulamalar Google'a hiç sormadan root izlerine, değiştirilmiş sistem dosyalarına ve root yönetim uygulamalarına bakar. Bunlar dışarıdan görülmez, dolayısıyla Google düzeyi geçen bir telefonda bile bazı uygulamalar takılabilir.
 
 Google'ın Android Enterprise topluluğunda 21 Mayıs 2025'te yayımladığı duyuruya göre Android 13 ve üstü telefonlarda iki şey değişti. Play Integrity'yi çağıran uygulamanın Google Play üzerinden kurulmuş ya da güncellenmiş olması gerekiyor. Strong düzeyi de artık son on iki ayda güvenlik güncellemesi almış telefonlara veriliyor. Aynı telefon bir güncellemeden sonra daha az uygulamayı geçebilir.
+
+<PhoneScreen screen="integrity">
+  Root'lu bir telefonda üç düzey de geçmeyebilir. Kilit sadece açıksa genelde yalnızca basic geçer.
+  Kilit açık kalırken bu düzeyleri geçer hâle getirmek bana yazabileceğiniz işlerden.
+</PhoneScreen>
 
 ## Hangi uygulama neye bakıyor
 
