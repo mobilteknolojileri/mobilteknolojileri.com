@@ -37,7 +37,7 @@ export async function GET() {
 
     if (project.slug === "ingilizceciyiz") {
       impact =
-        "**23K+ indirme (App Store 13.594, Google Play 10.000+); 1 Kasım 2026 itibarıyla 7.568 öğretmen hesabı, 3.849 öğretmenin ürettiği 36.460 belge.**";
+        "**23 binden fazla indirme (App Store 13.594, Google Play 10.000+); 1 Kasım 2026 itibarıyla 7.568 öğretmen hesabı, 3.849 öğretmenin ürettiği 36.460 belge.**";
       techDecision =
         "Platformu sıfırdan yazdım. Expo uygulamasını ve Astro'daki site ile yönetim panelini tek Turborepo deposunda topladım. Hepsi aynı SQL şemasını kullanıyor. Word belgelerini telefonda değil, sunucuda Supabase Edge Functions hazırlıyor.";
     }
@@ -54,7 +54,7 @@ export async function GET() {
     }
     if (project.slug === "frozen-yogurt-website") {
       techDecision =
-        "Siteyi Readdy'den çıkarıp önce Next.js'e, Mart 2026'da statik Astro'ya taşıdım; menü yönetim panelinin açık API'sinden canlı geliyor. PageSpeed Insights mobil puanları: performans 100, erişilebilirlik 96, en iyi uygulamalar 100, SEO 100.";
+        "Siteyi Readdy'den çıkarıp önce Next.js'e, Mart 2026'da statik Astro'ya taşıdım. Menü, yönetim panelinin açık API'sinden canlı geliyor. PageSpeed Insights mobil puanları: performans 100, erişilebilirlik 96, en iyi uygulamalar 100, SEO 100.";
     }
     if (project.slug === "qusafe-mobile") {
       impact = "**Google Play'de 1.4.0 sürümünde, 42 şifreli kasa hâlâ eşitleniyor.**";
@@ -62,7 +62,8 @@ export async function GET() {
         "Anahtar ana paroladan cihazda Argon2id ile türetiliyor ve cihazdan çıkmıyor. Sunucu sadece okuyamadığı AES-256-GCM şifreli veriyi saklıyor.";
     }
     if (project.slug === "react-native-password-intelligence") {
-      impact = "**npm'de 0.4.1, provenance imzalı; React Native Directory'de listeleniyor.**";
+      impact =
+        "**npm'deki 0.4.1 sürümü provenance imzalı. Paket React Native Directory'de listeleniyor.**";
       techDecision =
         "Tam İngilizce parola listesi yerine en sık 4.000 parolayı gömerek paketin gzip boyutunu 236 kB'tan yaklaşık 37 kB'a indirdim. Çekirdeği React bağımlılığı olmayan ayrı bir pakete ayırdım.";
     }
@@ -75,8 +76,8 @@ export async function GET() {
 ${impact ? impact + "\n" : ""}
 ${project.description}
 
-- **Ayrıntılar**: ${project.detailedDescription || project.description}
-${techDecision ? `- **Teknik karar**: ${techDecision}\n` : ""}${project.caseStudy ? `- **Vaka çalışması**: ${BASE_URL}${project.caseStudy}\n` : ""}- **Teknolojiler**: ${project.technologies.join(", ")}`;
+- **Ayrıntılar:** ${project.detailedDescription || project.description}
+${techDecision ? `- **Teknik karar:** ${techDecision}\n` : ""}${project.caseStudy ? `- **Vaka çalışması:** ${BASE_URL}${project.caseStudy}\n` : ""}- **Teknolojiler:** ${project.technologies.join(", ")}`;
   };
 
   const projectList = projects.map(formatProject).join("\n\n");
@@ -86,17 +87,17 @@ ${techDecision ? `- **Teknik karar**: ${techDecision}\n` : ""}${project.caseStud
 > Mobil Teknolojileri, Gaziantep'te Mehmet'in yürüttüğü tek kişilik yazılım işidir: mobil uygulama geliştirme, web sitesi yapımı ve Android yazılım desteği. Eski adı goldsword. Site: ${BASE_URL}, e-posta: bilgi@mobilteknolojileri.com.
 
 ## Geliştirici hakkında
-**Ağırlıklı olarak mobil uygulama ve SaaS ürünleri geliştiriyorum.** Gaziantep'te yaşayan, full-stack çalışan freelance bir yazılım geliştiriciyim; 30'dan fazla ticari projede geliştirme yaptım. Projeyi fikir aşamasından yayına kadar tek başıma götürürüm.
+Ağırlıklı olarak mobil uygulama ve SaaS ürünleri geliştiriyorum. Gaziantep'te yaşayan, full-stack çalışan freelance bir yazılım geliştiriciyim ve 30'dan fazla ticari projede geliştirme yaptım.
 
-Ekip de taşeron da yok: Kapsamdan mağazaya çıkışa, sonrasına kadar muhatabınız tek kişi. Trakya Üniversitesi Mobil Teknolojileri programından 2025'te mezun oldum (3,79/4,00).
+Ekip de taşeron da yok. Projeyi fikir ve kapsam aşamasından yayına kadar tek başıma götürürüm. Mağazaya çıkışta da sonrasında da muhatabınız aynı kişidir. Trakya Üniversitesi Mobil Teknolojileri programından 2025'te mezun oldum (3,79/4,00).
 
 ## Çalışma biçimi
-- **Uçtan uca:** Tasarım, frontend, backend ve yayına alma (deploy) işini tek başıma yaparım; muhatabınız tek kişidir.
+- **Uçtan uca:** Tasarım, frontend, backend ve yayına alma (deploy) işini kendim yaparım.
 - **Yayındaki işler:** Demo projelerle sınırlı kalmadım, müşteriler için yayında çalışan sistemler kurdum. Örnekleri aşağıdaki Projeler bölümünde.
 - **Kısa karar zinciri:** Tek kişi olduğum için araya onay zinciri girmez. Dolayısıyla geri bildirimi doğrudan koda yansıtırım.
 - **Araçlar:** Bugün en çok Astro, React, Expo ve Supabase ile çalışıyorum.
 - **Mimari ve planlama:** Kod yazmadan önce ihtiyacı ve veri modelini çıkarır, gerekirse teknik araştırma yaparım. Yapıyı, ürünün ileride büyüyebileceğini hesaba katarak kurarım.
-- **Yayına alma:** Projeyi Vercel'de, Docker'la ya da Hetzner gibi bir VPS'te yayına alırım; güncellemeler için CI/CD kurarım.
+- **Yayına alma:** Projeyi Vercel'de, Docker'la ya da Hetzner gibi bir VPS'te yayına alırım. Güncellemeler için CI/CD kurarım.
 
 ## Süreç
 1. **İhtiyaç:** Önce neyin gerektiğini birlikte netleştiririz.
