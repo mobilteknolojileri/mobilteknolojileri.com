@@ -12,7 +12,7 @@ interface Props extends Metadata {
   canonicalURL?: URL | string;
   extraSchemas?: any[];
   /** Landing pages: the call to action that follows the reader on phones */
-  contactBar?: { label: string; href: string };
+  contactBar?: { label: string; href: string; topic?: string };
 }
 
 const props = Astro.props;

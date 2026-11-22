@@ -9,6 +9,8 @@ import Button from "@/components/ui/Button";
 // Also used by the click handler in Services.astro
 const SUBJECT_EVENT = "contact:subject";
 const SUBJECT_KEY = "contact-subject";
+const TOPIC_EVENT = "contact:topic";
+const TOPIC_KEY = "contact-topic";
 
 const MIN_SUBMIT_DELAY_MS = 2500;
 const MAX_MESSAGE_LENGTH = 2000;
@@ -45,7 +47,7 @@ const TOPICS = {
   },
   support: {
     label: "Android destek",
-    hint: "Cihaz modeli, Android sürümü ve sorunu yazın.",
+    hint: "Ne oldu, ekranda ne yazıyor? Android sürümünü de ekleyin.",
   },
 } as const;
 
@@ -67,6 +69,7 @@ const Contact = ({ emailjsConfig }: ContactProps) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    model: "",
     message: "",
     company: "",
   });
@@ -102,6 +105,28 @@ const Contact = ({ emailjsConfig }: ContactProps) => {
     }
     if (pending) window.dispatchEvent(new CustomEvent(SUBJECT_EVENT, { detail: pending }));
     return () => window.removeEventListener(SUBJECT_EVENT, onSubject);
+  }, []);
+
+  // Topic passed from an Android post or the Android support page, same hand-off as the subject
+  useEffect(() => {
+    const onTopic = (event: Event) => {
+      const next = (event as CustomEvent<string>).detail;
+      try {
+        sessionStorage.removeItem(TOPIC_KEY);
+      } catch {
+        // Storage blocked, nothing to clear
+      }
+      if (next in TOPICS) setTopic(next as Topic);
+    };
+    window.addEventListener(TOPIC_EVENT, onTopic);
+    let pending: string | null = null;
+    try {
+      pending = sessionStorage.getItem(TOPIC_KEY);
+    } catch {
+      // Storage blocked (private mode)
+    }
+    if (pending) window.dispatchEvent(new CustomEvent(TOPIC_EVENT, { detail: pending }));
+    return () => window.removeEventListener(TOPIC_EVENT, onTopic);
   }, []);
 
   useEffect(() => {
@@ -150,8 +175,10 @@ const Contact = ({ emailjsConfig }: ContactProps) => {
 
     setSubmitStatus({ type: null, message: "" });
 
-    // The topic goes into the body so the EmailJS template doesn't need a new field
-    const message = `Konu: ${TOPICS[topic].label}\n\n${trimmedMessage}`;
+    // Topic and model go into the body so the EmailJS template doesn't need new fields
+    const trimmedModel = topic === "support" ? formData.model.trim() : "";
+    const header = `Konu: ${TOPICS[topic].label}${trimmedModel ? `\nModel: ${trimmedModel}` : ""}`;
+    const message = `${header}\n\n${trimmedMessage}`;
 
     const openMailApp = (note: string) => {
       const subject = encodeURIComponent(`mobilteknolojileri.com üzerinden mesaj: ${trimmedName}`);
@@ -185,7 +212,7 @@ const Contact = ({ emailjsConfig }: ContactProps) => {
         type: "success",
         message: "Mesajınız bana ulaştı, teşekkürler. Yanıtımı e-posta adresinize yazacağım.",
       });
-      setFormData({ name: "", email: "", message: "", company: "" });
+      setFormData({ name: "", email: "", model: "", message: "", company: "" });
       mountedAtRef.current = Date.now();
     } catch (error) {
       if (import.meta.env.DEV) console.error("EmailJS send failed:", error);
@@ -294,7 +321,9 @@ const Contact = ({ emailjsConfig }: ContactProps) => {
                   name="email"
                   autoComplete="email"
                   enterKeyHint="next"
-                  onKeyDown={(e) => focusNext(e, "contact-message")}
+                  onKeyDown={(e) =>
+                    focusNext(e, topic === "support" ? "contact-model" : "contact-message")
+                  }
                   value={formData.email}
                   onChange={handleChange}
                   required
@@ -316,6 +345,30 @@ const Contact = ({ emailjsConfig }: ContactProps) => {
                 onChange={handleChange}
               />
             </div>
+
+            {topic === "support" && (
+              <div>
+                <label
+                  htmlFor="contact-model"
+                  className="mb-2 block text-sm font-semibold text-heading"
+                >
+                  Telefon modeli <span className="font-normal text-muted">(biliyorsanız)</span>
+                </label>
+                <input
+                  id="contact-model"
+                  type="text"
+                  name="model"
+                  autoComplete="off"
+                  enterKeyHint="next"
+                  onKeyDown={(e) => focusNext(e, "contact-message")}
+                  value={formData.model}
+                  onChange={handleChange}
+                  maxLength={80}
+                  className={inputClass}
+                  placeholder="Örn. Redmi Note 13 Pro"
+                />
+              </div>
+            )}
 
             <div>
               <label
