@@ -1,31 +1,46 @@
 ---
 interface Props {
+  /** Height of the mark */
   class?: string;
-  /** Empty when the parent link already has a label */
-  alt?: string;
+  /** Size of the name next to it */
+  textClass?: string;
 }
 
-const { class: className = "h-8", alt = "goldsword" } = Astro.props;
+const { class: className = "h-8", textClass = "text-base sm:text-xl" } = Astro.props;
 
-// One SVG per theme, the other one stays display: none
-const RATIO = 4.337;
+// The mark is the original logo without its wordmark; the name is text in the site font.
+// One mark per theme, the other one stays display: none
+const RATIO = 184 / 158.8;
 const HEIGHT = 32;
 const WIDTH = Math.round(HEIGHT * RATIO);
 ---
 
-<img
-  src="/brand/logo-light.svg"
-  {alt}
-  width={WIDTH}
-  height={HEIGHT}
-  decoding="async"
-  class:list={["w-auto dark:hidden", className]}
-/>
-<img
-  src="/brand/logo-dark.svg"
-  {alt}
-  width={WIDTH}
-  height={HEIGHT}
-  decoding="async"
-  class:list={["hidden w-auto dark:block", className]}
-/>
+<span class="inline-flex items-center gap-2.5">
+  <img
+    src="/brand/mark-light.svg"
+    alt=""
+    width={WIDTH}
+    height={HEIGHT}
+    decoding="async"
+    class:list={["w-auto dark:hidden", className]}
+  />
+  <img
+    src="/brand/mark-dark.svg"
+    alt=""
+    width={WIDTH}
+    height={HEIGHT}
+    decoding="async"
+    class:list={["hidden w-auto dark:block", className]}
+  />
+  <span
+    class:list={[
+      "font-bold tracking-tight whitespace-nowrap text-gray-900 dark:text-white",
+      textClass,
+    ]}
+  >
+    <span class="bg-linear-to-b from-gold-400 to-gold-600 bg-clip-text text-transparent">
+      Mobil
+    </span>
+    Teknolojileri
+  </span>
+</span>
