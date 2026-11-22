@@ -80,6 +80,7 @@ export function getPersonSchema(locale: string = SITE_CONFIG.locale) {
     "@type": "Person",
     "@id": ids(baseUrl).person,
     name: SITE_CONFIG.author,
+    alternateName: SITE_CONFIG.alternateName,
     url: `${baseUrl}/`,
     image: joinUrl(baseUrl, SITE_CONFIG.profileImage),
     sameAs: [SITE_CONFIG.links.github, SITE_CONFIG.links.bionluk],

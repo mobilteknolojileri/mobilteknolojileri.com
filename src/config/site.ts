@@ -4,7 +4,7 @@ export const SITE_CONFIG = {
   alternateName: "goldsword",
   titleSuffix: " | Mobil Teknolojileri",
   description:
-    "Gaziantep'te freelance yazılım geliştiriciyim. Mobil uygulama, web tasarım ve teknik SEO işlerini baştan sona ben yaparım; Android yazılım desteği de veririm.",
+    "Mobil Teknolojileri, eski adıyla goldsword. Gaziantep'te freelance yazılım geliştiriciyim: mobil uygulama, web sitesi, teknik SEO ve Android yazılım desteği.",
   url: "https://mobilteknolojileri.com",
   author: "Mehmet",
   locale: "tr",
