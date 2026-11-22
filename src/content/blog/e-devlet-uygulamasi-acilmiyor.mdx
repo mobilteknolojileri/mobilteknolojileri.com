@@ -86,11 +86,11 @@ Banka uygulamanız, bir oyun ya da başka bir resmî uygulama da aynı dönemde 
 
 ## Uygulama telefonu kontrol ediyor olabilir
 
-Android telefonlar açılırken kendi durumlarını bildirir: üstündeki yazılım üreticinin verdiği mi, sonradan değiştirilmiş mi. Banka gibi hassas işler yapan uygulamalar bu bildirime bakar ve olumsuzsa açılmaz. Aynı sebep banka uygulamalarını da bozar, [onu ayrıca anlattım](/blog/banka-uygulamasi-acilmiyor-guvenli-degil-hatasi).
+Banka gibi hassas iş yapan uygulamalar, telefondaki yazılımın üreticinin verdiği yazılım olup olmadığına bakar ve sonuç olumsuzsa açılmaz. Bootloader kilidi açık, root'lanmış ya da custom ROM kurulu telefonlarda bu kontrol olumsuz çıkar. Kontrolün nasıl işlediğini [banka uygulaması yazısında](/blog/banka-uygulamasi-acilmiyor-guvenli-degil-hatasi) anlattım.
 
-e-Devlet'in bu kontrolü yapıp yapmadığını ve neye baktığını kendi yardım sayfalarında bulamadım. Elimdeki bilgi kullanıcıların forumlardaki şikâyetlerinden ve bu tür telefonlarda sık gördüğüm tablodan geliyor: rootlu ya da bootloader kilidi açık telefonlarda resmî uygulamalar açılmıyor ya da takılıyor. Ekranda hangi mesajın çıktığı telefona ve sürüme göre değişebilir, o yüzden mesajı tahmin etmiyorum, ekran görüntüsüne bakıyorum.
+e-Devlet'in bu kontrolü yapıp yapmadığını ve neye baktığını kendi yardım sayfalarında bulamadım. Elimdeki bilgi kullanıcıların forumlardaki şikâyetlerinden ve bu tür telefonlarda sık gördüğüm tablodan geliyor: Rootlu ya da bootloader kilidi açık telefonlarda resmî uygulamalar açılmıyor ya da takılıyor. Ekranda hangi mesajın çıktığı telefona ve sürüme göre değişebilir. O yüzden mesajı tahmin etmiyorum, ekran görüntüsüne bakıyorum.
 
-Bootloader kilidi, telefonun yalnızca üreticinin imzaladığı yazılımı çalıştırmasını sağlar. Kilit açılınca telefon başka yazılımları da çalıştırabilir ve bunu her açılışta bildirir. Root'lanmış olması, custom ROM kurulmuş olması ya da yalnızca kilidin açık kalması aynı sonucu verir. Bu duruma üç yoldan gelinebilir:
+Telefon bu duruma üç yoldan gelebilir:
 
 <Cards
   items={[
@@ -104,7 +104,7 @@ Bootloader kilidi, telefonun yalnızca üreticinin imzaladığı yazılımı ça
       icon: "phone",
       tone: "violet",
       title: "İkinci el telefon",
-      text: "Satıcı kilidi açık bırakmış. Telefon dışarıdan sıfır gibi görünür ama uygulamalar öyle olmadığını bilir.",
+      text: "Satıcı kilidi açık bırakmış olabilir. Açılışta kısa bir uyarı ekranı geçiyorsa ilk işaret budur.",
     },
     {
       icon: "uncertified",
@@ -151,8 +151,8 @@ Sertifika konusunu [ayrı yazdım](/blog/cihaz-play-protect-sertifikali-degil). 
 
 ## Kalan iş ne
 
-Yaptığım iş, telefonu bu kontrolden geçer hâle getirmek. Kilit açık kalır, çoğu zaman telefon sıfırlanmaz ve verileriniz gitmez. Ama uygulamanın açılacağına söz vermem. e-Devlet'in neye baktığını bilmediğim için önce bakar, sonucu söylerim. Olmayacaksa onu da söylerim.
+e-Devlet'in neye baktığını bilmediğim için önce telefonunuza bakar, sonucu söylerim. Telefonu bu kontrolden geçer hâle getirdiğimde kilit açık kalır, çoğu zaman telefon sıfırlanmaz ve verileriniz gitmez. Uygulamanın açılacağına ise baştan söz vermem, olmayacaksa onu da söylerim.
 
-Kalıcılık konusunda da söz veremem. Bu kontroller uygulama ve sistem güncellemeleriyle değişir, bugün geçen bir cihaz aylar sonra yeniden takılabilir.
+Kontroller güncellemelerle değiştiği için bugün açılan uygulama aylar sonra yeniden takılabilir.
 
 Bana yazarken telefonun modelini, Android sürümünü ve telefonda ne yapıldığını bildiğiniz kadarıyla belirtin. Uygulamanın verdiği hatanın ekran görüntüsünü de ekleyin. Hangi işlere baktığımı [Android destek sayfasında](/android-destek) yazdım.
