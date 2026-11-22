@@ -8,6 +8,7 @@ import {
   LuSmartphone,
   LuUsb,
 } from "react-icons/lu";
+import { REMOTE_HELP } from "@/components/blog/remote-help-data";
 import { SITE_CONFIG } from "@/config/site";
 
 interface Props {
@@ -16,27 +17,14 @@ interface Props {
 
 const { class: className = "mt-14" } = Astro.props;
 
-// Every Android post ends with the same three steps, so the posts don't repeat them
-const STEPS = [
-  {
-    title: "Bana yazın",
-    body: "Telefonun modelini, ekranın fotoğrafını ve bozulmadan önce ne olduğunu gönderin. Çoğu zaman ilk yanıtta ne yapılabileceğini söylerim.",
-    tone: "tile-sky",
-    Icon: LuMessageSquareText,
-  },
-  {
-    title: "Bilgisayarınıza bağlanırım",
-    body: "Telefon sizde kalır. Windows bilgisayarınıza USB kabloyla bağlarsınız, ben internet üzerinden o bilgisayara bağlanıp işi yaparım.",
-    tone: "tile-indigo",
-    Icon: LuMonitorSmartphone,
-  },
-  {
-    title: "Önce konuşuruz",
-    body: "Veri silecek bir adıma onayınız olmadan geçmem. Olmayacaksa bunu baştan söylerim.",
-    tone: "tile-emerald",
-    Icon: LuShieldCheck,
-  },
+const { heading, setup, steps } = REMOTE_HELP;
+
+const STEP_STYLES = [
+  { tone: "tile-sky", Icon: LuMessageSquareText },
+  { tone: "tile-indigo", Icon: LuMonitorSmartphone },
+  { tone: "tile-emerald", Icon: LuShieldCheck },
 ];
+const STEPS = steps.map((step, index) => ({ ...step, ...STEP_STYLES[index] }));
 
 const node = "flex w-16 flex-none flex-col items-center text-center sm:w-24";
 const nodeLabel = "text-heading mt-2 text-xs font-bold sm:text-sm";
@@ -54,21 +42,21 @@ const nodeNote = "text-muted text-[0.6875rem] leading-tight sm:text-xs";
     id="remote-help-heading"
     class="text-heading text-2xl font-extrabold tracking-tight sm:text-3xl"
   >
-    Telefonunuzun yazılımını uzaktan onarırım
+    {heading}
   </h2>
 
   <!-- Phone, cable, computer, internet, me: the whole setup in one row -->
   <div
     role="img"
-    aria-label="Telefonunuz USB kabloyla bilgisayarınıza bağlanır, ben internet üzerinden o bilgisayara bağlanırım."
+    aria-label={setup.label}
     class="mt-6 flex items-start rounded-2xl border border-gray-200 bg-white px-3 py-5 sm:px-6 dark:border-dark-700 dark:bg-dark-800"
   >
     <div class={node}>
       <span class="tile tile-slate size-12 rounded-2xl">
         <LuSmartphone size={22} />
       </span>
-      <span class={nodeLabel}>Telefon</span>
-      <span class={nodeNote}>sizde kalır</span>
+      <span class={nodeLabel}>{setup.phone.label}</span>
+      <span class={nodeNote}>{setup.phone.note}</span>
     </div>
 
     <div class="mt-6 flex flex-1 flex-col items-center gap-1 text-gray-400 dark:text-dark-500">
@@ -80,8 +68,8 @@ const nodeNote = "text-muted text-[0.6875rem] leading-tight sm:text-xs";
       <span class="tile tile-indigo size-12 rounded-2xl">
         <LuLaptop size={22} />
       </span>
-      <span class={nodeLabel}>Bilgisayar</span>
-      <span class={nodeNote}>Windows</span>
+      <span class={nodeLabel}>{setup.computer.label}</span>
+      <span class={nodeNote}>{setup.computer.note}</span>
     </div>
 
     <div class="mt-6 flex flex-1 flex-col items-center gap-1 text-gold-500">
@@ -99,8 +87,8 @@ const nodeNote = "text-muted text-[0.6875rem] leading-tight sm:text-xs";
         decoding="async"
         class="size-12 rounded-2xl object-cover ring-1 ring-black/5 dark:ring-white/10"
       />
-      <span class={nodeLabel}>Ben</span>
-      <span class={nodeNote}>uzaktan</span>
+      <span class={nodeLabel}>{setup.me.label}</span>
+      <span class={nodeNote}>{setup.me.note}</span>
     </div>
   </div>
 

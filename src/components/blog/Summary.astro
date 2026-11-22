@@ -1,5 +1,6 @@
 ---
 import InlineText from "@/components/blog/InlineText.astro";
+import { SUMMARY_ROWS, SUMMARY_TITLE } from "@/components/blog/summary-data";
 import { LuCheck, LuInfo, LuX } from "react-icons/lu";
 
 interface Props {
@@ -11,20 +12,24 @@ interface Props {
   safe: string;
 }
 
-const { what, avoid, safe } = Astro.props;
+const STYLES = {
+  what: { tone: "tile-sky", Icon: LuInfo },
+  avoid: { tone: "tile-rose", Icon: LuX },
+  safe: { tone: "tile-emerald", Icon: LuCheck },
+};
 
-const ROWS = [
-  { label: "Ne oldu", text: what, tone: "tile-sky", Icon: LuInfo },
-  { label: "Dokunmayın", text: avoid, tone: "tile-rose", Icon: LuX },
-  { label: "Deneyin", text: safe, tone: "tile-emerald", Icon: LuCheck },
-];
+const ROWS = SUMMARY_ROWS.map(({ prop, label }) => ({
+  label,
+  text: Astro.props[prop],
+  ...STYLES[prop],
+}));
 ---
 
 <aside
-  aria-label="Kısaca"
+  aria-label={SUMMARY_TITLE}
   class="not-prose my-10 rounded-2xl border border-gray-200 bg-slate-50 p-5 sm:p-6 dark:border-dark-700 dark:bg-dark-900/60"
 >
-  <p class="text-muted text-xs font-semibold tracking-[0.14em] uppercase">Kısaca</p>
+  <p class="text-muted text-xs font-semibold tracking-[0.14em] uppercase">{SUMMARY_TITLE}</p>
   <dl class="mt-4 space-y-4">
     {ROWS.map(({ label, text, tone, Icon }) => (
       <div class="flex gap-3.5">

@@ -1,12 +1,27 @@
 ---
 import InlineText from "@/components/blog/InlineText.astro";
+import {
+  AD,
+  ALERT,
+  BACK,
+  DEFAULT_REGION,
+  DEFAULT_TITLE,
+  FASTBOOT,
+  INTEGRITY,
+  LEVELS,
+  MENU,
+  MENU_TITLE,
+  NV_DATA_ERROR,
+  PLAY_PROTECT,
+  VERSION,
+  defaultNotes,
+  screenLabels,
+  verdict,
+  type Level,
+  type Note,
+  type Screen,
+} from "@/components/blog/phone-screen-data";
 import { LuCheck, LuInfo, LuX } from "react-icons/lu";
-
-type Screen =
-  "main-menu" | "nv-data" | "fastboot" | "play-protect" | "version" | "ad" | "alert" | "integrity";
-type Level = "basic" | "device" | "strong";
-type Tone = "safe" | "danger" | "warn" | "info" | "key";
-type Note = { tone: Tone; text: string };
 
 interface Props {
   screen: Screen;
@@ -29,81 +44,24 @@ const {
   screen,
   pulse = screen === "fastboot" ? "power" : undefined,
   certified = false,
-  region = "CN",
-  title = "Uyarı",
+  region = DEFAULT_REGION,
+  title = DEFAULT_TITLE,
   message = "",
   pass = [],
   notes,
 } = Astro.props;
 
-// A drawing of the screen, not a screenshot: the maker's mascots and logos stay out
-const LABELS: Record<Screen, string> = {
-  "main-menu":
-    "Xiaomi kurtarma ekranı çizimi: Main Menu başlığı altında Reboot, Wipe Data, Connect with MIAssistant ve Safe Mode satırları. Reboot güvenli, Wipe Data tehlikeli diye işaretli.",
-  "nv-data":
-    "Xiaomi kurtarma ekranı çizimi: Main Menu satırlarının altında kırmızı 'NV data is corrupted' yazısı.",
-  fastboot:
-    "Xiaomi Fastboot ekranı çizimi: siyah ekranda turuncu FASTBOOT yazısı, telefonun sağındaki güç tuşu işaretli.",
-  "play-protect": `Play Store Hakkında ekranı çizimi: Play Protect sertifikası satırında '${certified ? "Cihaz sertifikalı" : "Cihaz sertifikalı değil"}' yazıyor.`,
-  version: `Telefon hakkında ekranı çizimi: HyperOS sürüm kodunun sonundaki bölge harfleri ${region} olarak işaretli.`,
-  ad: "Telefon ekranını kaplayan reklam çizimi: büyük bir 'Temizle' düğmesi ve köşede küçücük bir kapatma işareti.",
-  alert: `Uygulama uyarısı çizimi: ${title}. ${message}`,
-  integrity: `Play Integrity kontrol ekranı çizimi: ${pass.length ? `geçen düzeyler ${pass.join(", ")}` : "basic, device ve strong düzeylerinin üçü de geçmiyor"}.`,
-};
+const text = { certified, region, title, message, pass };
+const label = screenLabels(text)[screen];
+const shownNotes = notes ?? defaultNotes(text)[screen];
 
-const DEFAULT_NOTES: Record<Screen, Note[]> = {
-  "main-menu": [
-    { tone: "safe", text: "Reboot: telefonu yeniden başlatır, veri silmez." },
-    { tone: "danger", text: "Wipe Data: telefondaki her şeyi kalıcı olarak siler." },
-  ],
-  "nv-data": [
-    { tone: "safe", text: "Reboot: veri silmez, denemesi güvenli." },
-    { tone: "danger", text: "Wipe Data: bu hatayı düzeltmez, verileri siler." },
-  ],
-  fastboot: [{ tone: "key", text: "Güç tuşu: telefon yeniden açılana kadar basılı tutun." }],
-  "play-protect": [
-    { tone: "info", text: "Yol: Play Store, profil simgesi, Ayarlar, Hakkında." },
-    certified
-      ? { tone: "safe", text: "Cihaz sertifikalı: Google bu telefonu tanıyor." }
-      : {
-          tone: "danger",
-          text: "Cihaz sertifikalı değil: Google bu telefonu kendi listesinde görmüyor.",
-        },
-  ],
-  version: [
-    region === "CN"
-      ? { tone: "warn", text: "CN: telefonda Çin sürümü yazılım var." }
-      : { tone: "safe", text: `${region}: telefonda global sürüm yazılım var.` },
-    { tone: "info", text: "MI global, EU Avrupa, TR Türkiye, CN Çin sürümü demek." },
-  ],
-  ad: [
-    {
-      tone: "danger",
-      text: "Tam ekran ve kapatma işareti küçücük: çoğu zaman yüklü bir uygulamadan gelir.",
-    },
-    { tone: "warn", text: '"Temizle" gibi büyük düğmelere dokunmayın.' },
-  ],
-  alert: [],
-  integrity: [
-    pass.length === 3
-      ? { tone: "safe", text: "Üç düzey de geçiyor: uygulamalar telefona güveniyor." }
-      : {
-          tone: "danger",
-          text: "Geçmeyen düzeyler kırmızı: o düzeyi isteyen uygulamalar açılmaz ya da uyarı verir.",
-        },
-    { tone: "info", text: "Basic en gevşek, strong en sıkı kontrol." },
-  ],
-};
-
-const shownNotes = notes ?? DEFAULT_NOTES[screen];
-
-const MENU = ["Reboot", "Wipe Data", "Connect with MIAssistant", "Safe Mode"];
 const showMenu = screen === "main-menu" || screen === "nv-data";
 const lightScreen = !showMenu && screen !== "fastboot" && screen !== "integrity";
 
-const LEVELS: Level[] = ["basic", "device", "strong"];
-
 const KEY_Y = { volume: 153, power: 226 };
+
+// Same output as text written inside the element: compressHTML keeps it on its own line
+const literal = (value: string) => `\n${value}\n`;
 
 // SVG text does not wrap, so the alert message is broken into lines here
 function wrap(text: string, width: number) {
@@ -122,11 +80,12 @@ function wrap(text: string, width: number) {
 }
 const messageLines = wrap(message, 26);
 
-// Version string drawn in a monospaced face so the region letters can be boxed
-const VERSION_PREFIX = "OS2.0.200.0.VNC";
+// Version string drawn in a monospaced face so the region letters can be boxed. Its suffix is
+// spelled out in the markup: no expression after the tspan renders the same bytes.
 const CHAR = 6.9;
-const versionStart = 142 - ((VERSION_PREFIX.length + region.length + 2) * CHAR) / 2;
-const regionX = versionStart + VERSION_PREFIX.length * CHAR;
+const versionStart =
+  142 - ((VERSION.prefix.length + region.length + VERSION.suffix.length) * CHAR) / 2;
+const regionX = versionStart + VERSION.prefix.length * CHAR;
 const regionColor = region === "CN" ? "#d97706" : "#059669";
 ---
 
@@ -134,7 +93,7 @@ const regionColor = region === "CN" ? "#d97706" : "#059669";
   <svg
     viewBox="0 0 300 560"
     role="img"
-    aria-label={LABELS[screen]}
+    aria-label={label}
     class="mx-auto block h-auto w-full max-w-52 md:row-span-2 md:self-center"
   >
     <rect
@@ -174,13 +133,20 @@ const regionColor = region === "CN" ? "#d97706" : "#059669";
 
     {showMenu && (
       <g transform="translate(0 45)">
-        <text x="142" y="122" text-anchor="middle" font-size="22" font-weight="500" fill="#c7c9ea">
-          Main Menu
-        </text>
+        <text
+          x="142"
+          y="122"
+          text-anchor="middle"
+          font-size="22"
+          font-weight="500"
+          fill="#c7c9ea"
+          set:text={literal(MENU_TITLE)}
+        />
         {MENU.map((item, index) => {
           const y = 196 + index * 46;
+          // The tick and the cross below sit next to these two rows
           const selected = index === 0;
-          const danger = item === "Wipe Data";
+          const danger = index === 1;
           return (
             <g>
               <rect
@@ -226,9 +192,15 @@ const regionColor = region === "CN" ? "#d97706" : "#059669";
     )}
 
     {screen === "nv-data" && (
-      <text x="142" y="472" text-anchor="middle" font-size="13" font-weight="600" fill="#ff5a5f">
-        NV data is corrupted
-      </text>
+      <text
+        x="142"
+        y="472"
+        text-anchor="middle"
+        font-size="13"
+        font-weight="600"
+        fill="#ff5a5f"
+        set:text={literal(NV_DATA_ERROR)}
+      />
     )}
 
     {screen === "fastboot" && (
@@ -240,22 +212,28 @@ const regionColor = region === "CN" ? "#d97706" : "#059669";
         font-weight="700"
         letter-spacing="1"
         fill="#ff6a13"
-      >
-        FASTBOOT
-      </text>
+        set:text={literal(FASTBOOT)}
+      />
     )}
 
     {screen === "play-protect" && (
       <g>
-        <text x="56" y="92" font-size="13" fill="#5f6368">
-          ←
-        </text>
-        <text x="76" y="92" font-size="17" font-weight="600" fill="#1f1f1f">
-          Hakkında
-        </text>
-        <text x="56" y="146" font-size="12.5" fill="#1f1f1f">
-          Play Store sürümü
-        </text>
+        <text x="56" y="92" font-size="13" fill="#5f6368" set:text={literal(BACK)} />
+        <text
+          x="76"
+          y="92"
+          font-size="17"
+          font-weight="600"
+          fill="#1f1f1f"
+          set:text={literal(PLAY_PROTECT.title)}
+        />
+        <text
+          x="56"
+          y="146"
+          font-size="12.5"
+          fill="#1f1f1f"
+          set:text={literal(PLAY_PROTECT.storeVersion)}
+        />
         <rect x="56" y="156" width="96" height="7" rx="3.5" fill="#dadce0" />
         <rect
           x="46"
@@ -267,9 +245,14 @@ const regionColor = region === "CN" ? "#d97706" : "#059669";
           stroke={certified ? "#34a853" : "#ea4335"}
           stroke-width="1.5"
         />
-        <text x="56" y="214" font-size="12.5" font-weight="600" fill="#1f1f1f">
-          Play Protect sertifikası
-        </text>
+        <text
+          x="56"
+          y="214"
+          font-size="12.5"
+          font-weight="600"
+          fill="#1f1f1f"
+          set:text={literal(PLAY_PROTECT.certificate)}
+        />
         <text
           x="56"
           y="236"
@@ -277,31 +260,48 @@ const regionColor = region === "CN" ? "#d97706" : "#059669";
           font-weight="600"
           fill={certified ? "#188038" : "#d93025"}
         >
-          {certified ? "Cihaz sertifikalı" : "Cihaz sertifikalı değil"}
+          {certified ? PLAY_PROTECT.certified : PLAY_PROTECT.notCertified}
         </text>
-        <text x="56" y="292" font-size="12.5" fill="#1f1f1f">
-          Lisanslar
-        </text>
+        <text
+          x="56"
+          y="292"
+          font-size="12.5"
+          fill="#1f1f1f"
+          set:text={literal(PLAY_PROTECT.licenses)}
+        />
         <rect x="56" y="302" width="120" height="7" rx="3.5" fill="#dadce0" />
-        <text x="56" y="346" font-size="12.5" fill="#1f1f1f">
-          Hizmet Şartları
-        </text>
+        <text
+          x="56"
+          y="346"
+          font-size="12.5"
+          fill="#1f1f1f"
+          set:text={literal(PLAY_PROTECT.terms)}
+        />
         <rect x="56" y="356" width="80" height="7" rx="3.5" fill="#dadce0" />
       </g>
     )}
 
     {screen === "version" && (
       <g>
-        <text x="56" y="92" font-size="13" fill="#5f6368">
-          ←
-        </text>
-        <text x="76" y="92" font-size="16" font-weight="600" fill="#1f1f1f">
-          Telefon hakkında
-        </text>
+        <text x="56" y="92" font-size="13" fill="#5f6368" set:text={literal(BACK)} />
+        <text
+          x="76"
+          y="92"
+          font-size="16"
+          font-weight="600"
+          fill="#1f1f1f"
+          set:text={literal(VERSION.title)}
+        />
         <rect x="50" y="118" width="184" height="118" rx="16" fill="#ffffff" stroke="#e3e5e8" />
-        <text x="142" y="156" text-anchor="middle" font-size="16" font-weight="700" fill="#1f1f1f">
-          HyperOS
-        </text>
+        <text
+          x="142"
+          y="156"
+          text-anchor="middle"
+          font-size="16"
+          font-weight="700"
+          fill="#1f1f1f"
+          set:text={literal(VERSION.os)}
+        />
         <rect
           x={regionX - 2}
           y="174"
@@ -319,26 +319,25 @@ const regionColor = region === "CN" ? "#d97706" : "#059669";
           font-family="ui-monospace, monospace"
           fill="#3c4043"
         >
-          {VERSION_PREFIX}
+          {VERSION.prefix}
           <tspan font-weight="700" fill={regionColor}>
             {region}
           </tspan>
           XM
         </text>
-        <text x="142" y="218" text-anchor="middle" font-size="10.5" fill="#5f6368">
-          Sistem sürümü
-        </text>
-        <text x="56" y="282" font-size="12.5" fill="#1f1f1f">
-          Model
-        </text>
+        <text
+          x="142"
+          y="218"
+          text-anchor="middle"
+          font-size="10.5"
+          fill="#5f6368"
+          set:text={literal(VERSION.caption)}
+        />
+        <text x="56" y="282" font-size="12.5" fill="#1f1f1f" set:text={literal(VERSION.model)} />
         <rect x="56" y="292" width="110" height="7" rx="3.5" fill="#dadce0" />
-        <text x="56" y="336" font-size="12.5" fill="#1f1f1f">
-          Android sürümü
-        </text>
+        <text x="56" y="336" font-size="12.5" fill="#1f1f1f" set:text={literal(VERSION.android)} />
         <rect x="56" y="346" width="60" height="7" rx="3.5" fill="#dadce0" />
-        <text x="56" y="390" font-size="12.5" fill="#1f1f1f">
-          Tüm özellikler
-        </text>
+        <text x="56" y="390" font-size="12.5" fill="#1f1f1f" set:text={literal(VERSION.specs)} />
         <rect x="56" y="400" width="90" height="7" rx="3.5" fill="#dadce0" />
       </g>
     )}
@@ -362,22 +361,45 @@ const regionColor = region === "CN" ? "#d97706" : "#059669";
       <g>
         <rect x="54" y="132" width="176" height="300" rx="18" fill="#ffffff" />
         <rect x="66" y="146" width="152" height="130" rx="12" fill="#fde68a" />
-        <text x="142" y="218" text-anchor="middle" font-size="22" font-weight="800" fill="#b45309">
-          REKLAM
-        </text>
+        <text
+          x="142"
+          y="218"
+          text-anchor="middle"
+          font-size="22"
+          font-weight="800"
+          fill="#b45309"
+          set:text={literal(AD.badge)}
+        />
         <circle cx="220" cy="140" r="6" fill="#d1d5db" />
         <path d="M217.8 137.8l4.4 4.4m0-4.4l-4.4 4.4" stroke="#6b7280" stroke-width="1.3" />
         <circle cx="220" cy="140" r="11" fill="none" stroke="#f43f5e" stroke-width="2" />
-        <text x="142" y="312" text-anchor="middle" font-size="14" font-weight="700" fill="#111827">
-          Telefonunuz yavaşladı
-        </text>
-        <text x="142" y="334" text-anchor="middle" font-size="11" fill="#6b7280">
-          Hemen temizleyin
-        </text>
+        <text
+          x="142"
+          y="312"
+          text-anchor="middle"
+          font-size="14"
+          font-weight="700"
+          fill="#111827"
+          set:text={literal(AD.title)}
+        />
+        <text
+          x="142"
+          y="334"
+          text-anchor="middle"
+          font-size="11"
+          fill="#6b7280"
+          set:text={literal(AD.text)}
+        />
         <rect x="76" y="360" width="132" height="44" rx="22" fill="#ef4444" />
-        <text x="142" y="388" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">
-          TEMİZLE
-        </text>
+        <text
+          x="142"
+          y="388"
+          text-anchor="middle"
+          font-size="15"
+          font-weight="800"
+          fill="#ffffff"
+          set:text={literal(AD.button)}
+        />
       </g>
     )}
 
@@ -392,9 +414,15 @@ const regionColor = region === "CN" ? "#d97706" : "#059669";
           fill="#ffffff"
         />
         <circle cx="142" cy="226" r="14" fill="#fde8ea" />
-        <text x="142" y="231" text-anchor="middle" font-size="16" font-weight="800" fill="#e11d48">
-          !
-        </text>
+        <text
+          x="142"
+          y="231"
+          text-anchor="middle"
+          font-size="16"
+          font-weight="800"
+          fill="#e11d48"
+          set:text={literal(ALERT.icon)}
+        />
         <text
           x="142"
           y="264"
@@ -419,17 +447,21 @@ const regionColor = region === "CN" ? "#d97706" : "#059669";
           font-size="12.5"
           font-weight="700"
           fill="#1d4ed8"
-        >
-          Tamam
-        </text>
+          set:text={literal(ALERT.button)}
+        />
       </g>
     )}
 
     {screen === "integrity" && (
       <g>
-        <text x="56" y="92" font-size="14" font-weight="600" fill="#e6e7f2">
-          Play Integrity
-        </text>
+        <text
+          x="56"
+          y="92"
+          font-size="14"
+          font-weight="600"
+          fill="#e6e7f2"
+          set:text={literal(INTEGRITY.title)}
+        />
         <line x1="36" y1="112" x2="248" y2="112" stroke="#2a2d34" />
         {LEVELS.map((level, index) => {
           const y = 200 + index * 62;
@@ -446,15 +478,21 @@ const regionColor = region === "CN" ? "#d97706" : "#059669";
                 stroke-linejoin="round"
               />
               <text x="92" y={y + 4} font-size="10.5" font-weight="500" fill="#e6e7f2">
-                {`MEETS_${level.toUpperCase()}_INTEGRITY`}
+                {verdict(level)}
               </text>
             </g>
           );
         })}
         <rect x="102" y="400" width="80" height="30" rx="5" fill="none" stroke="#4b4f58" />
-        <text x="142" y="420" text-anchor="middle" font-size="11" letter-spacing="1" fill="#e6e7f2">
-          CHECK
-        </text>
+        <text
+          x="142"
+          y="420"
+          text-anchor="middle"
+          font-size="11"
+          letter-spacing="1"
+          fill="#e6e7f2"
+          set:text={literal(INTEGRITY.button)}
+        />
       </g>
     )}
 
