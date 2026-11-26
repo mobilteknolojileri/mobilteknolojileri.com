@@ -113,8 +113,9 @@ function placeIndicator(instant = false) {
   // Coming from hidden: jump into place instead of sliding from the old spot
   const jump = instant || navIndicator.style.opacity !== "1";
   if (jump) navIndicator.style.transition = "none";
-  navIndicator.style.width = `${active.offsetWidth}px`;
-  navIndicator.style.transform = `translateX(${active.getBoundingClientRect().left - navSpy.getBoundingClientRect().left}px)`;
+  const box = active.getBoundingClientRect();
+  navIndicator.style.width = `${box.width}px`;
+  navIndicator.style.transform = `translateX(${box.left - navSpy.getBoundingClientRect().left}px)`;
   if (jump) {
     void navIndicator.offsetWidth;
     navIndicator.style.transition = "";
@@ -216,6 +217,11 @@ function setupSpy() {
   if (navSpy) navSpy.dataset.navSpy = "ready";
   refreshSpy();
   placeIndicator(true);
+  // Setup can run before Geist replaces the fallback font, which widens the links
+  if (navSpy && "ResizeObserver" in window) {
+    const linkObserver = new ResizeObserver(() => placeIndicator(true));
+    navSpy.querySelectorAll("[data-nav-link]").forEach((link) => linkObserver.observe(link));
+  }
   // Hash links and restored scroll can land after this, so check again
   requestAnimationFrame(() => requestAnimationFrame(refreshSpy));
 }
