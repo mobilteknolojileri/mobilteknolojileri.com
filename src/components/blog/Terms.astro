@@ -1,0 +1,38 @@
+---
+import InlineText from "@/components/blog/InlineText.astro";
+import { TERM_LABELS, type Term } from "@/components/blog/terms-data";
+
+interface Props {
+  items: Term[];
+}
+
+const { items } = Astro.props;
+
+const BADGES = {
+  safe: "bg-emerald-50 text-emerald-700 ring-emerald-600/20 dark:bg-emerald-400/10 dark:text-emerald-300 dark:ring-emerald-400/25",
+  wipe: "bg-rose-50 text-rose-700 ring-rose-600/20 dark:bg-rose-400/10 dark:text-rose-300 dark:ring-rose-400/25",
+  tech: "bg-gray-100 text-gray-700 ring-gray-500/20 dark:bg-dark-700 dark:text-gray-200 dark:ring-dark-600",
+};
+---
+
+<dl class="not-prose my-8 divide-y divide-gray-200 overflow-hidden rounded-2xl border border-gray-200 bg-white dark:divide-dark-700 dark:border-dark-700 dark:bg-dark-800">
+  {items.map(({ term, label, text }) => (
+    <div class="px-5 py-4 sm:grid sm:grid-cols-[14rem_1fr] sm:gap-x-6">
+      <dt class="flex flex-wrap items-center gap-2 sm:flex-col sm:items-start">
+        <code class="text-heading font-mono text-sm font-semibold break-words">{term}</code>
+        {/* A block of its own, so the term and the badge stay apart in the page's plain text */}
+        <div
+          class:list={[
+            "inline-flex rounded-full px-2.5 py-0.5 text-xs font-semibold ring-1",
+            BADGES[label],
+          ]}
+        >
+          {TERM_LABELS[label]}
+        </div>
+      </dt>
+      <dd class="text-body mt-2 leading-relaxed sm:mt-0">
+        <InlineText text={text} />
+      </dd>
+    </div>
+  ))}
+</dl>

@@ -1,5 +1,6 @@
 import { REMOTE_HELP } from "@/components/blog/remote-help-data";
 import { SUMMARY_ROWS, SUMMARY_TITLE } from "@/components/blog/summary-data";
+import { TERM_LABELS, type Term } from "@/components/blog/terms-data";
 import type { ComponentRenderer, RenderContext } from "./types";
 
 // Icons, tones and columns are decoration: only the text the reader sees is carried over
@@ -38,6 +39,11 @@ export const Flow: ComponentRenderer = (props, _children, ctx) =>
       })),
     ),
   ].join("\n\n");
+
+export const Terms: ComponentRenderer = (props, _children, ctx) =>
+  (props.items as Term[])
+    .map(({ term, label, text }) => `- \`${term}\` (${TERM_LABELS[label]}): ${ctx.inline(text)}`)
+    .join("\n");
 
 /** The remote help block every Android post ends with */
 export function remoteHelpMarkdown(ctx: RenderContext): string {

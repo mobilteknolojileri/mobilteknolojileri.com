@@ -1,6 +1,15 @@
 // Shared by PhoneScreen.astro and the Markdown copy of the posts
 export type Screen =
-  "main-menu" | "nv-data" | "fastboot" | "play-protect" | "version" | "ad" | "alert" | "integrity";
+  | "main-menu"
+  | "nv-data"
+  | "fastboot"
+  | "play-protect"
+  | "version"
+  | "ad"
+  | "alert"
+  | "integrity"
+  | "recovery"
+  | "message";
 export type Level = "basic" | "device" | "strong";
 export type Tone = "safe" | "danger" | "warn" | "info" | "key";
 export type Note = { tone: Tone; text: string };
@@ -12,6 +21,10 @@ export interface ScreenText {
   title: string;
   message: string;
   pass: Level[];
+  /** recovery: menu rows; message: lines at the bottom of the screen */
+  items: string[];
+  /** recovery: rows outlined in red */
+  danger: string[];
 }
 
 export const DEFAULT_REGION = "CN";
@@ -60,6 +73,11 @@ export const AD = {
 export const ALERT = { icon: "!", button: "Tamam" };
 
 export const INTEGRITY = { title: "Play Integrity", button: "CHECK" };
+
+/** "A, B ve C" */
+const joinTr = (words: string[]) =>
+  words.length < 2 ? words.join("") : `${words.slice(0, -1).join(", ")} ve ${words.at(-1)}`;
+const quoted = (text: string) => `“${text}”`;
 export const LEVELS: Level[] = ["basic", "device", "strong"];
 export const verdict = (level: Level) => `MEETS_${level.toUpperCase()}_INTEGRITY`;
 
@@ -70,6 +88,8 @@ export function screenLabels({
   title,
   message,
   pass,
+  items,
+  danger,
 }: ScreenText): Record<Screen, string> {
   return {
     "main-menu": `Xiaomi kurtarma ekranı çizimi: Main Menu başlığı altında Reboot, Wipe Data, Connect with MIAssistant ve Safe Mode satırları. ${MENU_MARKS}`,
@@ -82,6 +102,8 @@ export function screenLabels({
     ad: "Telefon ekranını kaplayan reklam çizimi: büyük bir “Temizle” düğmesi ve köşede küçücük bir kapatma işareti.",
     alert: `Uygulama uyarısı çizimi: ${title}. ${message}${/[.!?]$/.test(message) ? "" : "."}`,
     integrity: `Play Integrity kontrol ekranı çizimi: ${pass.length ? `geçen düzeyler ${pass.join(", ")}` : "basic, device ve strong düzeylerinin üçü de geçmiyor"}.`,
+    recovery: `Kurtarma ekranı çizimi: ${title} başlığı altında ${joinTr(items)} satırları, ilk satır seçili.${danger.length ? ` ${joinTr(danger)} kırmızıyla işaretli.` : ""}`,
+    message: `Siyah ekranda uyarı çizimi: kırmızı bir üçgenin altında ${quoted(title)} yazıyor${message ? `, altında ${quoted(message)}` : ""}${items.length ? `, en altta ${joinTr(items.map(quoted))}` : ""}.`,
   };
 }
 
@@ -128,5 +150,7 @@ export function defaultNotes({ certified, region, pass }: ScreenText): Record<Sc
           },
       { tone: "info", text: "Basic en gevşek, strong en sıkı kontrol." },
     ],
+    recovery: [],
+    message: [],
   };
 }

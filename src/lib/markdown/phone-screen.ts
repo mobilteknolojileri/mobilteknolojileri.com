@@ -26,7 +26,13 @@ import type { ComponentRenderer } from "./types";
 // says what the drawing marks, so the words on the screen and the notes are what remains
 
 /** The words drawn on each screen, top to bottom */
-function drawnText({ certified, region, title, message }: ScreenText): Record<Screen, string[]> {
+function drawnText({
+  certified,
+  region,
+  title,
+  message,
+  items,
+}: ScreenText): Record<Screen, string[]> {
   return {
     "main-menu": [MENU_TITLE, ...MENU],
     "nv-data": [MENU_TITLE, ...MENU, NV_DATA_ERROR],
@@ -51,10 +57,14 @@ function drawnText({ certified, region, title, message }: ScreenText): Record<Sc
     ad: [AD.badge, AD.title, AD.text, AD.button],
     alert: [title, message.split(/\s+/).filter(Boolean).join(" "), ALERT.button],
     integrity: [INTEGRITY.title, ...LEVELS.map(verdict), INTEGRITY.button],
+    recovery: [title, ...items],
+    message: [title, message, ...items],
   };
 }
 
 const string = (value: unknown, fallback: string) => (typeof value === "string" ? value : fallback);
+const strings = (value: unknown) =>
+  Array.isArray(value) ? value.filter((item): item is string => typeof item === "string") : [];
 
 export const PhoneScreen: ComponentRenderer = (props, children, ctx) => {
   const screen = props.screen as Screen;
@@ -64,6 +74,8 @@ export const PhoneScreen: ComponentRenderer = (props, children, ctx) => {
     title: ctx.inline(string(props.title, DEFAULT_TITLE)),
     message: ctx.inline(string(props.message, "")),
     pass: Array.isArray(props.pass) ? (props.pass as Level[]) : [],
+    items: strings(props.items).map((item) => ctx.inline(item)),
+    danger: strings(props.danger).map((item) => ctx.inline(item)),
   };
   const labels = screenLabels(text);
   if (!Object.hasOwn(labels, screen)) {

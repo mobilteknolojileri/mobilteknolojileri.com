@@ -36,6 +36,10 @@ interface Props {
   message?: string;
   /** integrity: the Play Integrity levels that pass, the rest are drawn as failing */
   pass?: Level[];
+  /** recovery: menu rows, the first one drawn as selected; message: lines at the bottom */
+  items?: string[];
+  /** recovery: rows outlined in red */
+  danger?: string[];
   /** Replaces the notes next to the drawing */
   notes?: Note[];
 }
@@ -48,15 +52,17 @@ const {
   title = DEFAULT_TITLE,
   message = "",
   pass = [],
+  items = [],
+  danger = [],
   notes,
 } = Astro.props;
 
-const text = { certified, region, title, message, pass };
+const text = { certified, region, title, message, pass, items, danger };
 const label = screenLabels(text)[screen];
 const shownNotes = notes ?? defaultNotes(text)[screen];
 
 const showMenu = screen === "main-menu" || screen === "nv-data";
-const lightScreen = !showMenu && screen !== "fastboot" && screen !== "integrity";
+const lightScreen = !showMenu && !["fastboot", "integrity", "recovery", "message"].includes(screen);
 
 const KEY_Y = { volume: 153, power: 226 };
 
@@ -64,7 +70,7 @@ const KEY_Y = { volume: 153, power: 226 };
 const literal = (value: string) => `\n${value}\n`;
 
 // SVG text does not wrap, so the alert message is broken into lines here
-function wrap(text: string, width: number) {
+function wrap(text: string, width: number, max = 5) {
   const lines: string[] = [];
   let line = "";
   for (const word of text.split(/\s+/).filter(Boolean)) {
@@ -76,9 +82,14 @@ function wrap(text: string, width: number) {
     }
   }
   if (line) lines.push(line);
-  return lines.slice(0, 5);
+  return lines.slice(0, max);
 }
-const messageLines = wrap(message, 26);
+const messageLines = screen === "message" ? wrap(message, 30, 10) : wrap(message, 26);
+
+// recovery: rows shrink to fit up to 13 of them under the header
+const ROW = items.length > 9 ? 26 : 34;
+// message: the triangle and title sit higher when a message follows them
+const iconY = message ? 104 : 206;
 
 // Version string drawn in a monospaced face so the region letters can be boxed. Its suffix is
 // spelled out in the markup: no expression after the tspan renders the same bytes.
@@ -493,6 +504,96 @@ const regionColor = region === "CN" ? "#d97706" : "#059669";
           fill="#e6e7f2"
           set:text={literal(INTEGRITY.button)}
         />
+      </g>
+    )}
+
+    {screen === "recovery" && (
+      <g>
+        <text x="52" y="76" font-size="13" font-weight="500" fill="#c7c9ea">
+          {title}
+        </text>
+        <rect x="52" y="88" width="150" height="6" rx="3" fill="#2a2d34" />
+        <rect x="52" y="100" width="110" height="6" rx="3" fill="#2a2d34" />
+        <line x1="44" y1="120" x2="240" y2="120" stroke="#2a2d34" />
+        {items.map((item, index) => {
+          const y = 132 + index * ROW;
+          const selected = index === 0;
+          const red = danger.includes(item);
+          return (
+            <g>
+              <rect
+                x="46"
+                y={y}
+                width="192"
+                height={ROW - 4}
+                rx="3"
+                fill={selected ? "#1d8cf8" : "none"}
+                stroke={red ? "#f43f5e" : "none"}
+                stroke-width="1.5"
+              />
+              <text
+                x="54"
+                y={y + (ROW - 4) / 2 + 4}
+                font-size={ROW > 26 ? 12.5 : 11}
+                fill={selected ? "#ffffff" : "#e6e7f2"}
+              >
+                {item}
+              </text>
+            </g>
+          );
+        })}
+      </g>
+    )}
+
+    {screen === "message" && (
+      <g>
+        <path
+          d={`M142 ${iconY}l28 48h-56z`}
+          fill="#f43f5e"
+          stroke="#f43f5e"
+          stroke-width="4"
+          stroke-linejoin="round"
+        />
+        <text
+          x="142"
+          y={iconY + 41}
+          text-anchor="middle"
+          font-size="22"
+          font-weight="800"
+          fill="#ffffff"
+          set:text={literal(ALERT.icon)}
+        />
+        <text
+          x="142"
+          y={iconY + 80}
+          text-anchor="middle"
+          font-size="16"
+          font-weight="700"
+          fill="#e6e7f2"
+        >
+          {title}
+        </text>
+        {messageLines.length > 0 && (
+          <text x="142" y={iconY + 108} text-anchor="middle" font-size="11.5" fill="#c7c9d1">
+            {messageLines.map((line, index) => (
+              <tspan x="142" dy={index === 0 ? 0 : 17}>
+                {line}
+              </tspan>
+            ))}
+          </text>
+        )}
+        {items.map((item, index) => (
+          <text
+            x="142"
+            y={470 - (items.length - 1 - index) * 22}
+            text-anchor="middle"
+            font-size="11.5"
+            font-weight="600"
+            fill="#e6e7f2"
+          >
+            {item}
+          </text>
+        ))}
       </g>
     )}
 
