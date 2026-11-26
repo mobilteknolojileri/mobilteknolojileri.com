@@ -1,0 +1,279 @@
+---
+title: "Recovery Menüsü Türkçesi: Wipe Data, Reboot ve No Command Ne Demek?"
+seoTitle: "Recovery Menüsü Türkçe: Hangi Satır Veri Siler?"
+description: "Telefonun kurtarma (recovery) ekranındaki İngilizce satırların Türkçesi. Samsung, Pixel, Tecno, Infinix, Oppo, Realme ve Xiaomi'de hangi satırın güvenli olduğunu, hangisinin verileri sildiğini tek tek yazdım."
+seoDescription: "Wipe data, Reboot system now, Wipe cache partition ve No command ne demek? Recovery menüsünde hangi satır veri siler, hangisi güvenli, marka marka yazdım."
+date: 2026-11-26
+tags: ["android", "recovery", "wipe data", "no command", "samsung", "oppo", "tecno", "xiaomi"]
+category: "android"
+draft: false
+faq:
+  - question: "Reboot system now telefonu sıfırlar mı?"
+    answer: "Hayır. Telefonu normal şekilde yeniden başlatır, hiçbir şey silmez. Telefon yine aynı ekrana dönüyorsa sorun sistemde ya da takılı kalan bir tuştadır."
+  - question: "Wipe cache partition verileri siler mi?"
+    answer: "Hayır. Sistemin geçici dosyalarını siler, fotoğraf, mesaj ve uygulamalara dokunmaz. Yeni Samsung sürümlerinde bu satır menüde yok."
+  - question: "Wipe data/factory reset'ten sonra telefon neden hesap şifresi istiyor?"
+    answer: "Telefonda kayıtlı Google hesabı, sıfırlanan telefonu başkası kullanamasın diye onu kilitler. Samsung'da Samsung hesabının şifresi de istenebilir. Bu bilgileri bilmiyorsanız telefonu sıfırlamayın."
+  - question: "No command ne demek, telefon bozuldu mu?"
+    answer: "Bozulmadı. Kurtarma bölümü açılmış ama menü henüz gösterilmemiş. Güç tuşu basılıyken ses açma tuşuna bir kez basın, menü açılır. Bazı Tecno ve Infinix modellerinde ses kısma tuşu kullanılır."
+  - question: "Samsung'da A custom OS can cause critical problems uyarısı ne demek?"
+    answer: "Telefon Download (Odin) moduna girmek üzere. Ses kısma tuşu iptal edip telefonu yeniden başlatır, hiçbir şey silinmez. Ses açma tuşu Download moduna geçer ve telefon bilgisayar bekler."
+  - question: "Oppo'da Online update (keep data) güvenli mi?"
+    answer: "Evet. Resmî sürümü Wi-Fi ile indirip verileri koruyarak kurar. Wi-Fi bağlı ve şarj yeterli olmalı, güncelleme bitene kadar telefona dokunmayın."
+intent: "guide"
+related:
+  - "xiaomi-main-menu-ekraninda-kaldi"
+  - "telefona-yazilim-atma"
+  - "xiaomi-fastboot-ekraninda-kaldi"
+---
+
+<Summary
+  what="Telefon kurtarma (recovery) ekranında açıldı. Satırlar İngilizce ve markaya göre değişiyor."
+  avoid="Wipe data/factory reset, Wipe Data ve Format data. Üçü de telefondaki her şeyi siler."
+  safe="Reboot system now ya da Reboot. Telefonu yeniden başlatır, veri silmez."
+/>
+
+Recovery, yani kurtarma ekranı, telefonun sistemden ayrı çalışan küçük bir bakım bölümüdür. Satırları İngilizcedir ve çoğu telefonda Android'in aynı menüsünden gelir. Bu satırlardan sadece birkaçı veri siler.
+
+Her satırın Türkçesini ve ne yaptığını aşağıda marka marka yazdım. Etiketlerin anlamı şöyle:
+
+- Güvenli: Veri silmez. Telefonu başlatır, kapatır ya da verileri koruyarak günceller.
+- Verileri siler: Fotoğraflar, mesajlar ve uygulamalar gider, geri gelmez.
+- Teknik: Veri silmez ama bilgisayar ya da yazılım dosyası bekler. Tek başına bir şeyi düzeltmez.
+
+## Android Recovery: Samsung, Pixel, Tecno, Infinix
+
+Ekranın üstünde "Android Recovery" yazar. Ses tuşlarıyla satırlar arasında gezilir, güç tuşuyla seçilir. Samsung, Google Pixel, Tecno, Infinix ve itel bu menüyü kullanır, ama bazı satırları kaldırır ya da kendi satırını ekler.
+
+<PhoneScreen
+  screen="recovery"
+  title="Android Recovery"
+  items={[
+    "Reboot system now",
+    "Reboot to bootloader",
+    "Enter fastboot",
+    "Apply update from ADB",
+    "Apply update from SD card",
+    "Wipe data/factory reset",
+    "Wipe cache partition",
+    "Mount /system",
+    "View recovery logs",
+    "Run graphics test",
+    "Run locale test",
+    "Enter rescue",
+    "Power off",
+  ]}
+  danger={["Wipe data/factory reset"]}
+  notes={[
+    { tone: "safe", text: "Reboot system now: telefonu normal açar, veri silmez." },
+    { tone: "danger", text: "Wipe data/factory reset: telefondaki her şeyi siler." },
+  ]}
+>
+  Çizimdeki satırlar Android'in kendi menüsü. Telefonunuzda bunların bir kısmı olmayabilir.
+</PhoneScreen>
+
+<Terms
+  items={[
+    {
+      term: "Reboot system now",
+      label: "safe",
+      text: "Sistemi şimdi yeniden başlat. Telefonu normal şekilde açar, hiçbir şey silmez. İlk denenecek satır bu.",
+    },
+    { term: "Power off", label: "safe", text: "Telefonu kapatır." },
+    {
+      term: "Wipe cache partition",
+      label: "safe",
+      text: "Önbellek bölümünü sil. Sistemin geçici dosyaları gider, fotoğraf, mesaj ve uygulamalara dokunmaz. Yeni Samsung sürümlerinde bu satır yok.",
+    },
+    {
+      term: "Repair apps",
+      label: "safe",
+      text: "Uygulamaları onar. Sadece bazı Samsung sürümlerinde var. Uygulamaları sistem için yeniden optimize eder, uzun sürebilir.",
+    },
+    {
+      term: "Wipe data/factory reset",
+      label: "wipe",
+      text: "Verileri sil, fabrika ayarlarına dön. Fotoğraflar, mesajlar ve uygulamalar gider. Telefon açılınca önceden kayıtlı Google hesabının, Samsung'da Samsung hesabının da şifresi istenebilir. Bu bilgileri bilmiyorsanız bu satıra basmayın.",
+    },
+    {
+      term: "Reboot to bootloader",
+      label: "tech",
+      text: "Telefonu, sistemden önce çalışan yükleyicinin ekranına geçirir. Oradan ancak bilgisayarla iş yapılır.",
+    },
+    {
+      term: "Enter fastboot",
+      label: "tech",
+      text: "Fastboot moduna geç. Telefon bilgisayardan komut bekler.",
+    },
+    {
+      term: "Apply update from ADB",
+      label: "tech",
+      text: "Bilgisayardan güncelleme yükle. Kabloyla gönderilecek bir yazılım dosyasını bekler.",
+    },
+    {
+      term: "Apply update from SD card",
+      label: "tech",
+      text: "Hafıza kartından güncelleme yükle. Kartta telefona uygun resmî bir dosya yoksa işe yaramaz.",
+    },
+    {
+      term: "Mount /system",
+      label: "tech",
+      text: "Sistem bölümünü erişime aç. Teknik kontroller içindir.",
+    },
+    {
+      term: "View recovery logs",
+      label: "tech",
+      text: "Kurtarma kayıtlarını göster. Sadece okur, hiçbir şeyi değiştirmez.",
+    },
+    {
+      term: "Run graphics test, Run locale test",
+      label: "tech",
+      text: "Ekran ve dil testleri. Zararsızdır ama bir sorunu çözmez.",
+    },
+    {
+      term: "Enter rescue",
+      label: "tech",
+      text: "Bilgisayarla onarım moduna geç. Bilgisayar bağlanmadan bir şey yapmaz.",
+    },
+  ]}
+/>
+
+### Ekranda "No command" yazıyorsa
+
+Recovery'ye girerken bazen menü yerine siyah ekranda "No command" yazısı çıkar. Bu bir hata değil. Kurtarma bölümü açılmış, menü henüz gösterilmemiştir.
+
+<PhoneScreen
+  screen="message"
+  title="No command."
+  pulse="power"
+  notes={[
+    {
+      tone: "key",
+      text: "Güç tuşunu basılı tutun, ses açma tuşuna bir kez basın, sonra ikisini bırakın.",
+    },
+    {
+      tone: "info",
+      text: "Bazı Tecno, Infinix ve itel modellerinde ses açma yerine ses kısma tuşu kullanılır.",
+    },
+  ]}
+/>
+
+Google'ın Pixel rehberi de, Tecno, Infinix ve itel'in resmî servisi Carlcare da bu yolu tarif ediyor. Menü açılınca yukarıdaki satırları görürsünüz.
+
+## Samsung Download (Odin) ekranı
+
+Samsung'da recovery yerine üstte "Warning!!" yazan bir uyarı da çıkabilir. Bu uyarı, telefonun Download moduna girmek üzere olduğunu gösterir. Download modu, Samsung'un yazılımı bilgisayardan yüklemek için kullandığı moddur. Bu moda yazılım yükleyen bilgisayar programının adı Odin, o yüzden ekrana Odin modu da denir.
+
+<PhoneScreen
+  screen="message"
+  title="Warning!!"
+  message="A custom OS can cause critical problems in phone and installed applications. If you want to download a custom OS, press the volume up key. Otherwise, press the volume down key to cancel."
+  items={["Volume up: Continue", "Volume down: Cancel (restart phone)"]}
+  pulse="volume"
+  notes={[
+    { tone: "safe", text: "Ses kısma: iptal eder ve telefonu yeniden başlatır." },
+    { tone: "info", text: "Ses açma: Download moduna geçer, telefon bilgisayar bekler." },
+  ]}
+>
+  Uyarının metni modele göre biraz değişir.
+</PhoneScreen>
+
+<Terms
+  items={[
+    {
+      term: "Volume down: Cancel (restart phone)",
+      label: "safe",
+      text: "İptal et, telefonu yeniden başlat. Hiçbir şey silinmez.",
+    },
+    {
+      term: "Volume up: Continue",
+      label: "tech",
+      text: "Download moduna geç. Ekranda “Downloading... Do not turn off target” yazar ve telefon bilgisayar bekler. Çıkış yolu ekranın altında yazar. Çoğu modelde ses kısma ve güç tuşunu 7 saniye basılı tutmak telefonu yeniden başlatır.",
+    },
+  ]}
+/>
+
+## Oppo ve Realme: ColorOS Recovery
+
+Oppo ve Realme'de kurtarma ekranının adı ColorOS Recovery. Telefon kapalıyken güç ve ses kısma tuşuna birlikte basılınca açılır. Satırlar dokunmatiktir, parmakla seçilir.
+
+<Terms
+  items={[
+    {
+      term: "Online update (keep data)",
+      label: "safe",
+      text: "Çevrim içi güncelle, verileri koru. Resmî sürümü Wi-Fi ile indirip kurar. Wi-Fi bağlı ve şarj yeterli olmalı, güncelleme bitene kadar telefona dokunmayın.",
+    },
+    { term: "Reboot", label: "safe", text: "Telefonu yeniden başlatır." },
+    { term: "Power off", label: "safe", text: "Telefonu kapatır." },
+    {
+      term: "Install from storage device",
+      label: "tech",
+      text: "Depolamadan yükle. Hafıza kartına önceden indirilmiş resmî yazılımı kurar.",
+    },
+    {
+      term: "Wipe data, Format data",
+      label: "wipe",
+      text: "Verileri sil. Satırın adı sürüme göre değişir, ikisi de her şeyi siler. Oppo da silinen verinin geri getirilemeyeceğini söylüyor.",
+    },
+  ]}
+/>
+
+Kullanıcıların aktardığına göre bazı modellerde bu satırlar ekran kilidinin şifresini soruyor.
+
+## Xiaomi: Main Menu
+
+Xiaomi, Redmi ve POCO'da ekranın başlığında "Main Menu" yazar ve satırlar daha azdır.
+
+<Terms
+  items={[
+    {
+      term: "Reboot",
+      label: "safe",
+      text: "İçindeki Reboot to System telefonu normal açar.",
+    },
+    {
+      term: "Safe Mode",
+      label: "safe",
+      text: "Telefonu yalnızca sistem uygulamalarıyla açar. Her sürümde yok.",
+    },
+    {
+      term: "Connect with MIAssistant",
+      label: "tech",
+      text: "Telefonu kabloyla bilgisayara bağlayıp sistemi dışarıdan yüklemek için. Back to Main Menu ile çıkılır.",
+    },
+    {
+      term: "Wipe Data",
+      label: "wipe",
+      text: "Telefondaki her şeyi siler. Bazı HyperOS sürümlerinde görünmez.",
+    },
+  ]}
+/>
+
+Satır satır anlatımı [Main Menu yazısında](/blog/xiaomi-main-menu-ekraninda-kaldi) bulabilirsiniz. Siyah ekranda turuncu FASTBOOT yazıyorsa [Fastboot yazısına](/blog/xiaomi-fastboot-ekraninda-kaldi) bakın.
+
+## Tek güvenli adım
+
+Hangi markada olursanız olun, önce telefonu yeniden başlatan satırı seçin: `Reboot system now` ya da `Reboot`. Bu satır veri silmez. Kılıf ses tuşuna basıyorsa çıkarın, yoksa telefon aynı ekrana geri dönebilir.
+
+<Flow
+  question="Telefon normal açıldı mı?"
+  branches={[
+    {
+      label: "Evet",
+      text: "Mesele kapandı. Ekran kendiliğinden yeniden geliyorsa ses tuşu takılı olabilir.",
+      tone: "safe",
+    },
+    {
+      label: "Hayır, yine aynı ekran",
+      text: "Sistem başlayamıyor. Verileri silen bir satıra basmadan bana yazın.",
+      tone: "warn",
+    },
+  ]}
+/>
+
+## Kalan iş ne
+
+Yeniden başlatma işe yaramıyorsa kalan iş kabloyla ve bilgisayarla yapılır. Telefonun hangi modda cevap verdiğine bakar, modeline uygun resmî yazılımı seçer ve verileri korumaya çalışarak yüklerim. Bazen telefonu kurtarmanın tek yolu veriyi silmektir. O noktada durur, sizinle konuşurum.
+
+Sıfırlanmış bir telefonda önceki Google hesabının bilgisi sizde değilse o kilidi açmam. Bana yazarken ekranın fotoğrafını ve telefonun modelini ekleyin.
