@@ -1,0 +1,162 @@
+---
+title: "Orange State ve Your Device Is Corrupt Ne Demek? Açılış Uyarıları Türkçe"
+seoTitle: "Orange State, Your Device Is Corrupt Ne Demek?"
+description: "Telefon açılırken çıkan İngilizce uyarıların Türkçesi: Orange State, Your device is corrupt, The system has been destroyed ve Samsung'un güncelleme hatası. Hangisi sadece bilgi veriyor, hangisi ciddi, tek tek yazdım."
+seoDescription: "Orange State, Your device is corrupt ve The system has been destroyed ne demek? Hangi açılış uyarısı zararsız, hangisi ciddi ve ilk ne yapılmalı?"
+date: 2026-11-27
+tags: ["android", "orange state", "bootloader", "açılış hatası", "samsung", "xiaomi", "oppo"]
+category: "android"
+draft: false
+faq:
+  - question: "Orange State ne demek, telefon bozuldu mu?"
+    answer: "Bozulmadı. Telefonun bootloader kilidi açık ve telefon bunu her açılışta söylüyor. Birkaç saniye sonra açılmaya devam eder. Kilidi siz açmadıysanız telefonu satan ya da önceki sahibi açmış olabilir."
+  - question: "Orange State uyarısı nasıl kaldırılır?"
+    answer: "Uyarı ancak bootloader kilidi kapanınca gider. Telefonda üreticinin orijinal yazılımı yokken kilidi kapatmak telefonu açılmaz hâle getirebilir. Uyarıdan kurtulmak için kilidi kendi başınıza kapatmayın, önce yüklü yazılımın ne olduğunu öğrenin."
+  - question: "Your device is corrupt uyarısı verileri siler mi?"
+    answer: "Uyarının kendisi silmez. Telefon sistem bölümünde bir bozulma bulduğunu söylüyor. Güç tuşuna basınca açılmayı dener. Açılırsa önce fotoğraflarınızı ve mesajlarınızı yedekleyin, çünkü kalıcı çözüm çoğu zaman yazılımı yeniden yüklemektir."
+  - question: "The system has been destroyed hatası nasıl düzeltilir?"
+    answer: "Bu Xiaomi ekranı, kilitli bootloader'ın telefondaki yazılımı doğrulayamadığını söyler. Düzeltmek için bilgisayarla resmî yazılım yüklenir. Kilit kapalıyken bu her modelde mümkün olmuyor, modele bakıp söylerim."
+  - question: "An error has occurred while updating the device software ne demek?"
+    answer: "Samsung telefonda güncelleme yarıda kalmış. Samsung, bilgisayardaki Smart Switch programının acil kurtarma işlevini öneriyor ama bu yolun verileri koruyup korumadığını söylemiyor. Fotoğraflarınız yedekli değilse denemeden önce bana yazın."
+intent: "guide"
+related:
+  - "recovery-menusu-turkce"
+  - "bootloader-kilidi-acik-telefonda-uygulamalar"
+  - "xiaomi-fastboot-ekraninda-kaldi"
+---
+
+<Summary
+  what="Telefon açılırken İngilizce bir uyarı gösteriyor. Bazıları sadece bilgi verir, bazıları yazılımın bozulduğunu söyler."
+  avoid="Uyarıyı kaldırmak için bootloader kilidini kapatmak. Telefonda orijinal yazılım yoksa telefon hiç açılmayabilir."
+  safe="Birkaç saniye beklemek ya da ekranın altında yazan tuşa bir kez basmak. İkisi de veri silmez."
+/>
+
+Telefon açılırken çıkan İngilizce uyarılar, telefonun yazılımını açılmadan önce denetlediğini gösterir. Bazıları sadece bilgi verir ve telefon birkaç saniye sonra açılır. Bazıları ise yazılımın bozulduğunu ya da doğrulanamadığını söyler.
+
+Uyarıların Türkçesini ve ne anlama geldiğini aşağıda yazdım. Etiketlerin anlamı şöyle:
+
+- Bilgi: Telefon açılmaya devam eder, veri gitmez. Uyarı sadece bir durumu haber verir.
+- Ciddi: Telefon açılmıyor ya da yazılımı bozuk. Onarım bilgisayarla yapılır.
+
+<Terms
+  items={[
+    {
+      term: "Orange State",
+      label: "info",
+      text: "Turuncu durum. Bootloader kilidi açık, telefon yazılımı denetlemiyor. Birkaç saniye sonra açılır.",
+    },
+    {
+      term: "Your device is loading a different operating system",
+      label: "info",
+      text: "Cihazınız farklı bir işletim sistemi yüklüyor. Kilit kapalı, ama telefon üreticinin değil, sonradan eklenen bir anahtarın imzaladığı sistemi açıyor. Açılmaya devam eder.",
+    },
+    {
+      term: "Your device is corrupt",
+      label: "serious",
+      text: "Cihazınız bozuk. Telefon sistem bölümünde bir bozulma buldu. Güç tuşuna basınca açılmayı dener, basılmazsa kısa süre sonra kapanır.",
+    },
+    {
+      term: "Red State",
+      label: "serious",
+      text: "Kırmızı durum. MediaTek işlemcili telefonlarda “Your device has failed verification” yazısıyla çıkar. Kilitli telefon açacağı yazılımı doğrulayamadı.",
+    },
+    {
+      term: "No valid operating system could be found",
+      label: "serious",
+      text: "Geçerli işletim sistemi bulunamadı. Telefon açılmaz, güç tuşu onu kapatır.",
+    },
+    {
+      term: "The system has been destroyed",
+      label: "serious",
+      text: "Sistem yok edildi. Xiaomi'de kilitli bootloader telefondaki yazılımı doğrulayamadığı için açmıyor.",
+    },
+    {
+      term: "An error has occurred while updating the device software",
+      label: "serious",
+      text: "Cihaz yazılımı güncellenirken bir hata oluştu. Samsung'da güncelleme yarıda kaldı, telefon sisteme geçemiyor.",
+    },
+  ]}
+/>
+
+## Orange State: kilit açık uyarısı
+
+<PhoneScreen
+  screen="message"
+  color="orange"
+  title="Orange State"
+  message="Your device has been unlocked and can't be trusted. Your device will boot in 5 seconds."
+  notes={[
+    { tone: "safe", text: "Telefon birkaç saniye sonra kendiliğinden açılır, veri gitmez." },
+    { tone: "warn", text: "Kilit açıkken bazı banka uygulamaları açılmaz." },
+  ]}
+>
+  MediaTek işlemcili telefonlardaki metin. Pixel'de aynı uyarı "The bootloader is unlocked and
+  software integrity cannot be guaranteed" diye başlar.
+</PhoneScreen>
+
+Bu uyarı bir arıza değil. Android'in doğrulanmış önyükleme (Verified Boot) belgesine göre kilidi açık telefon bunu her açılışta gösterir ve açılmaya devam eder. Telefon bu ekrandan sonra sürekli yeniden başlıyorsa sorun uyarıda değil, yüklü yazılımdadır.
+
+Kilidi siz açmadıysanız telefonu satan ya da önceki sahibi açmış olabilir. Kilit açıkken hangi uygulamaların çalışmadığını [kilidi açık telefon yazısında](/blog/bootloader-kilidi-acik-telefonda-uygulamalar) anlattım. Uyarıyı kaldırmak için kilidi kapatmayın. Telefonda üreticinin orijinal yazılımı yoksa kilit kapanınca telefon açılmaz hâle gelebilir.
+
+## Your device is corrupt
+
+<PhoneScreen
+  screen="message"
+  title="Your device is corrupt"
+  message="It can't be trusted and may not work properly."
+  items={["Press power button to continue"]}
+  pulse="power"
+  notes={[
+    { tone: "key", text: "Güç tuşuna bir kez basın, telefon açılmayı dener." },
+    { tone: "warn", text: "Basmazsanız telefon kısa süre sonra kapanır." },
+  ]}
+>
+  MediaTek işlemcili telefonlarda üstte "dm-verity corruption" yazar.
+</PhoneScreen>
+
+Telefon sistem bölümünde değişmiş ya da bozulmuş bir parça buldu. Android'in belgesi bu ekranı, telefonun geçerli bir Android bulduğu ama içinde bozulma fark ettiği durum için tarif ediyor. Telefon açılsa bile düzgün çalışmayabilir.
+
+Açılırsa önce fotoğraflarınızı ve mesajlarınızı yedekleyin. Bu uyarı çoğu zaman yazılım yeniden yüklenince gider.
+
+## Xiaomi: The system has been destroyed
+
+<PhoneScreen
+  screen="message"
+  title="The system has been destroyed"
+  items={["Press power button to shutdown"]}
+  notes={[{ tone: "danger", text: "Telefon açılmaz, güç tuşu sadece kapatır." }]}
+/>
+
+Xiaomi, Redmi ve POCO'da çıkan bu ekran, kilitli bootloader'ın telefondaki yazılımı doğrulayamadığını söyler. Xiaomi Community ve XDA'daki anlatımlara göre çoğu zaman telefonun kendi bölgesine ait olmayan bir yazılımla kilit kapatılınca ya da güncelleme yarıda kalınca çıkıyor.
+
+Kullanıcıların aktardığına göre Mi hesabı telefona önceden bağlanmamışsa kilit yeniden açılamıyor. Bu yüzden internetteki kilit açma araçlarıyla uğraşmayın. Siyah ekranda turuncu FASTBOOT yazıyorsa [Fastboot yazısına](/blog/xiaomi-fastboot-ekraninda-kaldi) bakın.
+
+## Samsung: güncelleme hatası
+
+Samsung'da güncelleme yarıda kalınca telefon "An error has occurred while updating the device software" yazısını gösterir ve sisteme geçmez. Yazının devamı, bilgisayardaki Smart Switch programının acil kurtarma (Emergency recovery) işlevini kullanmanızı söyler. Samsung'un rehberi bu yolun verileri koruyup korumadığını söylemiyor. Fotoğraflarınız yedekli değilse denemeden önce bana yazın.
+
+## Tek güvenli adım
+
+Birkaç saniye bekleyin ya da ekranın altında yazan tuşa bir kez basın. Turuncu uyarıda telefon kendiliğinden açılır. "Press power button to continue" yazıyorsa güç tuşu açılmayı dener. İkisi de veri silmez.
+
+<Flow
+  question="Telefon uyarıdan sonra açıldı mı?"
+  branches={[
+    {
+      label: "Evet",
+      text: "Uyarı turuncuysa kilit açık demek, telefonu kullanabilirsiniz. Kırmızıysa önce verilerinizi yedekleyin.",
+      tone: "safe",
+    },
+    {
+      label: "Hayır",
+      text: "Yazılımın yeniden yüklenmesi gerekiyor. Kilidi kapatmadan ve telefonu sıfırlamadan önce bana yazın.",
+      tone: "warn",
+    },
+  ]}
+/>
+
+## Kalan iş ne
+
+Telefon açılmıyorsa iş kabloyla ve bilgisayarla yapılır. Telefonun hangi modda cevap verdiğine bakar, modeline ve bölgesine uygun resmî yazılımı seçer, verileri korumaya çalışarak yüklerim. Kilitli bir Xiaomi'de bu her modelde mümkün olmuyor. Modele bakıp baştan söylerim.
+
+Bana yazarken ekranın fotoğrafını ve telefonun modelini ekleyin. Uyarıdan önce telefona ne yapıldığını da yazın.
