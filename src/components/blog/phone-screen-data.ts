@@ -12,6 +12,8 @@ export type Screen =
   | "message";
 export type Level = "basic" | "device" | "strong";
 export type Tone = "safe" | "danger" | "warn" | "info" | "key";
+/** message: the warning triangle's colour, as the boot state names it */
+export type MessageColor = "red" | "orange";
 export type Note = { tone: Tone; text: string };
 
 /** The props that change what a drawing says, after defaults */
@@ -25,6 +27,7 @@ export interface ScreenText {
   items: string[];
   /** recovery: rows outlined in red */
   danger: string[];
+  color: MessageColor;
 }
 
 export const DEFAULT_REGION = "CN";
@@ -71,6 +74,7 @@ export const AD = {
 };
 
 export const ALERT = { icon: "!", button: "Tamam" };
+const COLOR_WORDS: Record<MessageColor, string> = { red: "kırmızı", orange: "turuncu" };
 
 export const INTEGRITY = { title: "Play Integrity", button: "CHECK" };
 
@@ -90,6 +94,7 @@ export function screenLabels({
   pass,
   items,
   danger,
+  color,
 }: ScreenText): Record<Screen, string> {
   return {
     "main-menu": `Xiaomi kurtarma ekranı çizimi: Main Menu başlığı altında Reboot, Wipe Data, Connect with MIAssistant ve Safe Mode satırları. ${MENU_MARKS}`,
@@ -103,7 +108,7 @@ export function screenLabels({
     alert: `Uygulama uyarısı çizimi: ${title}. ${message}${/[.!?]$/.test(message) ? "" : "."}`,
     integrity: `Play Integrity kontrol ekranı çizimi: ${pass.length ? `geçen düzeyler ${pass.join(", ")}` : "basic, device ve strong düzeylerinin üçü de geçmiyor"}.`,
     recovery: `Kurtarma ekranı çizimi: ${title} başlığı altında ${joinTr(items)} satırları, ilk satır seçili.${danger.length ? ` ${joinTr(danger)} kırmızıyla işaretli.` : ""}`,
-    message: `Siyah ekranda uyarı çizimi: kırmızı bir üçgenin altında ${quoted(title)} yazıyor${message ? `, altında ${quoted(message)}` : ""}${items.length ? `, en altta ${joinTr(items.map(quoted))}` : ""}.`,
+    message: `Siyah ekranda uyarı çizimi: ${COLOR_WORDS[color]} bir üçgenin altında ${quoted(title)} yazıyor${message ? `, altında ${quoted(message)}` : ""}${items.length ? `, en altta ${joinTr(items.map(quoted))}` : ""}.`,
   };
 }
 

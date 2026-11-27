@@ -76,6 +76,7 @@ export const PhoneScreen: ComponentRenderer = (props, children, ctx) => {
     pass: Array.isArray(props.pass) ? (props.pass as Level[]) : [],
     items: strings(props.items).map((item) => ctx.inline(item)),
     danger: strings(props.danger).map((item) => ctx.inline(item)),
+    color: props.color === "orange" ? "orange" : "red",
   };
   const labels = screenLabels(text);
   if (!Object.hasOwn(labels, screen)) {
