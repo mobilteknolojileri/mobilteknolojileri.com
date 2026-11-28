@@ -1,0 +1,24 @@
+---
+import { legend, type LegendKind } from "@/components/blog/version-code-data";
+
+interface Props {
+  kind: LegendKind;
+}
+
+const { kind } = Astro.props;
+---
+
+<ul
+  class:list={[
+    "not-prose my-6 grid grid-cols-2 gap-2",
+    kind === "models" ? "sm:grid-cols-4" : "sm:grid-cols-5",
+  ]}
+>
+  {legend(kind).map(({ code, name }) => (
+    <li class="flex items-baseline gap-2.5 rounded-xl border border-gray-200 bg-white px-3.5 py-2 sm:block sm:py-2.5 dark:border-dark-700 dark:bg-dark-800">
+      {/* Side by side on phones, so ten tiles take five short rows */}
+      <div class="text-heading font-mono text-lg font-bold">{code}</div>
+      <div class="text-muted text-sm">{name}</div>
+    </li>
+  ))}
+</ul>

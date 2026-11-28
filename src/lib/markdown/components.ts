@@ -1,4 +1,4 @@
-import { Cards, Flow, Summary, Terms } from "./blog-components";
+import { Cards, Flow, Summary, Terms, VersionCode, VersionLegend } from "./blog-components";
 import { Diagram, Figure, Table } from "./case-study-components";
 import { PhoneScreen } from "./phone-screen";
 import type { ComponentRenderer } from "./types";
@@ -10,5 +10,7 @@ export const BLOG_RENDERERS: Record<string, ComponentRenderer> = {
   Flow,
   PhoneScreen,
   Terms,
+  VersionCode,
+  VersionLegend,
 };
 export const CASE_STUDY_RENDERERS: Record<string, ComponentRenderer> = { Figure, Diagram, Table };

@@ -1,0 +1,185 @@
+---
+import InlineText from "@/components/blog/InlineText.astro";
+import { EXAMPLE, LABELS, MODEL_EXAMPLE, describe } from "@/components/blog/version-code-data";
+import { LuCheck, LuInfo } from "react-icons/lu";
+
+// Without JS the fields stay hidden (js: variant) and the example's breakdown is the content.
+// The fields are lang="en": under the page's Turkish, CSS uppercase turns an i into İ.
+const example = describe(EXAMPLE, "");
+
+const FIELD =
+  "mt-1.5 block w-full rounded-xl border border-gray-300 bg-white px-3.5 py-2.5 font-mono text-base text-gray-900 uppercase placeholder:text-gray-500 placeholder:normal-case focus:border-primary-500 focus:ring-2 focus:ring-primary-500/30 focus:outline-none dark:border-dark-600 dark:bg-dark-900 dark:text-gray-100 dark:placeholder:text-gray-400";
+---
+
+<div
+  data-version-code
+  class="not-prose my-8 overflow-hidden rounded-2xl border border-gray-200 bg-white dark:border-dark-700 dark:bg-dark-800"
+>
+  <form
+    data-version-form
+    class="hidden gap-4 border-b border-gray-200 bg-slate-50 px-5 py-5 js:grid sm:grid-cols-2 sm:px-6 dark:border-dark-700 dark:bg-dark-900/60"
+  >
+    <div>
+      <label for="version-code" class="text-heading text-sm font-semibold">
+        {LABELS.code}
+      </label>
+      <input
+        id="version-code"
+        name="code"
+        type="text"
+        placeholder={EXAMPLE}
+        maxlength="60"
+        autocomplete="off"
+        autocapitalize="characters"
+        lang="en"
+        spellcheck="false"
+        enterkeyhint="done"
+        class={FIELD}
+      />
+    </div>
+    <div>
+      <label for="version-model" class="text-heading text-sm font-semibold">
+        {LABELS.model} <span class="text-muted font-normal">{LABELS.optional}</span>
+      </label>
+      <input
+        id="version-model"
+        name="model"
+        type="text"
+        placeholder={MODEL_EXAMPLE}
+        maxlength="30"
+        autocomplete="off"
+        autocapitalize="characters"
+        lang="en"
+        spellcheck="false"
+        enterkeyhint="done"
+        aria-describedby="version-model-hint"
+        class={FIELD}
+      />
+      <p id="version-model-hint" class="text-muted mt-1.5 text-xs">
+        {LABELS.modelHint}
+      </p>
+    </div>
+  </form>
+
+  <p data-version-example class="text-muted px-5 pt-4 text-sm sm:px-6">
+    {LABELS.example}: <code class="text-heading font-mono">{EXAMPLE}</code>
+  </p>
+  <dl data-version-parts class="divide-y divide-gray-200 dark:divide-dark-700">
+    {example.parts.map(({ code, label, text }) => (
+      <div class="px-5 py-3.5 sm:grid sm:grid-cols-[9rem_1fr] sm:gap-x-6 sm:px-6">
+        <dt class="flex items-baseline gap-2 sm:flex-col sm:gap-0.5">
+          <code class="text-heading font-mono text-base font-bold" data-code>
+            {code}
+          </code>
+          {/* A block of its own, so the code and its label stay apart in the page's plain text */}
+          <div class="text-muted text-sm" data-label>
+            {label}
+          </div>
+        </dt>
+        <dd class="text-body mt-1 leading-relaxed sm:mt-0" data-text>
+          {text}
+        </dd>
+      </div>
+    ))}
+  </dl>
+  <ul
+    data-version-notes
+    aria-live="polite"
+    class="space-y-2.5 border-t border-gray-200 px-5 py-4 empty:hidden sm:px-6 dark:border-dark-700"
+  >
+    {example.notes.map(({ tone, text }) => (
+      <li data-tone={tone} class="group flex gap-2.5 text-[0.9375rem] leading-relaxed">
+        <span
+          aria-hidden="true"
+          class="mt-1 flex size-5 flex-none items-center justify-center rounded-full bg-sky-500 text-white group-data-[tone=safe]:bg-emerald-500 group-data-[tone=warn]:bg-amber-500"
+        >
+          <LuCheck size={12} className="hidden group-data-[tone=safe]:block" />
+          <LuInfo size={12} className="group-data-[tone=safe]:hidden" />
+        </span>
+        <span class="text-body" data-text>
+          <InlineText text={text} />
+        </span>
+      </li>
+    ))}
+  </ul>
+  <div data-version-help></div>
+  <!-- Shown only when a note warns, with the code and model handed to the contact form -->
+  <template data-version-help-template>
+    <div class="border-t border-gray-200 px-5 py-4 sm:flex sm:items-center sm:justify-between sm:gap-6 sm:px-6 dark:border-dark-700">
+      <p class="text-body text-[0.9375rem] leading-relaxed">{LABELS.helpText}</p>
+      <a
+        href="/#contact"
+        data-contact-topic="support"
+        class="btn btn-primary mt-3 shrink-0 sm:mt-0"
+      >
+        {LABELS.help} <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </template>
+</div>
+
+<script>
+  import { EXAMPLE, contactSubject, describe } from "@/components/blog/version-code-data";
+
+  // Same [label](/path) links InlineText draws on the server
+  function fill(target: Element, text: string) {
+    target.replaceChildren();
+    let last = 0;
+    for (const match of text.matchAll(/\[([^\]]+)\]\((\/[^)\s]*)\)/g)) {
+      target.append(text.slice(last, match.index));
+      const link = document.createElement("a");
+      link.href = match[2];
+      link.className = "link";
+      link.textContent = match[1];
+      target.append(link);
+      last = match.index + match[0].length;
+    }
+    target.append(text.slice(last));
+  }
+
+  document.querySelectorAll<HTMLElement>("[data-version-code]").forEach((root) => {
+    const form = root.querySelector<HTMLFormElement>("[data-version-form]")!;
+    const code = form.elements.namedItem("code") as HTMLInputElement;
+    const model = form.elements.namedItem("model") as HTMLInputElement;
+    const example = root.querySelector<HTMLElement>("[data-version-example]")!;
+    const parts = root.querySelector<HTMLElement>("[data-version-parts]")!;
+    const notes = root.querySelector<HTMLElement>("[data-version-notes]")!;
+    // The server-rendered rows are the templates
+    const row = parts.firstElementChild!.cloneNode(true) as HTMLElement;
+    const note = notes.firstElementChild!.cloneNode(true) as HTMLElement;
+    const help = root.querySelector<HTMLElement>("[data-version-help]")!;
+    const helpTemplate = root.querySelector<HTMLTemplateElement>("[data-version-help-template]")!;
+
+    const render = () => {
+      const empty = !code.value.trim() && !model.value.trim();
+      const result = empty ? describe(EXAMPLE, "") : describe(code.value, model.value);
+      example.hidden = !empty;
+      parts.replaceChildren(
+        ...result.parts.map((part) => {
+          const item = row.cloneNode(true) as HTMLElement;
+          item.querySelector("[data-code]")!.textContent = part.code;
+          item.querySelector("[data-label]")!.textContent = part.label;
+          item.querySelector("[data-text]")!.textContent = part.text;
+          return item;
+        }),
+      );
+      notes.replaceChildren(
+        ...result.notes.map(({ tone, text }) => {
+          const item = note.cloneNode(true) as HTMLElement;
+          item.dataset.tone = tone;
+          fill(item.querySelector("[data-text]")!, text);
+          return item;
+        }),
+      );
+      help.replaceChildren();
+      if (!empty && result.notes.some(({ tone }) => tone === "warn")) {
+        const block = helpTemplate.content.cloneNode(true) as DocumentFragment;
+        block.querySelector("a")!.dataset.contactSubject = contactSubject(code.value, model.value);
+        help.append(block);
+      }
+    };
+
+    form.addEventListener("input", render);
+    form.addEventListener("submit", (event) => event.preventDefault());
+  });
+</script>

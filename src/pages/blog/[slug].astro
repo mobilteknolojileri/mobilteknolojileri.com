@@ -21,6 +21,8 @@ import PhoneScreen from "@/components/blog/PhoneScreen.astro";
 import RemoteHelp from "@/components/blog/RemoteHelp.astro";
 import Summary from "@/components/blog/Summary.astro";
 import Terms from "@/components/blog/Terms.astro";
+import VersionCode from "@/components/blog/VersionCode.astro";
+import VersionLegend from "@/components/blog/VersionLegend.astro";
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection("blog", ({ data }) => !data.draft);
@@ -227,7 +229,9 @@ const extraSchemas = faqSchema ? [blogSchema, breadcrumb, faqSchema] : [blogSche
             "max-sm:[&_table]:scroll-shadow-x max-sm:[&_table]:block max-sm:[&_table]:overflow-x-auto",
           ]}
         >
-          <Content components={{ Summary, PhoneScreen, Flow, Cards, Terms }} />
+          <Content
+            components={{ Summary, PhoneScreen, Flow, Cards, Terms, VersionCode, VersionLegend }}
+          />
         </div>
         {entry.data.category === "android" && <RemoteHelp />}
       </div>

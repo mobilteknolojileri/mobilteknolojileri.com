@@ -1,6 +1,13 @@
 import { REMOTE_HELP } from "@/components/blog/remote-help-data";
 import { SUMMARY_ROWS, SUMMARY_TITLE } from "@/components/blog/summary-data";
 import { TERM_LABELS, type Term } from "@/components/blog/terms-data";
+import {
+  EXAMPLE,
+  LABELS,
+  describe,
+  legend,
+  type LegendKind,
+} from "@/components/blog/version-code-data";
 import type { ComponentRenderer, RenderContext } from "./types";
 
 // Icons, tones and columns are decoration: only the text the reader sees is carried over
@@ -43,6 +50,22 @@ export const Flow: ComponentRenderer = (props, _children, ctx) =>
 export const Terms: ComponentRenderer = (props, _children, ctx) =>
   (props.items as Term[])
     .map(({ term, label, text }) => `- \`${term}\` (${TERM_LABELS[label]}): ${ctx.inline(text)}`)
+    .join("\n");
+
+// The fields work only in a browser: the copy names them and keeps the example's breakdown
+export const VersionCode: ComponentRenderer = (_props, _children, ctx) => {
+  const { parts, notes } = describe(EXAMPLE, "");
+  return [
+    `Sayfadaki çözücüde iki alan var: ${LABELS.code} ve ${LABELS.model} ${LABELS.optional}. ${LABELS.modelHint}`,
+    `${LABELS.example}: \`${EXAMPLE}\``,
+    parts.map(({ code, label, text }) => `- \`${code}\` (${label}): ${text}`).join("\n"),
+    notes.map(({ text }) => `- ${ctx.inline(text)}`).join("\n"),
+  ].join("\n\n");
+};
+
+export const VersionLegend: ComponentRenderer = (props) =>
+  legend(props.kind as LegendKind)
+    .map(({ code, name }) => `- \`${code}\`: ${name}`)
     .join("\n");
 
 /** The remote help block every Android post ends with */
