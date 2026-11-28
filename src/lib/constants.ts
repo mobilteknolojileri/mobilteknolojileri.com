@@ -445,6 +445,8 @@ export const PROJECTS: Project[] = [
     title: "Frozen Yogurt Cafe: Web Sitesi",
     description:
       "Get Yo dükkânının sitesi. Kapalı bir platformdan çıkarıp Mart 2026'da statik bir Astro sitesine taşıdım. Site menüyü ve çalışma saatlerini yönetim panelinden canlı okur.",
+    seoDescription:
+      "Get Yo dükkânının sitesini kapalı bir platformdan statik bir Astro sitesine taşıdım. Menü ve çalışma saatleri yönetim panelinden canlı okunur.",
     category: "Web",
     kind: "client",
     status: "live",
