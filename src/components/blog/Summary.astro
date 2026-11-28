@@ -31,17 +31,18 @@ const ROWS = SUMMARY_ROWS.map(({ prop, label }) => ({
 >
   <p class="text-muted text-xs font-semibold tracking-[0.14em] uppercase">{SUMMARY_TITLE}</p>
   <dl class="mt-4 space-y-4">
+    {/* A dl row may hold only dt and dd, so the icon sits inside the dt */}
     {ROWS.map(({ label, text, tone, Icon }) => (
-      <div class="flex gap-3.5">
-        <span class:list={["tile tile-sm mt-0.5", tone]} aria-hidden="true">
-          <Icon size={16} />
-        </span>
-        <div class="min-w-0">
-          <dt class="text-heading text-sm font-bold">{label}</dt>
-          <dd class="text-body mt-0.5 leading-relaxed">
-            <InlineText text={text} />
-          </dd>
-        </div>
+      <div class="relative min-h-9 pl-[2.875rem]">
+        <dt class="text-heading text-sm font-bold">
+          <span class:list={["tile tile-sm absolute top-0.5 left-0", tone]} aria-hidden="true">
+            <Icon size={16} />
+          </span>
+          {label}
+        </dt>
+        <dd class="text-body mt-0.5 leading-relaxed">
+          <InlineText text={text} />
+        </dd>
       </div>
     ))}
   </dl>
