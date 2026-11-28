@@ -1,0 +1,94 @@
+---
+title: "Xiaomi Global mi Çin mi Nasıl Anlaşılır? Sürüm Kodu ve Model Numarası Çözücü"
+seoTitle: "Xiaomi Global mi Çin mi Nasıl Anlaşılır? Sürüm Kodu Çözücü"
+description: "Telefon hakkında ekranındaki sürüm kodu, yazılımın hangi bölge için yayımlandığını söyler. Kodunuzu yazın, MIXM, EUXM, TRXM ya da CNXM harflerinin ve model numaranızın ne dediğini görün."
+seoDescription: "Xiaomi, Redmi ve POCO global mi Çin mi? Sürüm kodundaki MIXM, EUXM, TRXM ve CNXM harflerini çözün, model numarasına ve IMEI sorgusuna bakın."
+date: 2026-11-28
+tags: ["android", "xiaomi", "hyperos", "miui", "global rom", "çin sürümü", "sürüm kodu"]
+category: "android"
+draft: false
+faq:
+  - question: "MIXM ne demek?"
+    answer: "Sürüm kodunun son dört harfidir. MI, yazılımın global sürüm olduğunu, XM ise bir operatöre bağlı olmadığını gösterir."
+  - question: "EUXM ile MIXM arasında ne fark var?"
+    answer: "İkisi de Xiaomi'nin resmî yazılımıdır. EU, Avrupa Ekonomik Alanı için hazırlanan sürümü, MI ise diğer ülkeler için yayımlanan global sürümü gösterir. Güncellemeler iki bölgeye farklı numaralarla ve farklı zamanlarda gelebilir."
+  - question: "TRXM ne demek?"
+    answer: "TR, Xiaomi'nin Türkiye için yayımladığı resmî sürümü gösterir. XM ise yazılımın bir operatöre bağlı olmadığı anlamına gelir."
+  - question: "Sürüm kodunda CN yazıyor, telefon Çin sürümü mü?"
+    answer: "Yazılım Çin sürümü. Telefonun da Çin için üretilip üretilmediğini model numarasının son harfi söyler: C Çin, G global demek. Çin yazılımında Google hizmetleri ve Türkçe çoğu zaman eksiktir. Global yazılıma geçmek için bootloader kilidinin açılması gerekir."
+  - question: "HyperOS 3.3 kullanıyorum ama kodda OS3.0 yazıyor, neden?"
+    answer: "Ara sürümler kodun başında görünmüyor. Örneğin Temmuz 2026'da Xiaomi 17'ye gelen HyperOS 3.3 güncellemesinin kodu OS3.0.332.0 ile başlıyordu. Hangi güncellemenin daha yeni olduğunu yapı numarası gösterir."
+  - question: "Xiaomi IMEI sorgulama nasıl yapılır?"
+    answer: "Telefonda *#06# tuşlayıp IMEI numarasını öğrenin. Xiaomi'nin mi.com/global/verify adresindeki ürün doğrulama sayfasına IMEI numarasını ve ekrandaki doğrulama kodunu yazın. Sayfa telefonun resmî bölgesini ve garanti durumunu gösterir."
+  - question: "Sürüm kodu telefonun global olduğunu kanıtlar mı?"
+    answer: "Hayır. Kod yazılımın kendini nasıl tanıttığını gösterir, değiştirilmiş bir yazılım bu yazıyı da değiştirebilir. Model numarasına, Play Store sertifika durumuna ve Xiaomi'nin IMEI doğrulama sayfasına birlikte bakın."
+intent: "guide"
+deviceBrand: "Xiaomi"
+related:
+  ["fake-rom-nasil-anlasilir", "cin-surumu-telefon-almadan-once", "cin-surumu-telefona-global-rom"]
+---
+
+<Summary
+  what="Telefon hakkında ekranındaki sürüm kodu, yazılımın hangi bölge için yayımlandığını gösterir. Sondaki MI global, EU Avrupa, TR Türkiye, CN Çin sürümü demek."
+  avoid="Bölgeyi değiştirmek için internetten indirdiğiniz yazılımı kurmak ve bootloader kilidini kapatmak."
+  safe="Kodu aşağıdaki çözücüye yazmak ve IMEI numaranızı Xiaomi'nin doğrulama sayfasına girmek. Telefonda hiçbir şey değişmez."
+/>
+
+Xiaomi'nin global mi Çin sürümü mü olduğunu anlamanın en hızlı yolu sürüm kodudur. `OS3.0.332.0.XPCMIXM` gibi görünen bu kod Ayarlar'da, Telefon hakkında ekranındaki HyperOS ya da MIUI kartında durur. Sondaki harfler yazılımın hangi bölge için yayımlandığını söyler. Redmi ve POCO telefonlarda da aynı kod kullanılır.
+
+## Kodunuzu çözün
+
+Kodu Telefon hakkında ekranında gördüğünüz gibi yazın. Bazı sürümlerde baştaki `OS` harfleri görünmez, çözücü iki yazımı da okur. Model numarası Tüm özellikler ekranındaki Model satırındadır. Onu da yazarsanız telefonla yazılımın aynı bölgeyi gösterip göstermediği karşılaştırılır.
+
+<VersionCode />
+
+## Yedi harf ne söyler
+
+Noktalarla ayrılan sayılardan sonra her kodda yedi harf gelir. Birinci harf Android sürümünü, ikinci ve üçüncü harf telefon modelini, dördüncü ve beşinci harf bölgeyi, son iki harf de operatörü gösterir. Operatöre bağlı olmayan sürümlerde sonda `XM` yazar.
+
+Android harfi alfabe sırasıyla ilerler. HyperOS 3 kullanan telefonlarda `W` (Android 16) ya da `X` (Android 17) görürsünüz.
+
+<VersionLegend kind="android" />
+
+Bölge kodlarından yedisini Xiaomi kendi [topluluk sitesinde](https://new.c.mi.com/global/post/2127021) açıklıyor: MI, EU, TR, CN, IN, RU ve ID. Tayvan, Japonya ve Güney Kore kodları ise yazılım arşivlerinde görünüyor. Kodda `CN` yazıyorsa telefonda Çin sürümü yazılım var demektir.
+
+<VersionLegend kind="regions" />
+
+MIUI kodları da aynı düzendedir, sadece `OS` yerine `V` ile başlar. Örneğin `V14.0.4.0.TMRMIXM`, Android 13 tabanlı MIUI 14 yazılımının global sürümü demek.
+
+## Model numarası ve CE işareti
+
+Sürüm kodu yazılımı, model numarası ise telefonun kendisini anlatır. Xiaomi'nin aynı rehberine göre model numarasının son harfi telefonun hangi pazar için üretildiğini gösterir. Bu numarayı Tüm özellikler ekranında ya da kutunun etiketinde bulursunuz.
+
+<VersionLegend kind="models" />
+
+Model numarası C ile bitip sürüm kodunda MI, EU ya da TR yazıyorsa telefon Çin için üretilmiş, yazılımı ise sonradan değiştirilmiş. Bu, resmî global yazılım da olabilir, [fake ROM](/blog/fake-rom-nasil-anlasilir) da.
+
+Aynı rehbere göre Avrupa ve uluslararası pazar için üretilen telefonların arka kapağında CE işareti bulunur. Arka kapak boşsa ya da üzerinde sadece Çince yazı varsa telefon Çin pazarı için üretilmiştir. Kapak değiştirilmiş olabileceği için bu işaret de tek başına kanıt sayılmaz.
+
+## Kod neyi kanıtlamaz
+
+Sürüm kodu yazılımın kendini nasıl tanıttığını gösterir. Değiştirilmiş bir yazılım bu yazıyı da değiştirebilir, dolayısıyla kod tek başına kanıt sayılmaz.
+
+Telefonun resmî bölgesini Xiaomi'nin kendi kaydı söyler, bu kayda aşağıdaki IMEI sorgusuyla bakabilirsiniz. Play Store'daki [sertifika durumuna](/blog/cihaz-play-protect-sertifikali-degil) da ayrıca bakın.
+
+## IMEI ile resmî sorgulama
+
+IMEI sorgusu telefonun hangi pazar için üretildiğini Xiaomi'nin kendi kaydından gösterir. Telefonda hiçbir şey değişmez.
+
+1. Telefonda arama ekranını açıp `*#06#` tuşlayın. IMEI numarası kutunun etiketinde de yazar.
+2. [Xiaomi'nin ürün doğrulama sayfasını](https://www.mi.com/global/verify) açın, IMEI numarasını ve ekrandaki doğrulama kodunu yazın.
+3. Sonuç telefonun resmî bölgesini ve garanti durumunu gösterir.
+
+Bu sorgu telefonun Türkiye'de kayıtlı olup olmadığını göstermez. Kaydı e-Devlet'teki IMEI sorgulama hizmeti gösterir, ayrıntısını [Çin sürümü telefon yazısında](/blog/cin-surumu-telefon-almadan-once) anlattım.
+
+## Bunlara dokunmayın
+
+- Bölgeyi değiştirmek için internetten indirdiğiniz yazılımı kurmayın. Başka bir bölgenin ya da daha eski bir sürümün yazılımı telefonu açılmaz hâle getirebilir.
+- Model numarası C ile biten ama yazılımı global görünen telefonda bootloader kilidini kapatmayın. Yazılım telefonun bölgesiyle uyuşmuyorsa kapanan kilit telefonu açılmaz hâle getirebilir.
+
+## Kalan iş ne
+
+Kod ile model numarası birbirini tutmuyorsa telefonun gerçekte ne çalıştırdığına bakarım. Gerekiyorsa telefonu üreticinin kendi yazılımına geçiririm, bu da çoğu durumda telefonun sıfırlanması demek. Bu yüzden önce verilerinizi yedekleyin. Yazarken sürüm kodunu, model numarasını ve telefonu nereden aldığınızı ekleyin.
+
+Bootloader kilidi açılamayan Çin sürümünde global yazılıma geçmek mümkün olmayabilir, baktıktan sonra söylerim. Telefonu almadan önce okuyorsanız [Çin sürümünde neye bakacağınızı](/blog/cin-surumu-telefon-almadan-once) ayrıca yazdım. Hangi işlere baktığımı [Android destek sayfasında](/android-destek) anlattım.
